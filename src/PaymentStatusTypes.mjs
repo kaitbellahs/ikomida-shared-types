@@ -3,7 +3,13 @@ export class PagSeguro {
     static PAID = 'PAID';
     static DECLINED = 'DECLINED';
     static CANCELED = 'CANCELED';
+    static ONRETURN = 'ONRETURN';
     static IN_DISPUTE = 'IN_DISPUTE';
+    static WAITING = 'WAITING';
+    static INANALYSE = 'INANALYSE';
+    static REFUNDED = 'REFUNDED';
+    static TEMPORARY_RETENTION = 'TEMPORARY_RETENTION';
+    static UNKNOWN = 'UNKNOWN';
 
     static keys = Object.keys(PagSeguro)
     static list = PagSeguro.keys.map((AsaasSignature) => {

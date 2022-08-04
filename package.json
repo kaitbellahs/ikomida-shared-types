@@ -1,0 +1,12 @@
+{
+  "name": "@ikomida/shared-types",
+  "version": "0.0.1",
+  "description": "This is the shared types between services, UI and workers etc...",
+  "main": "src/index.mjs",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Khalid Ait Bellahs (Ti Alti Nivel)",
+  "license": "UNLICENSED"
+}

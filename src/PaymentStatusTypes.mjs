@@ -7,6 +7,8 @@ export class PagSeguro {
     static IN_DISPUTE = 'IN_DISPUTE';
     static WAITING = 'WAITING';
     static INANALYSE = 'INANALYSE';
+    static IN_CONTESTATION = 'IN_CONTESTATION';
+    static CHARGEBACK = 'CHARGEBACK';
     static REFUNDED = 'REFUNDED';
     static TEMPORARY_RETENTION = 'TEMPORARY_RETENTION';
     static UNKNOWN = 'UNKNOWN';

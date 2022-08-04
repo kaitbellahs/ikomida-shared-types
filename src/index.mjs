@@ -1,7 +1,7 @@
 
-export * as DiscountTypes from './DiscountTypes.mjs'
-export * as OrderStatusType from './OrderStatusType.mjs'
+export { default as DiscountTypes } from './DiscountTypes.mjs'
+export { default as OrderStatusType } from './OrderStatusType.mjs'
 export * as PaymentStatusTypes from './PaymentStatusTypes.mjs'
-export * as SettingTypes from './SettingTypes.mjs'
-export * as SupportTypes from './SupportTypes.mjs'
-export * as TermTypes from './TermTypes.mjs'
+export { default as SettingTypes } from './SettingTypes.mjs'
+export { default as SupportTypes } from './SupportTypes.mjs'
+export { default as TermTypes } from './TermTypes.mjs'

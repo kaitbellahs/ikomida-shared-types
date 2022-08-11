@@ -1,9 +1,9 @@
 export default class TermTypes {
     description
     name
-    constructor(term) {
-        this.name = term
-        switch (term) {
+    constructor(type) {
+        this.name = type
+        switch (type) {
             case TermTypes.TERM_OF_USE_VENDOR:
                 this.description = 'Termo de uso estabelecimentos'
                 break
@@ -19,6 +19,9 @@ export default class TermTypes {
             case TermTypes.PRIVACY_POLICY:
                 this.description = 'Politica de privacidade'
                 break
+            default:
+                this.description = '-'
+                break
         }
     }
 
@@ -29,10 +32,10 @@ export default class TermTypes {
     static PRIVACY_POLICY = 'PRIVACY_POLICY';
 
     static keys = Object.keys(TermTypes);
-    static list = TermTypes.keys.map((termType) => {
+    static list = TermTypes.keys.map((item) => {
         return {
-            id: termType,
-            name: TermTypes[termType]
+            id: item,
+            name: TermTypes[item]
         };
     });
 }

@@ -1,31 +1,40 @@
 export default class PaymentMethodType {
     description
     name
+    id
     constructor(type) {
-        this.name = type
+        this.id = type
         switch (type) {
             case PaymentMethodType.CASH_ON_DELIVERY:
-                this.description = 'em dinheiro na entrega'
+                this.name = 'dinheiro'
+                this.description = 'na entrega'
                 break
             case PaymentMethodType.CREDIT_CARD_ON_DELIVERY:
-                this.description = 'cartão de crédito na entrega'
+                this.name = 'cartão de crédito'
+                this.description = 'na entrega'
                 break
             case PaymentMethodType.DEBT_CARD_ON_DELIVERY:
-                this.description = 'cartão de débito na entrega';
+                this.name = 'cartão de débito';
+                this.description = 'na entrega';
                 break
             case PaymentMethodType.CREDIT_CARD_ONLINE:
-                this.description = 'cartão de crédito online';
+                this.name = 'cartão de crédito';
+                this.description = 'online';
                 break
             case PaymentMethodType.DEBT_CARD_ONLINE:
-                this.description = 'cartão de débito online'
+                this.name = 'cartão de débito'
+                this.description = 'online'
                 break
             case PaymentMethodType.PIX_ON_DELIVERY:
-                this.description = 'PIX na entrega'
+                this.name = 'PIX'
+                this.description = 'na entrega'
                 break
             case PaymentMethodType.PIX_ONLINE:
-                this.description = 'PIX online'
+                this.name = 'online'
+                this.description = 'online'
                 break
             default:
+                this.name = '-'
                 this.description = '-'
                 break
         }

@@ -7,15 +7,15 @@ export default class PaymentMethodType {
         switch (type) {
             case PaymentMethodType.CASH_ON_DELIVERY:
                 this.name = 'dinheiro'
-                this.description = 'na entrega'
+                this.description = 'entrega'
                 break
             case PaymentMethodType.CREDIT_CARD_ON_DELIVERY:
                 this.name = 'cartão de crédito'
-                this.description = 'na entrega'
+                this.description = 'entrega'
                 break
             case PaymentMethodType.DEBT_CARD_ON_DELIVERY:
                 this.name = 'cartão de débito';
-                this.description = 'na entrega';
+                this.description = 'entrega';
                 break
             case PaymentMethodType.CREDIT_CARD_ONLINE:
                 this.name = 'cartão de crédito';
@@ -27,7 +27,7 @@ export default class PaymentMethodType {
                 break
             case PaymentMethodType.PIX_ON_DELIVERY:
                 this.name = 'PIX'
-                this.description = 'na entrega'
+                this.description = 'entrega'
                 break
             case PaymentMethodType.PIX_ONLINE:
                 this.name = 'online'

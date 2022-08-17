@@ -6,8 +6,8 @@ export default class DiscountTypes {
         this.id = type
         switch (type) {
             case DiscountTypes.PERCENT:
-                this.name = 'porcentagem'
-                this.description = 'Descontar um porcentagem'
+                this.name = 'percentagem'
+                this.description = 'Descontar uma percentagem'
                 break
             case DiscountTypes.VALUE:
                 this.name = 'valor'

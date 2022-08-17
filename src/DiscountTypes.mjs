@@ -7,15 +7,15 @@ export default class DiscountTypes {
         switch (type) {
             case DiscountTypes.PERCENT:
                 this.name = 'porcentagem'
-                this.description = 'descontar um porcentagem'
+                this.description = 'Descontar um porcentagem'
                 break
             case DiscountTypes.VALUE:
                 this.name = 'valor'
-                this.description = 'descontar um valor'
+                this.description = 'Descontar um valor fixo'
                 break
             case DiscountTypes.NO:
                 this.name = 'sem descontar';
-                this.description = 'sem nenhum desconto';
+                this.description = 'Sem nenhum desconto';
                 break
             default:
                 this.name = '-'
@@ -31,7 +31,7 @@ export default class DiscountTypes {
     static list = DiscountTypes.keys.map((item) => {
         return {
             id: item,
-            name: DiscountTypes(item)?.name
+            name: new DiscountTypes(item)?.description
         };
     })
 }

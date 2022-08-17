@@ -35,7 +35,7 @@ export default class TermTypes {
     static list = TermTypes.keys.map((item) => {
         return {
             id: item,
-            name: TermTypes[item]
+            name: new TermTypes(item).name
         };
     });
 }

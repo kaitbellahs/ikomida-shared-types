@@ -52,7 +52,7 @@ export default class PaymentMethodType {
     static list = PaymentMethodType.keys.map((item) => {
         return {
             id: item,
-            name: PaymentMethodType(item)?.name
+            name: new PaymentMethodType(item)?.name
         };
     });
 }

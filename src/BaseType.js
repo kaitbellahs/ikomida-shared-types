@@ -9,7 +9,7 @@ export default class BaseType {
     static list = BaseType.keys.map((item) => {
         return {
             id: item,
-            name: new BaseType(item)?.description
+            name: new BaseType(item)?.name
         };
     })
 }

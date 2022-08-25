@@ -5,11 +5,13 @@ export default class BaseType {
     constructor(type) {
         this.id = type
     }
-    static keys = Object.keys(BaseType)
-    static list = BaseType.keys.map((item) => {
-        return {
-            id: item,
-            name: new BaseType(item)?.name
-        };
-    })
+    keys = Object.keys(this.constructor)
+    get list() {
+        return this.keys.map((item) => {
+            return {
+                id: item,
+                name: new this.constructor(item).name
+            };
+        })
+    }
 }

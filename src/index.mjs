@@ -1,4 +1,4 @@
-
+export { default as BaseType } from './BaseType.mjs'
 export { default as DiscountTypes } from './DiscountTypes.mjs'
 export { default as OrderStatusType } from './OrderStatusType.mjs'
 export * as PaymentStatusTypes from './PaymentStatusTypes.mjs'

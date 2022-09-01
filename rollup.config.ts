@@ -1,10 +1,10 @@
 import tsPlugin from '@rollup/plugin-typescript';
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import { terser } from 'rollup-plugin-terser';
 import pkg from "./package.json";
 
 export default [
-    // browser-friendly UMD build
     {
         input: "src/index.ts",
         output: [
@@ -27,8 +27,9 @@ export default [
         ],
         plugins: [
             tsPlugin(),
-            resolve(), //
+            resolve(),
             commonjs(),
+            terser()
         ],
     },
 ];

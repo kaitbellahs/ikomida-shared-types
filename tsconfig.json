@@ -20,7 +20,7 @@
         "module": "esnext",
         "moduleResolution": "node",
         "outDir": "dist",
-        "declarationDir": "dist/types",
+        "declarationDir": "dist",
         "strict": true,
         "target": "es6"
     }

@@ -1,54 +1,40 @@
-export class PagSeguro {
-    static AUTHORIZED = 'AUTHORIZED';
-    static PAID = 'PAID';
-    static DECLINED = 'DECLINED';
-    static CANCELED = 'CANCELED';
-    static ONRETURN = 'ONRETURN';
-    static IN_DISPUTE = 'IN_DISPUTE';
-    static WAITING = 'WAITING';
-    static INANALYSE = 'INANALYSE';
-    static IN_CONTESTATION = 'IN_CONTESTATION';
-    static CHARGEBACK = 'CHARGEBACK';
-    static REFUNDED = 'REFUNDED';
-    static TEMPORARY_RETENTION = 'TEMPORARY_RETENTION';
-    static UNKNOWN = 'UNKNOWN';
+import BaseType from './BaseType.mjs'
 
-    static keys = Object.keys(PagSeguro)
-    static list = PagSeguro.keys.map((AsaasSignature) => {
-        return {
-            id: AsaasSignature,
-            name: PagSeguro[AsaasSignature]
-        };
-    })
+export class PagSeguro extends BaseType {
+    static AUTHORIZED = 'AUTHORIZED'
+    static PAID = 'PAID'
+    static DECLINED = 'DECLINED'
+    static CANCELED = 'CANCELED'
+    static ONRETURN = 'ONRETURN'
+    static IN_DISPUTE = 'IN_DISPUTE'
+    static WAITING = 'WAITING'
+    static INANALYSE = 'INANALYSE'
+    static IN_CONTESTATION = 'IN_CONTESTATION'
+    static CHARGEBACK = 'CHARGEBACK'
+    static REFUNDED = 'REFUNDED'
+    static TEMPORARY_RETENTION = 'TEMPORARY_RETENTION'
+    static UNKNOWN = 'UNKNOWN'
 }
-export class Asaas {
-    static AUTHORIZED = 'AUTHORIZED';
-    static CONFIRMED = 'CONFIRMED';
-    static AVAILABLE = 'AVAILABLE';
-    static PENDING = 'PENDING';
-    static CANCELED = 'CANCELED';
-    static IN_DISPUTE = 'IN_DISPUTE';
-
-    static keys = Object.keys(Asaas)
-    static list = Asaas.keys.map((AsaasSignature) => {
-        return {
-            id: AsaasSignature,
-            name: Asaas[AsaasSignature]
-        };
-    })
+export class Asaas extends BaseType {
+    static PENDING = 'PENDING'
+    static CONFIRMED = 'CONFIRMED'
+    static RECEIVED = 'RECEIVED'
+    static RECEIVED_IN_CASH = 'RECEIVED_IN_CASH'
+    static OVERDUE = 'OVERDUE'
+    static REFUND_REQUESTED = 'REFUND_REQUESTED'
+    static REFUNDED = 'REFUNDED'
+    static CHARGEBACK_REQUESTED = 'CHARGEBACK_REQUESTED'
+    static CHARGEBACK_DISPUTE = 'CHARGEBACK_DISPUTE'
+    static AWAITING_CHARGEBACK_REVERSAL = 'AWAITING_CHARGEBACK_REVERSAL'
+    static DUNNING_REQUESTED = 'DUNNING_REQUESTED'
+    static DUNNING_RECEIVED = 'DUNNING_RECEIVED'
+    static AWAITING_RISK_ANALYSIS = 'AWAITING_RISK_ANALYSIS'
+    static CANCELED = 'CANCELED'
 }
-export class AsaasSignature {
-    static ACTIVE = 'ACTIVE';
-    static CONFIRMED = 'CONFIRMED';
-    static AVAILABLE = 'AVAILABLE';
-    static CANCELED = 'CANCELED';
-    static IN_DISPUTE = 'IN_DISPUTE';
-
-    static keys = Object.keys(AsaasSignature)
-    static list = AsaasSignature.keys.map((itemAsaasSignature) => {
-        return {
-            id: AsaasSignature,
-            name: AsaasSignature[AsaasSignature]
-        };
-    })
+export class AsaasSignature extends BaseType {
+    static ACTIVE = 'ACTIVE'
+    static CONFIRMED = 'CONFIRMED'
+    static AVAILABLE = 'AVAILABLE'
+    static CANCELED = 'CANCELED'
+    static IN_DISPUTE = 'IN_DISPUTE'
 }

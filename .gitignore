@@ -1,2 +1,6 @@
 ﻿**/*.lock
 *.yarn-integrity
+dist
+node_modules
+*.log
+.npmrc

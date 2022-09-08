@@ -1,14 +1,2 @@
-export { default as BaseType } from './BaseType';
-export { default as DiscountTypes } from './DiscountTypes';
-export { default as OrderStatusType } from './OrderStatusType';
-export { default as PagSeguroPaymentStatus } from './PagSeguroPaymentStatus';
-export { default as SettingTypes } from './SettingTypes';
-export { default as SupportTypes } from './SupportTypes';
-export { default as TermTypes } from './TermTypes';
-export { default as PaymentMethodType } from './PaymentMethodType';
-export { default as UserBankAccount } from './UserBankAccount';
-export { default as UserBankAccountStatus } from './UserBankAccountStatus';
-export { default as PixAddressKeyType } from './PixAddressKeyType';
-export { default as TransferStatus } from './TransferStatus';
-export { default as AsaasPaymentStatus } from './AsaasPaymentStatus';
-export { default as AsaasSignatureStatus } from './AsaasSignatureStatus';
+export * as Types from './Types'
+export * as Interfaces from './Interfaces'

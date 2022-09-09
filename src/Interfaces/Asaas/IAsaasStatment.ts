@@ -1,7 +1,8 @@
 import EnumType from "../../Decorators/EnumType";
 import { TAsaasStatment } from "../../Types/Asaas";
+import BaseJSON from "../BaseJSON";
 
-export default abstract class IAsaasStatment {
+export default abstract class IAsaasStatment extends BaseJSON {
     object: string;
     id: string;
     value: number;
@@ -34,6 +35,7 @@ export default abstract class IAsaasStatment {
         paymentDunningID?: string,
         creditBureauReportID?: string
     ) {
+        super()
         this.object = object
         this.id = id
         this.value = value

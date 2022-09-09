@@ -1,11 +1,11 @@
 import TBaseType from "./TBaseType"
 
-export default class TermTypes extends TBaseType {
-  static TERM_OF_USE_VENDOR = new TermTypes('TERM_OF_USE_VENDOR')
-  static TERM_OF_USE_STAFF = new TermTypes('TERM_OF_USE_STAFF')
-  static TERM_OF_USE_RESELLER = new TermTypes('TERM_OF_USE_RESELLER')
-  static TERM_OF_USE_CLIENT = new TermTypes('TERM_OF_USE_CLIENT')
-  static PRIVACY_POLICY = new TermTypes('PRIVACY_POLICY')
+export default class TTerm extends TBaseType {
+  static TERM_OF_USE_VENDOR = new TTerm('TERM_OF_USE_VENDOR')
+  static TERM_OF_USE_STAFF = new TTerm('TERM_OF_USE_STAFF')
+  static TERM_OF_USE_RESELLER = new TTerm('TERM_OF_USE_RESELLER')
+  static TERM_OF_USE_CLIENT = new TTerm('TERM_OF_USE_CLIENT')
+  static PRIVACY_POLICY = new TTerm('PRIVACY_POLICY')
 
   constructor(type: string) {
     super(type)

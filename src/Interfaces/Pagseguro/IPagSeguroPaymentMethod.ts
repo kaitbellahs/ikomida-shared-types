@@ -5,9 +5,10 @@ import IPagSeguroBoleto from "./IPagSeguroBoleto";
 import IPagSeguroAuthenticationMethod from "./IPagSeguroAuthenticationMethod";
 import { TPagSeguroPaymentMethod } from "../../Types/Pagseguro";
 import EnumType from "../../Decorators/EnumType";
+import BaseJSON from "../BaseJSON";
 
 
-export default abstract class IPagSeguroPaymentMethod {
+export default abstract class IPagSeguroPaymentMethod extends BaseJSON {
     @EnumType
     type: TPagSeguroPaymentMethod;
     installments: number;
@@ -28,6 +29,7 @@ export default abstract class IPagSeguroPaymentMethod {
         authentication_method?: IPagSeguroAuthenticationMethod,
         boleto?: IPagSeguroBoleto
     ) {
+        super()
         this.type = type
         this.installments = installments
         this.capture = capture

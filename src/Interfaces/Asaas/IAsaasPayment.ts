@@ -4,9 +4,10 @@ import IAsaasFine from "./IAsaasFine";
 import IAsaasDiscount from "./IAsaasDiscount";
 import { TAsaasBilling } from "../../Types/Asaas";
 import EnumType from "../../Decorators/EnumType";
+import BaseJSON from "../BaseJSON";
 
 
-export default abstract class IAsaasPayment {
+export default abstract class IAsaasPayment extends BaseJSON {
     object: string;
     id: string;
     dateCreated: string;
@@ -87,6 +88,7 @@ export default abstract class IAsaasPayment {
         interest?: IAsaasFine,
         creditCard?: IAsaasCardResponse
     ) {
+        super()
         this.object = object
         this.id = id
         this.dateCreated = dateCreated

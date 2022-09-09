@@ -3,9 +3,10 @@ import IAsaasSplit from './IAsaasSplit';
 import IAsaasCreditCardHolderInfo from "./IAsaasCreditCardHolderInfo";
 import { TAsaasBilling } from '../../Types/Asaas';
 import EnumType from '../../Decorators/EnumType';
+import BaseJSON from '../BaseJSON';
 
 
-export default abstract class IAsaasRequestPayment {
+export default abstract class IAsaasRequestPayment extends BaseJSON {
     @EnumType
     billingType: TAsaasBilling;
     value: string;
@@ -32,6 +33,7 @@ export default abstract class IAsaasRequestPayment {
         creditCard?: IAsaasCard,
         creditCardToken?: string
     ) {
+        super()
         this.billingType = billingType
         this.value = value
         this.description = description

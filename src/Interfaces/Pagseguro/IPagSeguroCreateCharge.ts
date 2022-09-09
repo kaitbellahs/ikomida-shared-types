@@ -1,12 +1,13 @@
 import EnumType from "../../Decorators/EnumType";
 import { TPagSeguroPaymentMethod } from "../../Types/Pagseguro";
 import IAsaasCard from "../Asaas/IAsaasCard";
+import BaseJSON from "../BaseJSON";
 
 interface IPagseguroCreateChargeConfig {
     host: string;
     uri: string;
 }
-export default abstract class IPagSeguroCreateCharge {
+export default abstract class IPagSeguroCreateCharge extends BaseJSON {
     reference: string;
     amount: number;
     @EnumType
@@ -29,6 +30,7 @@ export default abstract class IPagSeguroCreateCharge {
         cardToken?: string,
         description?: string
     ) {
+        super()
         this.reference = reference
         this.amount = amount
         this.type = type

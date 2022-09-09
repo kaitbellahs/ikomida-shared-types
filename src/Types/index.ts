@@ -4,7 +4,7 @@ export { default as TOrderStatus } from './TOrderStatus';
 export { default as TPagSeguroPaymentStatus } from './TPagSeguroPaymentStatus';
 export { default as TSetting } from './TSetting';
 export { default as TSupport } from './TSupport';
-export { default as TermTypes } from './TermTypes';
+export { default as TTerm } from './TTerm';
 export { default as TPaymentMethod } from './TPaymentMethod';
 export { default as TPIX } from './TPIX';
 export { default as TransactionStatus } from './TransactionStatus';

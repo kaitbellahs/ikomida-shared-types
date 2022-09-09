@@ -1,7 +1,8 @@
 import EnumType from "../Decorators/EnumType";
 import { TAddress } from "../Types";
+import BaseJSON from "./BaseJSON";
 
-export default abstract class IAddress {
+export default abstract class IAddress extends BaseJSON {
     @EnumType
     type: TAddress;
     postalCode: string;
@@ -24,6 +25,7 @@ export default abstract class IAddress {
         complement?: string,
         reference?: string
     ) {
+        super()
         this.type = type
         this.postalCode = postalCode
         this.street = street

@@ -2,12 +2,13 @@ import IAsaasPaymentCustomer from './IAsaasPaymentCustomer';
 import IAsaasCard from './IAsaasCard';
 import { TAsaasBilling } from '../../Types/Asaas';
 import EnumType from '../../Decorators/EnumType';
+import BaseJSON from '../BaseJSON';
 
 interface IPagSeguroPayment {
     code: string;
 }
 
-export default abstract class IAsaasCreatePayment {
+export default abstract class IAsaasCreatePayment extends BaseJSON {
     customer: IAsaasPaymentCustomer;
     @EnumType
     type: TAsaasBilling;
@@ -30,6 +31,7 @@ export default abstract class IAsaasCreatePayment {
         creditCard?: IAsaasCard,
         creditCardToken?: string
     ) {
+        super()
         this.customer = customer
         this.type = type
         this.amount = amount

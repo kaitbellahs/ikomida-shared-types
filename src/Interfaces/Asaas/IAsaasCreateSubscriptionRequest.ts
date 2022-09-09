@@ -5,9 +5,10 @@ import IAsaasFine from './IAsaasFine';
 import IAsaasCreditCardHolderInfo from "./IAsaasCreditCardHolderInfo";
 import { TAsaasBilling } from '../../Types/Asaas';
 import EnumType from '../../Decorators/EnumType';
+import BaseJSON from '../BaseJSON';
 
 
-export default abstract class IAsaasCreateSubscriptionRequest {
+export default abstract class IAsaasCreateSubscriptionRequest extends BaseJSON {
     customer: string;
     @EnumType
     billingType: TAsaasBilling;
@@ -46,6 +47,7 @@ export default abstract class IAsaasCreateSubscriptionRequest {
         creditCard?: IAsaasCard,
         externalReference?: string
     ) {
+        super()
         this.customer = customer
         this.billingType = billingType
         this.nextDueDate = nextDueDate

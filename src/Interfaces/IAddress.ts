@@ -3,6 +3,7 @@ import { TAddress } from '../Types';
 import BaseJSON from './BaseJSON';
 
 export default class IAddress extends BaseJSON {
+  id?: string;
   @Enum
   type?: TAddress;
   postalCode?: string;

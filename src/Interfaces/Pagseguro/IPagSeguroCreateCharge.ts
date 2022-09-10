@@ -8,6 +8,7 @@ class IPagseguroCreateChargeConfig {
   uri?: string;
 }
 export default class IPagSeguroCreateCharge extends BaseJSON {
+  id?: string;
   reference?: string;
   amount?: number;
   @Enum

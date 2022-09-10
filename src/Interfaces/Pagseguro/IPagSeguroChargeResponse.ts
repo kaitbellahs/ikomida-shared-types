@@ -18,4 +18,5 @@ export default class IPagSeguroChargeResponse extends IPagSeguroErrorResponse {
   links?: IPagSeguroLink[];
   notification_urls?: string[];
   metadata?: IMetadata;
+  notificationCode?: string;
 }

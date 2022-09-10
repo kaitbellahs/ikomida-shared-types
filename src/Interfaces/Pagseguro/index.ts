@@ -20,3 +20,4 @@ export { default as IPagSeguroRecurring } from './IPagSeguroRecurring';
 export { default as IPagSeguroSummary } from './IPagSeguroSummary';
 export { default as IPagSeguroTokenData } from './IPagSeguroTokenData';
 export { default as IPagseguroErrorMessage } from './IPagseguroErrorMessage';
+export { default as IChargeResponse } from './IChargeResponse';

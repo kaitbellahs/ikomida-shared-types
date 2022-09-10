@@ -1,6 +1,7 @@
+import BaseJSON from "../BaseJSON";
 
-export default interface IAsaasAccountNumber {
-    agency: string;
-    account: string;
-    accountDigit: string;
+export default class IAsaasAccountNumber extends BaseJSON {
+  agency?: string;
+  account?: string;
+  accountDigit?: string;
 }

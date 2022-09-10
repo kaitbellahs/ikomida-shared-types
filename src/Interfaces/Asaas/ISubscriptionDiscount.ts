@@ -1,5 +1,6 @@
+import BaseJSON from "../BaseJSON";
 
-export default interface ISubscriptionDiscount {
-    value: number;
-    dueDateLimitDays: number;
+export default class ISubscriptionDiscount extends BaseJSON {
+  value?: number;
+  dueDateLimitDays?: number;
 }

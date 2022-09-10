@@ -1,11 +1,12 @@
+import BaseJSON from "../BaseJSON";
 
-export default interface IAsaasCreditCardHolderInfo {
-    name: string;
-    email: string;
-    cpfCnpj: string;
-    postalCode: string;
-    addressNumber: string;
-    addressComplement?: string;
-    phone: string;
-    mobilePhone?: string;
+export default class IAsaasCreditCardHolderInfo extends BaseJSON {
+  name?: string;
+  email?: string;
+  cpfCnpj?: string;
+  postalCode?: string;
+  addressNumber?: string;
+  addressComplement?: string;
+  phone?: string;
+  mobilePhone?: string;
 }

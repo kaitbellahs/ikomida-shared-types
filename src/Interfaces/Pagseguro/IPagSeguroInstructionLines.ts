@@ -1,5 +1,6 @@
+import BaseJSON from "../BaseJSON";
 
-export default interface IPagSeguroInstructionLines {
-    line_1: string;
-    line_2: string;
+export default class IPagSeguroInstructionLines extends BaseJSON {
+  line_1?: string;
+  line_2?: string;
 }

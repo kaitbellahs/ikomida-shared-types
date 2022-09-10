@@ -1,5 +1,6 @@
-import IPagseguroErrorMessage from "./IPagseguroErrorMessage";
+import BaseJSON from '../BaseJSON';
+import IPagseguroErrorMessage from './IPagseguroErrorMessage';
 
-export default interface IPagSeguroErrorResponse {
-    error_messages: IPagseguroErrorMessage[];
+export default class IPagSeguroErrorResponse extends BaseJSON {
+  error_messages?: IPagseguroErrorMessage[];
 }

@@ -1,29 +1,26 @@
-import TBaseType from "./TBaseType"
+import TBaseType from './TBaseType';
 
 export default class TAddress extends TBaseType {
-  static RESIDENTIAL = new TAddress('RESIDENTIAL')
-  static PROFESSIONAL = new TAddress('PROFESSIONAL')
-  static OTHER = new TAddress('OTHER')
+  static RESIDENTIAL = new TAddress('RESIDENTIAL');
+  static PROFESSIONAL = new TAddress('PROFESSIONAL');
+  static OTHER = new TAddress('OTHER');
 
   constructor(type: string) {
-    super(type)
+    super(type);
     switch (type) {
       case 'RESIDENTIAL':
-        this.name = 'Residencial'
-        this.description = 'Residencial'
-        break
+        this.name = 'Residencial';
+        this.description = 'Residencial';
+        break;
       case 'PROFESSIONAL':
-        this.name = 'Profissional',
-          this.description = 'Profissional'
-        break
+        (this.name = 'Profissional'), (this.description = 'Profissional');
+        break;
       case 'OTHER':
-        this.name = 'Outro',
-          this.description = 'Outro'
-        break
+        (this.name = 'Outro'), (this.description = 'Outro');
+        break;
       default:
-        this.name = '-',
-          this.description = '-'
-        break
+        (this.name = '-'), (this.description = '-');
+        break;
     }
   }
 }

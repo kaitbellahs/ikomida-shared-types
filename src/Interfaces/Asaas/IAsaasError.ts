@@ -1,4 +1,6 @@
-export default interface IAsaasError {
-    code: string;
-    description: string;
+import BaseJSON from "../BaseJSON";
+
+export default class IAsaasError extends BaseJSON {
+  code?: string;
+  description?: string;
 }

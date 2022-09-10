@@ -1,19 +1,38 @@
 export default abstract class BaseJSON {
-    toJSON?() {
-        const proto = Object.getPrototypeOf(this);
-        const jsonObj: any = Object.assign({}, this);
+  toJSON() {
+    const prototype = Object.getPrototypeOf(this);
+    const json: any = Object.assign({}, this);
 
-        Object.entries(Object.getOwnPropertyDescriptors(proto))
-            .filter(([key, descriptor]) => typeof descriptor.get === 'function')
-            .map(([key, descriptor]) => {
-                const c = Reflect.getMetadata('design:type', this, key)
-                try {
-                    const val = (this as any)[key];
-                    jsonObj[key] = val.id;
-                } catch (error) {
-                    console.error(`Error calling getter ${key}`, error);
-                }
-            });
-        return jsonObj;
+    Object.entries(Object.getOwnPropertyDescriptors(prototype))
+      .filter((proto) => typeof proto?.[1].get === 'function')
+      .map((proto) => {
+        const key = proto?.[0]
+        try {
+          if (Array.isArray((this as any)[key])) {
+            json[key] = []
+            for (const item of (this as any)[key]) {
+              let val = (this as any)[key];
+              if (typeof item === 'object' && 'id' in item) {
+                val = item.id;
+              }
+              json[key].push(val)
+            }
+          } else if (typeof (this as any)[key] === 'object' && 'id' in (this as any)[key]) {
+            json[key] = (this as any)[key].id;
+          } else {
+            json[key] = (this as any)[key];
+          }
+        } catch (error) {
+          console.error(`Error calling getter ${key}`, error);
+        }
+      });
+    return json;
+  }
+
+  constructor(object: any) {
+    for (const key of Object.keys(object)) {
+      (this as any)[key] = (object as any)[key];
     }
+  }
+
 }

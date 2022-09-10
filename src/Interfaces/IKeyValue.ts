@@ -1,4 +1,6 @@
-export default interface IKeyValue {
-    key: string;
-    value: null | string;
+import BaseJSON from "./BaseJSON";
+
+export default class IKeyValue extends BaseJSON {
+  key?: string;
+  value?: null | string;
 }

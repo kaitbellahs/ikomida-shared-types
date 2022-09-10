@@ -1,6 +1,6 @@
-export { default as TAsaasBilling } from './TAsaasBilling'
-export { default as TAsaasDiscount } from './TAsaasDiscount'
-export { default as TAsaasStatment } from './TAsaasStatment'
-export { default as TAsaasSubscriptionStatus } from './TAsaasSubscriptionStatus'
-export { default as TAsaasTransferOperation } from './TAsaasTransferOperation'
-export { default as TAsaasTransferStatus } from './TAsaasTransferStatus'
+export { default as TAsaasBilling } from './TAsaasBilling';
+export { default as TAsaasDiscount } from './TAsaasDiscount';
+export { default as TAsaasStatment } from './TAsaasStatment';
+export { default as TAsaasSubscriptionStatus } from './TAsaasSubscriptionStatus';
+export { default as TAsaasTransferOperation } from './TAsaasTransferOperation';
+export { default as TAsaasTransferStatus } from './TAsaasTransferStatus';

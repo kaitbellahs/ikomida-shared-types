@@ -1,5 +1,6 @@
+import BaseJSON from "../BaseJSON";
 
-export default interface IAsaasFine {
-    value: number;
-    type?: string;
+export default class IAsaasFine extends BaseJSON {
+  value?: number;
+  type?: string;
 }

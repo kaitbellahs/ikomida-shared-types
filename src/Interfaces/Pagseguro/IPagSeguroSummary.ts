@@ -1,5 +1,7 @@
-export default interface IPagSeguroSummary {
-    total: number;
-    paid: number;
-    refunded: number;
+import BaseJSON from "../BaseJSON";
+
+export default class IPagSeguroSummary extends BaseJSON {
+  total?: number;
+  paid?: number;
+  refunded?: number;
 }

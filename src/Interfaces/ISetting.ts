@@ -1,12 +1,14 @@
-import EnumType from "../Decorators/EnumType";
-import { TSetting } from "../Types";
-import BaseJSON from "./BaseJSON";
+import { Enum } from '../Decorators/Enum';
+import { TSetting } from '../Types';
+import BaseJSON from './BaseJSON';
 
-export default abstract class ISetting extends BaseJSON {
-    id?: string;
-    name?: string;
-    value?: string;
-    @EnumType
-    type?: TSetting;
-    active?: boolean;
-} 
+export default class ISetting extends BaseJSON {
+  id?: string;
+  name?: string;
+  value?: string;
+  @Enum
+  type?: TSetting;
+  active?: boolean;
+  createdAt?: Date;
+  timestamp?: number;
+}

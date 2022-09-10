@@ -1,3 +1,5 @@
-export default interface IPagSeguroHolder {
-    name: string;
+import BaseJSON from "../BaseJSON";
+
+export default class IPagSeguroHolder extends BaseJSON {
+  name?: string;
 }

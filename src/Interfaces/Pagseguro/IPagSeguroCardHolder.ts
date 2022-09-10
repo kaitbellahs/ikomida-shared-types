@@ -1,3 +1,5 @@
-export default interface IPagSeguroCardHolder {
-    name: string;
+import BaseJSON from "../BaseJSON";
+
+export default class IPagSeguroCardHolder extends BaseJSON {
+  name?: string;
 }

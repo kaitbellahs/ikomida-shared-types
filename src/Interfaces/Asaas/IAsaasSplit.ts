@@ -1,6 +1,7 @@
+import BaseJSON from "../BaseJSON";
 
-export default interface IAsaasSplit {
-    walletId: string;
-    fixedValue?: number;
-    percentualValue?: number;
+export default class IAsaasSplit extends BaseJSON {
+  walletId?: string;
+  fixedValue?: number;
+  percentualValue?: number;
 }

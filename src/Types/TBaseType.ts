@@ -1,7 +1,6 @@
-type TTBaseType = typeof TBaseType
-type Constructor<T extends TBaseType> = { new(): T }
+type TTBaseType = typeof TBaseType;
+export type Constructor<T extends TBaseType> = { new(): T };
 export default abstract class TBaseType {
-
   description?: string;
   name?: string;
   id: string;
@@ -9,13 +8,13 @@ export default abstract class TBaseType {
     this.id = type;
   }
 
-  static valueOf<T extends TBaseType>(object: string) {
-    return (this as never)?.[object] as T
+  static valueOf<T extends TBaseType>(object?: string) {
+    return object ? ((this as never)?.[object] as T) : null;
   }
 
   static *[Symbol.iterator]<T extends TBaseType>(this: Constructor<T>) {
     for (const key of (this as unknown as TTBaseType).keys()) {
-      yield key as unknown as T
+      yield key as unknown as T;
     }
   }
 
@@ -23,10 +22,14 @@ export default abstract class TBaseType {
     return this.constructor.name + '.' + this.id;
   }
 
-  static keys() { return Object.keys(this); }
-  static values() { return Object.values(this); }
+  static keys() {
+    return Object.keys(this);
+  }
+  static values() {
+    return Object.values(this);
+  }
   static list<T extends TBaseType>() {
-    const keys = (this as unknown as TTBaseType).keys()
+    const keys = (this as unknown as TTBaseType).keys();
     return keys.map((item: string) => {
       return {
         name: item,

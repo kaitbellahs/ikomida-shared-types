@@ -1,4 +1,5 @@
+import BaseJSON from "../BaseJSON";
 
-export default interface ISubscriptionInterest {
-    value: number;
+export default class ISubscriptionInterest extends BaseJSON {
+  value?: number;
 }

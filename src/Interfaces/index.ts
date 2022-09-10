@@ -1,17 +1,18 @@
-export { default as IAddress } from './IAddress'
-export { default as IBusinessTime } from './IBusinessTime'
-export { default as IBusinessTimeHours } from './IBusinessTimeHours'
-export { default as IKeyValue } from './IKeyValue'
-export { default as IContract } from './IContract'
-export { default as IPlan } from './IPlan'
-export { default as IUser } from './IUser'
-export { default as IEmail } from './IEmail'
-export { default as IMetadata } from './IMetadata'
-export { default as IOtimaTelResponse } from './IOtimaTelResponse'
-export { default as INotification } from './INotification'
-export { default as IRandCode } from './IRandCode'
-export { default as IApp } from './IApp'
-export { default as ISetting } from './ISetting'
-export { default as ITerm } from './ITerm'
-export * as Pagseguro from './Pagseguro'
-export * as Asaas from './Asaas'
+export { default as IAddress } from './IAddress';
+export { default as IBusinessTime } from './IBusinessTime';
+export { default as IBusinessTimeHours } from './IBusinessTimeHours';
+export { default as IKeyValue } from './IKeyValue';
+export { default as IContract } from './IContract';
+export { default as IPlan } from './IPlan';
+export { default as IUser } from './IUser';
+export { default as IEmail } from './IEmail';
+export { default as IMetadata } from './IMetadata';
+export { default as IOtimaTelResponse } from './IOtimaTelResponse';
+export { default as INotification } from './INotification';
+export { default as IRandCode } from './IRandCode';
+export { default as IApp } from './IApp';
+export { default as ISetting } from './ISetting';
+export { default as ITerm } from './ITerm';
+export { default as BaseJSON } from './BaseJSON';
+export * as Pagseguro from './Pagseguro';
+export * as Asaas from './Asaas';

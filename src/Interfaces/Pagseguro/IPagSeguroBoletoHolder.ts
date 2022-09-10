@@ -1,9 +1,9 @@
-import IPagSeguroAddress from "./IPagSeguroAddress";
+import BaseJSON from '../BaseJSON';
+import IPagSeguroAddress from './IPagSeguroAddress';
 
-
-export default interface IPagSeguroBoletoHolder {
-    address: IPagSeguroAddress;
-    name: string;
-    tax_id: string;
-    email: string;
+export default class IPagSeguroBoletoHolder extends BaseJSON {
+  address?: IPagSeguroAddress;
+  name?: string;
+  tax_id?: string;
+  email?: string;
 }

@@ -1,7 +1,7 @@
+import BaseJSON from './BaseJSON';
 import IBusinessTimeHours from './IBusinessTimeHours';
 
-
-export default interface IBusinessTime {
-    days: number[];
-    hours: IBusinessTimeHours[];
+export default class IBusinessTime extends BaseJSON {
+  days?: number[];
+  hours?: IBusinessTimeHours[];
 }

@@ -1,5 +1,6 @@
+import BaseJSON from "./BaseJSON";
 
-export default interface IBusinessTimeHours {
-    start: string;
-    end: string;
+export default class IBusinessTimeHours extends BaseJSON {
+  start?: string;
+  end?: string;
 }

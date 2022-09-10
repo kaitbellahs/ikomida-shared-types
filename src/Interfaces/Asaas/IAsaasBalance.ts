@@ -1,3 +1,5 @@
-export default interface IAsaasBalance {
-    balance: number;
+import BaseJSON from "../BaseJSON";
+
+export default class IAsaasBalance extends BaseJSON {
+  balance?: number;
 }

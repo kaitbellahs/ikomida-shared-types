@@ -1,8 +1,8 @@
-import IPagSeguroSummary from "./IPagSeguroSummary";
+import BaseJSON from '../BaseJSON';
+import IPagSeguroSummary from './IPagSeguroSummary';
 
-
-export default interface IPagSeguroAmount {
-    value: number;
-    currency: string;
-    summary?: IPagSeguroSummary;
+export default class IPagSeguroAmount extends BaseJSON {
+  value?: number;
+  currency?: string;
+  summary?: IPagSeguroSummary;
 }

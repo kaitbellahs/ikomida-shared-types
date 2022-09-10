@@ -1,5 +1,7 @@
-export default interface IAsaasBank {
-    ispb: string;
-    code: string;
-    name: string;
+import BaseJSON from "../BaseJSON";
+
+export default class IAsaasBank extends BaseJSON {
+  ispb?: string;
+  code?: string;
+  name?: string;
 }

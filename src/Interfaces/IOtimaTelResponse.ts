@@ -1,7 +1,8 @@
+import BaseJSON from "./BaseJSON";
 
-export default interface IOtimaTelResponse {
-    status: string;
-    message: {
-        id: string;
-    };
+export default class IOtimaTelResponse extends BaseJSON {
+  status?: string;
+  message?: {
+    id?: string;
+  };
 }

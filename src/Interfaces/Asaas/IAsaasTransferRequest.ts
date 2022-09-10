@@ -1,9 +1,12 @@
-import { TPIX } from "../../Types";
+import { Enum } from '../../Decorators/Enum';
+import { TPIX } from '../../Types';
+import BaseJSON from '../BaseJSON';
 
-export default interface IAsaasTransferRequest {
-    pixAddressKeyType: TPIX;
-    value: number;
-    description?: string;
-    pixAddressKey: string;
-    scheduleDate?: string;
+export default class IAsaasTransferRequest extends BaseJSON {
+  @Enum
+  pixAddressKeyType?: TPIX;
+  value?: number;
+  description?: string;
+  pixAddressKey?: string;
+  scheduleDate?: string;
 }

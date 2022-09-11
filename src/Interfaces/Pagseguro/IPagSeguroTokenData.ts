@@ -1,4 +1,4 @@
-import BaseJSON from "../BaseJSON";
+import BaseJSON from '../BaseJSON';
 
 export default class IPagSeguroTokenData extends BaseJSON {
   requestor_id?: string;

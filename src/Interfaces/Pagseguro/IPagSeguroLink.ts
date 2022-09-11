@@ -1,4 +1,4 @@
-import BaseJSON from "../BaseJSON";
+import BaseJSON from '../BaseJSON';
 
 export default class IPagSeguroLink extends BaseJSON {
   rel?: string;

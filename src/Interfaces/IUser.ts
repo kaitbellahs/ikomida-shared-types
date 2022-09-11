@@ -1,4 +1,4 @@
-import BaseJSON from "./BaseJSON";
+import BaseJSON from './BaseJSON';
 
 export default class IUser extends BaseJSON {
   id?: string;
@@ -14,7 +14,16 @@ export default class IUser extends BaseJSON {
   areaCode?: string;
   referredBy?: string;
   password?: string;
+  oldPass?: string;
+  newPass?: string;
+  reNewPass?: string;
   address?: string;
+  signature?: string;
+  phoneValidationCode?: string;
+  avatar?: string;
   ikomidaID?: string;
   code?: string | number;
+  referralCode?: string | number;
+  hash?: string;
+  timestamp?: number;
 }

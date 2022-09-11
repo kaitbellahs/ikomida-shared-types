@@ -1,6 +1,6 @@
-import BaseJSON from "./BaseJSON";
+import BaseJSON from './BaseJSON';
 
 export default class ILocation extends BaseJSON {
-    latitude: any;
-    longitude: any;
+  latitude: any;
+  longitude: any;
 }

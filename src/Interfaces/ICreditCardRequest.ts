@@ -1,8 +1,8 @@
-import BaseJSON from "./BaseJSON";
+import BaseJSON from './BaseJSON';
 
 export default class ICreditCardRequest extends BaseJSON {
-    number?: number;
-    validity?: string;
-    code?: number;
-    holder?: string
+  number?: number;
+  validity?: string;
+  code?: number;
+  holder?: string;
 }

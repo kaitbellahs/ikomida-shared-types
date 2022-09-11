@@ -1,4 +1,4 @@
-import BaseJSON from "../BaseJSON";
+import BaseJSON from '../BaseJSON';
 
 export default class IPagSeguroInstructionLines extends BaseJSON {
   line_1?: string;

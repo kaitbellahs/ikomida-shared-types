@@ -6,20 +6,20 @@ export default class TSupport extends TBaseType {
   static CALL = new TSupport('CALL');
   static CHAT = new TSupport('CHAT');
   constructor(type: string) {
-    super(type)
+    super(type);
     switch (type) {
       case 'EMAIL':
         this.name = 'Email';
-        break
+        break;
       case 'WHATSAPP':
         this.name = 'Whatsapp';
-        break
+        break;
       case 'CALL':
         this.name = 'Ligação';
-        break
+        break;
       case 'CHAT':
         this.name = 'Bate papo';
-        break
+        break;
     }
   }
 }

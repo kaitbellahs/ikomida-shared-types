@@ -1,4 +1,4 @@
-import BaseJSON from "../BaseJSON";
+import BaseJSON from '../BaseJSON';
 
 export default class IAsaasError extends BaseJSON {
   code?: string;

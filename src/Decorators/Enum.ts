@@ -3,10 +3,7 @@ import TBaseType from '../Types/TBaseType';
 type anotationFunction = (target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor) => void;
 
 export function Enum(dataType?: any): anotationFunction;
-export function Enum(
-  target: any,
-  propertyName: string,
-  propertyDescriptor?: PropertyDescriptor): void;
+export function Enum(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor): void;
 
 export function Enum(...args: any[]): anotationFunction | void {
   if (args.length >= 2) {
@@ -19,24 +16,20 @@ export function Enum(...args: any[]): anotationFunction | void {
   }
 
   return (target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor) => {
-    let dataType = null
+    let dataType = null;
     if (args.length === 1) {
-      dataType = args[0]
+      dataType = args[0];
       Reflect.defineMetadata('design:type:array', dataType, target, propertyName);
     }
     annotate(
       target,
       propertyName,
       propertyDescriptor ?? Object.getOwnPropertyDescriptor(target, propertyName),
-      dataType
+      dataType,
     );
   };
 }
-function annotate(
-  target: any,
-  propertyName: string,
-  propertyDescriptor?: PropertyDescriptor,
-  dataType?: any) {
+function annotate(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor, dataType?: any) {
   let runtime = Reflect.getMetadata('design:type', target, propertyName);
   if (dataType) {
     runtime = dataType;
@@ -66,7 +59,8 @@ function annotate(
           _val.push(val && typeof val === 'object' && 'id' in (val as any) ? (val as any)?.id : val);
         }
       } else {
-        _val = newVal && typeof newVal === 'object' && 'id' in (newVal as TBaseType) ? (newVal as TBaseType).id : newVal;
+        _val =
+          newVal && typeof newVal === 'object' && 'id' in (newVal as TBaseType) ? (newVal as TBaseType).id : newVal;
       }
     } else {
       _val = newVal;

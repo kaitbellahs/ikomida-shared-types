@@ -1,4 +1,4 @@
-import BaseJSON from "./BaseJSON";
+import BaseJSON from './BaseJSON';
 
 export default class IRandCode extends BaseJSON {
   count?: number;

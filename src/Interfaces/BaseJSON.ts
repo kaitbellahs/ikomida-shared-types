@@ -6,23 +6,23 @@ export default abstract class BaseJSON {
     Object.entries(Object.getOwnPropertyDescriptors(prototype))
       .filter((proto) => typeof proto?.[1].get === 'function')
       .map((proto) => {
-        const key = proto?.[0]
+        const key = proto?.[0];
         try {
           if (Array.isArray((this as any)[key])) {
-            json[key] = []
+            json[key] = [];
             for (const item of (this as any)[key]) {
               let val = (this as any)[key];
               if (typeof item === 'object' && 'id' in item) {
                 val = item.id;
               }
-              json[key].push(val)
+              json[key].push(val);
             }
           } else if (typeof (this as any)[key] === 'object' && 'id' in (this as any)[key]) {
             json[key] = (this as any)[key].id;
           } else {
             json[key] = (this as any)[key];
           }
-        } catch (error) {
+        } catch (error: any) {
           console.error(`Error calling getter ${key}`, error);
         }
       });
@@ -34,5 +34,4 @@ export default abstract class BaseJSON {
       (this as any)[key] = (object as any)[key];
     }
   }
-
 }

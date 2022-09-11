@@ -1,4 +1,4 @@
-import BaseJSON from "./BaseJSON";
+import BaseJSON from './BaseJSON';
 
 export default class IApp extends BaseJSON {
   id?: string;

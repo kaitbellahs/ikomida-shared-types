@@ -1,4 +1,7 @@
 export default abstract class BaseJSON {
+  id?: string;
+  timestamp?: number;
+
   toJSON() {
     const prototype = Object.getPrototypeOf(this);
     const json: any = Object.assign({}, this);
@@ -29,9 +32,10 @@ export default abstract class BaseJSON {
     return json;
   }
 
-  constructor(object: any) {
-    for (const key of Object.keys(object)) {
-      (this as any)[key] = (object as any)[key];
-    }
+  constructor(object?: any) {
+    if (typeof object === 'object')
+      for (const key of Object.keys(object)) {
+        (this as any)[key] = (object as any)[key];
+      }
   }
 }

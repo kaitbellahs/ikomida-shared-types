@@ -14,5 +14,7 @@ export { default as TAsaasSignatureStatus } from './TAsaasSignatureStatus';
 export { default as TAddress } from './TAddress';
 export { default as TPerson } from './TPerson';
 export { default as TCompany } from './TCompany';
+export { default as TAMQPPayload } from './TAMQPPayload';
+export { default as TSendReturn } from './TSendReturn';
 export * as Asaas from './Asaas';
 export * as Pagseguro from './Pagseguro';

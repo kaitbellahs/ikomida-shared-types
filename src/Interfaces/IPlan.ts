@@ -22,6 +22,4 @@ export default class IPlan extends BaseJSON {
   details?: IKeyValue[];
   support?: string[];
   highlighted?: boolean;
-  id?: string;
-  timestamp?: number;
 }

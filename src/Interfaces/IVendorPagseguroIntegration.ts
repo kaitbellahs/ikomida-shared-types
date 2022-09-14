@@ -1,6 +1,6 @@
-import BaseJSON from "./BaseJSON";
+import BaseJSON from './BaseJSON';
 
 export default class IvendorPagseguroIntegration extends BaseJSON {
-    state?: string;
-    code?: string;
+  state?: string;
+  code?: string;
 }

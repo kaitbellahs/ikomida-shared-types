@@ -1,8 +1,7 @@
-import BaseJSON from "./BaseJSON";
-
+import BaseJSON from './BaseJSON';
 
 export default class IVendorDelivery extends BaseJSON {
-    free?: boolean;
-    value?: number;
-    min?: number;
+  free?: boolean;
+  value?: number;
+  min?: number;
 }

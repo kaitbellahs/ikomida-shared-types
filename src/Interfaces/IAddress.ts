@@ -14,7 +14,7 @@ export default class IAddress extends BaseJSON {
   stat?: string;
   complement?: string;
   reference?: string;
-  distance?: number
-  duration?: number
-  selected?: boolean
+  distance?: number;
+  duration?: number;
+  selected?: boolean;
 }

@@ -1,20 +1,23 @@
-import BaseJSON from "./BaseJSON"
-
+import BaseJSON from './BaseJSON';
 export default class ILayout extends BaseJSON {
-    link?: string;
+  link?: string;
+  background?: string;
+  color?: string;
+  header?: {
     background?: string;
     color?: string;
-    header?: {
-        background?: string;
-        color?: string;
-        menuHamburger?: string;
-    };
-    tabs?: {
-        background?: string;
-        color?: string;
-    };
-    button?: {
-        background?: string;
-        color?: string;
-    };
+    menuHamburger?: string;
+  };
+  dialog?: {
+    background?: string;
+    color?: string;
+  };
+  tabs?: {
+    background?: string;
+    color?: string;
+  };
+  button?: {
+    background?: string;
+    color?: string;
+  };
 }

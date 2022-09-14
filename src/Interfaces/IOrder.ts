@@ -1,10 +1,11 @@
-import { TOrderStatus } from '../Types';
-import { IAsaasCard } from './Asaas';
+import { TOrderStatus, TPaymentMethod } from '../Types';
 import BaseJSON from './BaseJSON';
 import IAddress from './IAddress';
 import ICoupon from './ICoupon';
 import IOrderPreparation from './IOrderPreparation';
+import IPaymentMethods from './IPaymentMethods';
 import IProduct from './IProduct';
+import IUser from './IUser';
 
 export default class IOrder extends BaseJSON {
   subtotal?: number;
@@ -18,7 +19,9 @@ export default class IOrder extends BaseJSON {
   finishedAt?: Date;
   products?: IProduct[];
   address?: IAddress;
-  payment?: IAsaasCard;
+  paymentMethodType?: TPaymentMethod;
+  payment?: IPaymentMethods;
   preparation?: IOrderPreparation;
   timestamp?: number;
+  user?: IUser;
 }

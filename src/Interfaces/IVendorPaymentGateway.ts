@@ -1,7 +1,6 @@
-import BaseJSON from "./BaseJSON";
-
+import BaseJSON from './BaseJSON';
 
 export default class IVendorPaymentGateway extends BaseJSON {
-    type?: number;
-    data?: number;
+  type?: number;
+  data?: number;
 }

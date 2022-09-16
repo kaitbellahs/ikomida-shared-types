@@ -11,7 +11,7 @@ export function Enum(...args: any[]): anotationFunction | void {
     const propertyName = args[1];
     const propertyDescriptor = args[2];
 
-    annotate(target, propertyName, propertyDescriptor);
+    annotateEnum(target, propertyName, propertyDescriptor);
     return;
   }
 
@@ -21,7 +21,7 @@ export function Enum(...args: any[]): anotationFunction | void {
       dataType = args[0];
       Reflect.defineMetadata('design:type:array', dataType, target, propertyName);
     }
-    annotate(
+    annotateEnum(
       target,
       propertyName,
       propertyDescriptor ?? Object.getOwnPropertyDescriptor(target, propertyName),
@@ -29,7 +29,8 @@ export function Enum(...args: any[]): anotationFunction | void {
     );
   };
 }
-function annotate(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor, dataType?: any) {
+
+function annotateEnum(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor, dataType?: any) {
   let runtime = Reflect.getMetadata('design:type', target, propertyName);
   if (dataType) {
     runtime = dataType;

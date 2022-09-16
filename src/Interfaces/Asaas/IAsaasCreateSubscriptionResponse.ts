@@ -5,27 +5,53 @@ import IAsaasErrors from './IAsaasErrors';
 import IAsaasCardResponse from './IAsaasCardResponse';
 import { TAsaasBilling, TAsaasSubscriptionStatus } from '../../Types/Asaas';
 import { Enum } from '../../Decorators/Enum';
+import { FromJSON } from '../../Decorators/FromJSON';
+import { Property } from '../../Decorators';
 
 export default class IAsaasCreateSubscriptionResponse extends IAsaasErrors {
+  @Property
   object?: string;
+  @Property
   id?: string;
+  @Property
+  @FromJSON
   dateCreated?: Date;
-  customer?: string;
+  @Property
+  customer?: string;;
+  @Property
   @Enum
   billingType?: TAsaasBilling;
-  cycle?: string;
-  value?: number;
-  nextDueDate?: string;
+  @Property
+  cycle?: string;;
+  @Property
+  value?: number;;
+  @Property
+  nextDueDate?: Date;
+  @Property
   @Enum
-  status?: TAsaasSubscriptionStatus;
-  deleted?: boolean;
+  status?: TAsaasSubscriptionStatus
+  @Property
+  deleted?: boolean;;
+  @Property
+  @FromJSON
   creditCard?: IAsaasCardResponse;
+  @Property
   paymentLink?: string;
-  discount?: IAsaasDiscount;
+  @Property
+  @FromJSON
+  discount?: IAsaasDiscount
+  @Property
+  @FromJSON
   fine?: IAsaasFine;
+  @FromJSON
   interest?: IAsaasFine;
+  @Property
   description?: string;
+  @Property
   endDate?: string;
+  @Property
   maxPayments?: number;
+  @Property
+  @FromJSON
   split?: IAsaasSplit;
 }

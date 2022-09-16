@@ -4,22 +4,42 @@ import ISubscriptionDiscount from './ISubscriptionDiscount';
 import { TAsaasBilling } from '../../Types/Asaas';
 import { Enum } from '../../Decorators/Enum';
 import IAsaasErrors from './IAsaasErrors';
+import { Property } from '../../Decorators';
+import { FromJSON } from '../../Decorators/FromJSON';
 
 export default class ISubscriptionResponse extends IAsaasErrors {
+  @Property
   object?: string;
+  @Property
   id?: string;
+  @Property
   dateCreated?: string;
+  @Property
   customer?: string;
+  @Property
   @Enum
   billingType?: TAsaasBilling;
+  @Property
   cycle?: string;
-  value?: number;
+  @Property
+  value?: number;;
+  @Property
   nextDueDate?: string;
-  description?: string;
-  status?: string;
-  discount?: ISubscriptionDiscount;
+  @Property
+  description?: string
+  @Property
+  status?: string;;
+  @Property
+  @FromJSON
+  discount?: ISubscriptionDiscount
+  @Property
+  @FromJSON
   fine?: ISubscriptionFine;
-  interest?: ISubscriptionInterest;
+  @Property
+  @FromJSON
+  interest?: ISubscriptionInterest
+  @Property
   deleted?: boolean;
+  @Property
   paymentLink?: string;
 }

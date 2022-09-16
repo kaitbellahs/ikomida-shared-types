@@ -41,5 +41,8 @@ export { default as INotificationPayload } from './INotificationPayload';
 export { default as INotificationData } from './INotificationData';
 export { default as IAMQPPayload } from './IAMQPPayload';
 export { default as IAMQPPayloadObject } from './IAMQPPayloadObject';
+export { default as IVendorLimits } from './IVendorLimits';
+export { default as Return } from './Return';
+export { default as IError } from './IError';
 export * as Pagseguro from './Pagseguro';
 export * as Asaas from './Asaas';

@@ -1,15 +1,15 @@
 import BaseJSON from './BaseJSON';
 
 export default class IEmail extends BaseJSON {
-  from?: {
+  from!: {
     email?: string;
     name?: string;
   };
-  to?: {
+  to!: {
     email?: string;
     name?: string;
   };
-  message?: {
+  message!: {
     subject?: string;
     body?: string;
   };

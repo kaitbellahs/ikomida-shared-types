@@ -3,20 +3,31 @@ import IAsaasCard from './IAsaasCard';
 import { TAsaasBilling } from '../../Types/Asaas';
 import { Enum } from '../../Decorators/Enum';
 import BaseJSON from '../BaseJSON';
-
-class IPagSeguroPayment {
-  code?: string;
-}
+import { FromJSON } from '../../Decorators/FromJSON';
+import IAsaasPayment from './IAsaasPayment';
+import { Property } from '../../Decorators';
 
 export default class IAsaasCreatePayment extends BaseJSON {
+  @Property
+  @FromJSON
   customer?: IAsaasPaymentCustomer;
+  @Property
   @Enum
   type?: TAsaasBilling;
+  @Property
   amount?: number;
+  @Property
   description?: string;
+  @Property
   reference?: string;
-  walletId?: string;
-  payment?: IPagSeguroPayment;
+  @Property
+  walletId?: string;;
+  @Property
+  @FromJSON
+  payment?: IAsaasPayment;
+  @Property
+  @FromJSON
   creditCard?: IAsaasCard;
+  @Property
   creditCardToken?: string;
 }

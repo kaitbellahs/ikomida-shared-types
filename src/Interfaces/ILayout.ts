@@ -1,23 +1,32 @@
+import { Property } from '../Decorators';
 import BaseJSON from './BaseJSON';
 export default class ILayout extends BaseJSON {
-  link?: string;
-  background?: string;
-  color?: string;
-  header?: {
-    background?: string;
-    color?: string;
-    menuHamburger?: string;
+  @Property
+  link!: string;
+  @Property
+  background!: string;
+  @Property
+  color!: string;
+  @Property
+  header!: {
+    background: string;
+    color: string;
+    menuHamburger: string;
   };
-  dialog?: {
-    background?: string;
-    color?: string;
+  @Property
+  dialog!: {
+    background: string;
+    color: string;
   };
-  tabs?: {
-    background?: string;
-    color?: string;
+  @Property
+  tabs!: {
+    background: string;
+    color: string;
   };
-  button?: {
-    background?: string;
-    color?: string;
+  @Property
+  button!: {
+    background: string;
+    color: string;
   };
+
 }

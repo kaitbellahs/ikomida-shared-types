@@ -8,7 +8,6 @@ export default class ICoupon extends BaseJSON {
   @Property
   name!: string;
   @Property
-  @FromJSON
   value!: number;
   @Property
   @Enum

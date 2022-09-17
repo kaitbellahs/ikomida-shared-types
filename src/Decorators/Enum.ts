@@ -17,10 +17,10 @@ export function Enum(...args: any[]): anotationFunction | void {
 
   return (target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor) => {
     let dataType = null;
-    Reflect.defineMetadata('property:type', 'enum', target, propertyName);
     if (args.length === 1) {
       dataType = args[0];
-      Reflect.defineMetadata('design:type:array', dataType, target, propertyName);
+      Reflect.defineMetadata('design:type', dataType, target, propertyName);
+      Reflect.defineMetadata('design:object:type', 'array', target, propertyName);
     }
     annotateEnum(
       target,

@@ -17,8 +17,8 @@ export function Property(...args: any[]): PropertyDecorator | void {
         let dataType = null;
         if (args.length === 1) {
             dataType = args[0];
-            Reflect.defineMetadata('design:type:array', 'arrayOfObjects', target, propertyName);
-            Reflect.defineMetadata('design:type:array:type', dataType, target, propertyName);
+            Reflect.defineMetadata('property:type', dataType, target, propertyName);
+            Reflect.defineMetadata('design:object:type', 'array', target, propertyName);
         }
         annotateProperty(
             target,

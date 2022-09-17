@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import TBaseType from '../Types/TBaseType';
 
 export function FromJSON(dataType?: any): PropertyDecorator;
 export function FromJSON(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor): void;
@@ -18,8 +17,8 @@ export function FromJSON(...args: any[]): PropertyDecorator | void {
     let dataType = null;
     if (args.length === 1) {
       dataType = args[0];
-      Reflect.defineMetadata('design:type:array', 'arrayOfObjects', target, propertyName);
-      Reflect.defineMetadata('design:type:array:type', dataType, target, propertyName);
+      Reflect.defineMetadata('design:type', dataType, target, propertyName);
+      Reflect.defineMetadata('design:object:type', 'array', target, propertyName);
     }
     annotateFromJSON(
       target,
@@ -42,12 +41,10 @@ function annotateFromJSON(target: any, propertyName: string | symbol, propertyDe
   };
   const setter = function (this: { get: (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean; }) => any; set: (newVal?: any) => void; enumerable: true; configurable: true; }, newVal?: runtimeType) {
     let _val = newVal
-    const arrayOfObjects = Reflect.getMetadata('design:type:array', target, propertyName) === 'arrayOfObjects';
-    if (Array.isArray(newVal) && arrayOfObjects) {
-      const designType = Reflect.getMetadata('design:type:array:type', target, propertyName);
+    if (Array.isArray(newVal)) {
       const value = [];
       for (const val of newVal) {
-        value.push(val && typeof val === 'object' ? designType?.fromObject(val) : val);
+        value.push(val && typeof val === 'object' ? runtime?.fromObject(val) : val);
       }
       _val = value
     }

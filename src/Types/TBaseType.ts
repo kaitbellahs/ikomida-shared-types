@@ -8,8 +8,8 @@ export default abstract class TBaseType {
     this.id = type;
   }
 
-  iqualTo<T extends TBaseType>(object: T): boolean {
-    return object instanceof this.constructor && object.id === this.id
+  equalTo<T extends TBaseType>(object: T): boolean {
+    return object instanceof this.constructor && object.id === this.id && object.name === this.name && object.description === this.description
   }
 
   static valueOf<T extends TBaseType>(object?: string) {

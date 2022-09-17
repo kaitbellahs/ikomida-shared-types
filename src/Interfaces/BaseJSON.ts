@@ -68,6 +68,45 @@ export default abstract class BaseJSON {
     return instance;
   }
 
+  static validate(object: any) {
+    function handleObject<T extends BaseJSON>(target: T, properties: (string | symbol)[], object: any) {
+      for (const property of properties) {
+        const nullable = Reflect.getMetadata('property:nullable', target, property) ?? Reflect.getMetadata('property:nullable', BaseJSON, property) ?? false;
+        const runtime = Reflect.getMetadata('design:type', target, property);
+        const value = object[property]
+        console.log('runtime:', property, nullable, value, typeof value === 'object' ? value instanceof runtime : typeof value === runtime.name.toLowerCase())
+        const result = ((value !== undefined && value !== null) || nullable) || (typeof value === 'object' ? value instanceof runtime : typeof value === runtime.name.toLowerCase())
+        if (!result) {
+          return false
+        }
+      }
+      return true
+    }
+    if (!object || !(object instanceof this)) {
+      return false
+    }
+    const properties: (string | symbol)[] = [];
+    const instance = new (this as any)()
+    let prototype = this.prototype;
+    while (prototype != null) {
+      const result: (string | symbol)[] = prototype["__properties__"];
+      if (result) {
+        properties.push(...result);
+      }
+      prototype = Object.getPrototypeOf(prototype);
+    }
+    if (Array.isArray(object)) {
+      for (const item of object) {
+        const result = handleObject(instance, properties, item)
+        if (!result) {
+          return false
+        }
+      }
+      return true
+    }
+    return handleObject(instance, properties, object)
+  }
+
   static fromObject(object: any) {
     function handleObject(instance: any, properties: (string | symbol)[], object: any) {
       for (const property of properties) {
@@ -77,7 +116,7 @@ export default abstract class BaseJSON {
       }
       return instance
     }
-    if (!object && typeof object !== 'object') {
+    if (!object || typeof object !== 'object') {
       return null
     }
     const properties: (string | symbol)[] = [];

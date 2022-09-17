@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
 import { TDiscount } from '../Types';
@@ -6,13 +6,13 @@ import BaseJSON from './BaseJSON';
 
 export default class ICoupon extends BaseJSON {
   @Property
-  name: string;
+  name!: string;
   @Property
   @FromJSON
-  value: number;
+  value!: number;
   @Property
   @Enum
-  valueType: TDiscount;
+  valueType!: TDiscount;
   @Property
   quantity?: number;
   @Property
@@ -22,7 +22,7 @@ export default class ICoupon extends BaseJSON {
   @FromJSON
   createdAt?: Date;
 
-  constructor(
+  static init(
     name: string,
     value: number,
     valueType: TDiscount,
@@ -31,25 +31,7 @@ export default class ICoupon extends BaseJSON {
     createdAt?: Date,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.name = name
-    this.value = value
-    this.valueType = valueType
-    this.quantity = quantity
-    this.validity = validity
-    this.createdAt = createdAt
-  }
-  static fromObject(object: any) {
-    return new ICoupon(
-      object.name ?? '',
-      object.value ?? 0,
-      object.valueType ?? TDiscount.NO,
-      object.quantity,
-      object.validity,
-      object.createdAt,
-      object.id,
-      object.timestamp,
-    );
+  ): ICoupon {
+    return this.createInitObject(arguments)
   }
 }

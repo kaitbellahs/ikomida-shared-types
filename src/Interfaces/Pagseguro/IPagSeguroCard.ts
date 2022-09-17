@@ -1,7 +1,7 @@
 import { FromJSON } from '../../Decorators/FromJSON';
 import BaseJSON from '../BaseJSON';
 import IPagSeguroCardHolder from './IPagSeguroCardHolder';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroCard extends BaseJSON {
   @Property

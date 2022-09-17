@@ -1,11 +1,15 @@
 type TTBaseType = typeof TBaseType;
-export type Constructor<T extends TBaseType> = { new (): T };
+export type Constructor<T extends TBaseType> = { new(): T };
 export default abstract class TBaseType {
   description?: string;
   name?: string;
   id: string;
   constructor(type: string) {
     this.id = type;
+  }
+
+  iqualTo<T extends TBaseType>(object: T): boolean {
+    return object instanceof this.constructor && object.id === this.id
   }
 
   static valueOf<T extends TBaseType>(object?: string) {

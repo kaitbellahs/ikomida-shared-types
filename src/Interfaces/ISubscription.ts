@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
 import { TAsaasSubscriptionStatus } from '../Types/Asaas';
@@ -7,23 +7,23 @@ import ISubscriptionCharge from './ISubscriptionCharge';
 
 export default class ISubscription extends BaseJSON {
   @Property
-  plan: string;
+  plan!: string;
   @Property
-  value: number;
+  value!: number;
   @Property
   @FromJSON
-  subscription: Date;
+  subscription!: Date;
   @Property
   @Enum
-  status: TAsaasSubscriptionStatus;
+  status!: TAsaasSubscriptionStatus;
   @Property
   @FromJSON
-  nextDueDate: Date;
+  nextDueDate!: Date;
   @Property
   @FromJSON(ISubscriptionCharge)
-  charges: ISubscriptionCharge[];
+  charges!: ISubscriptionCharge[];
 
-  constructor(
+  static init(
     plan: string,
     value: number,
     subscription: Date,
@@ -32,14 +32,7 @@ export default class ISubscription extends BaseJSON {
     charges: ISubscriptionCharge[],
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.plan = plan
-    this.value = value
-    this.subscription = subscription
-    this.status = status
-    this.nextDueDate = nextDueDate
-    this.charges = charges
+  ): ISubscription {
+    return this.createInitObject(arguments)
   }
-
 }

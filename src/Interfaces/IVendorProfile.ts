@@ -1,28 +1,28 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { FromJSON } from '../Decorators/FromJSON';
 import BaseJSON from './BaseJSON';
 import IAddress from './IAddress';
 
 export default class IVendorProfile extends BaseJSON {
   @Property
-  areaCode: number;
+  areaCode!: number;
   @Property
-  contractName: string;
+  contractName!: string;
   @Property
-  cnpj: string;
+  cnpj!: string;
   @Property
-  identity: string;
+  identity!: string;
   @Property
-  phone: string;
+  phone!: string;
   @Property
-  email: string;
+  email!: string;
   @Property
   @FromJSON
-  address: IAddress;
+  address!: IAddress;
   @Property
   mainPicture?: string;
 
-  constructor(
+  static init(
     areaCode: number,
     contractName: string,
     cnpj: string,
@@ -33,16 +33,7 @@ export default class IVendorProfile extends BaseJSON {
     mainPicture?: string,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.areaCode = areaCode
-    this.contractName = contractName
-    this.cnpj = cnpj
-    this.identity = identity
-    this.phone = phone
-    this.email = email
-    this.address = address
-    this.mainPicture = mainPicture
+  ): IVendorProfile {
+    return this.createInitObject(arguments)
   }
-
 }

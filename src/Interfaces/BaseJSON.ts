@@ -1,47 +1,87 @@
-import { Property } from "../Decorators";
+import { Property } from "../Decorators/Property";
+
+const STRIP_COMMENTS = /(\/\/.*$)|(\/\*[\s\S]*?\*\/)|(\s*=[^,)]*(('(?:\\'|[^'\r\n])*')|("(?:\\"|[^"\r\n])*"))|(\s*=[^,)]*))/mg;
+const ARGUMENT_NAMES = /([^\s,]+)/g;
 
 export default abstract class BaseJSON {
   @Property
   id?: string;
   @Property
   timestamp?: number;
-
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  static getParamNames(func: any) {
+    const fnStr = func.toString().replace(STRIP_COMMENTS, '');
+    let result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES);
+    if (result === null)
+      result = [];
+    return result;
+  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  static createInitObject(args: any) {
+    const params = this.getParamNames((this as any).init)
+    const object: any = {}
+    for (let index = 0; index < params.length; index++) {
+      object[params[index]] = args[index]
+    }
+    return this.fromObject(object)
+  }
   toJSON() {
-    const prototype = Object.getPrototypeOf(this);
-    const json: any = Object.assign({}, this);
-
-    Object.entries(Object.getOwnPropertyDescriptors(prototype))
-      .filter((proto) => typeof proto?.[1].get === 'function')
-      .map((proto) => {
-        const key = proto?.[0];
-        try {
-          if (Array.isArray((this as any)[key])) {
-            json[key] = [];
-            for (const item of (this as any)[key]) {
-              let val = (this as any)[key];
-              if (item && typeof item === 'object' && 'id' in item) {
-                val = item.id;
-              }
-              json[key].push(val);
+    const scopedThis = this as any
+    const instance: any = {}
+    const properties: (string | symbol)[] = [];
+    let prototype = this.constructor.prototype;
+    while (prototype != null) {
+      const result: (string | symbol)[] = prototype["__properties__"];
+      if (result) {
+        properties.push(...result);
+      }
+      prototype = Object.getPrototypeOf(prototype);
+    }
+    for (const key of properties) {
+      try {
+        const arrayOfObjects = Reflect.getMetadata('design:type:array', this, key) === 'arrayOfObjects';
+        if (Array.isArray(scopedThis[key])) {
+          instance[key] = [];
+          for (const item of scopedThis[key]) {
+            let val = item?.toJSON() ?? item;
+            if (!arrayOfObjects && item && typeof item === 'object' && item?.id) {
+              val = item.id;
             }
-          } else if ((this as any)[key] && typeof (this as any)[key] === 'object' && 'id' in (this as any)[key]) {
-            json[key] = (this as any)[key].id;
-          } else {
-            json[key] = (this as any)[key];
+            if (val !== undefined) {
+              instance[key].push(val);
+            }
           }
-        } catch (error: any) {
-          console.error(`Error calling getter ${key}`, error);
         }
-      });
-    return json;
+        else if (!arrayOfObjects && scopedThis[key] && typeof scopedThis[key] === 'object' && scopedThis[key]?.id) {
+          instance[key] = scopedThis[key].id;
+        }
+        else if (scopedThis[key] !== undefined && typeof scopedThis[key] === 'object') {
+          instance[key] = scopedThis[key]?.toJSON() ?? scopedThis[key];
+        }
+        else if (scopedThis[key] !== undefined) {
+          instance[key] = scopedThis[key];
+        }
+      } catch (error: any) {
+        console.error(`Error calling getter ${String(key)}`, error);
+      }
+    }
+    return instance;
   }
 
   static fromObject(object: any) {
+    function handleObject(instance: any, properties: (string | symbol)[], object: any) {
+      for (const property of properties) {
+        if (undefined !== object[property]) {
+          instance[property] = object[property]
+        }
+      }
+      return instance
+    }
     if (!object && typeof object !== 'object') {
       return null
     }
     const properties: (string | symbol)[] = [];
-    const instance = new (this as any)()
+    let instance = new (this as any)()
     let prototype = instance.constructor.prototype;
     while (prototype != null) {
       const result: (string | symbol)[] = prototype["__properties__"];
@@ -50,12 +90,15 @@ export default abstract class BaseJSON {
       }
       prototype = Object.getPrototypeOf(prototype);
     }
-    for (const property of properties) {
-      if (property in object) {
-        instance[property] = object[property]
+    if (Array.isArray(object)) {
+      const instanceArray = []
+      for (const item of object) {
+        instance = new (this as any)()
+        instanceArray.push(handleObject(instance, properties, item))
       }
+      return instanceArray
     }
-    return instance
+    return handleObject(instance, properties, object)
   }
 
   constructor(object?: any) {

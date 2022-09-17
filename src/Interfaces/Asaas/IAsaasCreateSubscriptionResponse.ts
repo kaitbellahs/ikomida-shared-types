@@ -6,7 +6,7 @@ import IAsaasCardResponse from './IAsaasCardResponse';
 import { TAsaasBilling, TAsaasSubscriptionStatus } from '../../Types/Asaas';
 import { Enum } from '../../Decorators/Enum';
 import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasCreateSubscriptionResponse extends IAsaasErrors {
   @Property

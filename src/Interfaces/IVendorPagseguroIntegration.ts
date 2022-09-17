@@ -1,19 +1,16 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import BaseJSON from './BaseJSON';
 
 export default class IvendorPagseguroIntegration extends BaseJSON {
   @Property
-  state: string;
+  state!: string;
   @Property
-  code: string;
+  code!: string;
 
-  constructor(state: string, code: string,
+  static init(state: string, code: string,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.state = state
-    this.code = code
+  ): IvendorPagseguroIntegration {
+    return this.createInitObject(arguments)
   }
-
 }

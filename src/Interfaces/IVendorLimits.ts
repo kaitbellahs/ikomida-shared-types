@@ -1,5 +1,5 @@
 import { BaseJSON } from ".";
-import { Property } from "../Decorators";
+import { Property } from "../Decorators/Property";
 import { FromJSON } from "../Decorators/FromJSON";
 
 interface IVendorLimit {
@@ -15,19 +15,16 @@ interface IVendorLimit {
 export default class IVendorLimits extends BaseJSON {
     @Property
     @FromJSON
-    limits: IVendorLimit
+    limits!: IVendorLimit
 
     @Property
     @FromJSON
-    used: IVendorLimit;
+    used!: IVendorLimit;
 
-    constructor(limits: IVendorLimit, used: IVendorLimit,
+    static init(limits: IVendorLimit, used: IVendorLimit,
         id?: string,
         timestamp?: number,
-    ) {
-        super({ id, timestamp })
-        this.limits = limits
-        this.used = used
+    ): IVendorLimit {
+        return this.createInitObject(arguments)
     }
-
 }

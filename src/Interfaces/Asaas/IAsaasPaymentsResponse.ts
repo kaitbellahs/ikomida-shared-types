@@ -1,7 +1,7 @@
 import { FromJSON } from '../../Decorators/FromJSON';
 import IAsaasErrors from './IAsaasErrors';
 import IAsaasPayment from './IAsaasPayment';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasPaymentsResponse extends IAsaasErrors {
   @Property

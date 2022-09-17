@@ -1,7 +1,7 @@
 import { FromJSON } from '../../Decorators/FromJSON';
 import IPagseguroErrorMessage from './IPagseguroErrorMessage';
 import IPagSeguroHolder from './IPagSeguroHolder';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroCardResponse extends IPagseguroErrorMessage {
   @Property

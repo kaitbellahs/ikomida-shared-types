@@ -8,7 +8,7 @@ class IPagseguroCreateChargeConfig {
   host?: string;
   @Property
   uri?: string;
-} import { Property } from '../../Decorators';
+} import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroCreateCharge extends BaseJSON {
   @Property

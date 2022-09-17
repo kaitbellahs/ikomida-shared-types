@@ -5,7 +5,7 @@ import IPagSeguroErrorResponse from './IPagSeguroErrorResponse';
 import IPagSeguroPaymentResponse from './IPagSeguroPaymentResponse';
 import IPagSeguroLink from './IPagSeguroLink';
 import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 import { TPagSeguroPaymentStatus } from '../../Types';
 import { Enum } from '../../Decorators/Enum';
 

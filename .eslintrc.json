@@ -11,6 +11,8 @@
         "eslint-config-prettier"
     ],
     "rules": {
-        "@typescript-eslint/no-namespace": 0
+        "@typescript-eslint/no-namespace": 0,
+        "prefer-rest-params": "off",
+        "@typescript-eslint/no-explicit-any": "off"
     }
 }

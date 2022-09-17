@@ -2,7 +2,7 @@ import IAsaasNewCustomer from './IAsaasNewCustomer';
 import IAsaasCard from './IAsaasCard';
 import BaseJSON from '../BaseJSON';
 import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasSubscription extends BaseJSON {
   @Property

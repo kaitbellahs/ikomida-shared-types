@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { FromJSON } from '../Decorators/FromJSON';
 import BaseJSON from './BaseJSON';
 import IAddress from './IAddress';
@@ -41,7 +41,7 @@ export default class IContract extends BaseJSON {
   @Property
   @FromJSON
   plan!: IPlan;
-  @Property
+  @Property(IApp)
   @FromJSON(IApp)
   apps?: IApp[];
   @Property

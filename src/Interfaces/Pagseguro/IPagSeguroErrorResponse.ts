@@ -1,7 +1,7 @@
 import { FromJSON } from '../../Decorators/FromJSON';
 import BaseJSON from '../BaseJSON';
 import IPagseguroErrorMessage from './IPagseguroErrorMessage';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroErrorResponse extends BaseJSON {
   @Property

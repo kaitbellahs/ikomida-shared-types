@@ -4,7 +4,7 @@ import IPagSeguroPaymentMethod from './IPagSeguroPaymentMethod';
 import IPagSeguroAmount from './IPagSeguroAmount';
 import BaseJSON from '../BaseJSON';
 import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroChargeRequest extends BaseJSON {
   @Property

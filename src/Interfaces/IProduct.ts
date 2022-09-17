@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
 import { TDiscount } from '../Types';
@@ -7,16 +7,16 @@ import IProductCategory from './IProductCategory';
 
 export default class IProduct extends BaseJSON {
   @Property
-  title: string;
+  title!: string;
   @Property
-  price: number;
+  price!: number;
   @Property
-  discount: number;
+  discount!: number;
   @Property
   @Enum
-  discountType: TDiscount;
+  discountType!: TDiscount;
   @Property
-  quantity: number;
+  quantity!: number;
   @Property
   description?: string;
   @Property
@@ -34,7 +34,7 @@ export default class IProduct extends BaseJSON {
   @FromJSON
   createdAt?: Date
 
-  constructor(
+  static init(
     title: string,
     price: number,
     discount: number,
@@ -49,20 +49,7 @@ export default class IProduct extends BaseJSON {
     createdAt?: Date,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.title = title
-    this.price = price
-    this.discount = discount
-    this.discountType = discountType
-    this.quantity = quantity
-    this.description = description
-    this.order = order
-    this.serves = serves
-    this.weight = weight
-    this.category = category
-    this.image = image
-    this.createdAt = createdAt
+  ): IProduct {
+    return this.createInitObject(arguments)
   }
-
 }

@@ -1,19 +1,16 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import BaseJSON from './BaseJSON';
 
 export default class IVendorPaymentGateway extends BaseJSON {
   @Property
-  type: string;
+  type!: string;
   @Property
-  data: any;
+  data!: any;
 
-  constructor(type: string, data: any,
+  static init(type: string, data: any,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.type = type
-    this.data = data
+  ): IVendorPaymentGateway {
+    return this.createInitObject(arguments)
   }
-
 }

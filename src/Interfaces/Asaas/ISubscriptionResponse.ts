@@ -4,7 +4,7 @@ import ISubscriptionDiscount from './ISubscriptionDiscount';
 import { TAsaasBilling } from '../../Types/Asaas';
 import { Enum } from '../../Decorators/Enum';
 import IAsaasErrors from './IAsaasErrors';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 import { FromJSON } from '../../Decorators/FromJSON';
 
 export default class ISubscriptionResponse extends IAsaasErrors {

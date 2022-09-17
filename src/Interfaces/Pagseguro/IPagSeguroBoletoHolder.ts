@@ -1,7 +1,7 @@
 import { FromJSON } from '../../Decorators/FromJSON';
 import BaseJSON from '../BaseJSON';
 import IPagSeguroAddress from './IPagSeguroAddress';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroBoletoHolder extends BaseJSON {
   @Property

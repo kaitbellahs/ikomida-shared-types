@@ -1,27 +1,27 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import BaseJSON from './BaseJSON';
 
 export default class ILoginOptions extends BaseJSON {
   @Property
-  ip: string;
+  ip!: string;
   @Property
-  forwardedIp: string;
+  forwardedIp!: string;
   @Property
-  platform: string;
+  platform!: string;
   @Property
-  deviceId: string;
+  deviceId!: string;
   @Property
-  region: string;
+  region!: string;
   @Property
-  subRegion: string;
+  subRegion!: string;
   @Property
-  citylatlong: string;
+  citylatlong!: string;
   @Property
-  city: string;
+  city!: string;
   @Property
-  app: string;
+  app!: string;
 
-  constructor(
+  static init(
     ip: string,
     forwardedIp: string,
     platform: string,
@@ -33,17 +33,7 @@ export default class ILoginOptions extends BaseJSON {
     app: string,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.ip = ip
-    this.forwardedIp = forwardedIp
-    this.platform = platform
-    this.deviceId = deviceId
-    this.region = region
-    this.subRegion = subRegion
-    this.citylatlong = citylatlong
-    this.city = city
-    this.app = app
+  ): ILoginOptions {
+    return this.createInitObject(arguments)
   }
-
 }

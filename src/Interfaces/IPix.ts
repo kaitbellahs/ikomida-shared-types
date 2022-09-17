@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
 import { TPIX } from '../Types';
@@ -6,10 +6,10 @@ import BaseJSON from './BaseJSON';
 
 export default class IPix extends BaseJSON {
   @Property
-  name: string;
+  name!: string;
   @Property
   @Enum
-  type: TPIX;
+  kind!: TPIX;
   @Property
   key?: string;
   @Property
@@ -26,9 +26,9 @@ export default class IPix extends BaseJSON {
   @FromJSON
   createdAt?: Date;
 
-  constructor(
+  static init(
     name: string,
-    type: TPIX,
+    kind: TPIX,
     key?: string,
     bank?: string,
     agency?: string,
@@ -38,16 +38,7 @@ export default class IPix extends BaseJSON {
     createdAt?: Date,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.name = name
-    this.type = type
-    this.key = key
-    this.bank = bank
-    this.agency = agency
-    this.account = account
-    this.note = note
-    this.status = status
-    this.createdAt = createdAt
+  ): IPix {
+    return this.createInitObject(arguments)
   }
 }

@@ -1,7 +1,7 @@
 import { Enum } from '../../Decorators/Enum';
 import { TAsaasStatment } from '../../Types/Asaas';
 import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasStatment extends BaseJSON {
   @Property

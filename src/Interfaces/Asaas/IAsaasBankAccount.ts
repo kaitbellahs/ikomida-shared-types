@@ -1,7 +1,7 @@
 import { FromJSON } from '../../Decorators/FromJSON';
 import BaseJSON from '../BaseJSON';
 import IAsaasBank from './IAsaasBank';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasBankAccount extends BaseJSON {
   @Property

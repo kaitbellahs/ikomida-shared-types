@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import BaseJSON from './BaseJSON';
 import INotificationPayload from './INotificationPayload';
 

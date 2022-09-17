@@ -1,26 +1,26 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { TAddress } from '../Types';
 import BaseJSON from './BaseJSON';
 
 export default class IAddress extends BaseJSON {
   @Property
-  postalCode: string;
+  postalCode!: string;
   @Property
-  street: string;
+  street!: string;
   @Property
-  neighborhood: string;
+  neighborhood!: string;
   @Property
-  city: string;
+  city!: string;
   @Property
-  stat: string;
+  stat!: string;
   @Property
   number?: string;
   @Property
   complement?: string;
   @Property
   @Enum
-  type?: TAddress;
+  kind?: TAddress;
   @Property
   reference?: string;
   @Property
@@ -30,7 +30,7 @@ export default class IAddress extends BaseJSON {
   @Property
   selected?: boolean;
 
-  constructor(
+  static init(
     postalCode: string,
     street: string,
     neighborhood: string,
@@ -38,27 +38,14 @@ export default class IAddress extends BaseJSON {
     stat: string,
     number?: string,
     complement?: string,
-    type?: TAddress,
+    kind?: TAddress,
     reference?: string,
     distance?: number,
     duration?: number,
     selected?: boolean,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.postalCode = postalCode
-    this.street = street
-    this.neighborhood = neighborhood
-    this.city = city
-    this.stat = stat
-    this.number = number
-    this.complement = complement
-    this.type = type
-    this.reference = reference
-    this.distance = distance
-    this.duration = duration
-    this.selected = selected
+  ): IAddress {
+    return this.createInitObject(arguments)
   }
-
 }

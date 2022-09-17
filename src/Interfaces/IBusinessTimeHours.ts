@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import BaseJSON from './BaseJSON';
 
 export default class IBusinessTimeHours extends BaseJSON {

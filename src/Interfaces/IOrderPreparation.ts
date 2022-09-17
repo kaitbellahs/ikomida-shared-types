@@ -1,19 +1,16 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import BaseJSON from './BaseJSON';
 
 export default class IOrderPreparation extends BaseJSON {
   @Property
-  min: number;
+  min!: number;
   @Property
-  max: number;
+  max!: number;
 
-  constructor(min: number, max: number,
+  static init(min: number, max: number,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.min = min
-    this.max = max
+  ): IOrderPreparation {
+    return this.createInitObject(arguments)
   }
-
 }

@@ -1,11 +1,11 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import BaseJSON from './BaseJSON';
 
 export default class INotification extends BaseJSON {
   @Property
-  title: string;
+  title!: string;
   @Property
-  body: string;
+  body!: string;
   @Property
   method?: string;
   @Property
@@ -13,7 +13,7 @@ export default class INotification extends BaseJSON {
   @Property
   logon?: string;
 
-  constructor(
+  static init(
     title: string,
     body: string,
     method?: string,
@@ -21,13 +21,7 @@ export default class INotification extends BaseJSON {
     logon?: string,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.title = title
-    this.body = body
-    this.method = method
-    this.uri = uri
-    this.logon = logon
+  ): INotification {
+    return this.createInitObject(arguments)
   }
-
 }

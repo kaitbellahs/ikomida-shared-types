@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
 import { TPagSeguroPaymentStatus, TPaymentMethod } from '../Types';
@@ -7,11 +7,11 @@ import BaseJSON from './BaseJSON';
 export default class IPaymentMethods extends BaseJSON {
   @Property
   @Enum
-  type: TPaymentMethod;
+  type!: TPaymentMethod;
   @Property
-  brand: string;
+  brand!: string;
   @Property
-  lastDigits: number;
+  lastDigits!: number;
   @Property
   selected?: boolean;
   @Property
@@ -20,7 +20,7 @@ export default class IPaymentMethods extends BaseJSON {
   @FromJSON
   createdAt?: Date;
 
-  constructor(
+  static init(
     type: TPaymentMethod,
     brand: string,
     lastDigits: number,
@@ -29,13 +29,7 @@ export default class IPaymentMethods extends BaseJSON {
     createdAt?: Date,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.type = type
-    this.brand = brand
-    this.lastDigits = lastDigits
-    this.selected = selected
-    this.firstDigits = firstDigits
-    this.createdAt = createdAt
+  ): IPaymentMethods {
+    return this.createInitObject(arguments)
   }
 }

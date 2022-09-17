@@ -3,7 +3,7 @@ import { FromJSON } from '../../Decorators/FromJSON';
 import { TAsaasTransferOperation, TAsaasTransferStatus } from '../../Types/Asaas';
 import IAsaasBankAccount from './IAsaasBankAccount';
 import IAsaasErrors from './IAsaasErrors';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasTransferResponse extends IAsaasErrors {
   @Property

@@ -5,7 +5,7 @@ import { Enum } from '../../Decorators/Enum';
 import BaseJSON from '../BaseJSON';
 import { FromJSON } from '../../Decorators/FromJSON';
 import IAsaasPayment from './IAsaasPayment';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasCreatePayment extends BaseJSON {
   @Property

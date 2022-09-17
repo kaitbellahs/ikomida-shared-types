@@ -1,19 +1,16 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import BaseJSON from './BaseJSON';
 
 export default class IRegisterPushNotification extends BaseJSON {
   @Property
-  platform: string;
+  platform!: string;
   @Property
-  token: string;
+  token!: string;
 
-  constructor(platform: string, token: string,
+  static init(platform: string, token: string,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.platform = platform
-    this.token = token
+  ): IRegisterPushNotification {
+    return this.createInitObject(arguments)
   }
-
 }

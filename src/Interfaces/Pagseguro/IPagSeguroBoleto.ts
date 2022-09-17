@@ -2,7 +2,7 @@ import IPagSeguroInstructionLines from './IPagSeguroInstructionLines';
 import IPagSeguroBoletoHolder from './IPagSeguroBoletoHolder';
 import BaseJSON from '../BaseJSON';
 import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroBoleto extends BaseJSON {
   @Property

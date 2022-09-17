@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 import TBaseType from '../Types/TBaseType';
-type anotationFunction = (target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor) => void;
+type anotationFunction = (target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor) => void;
 
 export function Enum(dataType?: any): anotationFunction;
-export function Enum(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor): void;
+export function Enum(target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor): void;
 
 export function Enum(...args: any[]): anotationFunction | void {
   if (args.length >= 2) {
@@ -15,8 +15,9 @@ export function Enum(...args: any[]): anotationFunction | void {
     return;
   }
 
-  return (target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor) => {
+  return (target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor) => {
     let dataType = null;
+    Reflect.defineMetadata('property:type', 'enum', target, propertyName);
     if (args.length === 1) {
       dataType = args[0];
       Reflect.defineMetadata('design:type:array', dataType, target, propertyName);
@@ -30,29 +31,42 @@ export function Enum(...args: any[]): anotationFunction | void {
   };
 }
 
-function annotateEnum(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor, dataType?: any) {
+function annotateEnum(target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor, dataType?: any) {
   let runtime = Reflect.getMetadata('design:type', target, propertyName);
   if (dataType) {
     runtime = dataType;
   }
   type runtimeType = typeof runtime;
-  let _val = target[propertyName];
-  const getter = function () {
-    if (_val) {
-      if (Array.isArray(_val)) {
-        const newVal: runtimeType[] = [];
-        for (const val of _val) {
-          newVal.push(typeof val !== 'object' ? runtime.valueOf(val) : val);
-        }
-        return newVal;
-      } else {
-        return typeof _val !== 'object' ? runtime.valueOf(_val) : _val;
+  const key = typeof propertyName === 'symbol' ? Symbol(`_${propertyName.toString().substring(7, propertyName.toString().length - 1)}`) : `_${propertyName}`
+  const getter = function (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean; }) {
+    const propertyValue = (this as any)[key]
+    let newVal
+    if (Array.isArray(propertyValue)) {
+      newVal = []
+      for (const value of propertyValue) {
+        newVal.push(`${value}`)
       }
     } else {
-      return typeof _val !== 'object' ? runtime.valueOf(_val) : _val;
+      newVal = `${propertyValue}`
     }
+    if (propertyValue) {
+      if (Array.isArray(propertyValue)) {
+        newVal = [];
+        for (const val of propertyValue) {
+          newVal.push(typeof val !== 'object' ? runtime.valueOf(val) : val);
+        }
+      }
+      else {
+        newVal = typeof propertyValue !== 'object' ? runtime.valueOf(propertyValue) : propertyValue;
+      }
+    }
+    else if (typeof propertyValue !== 'object') {
+      newVal = runtime.valueOf(propertyValue)
+    }
+    return newVal
   };
-  const setter = function (newVal?: runtimeType) {
+  const setter = function (this: { get: (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean; }) => any; set: (newVal?: any) => void; enumerable: true; configurable: true; }, newVal?: runtimeType) {
+    let _val = newVal
     if (newVal) {
       if (Array.isArray(newVal)) {
         _val = [];
@@ -66,13 +80,13 @@ function annotateEnum(target: any, propertyName: string, propertyDescriptor?: Pr
     } else {
       _val = newVal;
     }
+    (this as any)[key] = _val
   };
-  if (delete target[propertyName]) {
-    Object.defineProperty(target, propertyName, {
-      get: getter,
-      set: setter,
-      enumerable: true,
-      configurable: true,
-    });
-  }
+  delete target[propertyName];
+  Object.defineProperty(target, propertyName, {
+    get: getter,
+    set: setter,
+    enumerable: true,
+    configurable: true
+  });
 }

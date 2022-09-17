@@ -1,25 +1,25 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { FromJSON } from '../Decorators/FromJSON';
 import BaseJSON from './BaseJSON';
 import IAddress from './IAddress';
 
 export default class IUser extends BaseJSON {
   @Property
-  role: string;
+  role!: string;
   @Property
-  name: string;
+  name!: string;
   @Property
-  lastName: string;
+  lastName!: string;
   @Property
-  identity: string;
+  identity!: string;
   @Property
-  email: string;
+  email!: string;
   @Property
-  phone: string;
+  phone!: string;
   @Property
-  areaCode: string;
+  areaCode!: string;
   @Property
-  ikomidaID: string;
+  ikomidaID!: string;
   @Property
   contractName?: string;
   @Property
@@ -56,7 +56,7 @@ export default class IUser extends BaseJSON {
   @Property
   hash?: string;
 
-  constructor(
+  static init(
     role: string,
     name: string,
     lastName: string,
@@ -84,33 +84,7 @@ export default class IUser extends BaseJSON {
     hash?: string,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.role = role
-    this.name = name
-    this.lastName = lastName
-    this.identity = identity
-    this.email = email
-    this.phone = phone
-    this.areaCode = areaCode
-    this.ikomidaID = ikomidaID
-    this.contractName = contractName
-    this.termId = termId
-    this.platform = platform
-    this.deviceId = deviceId
-    this.cnpj = cnpj
-    this.referredBy = referredBy
-    this.password = password
-    this.oldPass = oldPass
-    this.newPass = newPass
-    this.reNewPass = reNewPass
-    this.address = address
-    this.signature = signature
-    this.phoneValidationCode = phoneValidationCode
-    this.avatar = avatar
-    this.code = code
-    this.referralCode = referralCode
-    this.hash = hash
+  ): IUser {
+    return this.createInitObject(arguments)
   }
-
 }

@@ -6,7 +6,7 @@ import { TAsaasBilling } from '../../Types/Asaas';
 import { Enum } from '../../Decorators/Enum';
 import BaseJSON from '../BaseJSON';
 import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasPayment extends BaseJSON {
   @Property

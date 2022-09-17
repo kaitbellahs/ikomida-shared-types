@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
 import { TOrderStatus, TPaymentMethod } from '../Types';
@@ -12,23 +12,23 @@ import IUser from './IUser';
 
 export default class IOrder extends BaseJSON {
   @Property
-  subtotal: number;
+  subtotal!: number;
   @Property
-  discount: number;
+  discount!: number;
   @Property
-  delivery: number;
+  delivery!: number;
   @Property
   @FromJSON(IProduct)
-  products: IProduct[];
+  products!: IProduct[];
   @Property
   @FromJSON
-  address: IAddress;
+  address!: IAddress;
   @Property
   @Enum
-  paymentMethodType: TPaymentMethod;
+  paymentMethodType!: TPaymentMethod;
   @Property
   @FromJSON
-  preparation: IOrderPreparation;
+  preparation!: IOrderPreparation;
   @Property
   @FromJSON
   coupon?: ICoupon;
@@ -50,7 +50,7 @@ export default class IOrder extends BaseJSON {
   @FromJSON
   user?: IUser;
 
-  constructor(
+  static init(
     subtotal: number,
     discount: number,
     delivery: number,
@@ -67,21 +67,7 @@ export default class IOrder extends BaseJSON {
     user?: IUser,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.subtotal = subtotal
-    this.discount = discount
-    this.delivery = delivery
-    this.products = products
-    this.address = address
-    this.paymentMethodType = paymentMethodType
-    this.preparation = preparation
-    this.coupon = coupon
-    this.createdAt = createdAt
-    this.customID = customID
-    this.status = status
-    this.finishedAt = finishedAt
-    this.payment = payment
-    this.user = user
+  ): IOrder {
+    return this.createInitObject(arguments)
   }
 }

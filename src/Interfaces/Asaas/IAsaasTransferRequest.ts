@@ -1,7 +1,7 @@
 import { Enum } from '../../Decorators/Enum';
 import { TPIX } from '../../Types';
 import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasTransferRequest extends BaseJSON {
   @Property

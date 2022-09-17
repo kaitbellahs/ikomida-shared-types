@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { FromJSON } from '../Decorators/FromJSON';
 import { IAsaasCard } from './Asaas';
 import BaseJSON from './BaseJSON';
@@ -10,15 +10,15 @@ import IProduct from './IProduct';
 export default class IOrderPayload extends BaseJSON {
   @Property
   @FromJSON(IProduct)
-  products: IProduct[];
+  products!: IProduct[];
   @Property
   @FromJSON
-  payment: IAsaasCard;
+  payment!: IAsaasCard;
   @Property
   @FromJSON
-  address: IAddress;
+  address!: IAddress;
   @Property
-  delivery: number;
+  delivery!: number;
   @Property
   @FromJSON
   coupon?: ICoupon;
@@ -26,7 +26,7 @@ export default class IOrderPayload extends BaseJSON {
   @FromJSON
   location?: ILocation;
 
-  constructor(
+  static init(
     products: IProduct[],
     payment: IAsaasCard,
     address: IAddress,
@@ -35,14 +35,7 @@ export default class IOrderPayload extends BaseJSON {
     location?: ILocation,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.products = products
-    this.payment = payment
-    this.address = address
-    this.delivery = delivery
-    this.coupon = coupon
-    this.location = location
+  ): IOrderPayload {
+    return this.createInitObject(arguments)
   }
-
 }

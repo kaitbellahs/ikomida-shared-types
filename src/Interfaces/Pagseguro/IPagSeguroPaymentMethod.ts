@@ -7,7 +7,7 @@ import { TPagSeguroPaymentMethod } from '../../Types/Pagseguro';
 import { Enum } from '../../Decorators/Enum';
 import BaseJSON from '../BaseJSON';
 import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroPaymentMethod extends BaseJSON {
   @Property

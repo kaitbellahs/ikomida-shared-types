@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
 import { TSetting } from '../Types';
@@ -6,19 +6,19 @@ import BaseJSON from './BaseJSON';
 
 export default class ISetting extends BaseJSON {
   @Property
-  name: string;
+  name!: string;
   @Property
-  value: string;
+  value!: string;
   @Property
   @Enum
-  type: TSetting;
+  type!: TSetting;
   @Property
-  active: boolean;
+  active!: boolean;
   @Property
   @FromJSON
   createdAt?: Date;
 
-  constructor(
+  static init(
     name: string,
     value: string,
     type: TSetting,
@@ -26,13 +26,7 @@ export default class ISetting extends BaseJSON {
     createdAt?: Date,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.name = name
-    this.value = value
-    this.type = type
-    this.active = active
-    this.createdAt = createdAt
+  ): ISetting {
+    return this.createInitObject(arguments)
   }
-
 }

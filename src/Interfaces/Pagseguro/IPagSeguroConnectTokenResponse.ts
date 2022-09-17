@@ -1,5 +1,5 @@
 import IPagSeguroErrorResponse from './IPagSeguroErrorResponse';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IPagSeguroConnectTokenResponse extends IPagSeguroErrorResponse {
   @Property

@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import TAMQPPayload from '../Types/TAMQPPayload';
 import BaseJSON from './BaseJSON';
 

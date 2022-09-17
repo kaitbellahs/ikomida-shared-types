@@ -1,4 +1,4 @@
-import { Property } from '../Decorators';
+import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
 import TDiscount from '../Types/TDiscount';
@@ -8,41 +8,41 @@ import IKeyValue from './IKeyValue';
 
 export default class IPlan extends BaseJSON {
   @Property
-  name: string;
+  name!: string;
   @Property
-  price: number;
+  price!: number;
   @Property
-  discountedPrice: number;
+  discountedPrice!: number;
   @Property
-  discount: number;
+  discount!: number;
   @Property
   @Enum
-  discountType: TDiscount;
+  discountType!: TDiscount;
   @Property
-  staff: number;
+  staff!: number;
   @Property
-  products: number;
+  products!: number;
   @Property
-  categories: number;
+  categories!: number;
   @Property
-  pushNotifications: number;
+  pushNotifications!: number;
   @Property
-  orders: number;
+  orders!: number;
   @Property
-  coupons: number;
+  coupons!: number;
   @Property
-  billing: number;
+  billing!: number;
   @Property
-  details: IKeyValue[];
+  details!: IKeyValue[];
 
   @FromJSON(TSupport)
-  support: TSupport[];
+  support!: TSupport[];
   @Property
-  highlighted: boolean;
+  highlighted!: boolean;
   @Property
   order?: number;
 
-  constructor(
+  static init(
     name: string,
     price: number,
     discountedPrice: number,
@@ -61,24 +61,7 @@ export default class IPlan extends BaseJSON {
     order?: number,
     id?: string,
     timestamp?: number,
-  ) {
-    super({ id, timestamp })
-    this.name = name
-    this.price = price
-    this.discountedPrice = discountedPrice
-    this.discount = discount
-    this.discountType = discountType
-    this.staff = staff
-    this.products = products
-    this.categories = categories
-    this.pushNotifications = pushNotifications
-    this.orders = orders
-    this.coupons = coupons
-    this.billing = billing
-    this.details = details
-    this.support = support
-    this.highlighted = highlighted
-    this.order = order
+  ): IPlan {
+    return this.createInitObject(arguments)
   }
-
 }

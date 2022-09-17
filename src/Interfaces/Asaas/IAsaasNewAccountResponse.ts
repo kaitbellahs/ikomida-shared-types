@@ -3,7 +3,7 @@ import { FromJSON } from '../../Decorators/FromJSON';
 import { TCompany, TPerson } from '../../Types';
 import IAsaasAccountNumber from './IAsaasAccountNumber';
 import IAsaasErrors from './IAsaasErrors';
-import { Property } from '../../Decorators';
+import { Property } from '../../Decorators/Property';
 
 export default class IAsaasNewAccountResponse extends IAsaasErrors {
   @Property

@@ -1,4 +1,4 @@
-import { IAMQPPayloadObject, IEmail } from '../Interfaces';
+import { CAMQPPayloadObject, CEmail } from '../Classes';
 
-type TAMQPPayload = IAMQPPayloadObject | number | string | IEmail;
+type TAMQPPayload = CAMQPPayloadObject | number | string | CEmail;
 export default TAMQPPayload;

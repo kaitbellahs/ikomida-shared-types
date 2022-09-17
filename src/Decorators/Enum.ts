@@ -31,23 +31,36 @@ export function Enum(...args: any[]): anotationFunction | void {
   };
 }
 
-function annotateEnum(target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor, dataType?: any) {
+function annotateEnum(
+  target: any,
+  propertyName: string | symbol,
+  propertyDescriptor?: PropertyDescriptor,
+  dataType?: any,
+) {
   let runtime = Reflect.getMetadata('design:type', target, propertyName);
   if (dataType) {
     runtime = dataType;
   }
   type runtimeType = typeof runtime;
-  const key = typeof propertyName === 'symbol' ? Symbol(`_${propertyName.toString().substring(7, propertyName.toString().length - 1)}`) : `_${propertyName}`
-  const getter = function (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean; }) {
-    const propertyValue = (this as any)[key]
-    let newVal
+  const key =
+    typeof propertyName === 'symbol'
+      ? Symbol(`_${propertyName.toString().substring(7, propertyName.toString().length - 1)}`)
+      : `_${propertyName}`;
+  const getter = function (this: {
+    set: (newVal?: any) => void;
+    get: () => any;
+    enumerable: boolean;
+    configurable: boolean;
+  }) {
+    const propertyValue = (this as any)[key];
+    let newVal;
     if (Array.isArray(propertyValue)) {
-      newVal = []
+      newVal = [];
       for (const value of propertyValue) {
-        newVal.push(`${value}`)
+        newVal.push(`${value}`);
       }
     } else {
-      newVal = `${propertyValue}`
+      newVal = `${propertyValue}`;
     }
     if (propertyValue) {
       if (Array.isArray(propertyValue)) {
@@ -55,18 +68,24 @@ function annotateEnum(target: any, propertyName: string | symbol, propertyDescri
         for (const val of propertyValue) {
           newVal.push(typeof val !== 'object' ? runtime.valueOf(val) : val);
         }
-      }
-      else {
+      } else {
         newVal = typeof propertyValue !== 'object' ? runtime.valueOf(propertyValue) : propertyValue;
       }
+    } else if (typeof propertyValue !== 'object') {
+      newVal = runtime.valueOf(propertyValue);
     }
-    else if (typeof propertyValue !== 'object') {
-      newVal = runtime.valueOf(propertyValue)
-    }
-    return newVal
+    return newVal;
   };
-  const setter = function (this: { get: (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean; }) => any; set: (newVal?: any) => void; enumerable: true; configurable: true; }, newVal?: runtimeType) {
-    let _val = newVal
+  const setter = function (
+    this: {
+      get: (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean }) => any;
+      set: (newVal?: any) => void;
+      enumerable: true;
+      configurable: true;
+    },
+    newVal?: runtimeType,
+  ) {
+    let _val = newVal;
     if (newVal) {
       if (Array.isArray(newVal)) {
         _val = [];
@@ -80,13 +99,13 @@ function annotateEnum(target: any, propertyName: string | symbol, propertyDescri
     } else {
       _val = newVal;
     }
-    (this as any)[key] = _val
+    (this as any)[key] = _val;
   };
   delete target[propertyName];
   Object.defineProperty(target, propertyName, {
     get: getter,
     set: setter,
     enumerable: true,
-    configurable: true
+    configurable: true,
   });
 }

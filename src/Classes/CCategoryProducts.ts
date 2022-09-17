@@ -1,0 +1,35 @@
+import { Property } from '../Decorators/Property';
+import { FromJSON } from '../Decorators/FromJSON';
+import BaseJSON from './BaseJSON';
+import CProduct from './CProduct';
+import { Nullable } from '../Decorators';
+
+export default class CCategoryProducts extends BaseJSON {
+  @Property
+  title!: string;
+  @Property
+  @Nullable
+  order?: string;
+  @Property
+  @Nullable
+  createdAt?: string;
+  @Property
+  @Nullable
+  description?: string;
+  @Property
+  @FromJSON(CProduct)
+  @Nullable
+  products?: CProduct[];
+
+  static init(
+    title: string,
+    order?: number,
+    description?: string,
+    createdAt?: string,
+    products?: CProduct[],
+    id?: string,
+    timestamp?: number,
+  ): CCategoryProducts {
+    return this.createInitObject(arguments);
+  }
+}

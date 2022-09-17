@@ -29,35 +29,56 @@ export function FromJSON(...args: any[]): PropertyDecorator | void {
   };
 }
 
-function annotateFromJSON(target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor, dataType?: any) {
+function annotateFromJSON(
+  target: any,
+  propertyName: string | symbol,
+  propertyDescriptor?: PropertyDescriptor,
+  dataType?: any,
+) {
   let runtime = Reflect.getMetadata('design:type', target, propertyName);
   if (dataType) {
     runtime = dataType;
   }
   type runtimeType = typeof runtime;
-  const key = typeof propertyName === 'symbol' ? Symbol(`_${propertyName.toString().substring(7, propertyName.toString().length - 1)}`) : `_${propertyName}`
-  const getter = function (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean; }) {
-    return (this as any)[key]
+  const key =
+    typeof propertyName === 'symbol'
+      ? Symbol(`_${propertyName.toString().substring(7, propertyName.toString().length - 1)}`)
+      : `_${propertyName}`;
+  const getter = function (this: {
+    set: (newVal?: any) => void;
+    get: () => any;
+    enumerable: boolean;
+    configurable: boolean;
+  }) {
+    return (this as any)[key];
   };
-  const setter = function (this: { get: (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean; }) => any; set: (newVal?: any) => void; enumerable: true; configurable: true; }, newVal?: runtimeType) {
-    let _val = newVal
+  const setter = function (
+    this: {
+      get: (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean }) => any;
+      set: (newVal?: any) => void;
+      enumerable: true;
+      configurable: true;
+    },
+    newVal?: runtimeType,
+  ) {
+    let _val = newVal;
     if (Array.isArray(newVal)) {
       const value = [];
       for (const val of newVal) {
         value.push(val && typeof val === 'object' ? runtime?.fromObject(val) : val);
       }
-      _val = value
+      _val = value;
+    } else {
+      _val =
+        typeof runtime === 'function' && 'fromObject' in runtime ? runtime?.fromObject(newVal) : new runtime(newVal);
     }
-    else {
-      _val = typeof runtime === 'function' && 'fromObject' in runtime ? runtime?.fromObject(newVal) : new runtime(newVal);
-    }
-    (this as any)[key] = _val
+    (this as any)[key] = _val;
   };
-  delete target[propertyName]
+  delete target[propertyName];
   Object.defineProperty(target, propertyName, {
     get: getter,
     set: setter,
     enumerable: true,
-    configurable: true
+    configurable: true,
   });
 }

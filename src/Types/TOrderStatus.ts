@@ -13,30 +13,30 @@ export default class TOrderStatus extends TBaseType {
     super(type);
     switch (type) {
       case 'WAITING_PAYMENT':
-        this.name = "aguardando pagamento";
-        break
+        this.name = 'aguardando pagamento';
+        break;
       case 'OPEN':
-        this.name = "aguardando aprovação";
-        break
+        this.name = 'aguardando aprovação';
+        break;
       case 'ACCEPTED':
-        this.name = "em preparação";
-        break
+        this.name = 'em preparação';
+        break;
       case 'WAITING_DELIVERY':
-        this.name = "esperando o entregador";
-        break
+        this.name = 'esperando o entregador';
+        break;
       case 'IN_DELIVERY':
-        this.name = "a caminho do cliente";
-        break
+        this.name = 'a caminho do cliente';
+        break;
       case 'DELIVERED':
-        this.name = "entregue";
-        break
+        this.name = 'entregue';
+        break;
       case 'CANCELED':
-        this.name = "cancelado";
-        break
+        this.name = 'cancelado';
+        break;
       case 'IN_DISPUTE':
-        this.name = "em disputa";
-        break
+        this.name = 'em disputa';
+        break;
     }
-    this.description = this.name
+    this.description = this.name;
   }
 }

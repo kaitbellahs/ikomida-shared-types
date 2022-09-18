@@ -29,7 +29,7 @@ export default class CAsaasPayment extends BaseJSON {
   @Property
   dueDate?: string;
   @Property
-  originalDueDate?: Date;
+  originalDueDate?: string;
   @Property
   invoiceURL?: string;
   @Property
@@ -49,7 +49,7 @@ export default class CAsaasPayment extends BaseJSON {
   @Property
   paymentLink?: string;
   @Property
-  canBePaidAfterDueDate?: Date;
+  canBePaidAfterDueDate?: string;
   @Property
   pixTransaction?: string;
   @Property
@@ -70,7 +70,7 @@ export default class CAsaasPayment extends BaseJSON {
   @FromJSON(CAsaasRefund)
   refunds?: CAsaasRefund[];
   @Property
-  confirmedDate?: Date;
+  confirmedDate?: string;
   @Property
   creditDate?: string;
   @Property

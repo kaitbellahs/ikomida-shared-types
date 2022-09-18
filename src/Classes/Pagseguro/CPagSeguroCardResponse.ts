@@ -1,9 +1,9 @@
 import { FromJSON } from '../../Decorators/FromJSON';
-import CPagseguroErrorMessage from './CPagseguroErrorMessage';
+import CPagSeguroErrorResponse from './CPagSeguroErrorResponse';
 import CPagSeguroHolder from './CPagSeguroHolder';
 import { Property } from '../../Decorators/Property';
 
-export default class CPagSeguroCardResponse extends CPagseguroErrorMessage {
+export default class CPagSeguroCardResponse extends CPagSeguroErrorResponse {
   @Property
   id?: string;
   @Property

@@ -15,7 +15,7 @@ export default class CAsaasCreateSubscriptionResponse extends CAsaasErrors {
   id?: string;
   @Property
   @FromJSON
-  dateCreated?: Date;
+  dateCreated?: string;
   @Property
   customer?: string;
   @Property
@@ -26,7 +26,7 @@ export default class CAsaasCreateSubscriptionResponse extends CAsaasErrors {
   @Property
   value?: number;
   @Property
-  nextDueDate?: Date;
+  nextDueDate?: string;
   @Property
   @Enum
   status?: TAsaasSubscriptionStatus;

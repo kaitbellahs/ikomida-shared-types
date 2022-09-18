@@ -3,13 +3,17 @@ import { Property } from '../../Decorators/Property';
 
 export default class CAsaasAddress extends BaseJSON {
   @Property
-  postalCode?: string;
+  postalCode!: string;
   @Property
-  name?: string;
+  name!: string;
   @Property
-  number?: string;
+  number!: string;
   @Property
-  complement?: string;
+  complement!: string;
   @Property
-  province?: string;
+  province!: string;
+
+  static init(postalCode: string, name: string, number: string, complement: string, province: string): CAsaasAddress {
+    return this.createInitObject(arguments);
+  }
 }

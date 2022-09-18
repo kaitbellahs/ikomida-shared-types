@@ -5,7 +5,7 @@ import { Property } from '../../Decorators/Property';
 export default class CAsaasRefund extends BaseJSON {
   @Property
   @FromJSON
-  dateCreated?: Date;
+  dateCreated?: string;
   @Property
   status?: string;
   @Property

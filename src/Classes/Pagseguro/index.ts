@@ -22,3 +22,8 @@ export { default as CPagSeguroTokenData } from './CPagSeguroTokenData';
 export { default as CPagseguroErrorMessage } from './CPagseguroErrorMessage';
 export { default as CChargeResponse } from './CChargeResponse';
 export { default as CPagseguroCreateChargeConfig } from './CPagseguroCreateChargeConfig';
+export { default as CPgseguroCreateOAuth2AppRequest } from './CPgseguroCreateOAuth2AppRequest';
+export { default as CPgseguroCreateOAuth2AppResponse } from './CPgseguroCreateOAuth2AppResponse';
+export { default as CPagSeguroGetAccessTokenResponse } from './CPagSeguroGetAccessTokenResponse';
+export { default as CPagseguroGetAccessTokenRequest } from './CPagseguroGetAccessTokenRequest';
+export { default as CPagSeguroRevokeAccessTokenRequest } from './CPagSeguroRevokeAccessTokenRequest';

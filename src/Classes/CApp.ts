@@ -6,17 +6,14 @@ import { Nullable } from '../Decorators';
 
 export default class CApp extends BaseJSON {
   @Property
-  @Nullable
-  id?: string;
-  @Property
   bundleId!: string;
-  @Property
-  @Nullable
-  fireBaseId?: string;
   @Property
   displayName!: string;
   @Property
   platform!: string;
+  @Property
+  @Nullable
+  fireBaseId?: string;
   @Property
   @Nullable
   version?: string;
@@ -51,4 +48,27 @@ export default class CApp extends BaseJSON {
   @FromJSON
   @Nullable
   managedBy?: CUser;
+
+  static init(
+    bundleId: string,
+    displayName: string,
+    platform: string,
+    fireBaseId?: string,
+    version?: string,
+    storeStatus?: string,
+    storePublishStatus?: string,
+    active?: boolean,
+    createdAt?: Date,
+    iOSProfileId?: string,
+    storeNote?: string,
+    storeEvidences?: string,
+    storeVersion?: string,
+    storeBuildStatus?: string,
+    managedBy?: CUser,
+    id?: string,
+    timestamp?: number
+  ): CApp {
+    return this.createInitObject(arguments);
+  }
 }
+

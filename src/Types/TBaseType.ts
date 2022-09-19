@@ -1,5 +1,5 @@
 type TTBaseType = typeof TBaseType;
-export type Constructor<T extends TBaseType> = { new (): T };
+export type Constructor<T extends TBaseType> = { new(): T };
 export default abstract class TBaseType {
   description?: string;
   name?: string;
@@ -15,6 +15,16 @@ export default abstract class TBaseType {
       object.name === this.name &&
       object.description === this.description
     );
+  }
+
+  next() {
+    const TOrderStatusList = (this.constructor as unknown as TTBaseType).values();
+    return TOrderStatusList[TOrderStatusList.indexOf(this) + 1];
+  }
+
+  before() {
+    const TOrderStatusList = (this.constructor as unknown as TTBaseType).values();
+    return TOrderStatusList[TOrderStatusList.indexOf(this) - 1];
   }
 
   static valueOf<T extends TBaseType>(object?: string) {

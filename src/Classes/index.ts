@@ -42,6 +42,7 @@ export { default as CAMQPPayloadObject } from './CAMQPPayloadObject';
 export { default as CVendorLimits } from './CVendorLimits';
 export { default as CVendorLimit } from './CVendorLimit';
 export { default as CProcessPayment } from './CProcessPayment';
+export { default as CProcessPaymentResponse } from './CProcessPaymentResponse';
 export { default as Return } from './Return';
 export * as Pagseguro from './Pagseguro';
 export * as Asaas from './Asaas';

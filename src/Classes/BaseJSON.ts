@@ -30,6 +30,9 @@ export default abstract class BaseJSON {
     return this.fromObject(object);
   }
   toJSON() {
+    function handleJSON(object: any) {
+      return object && (object instanceof BaseJSON || new object.constructor() instanceof BaseJSON) ? object.toJSON() : object && (object instanceof TBaseType || new object.constructor() instanceof TBaseType) ? object.id : object
+    }
     const scopedThis = this as any;
     const instance: any = {};
     const properties: (string | symbol)[] = [];
@@ -43,30 +46,17 @@ export default abstract class BaseJSON {
     }
     for (const key of properties) {
       try {
-        const arrayOfObjects = Reflect.getMetadata('design:type:array', this, key) === 'array';
+        // const arrayOfObjects = Reflect.getMetadata('design:type:array', this, key) === 'array';
         if (Array.isArray(scopedThis[key])) {
           instance[key] = [];
           for (const item of scopedThis[key]) {
-            let val = typeof item === 'object' && 'toJSON' in item ? item?.toJSON() ?? item : item;
-            if (
-              !arrayOfObjects &&
-              item &&
-              typeof item === 'object' &&
-              (item instanceof TBaseType || new item.constructor() instanceof TBaseType) &&
-              item?.id
-            ) {
-              val = item.id;
-            }
+            const val = handleJSON(item);
             if (val !== undefined) {
               instance[key].push(val);
             }
           }
-        } else if (!arrayOfObjects && scopedThis[key] && typeof scopedThis[key] === 'object' && scopedThis[key]?.id) {
-          instance[key] = scopedThis[key].id;
-        } else if (scopedThis[key] !== undefined && typeof scopedThis[key] === 'object') {
-          instance[key] = scopedThis[key]?.toJSON() ?? scopedThis[key];
         } else if (scopedThis[key] !== undefined) {
-          instance[key] = scopedThis[key];
+          instance[key] = handleJSON(scopedThis[key]);
         }
       } catch (error: any) {
         console.error(`Error calling getter ${String(key)}`, error);

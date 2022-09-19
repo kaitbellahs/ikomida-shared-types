@@ -13,33 +13,39 @@ export default class CPlan extends BaseJSON {
   @Property
   price!: number;
   @Property
-  discountedPrice!: number;
-  @Property
   discount!: number;
   @Property
   @Enum
   discountType!: TDiscount;
   @Property
-  staff!: number;
+  staff?: number;
   @Property
-  products!: number;
+  products?: number;
   @Property
-  categories!: number;
+  categories?: number;
   @Property
-  pushNotifications!: number;
+  pushNotifications?: number;
   @Property
-  orders!: number;
+  orders?: number;
   @Property
-  coupons!: number;
+  coupons?: number;
   @Property
-  billing!: number;
+  billing?: number;
   @Property
-  details!: CKeyValue[];
-
+  details?: CKeyValue[];
+  @Property
   @FromJSON(TSupport)
-  support!: TSupport[];
+  support?: TSupport[];
   @Property
-  highlighted!: boolean;
+  highlighted?: boolean;
+  @Property
+  discountedPrice?: number;
+  @Property
+  @Nullable
+  active?: boolean;
+  @Property
+  @Nullable
+  createdAt?: Date
   @Property
   @Nullable
   order?: number;
@@ -47,22 +53,24 @@ export default class CPlan extends BaseJSON {
   static init(
     name: string,
     price: number,
-    discountedPrice: number,
     discount: number,
     discountType: TDiscount,
-    staff: number,
-    products: number,
-    categories: number,
-    pushNotifications: number,
-    orders: number,
-    coupons: number,
-    billing: number,
-    details: CKeyValue[],
-    support: TSupport[],
-    highlighted: boolean,
+    staff?: number,
+    products?: number,
+    categories?: number,
+    pushNotifications?: number,
+    orders?: number,
+    coupons?: number,
+    billing?: number,
+    details?: CKeyValue[],
+    support?: TSupport[],
+    highlighted?: boolean,
+    discountedPrice?: number,
+    active?: boolean,
+    createdAt?: Date,
     order?: number,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CPlan {
     return this.createInitObject(arguments);
   }

@@ -6,6 +6,7 @@ import { Enum } from '../../Decorators/Enum';
 import CAsaasErrors from './CAsaasErrors';
 import { Property } from '../../Decorators/Property';
 import { FromJSON } from '../../Decorators/FromJSON';
+import { TAsaasSignatureStatus } from '../../Types';
 
 export default class CSubscriptionResponse extends CAsaasErrors {
   @Property
@@ -28,7 +29,8 @@ export default class CSubscriptionResponse extends CAsaasErrors {
   @Property
   description?: string;
   @Property
-  status?: string;
+  @Enum
+  status?: TAsaasSignatureStatus;
   @Property
   @FromJSON
   discount?: CSubscriptionDiscount;

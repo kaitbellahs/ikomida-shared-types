@@ -8,8 +8,6 @@ export default class CPagSeguroCard extends BaseJSON {
   @FromJSON
   holder?: CPagSeguroCardHolder;
   @Property
-  id?: string;
-  @Property
   number?: number;
   @Property
   network_token?: string;
@@ -27,4 +25,21 @@ export default class CPagSeguroCard extends BaseJSON {
   first_digits?: string;
   @Property
   last_digits?: string;
+
+  static init(
+    holder?: CPagSeguroCardHolder,
+    number?: number,
+    network_token?: string,
+    exp_month?: number,
+    exp_year?: number,
+    security_code?: number,
+    store?: boolean,
+    brand?: string,
+    first_digits?: string,
+    last_digits?: string,
+    id?: string,
+    timestamp?: number
+  ): CPagSeguroCard {
+    return this.createInitObject(arguments);
+  }
 }

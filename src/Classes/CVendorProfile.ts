@@ -10,7 +10,7 @@ export default class CVendorProfile extends BaseJSON {
   @Property
   contractName!: string;
   @Property
-  cnpj!: string;
+  contractIdentity!: string;
   @Property
   identity!: string;
   @Property
@@ -27,7 +27,7 @@ export default class CVendorProfile extends BaseJSON {
   static init(
     areaCode: number,
     contractName: string,
-    cnpj: string,
+    contractIdentity: string,
     identity: string,
     phone: string,
     email: string,

@@ -1,7 +1,6 @@
 import TBaseType from './TBaseType';
 
 export default class TOrderStatus extends TBaseType {
-  static CANCELED = new TOrderStatus('CANCELED');
   static WAITING_PAYMENT = new TOrderStatus('WAITING_PAYMENT');
   static OPEN = new TOrderStatus('OPEN');
   static ACCEPTED = new TOrderStatus('ACCEPTED');
@@ -9,6 +8,7 @@ export default class TOrderStatus extends TBaseType {
   static IN_DELIVERY = new TOrderStatus('IN_DELIVERY');
   static DELIVERED = new TOrderStatus('DELIVERED');
   static IN_DISPUTE = new TOrderStatus('IN_DISPUTE');
+  static CANCELED = new TOrderStatus('CANCELED');
   constructor(type: string) {
     super(type);
     switch (type) {

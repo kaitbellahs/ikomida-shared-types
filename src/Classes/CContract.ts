@@ -9,30 +9,33 @@ import { Nullable } from '../Decorators';
 
 export default class CContract extends BaseJSON {
   @Property
-  @Nullable
-  id?: string;
-  @Property
   ikomidaID!: string;
   @Property
   contractName!: string;
+  @Property
+  name!: string;
+  @Property
+  lastName!: string;
+  @Property
+  contractIdentity!: string;
+  @Property
+  email!: string;
+  @Property
+  phone!: string;
+  @Property
+  areaCode!: number;
+  @Property
+  @FromJSON
+  plan?: CPlan;
+  @Property
+  @Nullable
+  identity?: string;
   @Property
   @Nullable
   status?: string;
   @Property
   @Nullable
   termId?: string;
-  @Property
-  name!: string;
-  @Property
-  lastName!: string;
-  @Property
-  cnpj!: string;
-  @Property
-  identity!: string;
-  @Property
-  email!: string;
-  @Property
-  phone!: string;
   @Property
   @Nullable
   password?: string;
@@ -41,13 +44,8 @@ export default class CContract extends BaseJSON {
   @Nullable
   address?: CAddress;
   @Property
-  areaCode!: number;
-  @Property
   @Nullable
   referredBy?: string;
-  @Property
-  @FromJSON
-  plan!: CPlan;
   @Property(CApp)
   @FromJSON(CApp)
   @Nullable
@@ -65,4 +63,31 @@ export default class CContract extends BaseJSON {
   @FromJSON
   @Nullable
   createdAt?: Date;
+
+  static init(
+    ikomidaID: string,
+    contractName: string,
+    name: string,
+    lastName: string,
+    contractIdentity: string,
+    email: string,
+    phone: string,
+    areaCode: number,
+    plan?: CPlan,
+    identity?: string,
+    status?: string,
+    termId?: string,
+    password?: string,
+    address?: CAddress,
+    referredBy?: string,
+    apps?: CApp[],
+    phoneValidationCode?: number,
+    signature?: string,
+    payment?: CCreditCardRequest,
+    createdAt?: Date,
+    id?: string,
+    timestamp?: number
+  ): CContract {
+    return this.createInitObject(arguments);
+  }
 }

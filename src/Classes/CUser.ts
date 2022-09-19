@@ -35,7 +35,7 @@ export default class CUser extends BaseJSON {
   deviceId?: string;
   @Property
   @Nullable
-  cnpj?: string;
+  contractIdentity?: string;
   @Property
   @Nullable
   referredBy?: string;
@@ -87,7 +87,7 @@ export default class CUser extends BaseJSON {
     termId?: string,
     platform?: string,
     deviceId?: string,
-    cnpj?: string,
+    contractIdentity?: string,
     referredBy?: string,
     password?: string,
     oldPass?: string,

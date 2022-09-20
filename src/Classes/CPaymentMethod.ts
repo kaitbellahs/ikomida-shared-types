@@ -1,11 +1,11 @@
 import { Property } from '../Decorators/Property';
 import { Enum } from '../Decorators/Enum';
 import { FromJSON } from '../Decorators/FromJSON';
-import { TPagSeguroPaymentStatus, TPaymentMethod } from '../Types';
+import { TPaymentMethod } from '../Types';
 import BaseJSON from './BaseJSON';
 import { Nullable } from '../Decorators';
 
-export default class CPaymentMethods extends BaseJSON {
+export default class CPaymentMethod extends BaseJSON {
   @Property
   @Enum
   type!: TPaymentMethod;
@@ -33,7 +33,7 @@ export default class CPaymentMethods extends BaseJSON {
     createdAt?: Date,
     id?: string,
     timestamp?: number,
-  ): CPaymentMethods {
+  ): CPaymentMethod {
     return this.createInitObject(arguments);
   }
 }

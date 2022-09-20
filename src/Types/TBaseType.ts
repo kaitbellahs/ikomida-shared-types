@@ -1,9 +1,11 @@
 type TTBaseType = typeof TBaseType;
 export type Constructor<T extends TBaseType> = { new(): T };
 export default abstract class TBaseType {
+  //MARK: -- instance
   description?: string;
   name?: string;
   id: string;
+
   constructor(type: string) {
     this.id = type;
   }
@@ -27,6 +29,15 @@ export default abstract class TBaseType {
     return TOrderStatusList[TOrderStatusList.indexOf(this) - 1];
   }
 
+  toString() {
+    return this.constructor.name + '.' + this.id;
+  }
+
+  //MARK: -- static 
+  static isInstance(object: any) {
+    return object && object instanceof this;
+  }
+
   static valueOf<T extends TBaseType>(object?: string) {
     return object ? ((this as never)?.[object] as T) : null;
   }
@@ -35,10 +46,6 @@ export default abstract class TBaseType {
     for (const key of (this as unknown as TTBaseType).keys()) {
       yield key as unknown as T;
     }
-  }
-
-  toString() {
-    return this.constructor.name + '.' + this.id;
   }
 
   static keys() {

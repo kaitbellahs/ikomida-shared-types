@@ -9,7 +9,7 @@ export default class CCategoryProducts extends BaseJSON {
   title!: string;
   @Property
   @Nullable
-  order?: string;
+  order?: number;
   @Property
   @Nullable
   createdAt?: string;

@@ -19,7 +19,7 @@ export { default as CCoupon } from './CCoupon';
 export { default as CLocation } from './CLocation';
 export { default as COrderPayload } from './COrderPayload';
 export { default as COrderPreparation } from './COrderPreparation';
-export { default as CPaymentMethods } from './CPaymentMethods';
+export { default as CPaymentMethod } from './CPaymentMethod';
 export { default as CCreditCardRequest } from './CCreditCardRequest';
 export { default as CSubscription } from './CSubscription';
 export { default as CSubscriptionCharge } from './CSubscriptionCharge';

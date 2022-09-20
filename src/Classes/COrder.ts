@@ -6,7 +6,7 @@ import BaseJSON from './BaseJSON';
 import CAddress from './CAddress';
 import CCoupon from './CCoupon';
 import COrderPreparation from './COrderPreparation';
-import CPaymentMethods from './CPaymentMethods';
+import CPaymentMethod from './CPaymentMethod';
 import CProduct from './CProduct';
 import CUser from './CUser';
 import { Nullable } from '../Decorators';
@@ -52,7 +52,7 @@ export default class COrder extends BaseJSON {
   @Property
   @FromJSON
   @Nullable
-  payment?: CPaymentMethods;
+  payment?: CPaymentMethod;
   @Property
   @FromJSON
   @Nullable
@@ -71,7 +71,7 @@ export default class COrder extends BaseJSON {
     customID?: number,
     status?: TOrderStatus,
     finishedAt?: Date,
-    payment?: CPaymentMethods,
+    payment?: CPaymentMethod,
     user?: CUser,
     id?: string,
     timestamp?: number,

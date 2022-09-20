@@ -7,31 +7,25 @@ const STRIP_COMMENTS =
 const ARGUMENT_NAMES = /([^\s,]+)/g;
 
 export default abstract class BaseJSON {
+  //MARK: -- instance
   @Property
   @Nullable
   id?: string;
   @Property
   @Nullable
   timestamp?: number;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  static getParamNames(func: any) {
-    const fnStr = func.toString().replace(STRIP_COMMENTS, '');
-    let result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES);
-    if (result === null) result = [];
-    return result;
-  }
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  static createInitObject(args: any) {
-    const params = this.getParamNames((this as any).init);
-    const object: any = {};
-    for (let index = 0; index < params.length; index++) {
-      object[params[index]] = args[index];
+
+  constructor(object?: any) {
+    if (typeof object === 'object') {
+      for (const key of Object.keys(object)) {
+        (this as any)[key] = (object as any)[key];
+      }
     }
-    return this.fromObject(object);
   }
+
   toJSON() {
     function handleJSON(object: any) {
-      return object && (object instanceof BaseJSON || new object.constructor() instanceof BaseJSON) ? object.toJSON() : object && (object instanceof TBaseType || new object.constructor() instanceof TBaseType) ? object.id : object
+      return BaseJSON.isInstance(object) ? object.toJSON() : TBaseType.isInstance(object) ? object.id : object
     }
     const scopedThis = this as any;
     const instance: any = {};
@@ -46,7 +40,6 @@ export default abstract class BaseJSON {
     }
     for (const key of properties) {
       try {
-        // const arrayOfObjects = Reflect.getMetadata('design:type:array', this, key) === 'array';
         if (Array.isArray(scopedThis[key])) {
           instance[key] = [];
           for (const item of scopedThis[key]) {
@@ -65,7 +58,7 @@ export default abstract class BaseJSON {
     return instance;
   }
 
-  validate() {
+  validate(...args: (string | symbol)[]) {
     function handleObject<T extends BaseJSON>(target: T, properties: (string | symbol)[], object: any) {
       for (const property of properties) {
         const nullable =
@@ -102,19 +95,41 @@ export default abstract class BaseJSON {
       }
       return true;
     }
-    if (!this || !(this instanceof this.constructor)) {
-      return false;
-    }
     const properties: (string | symbol)[] = [];
     let prototype = this.constructor.prototype;
     while (prototype != null) {
-      const result: (string | symbol)[] = prototype['__properties__'];
+      let result: (string | symbol)[] = prototype['__properties__'];
       if (result) {
+        if (args && Array.isArray(args) && args.length > 0) {
+          result = result.filter(property => args.includes(property))
+        }
         properties.push(...result);
       }
       prototype = Object.getPrototypeOf(prototype);
     }
     return handleObject(this, properties, this);
+  }
+
+  //Mark: --static
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  static getParamNames(func: any) {
+    const fnStr = func.toString().replace(STRIP_COMMENTS, '');
+    let result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES);
+    if (result === null) result = [];
+    return result;
+  }
+
+  static isInstance(object: any) {
+    return object && object instanceof this;
+  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  static createInitObject(args: any) {
+    const params = this.getParamNames((this as any).init);
+    const object: any = {};
+    for (let index = 0; index < params.length; index++) {
+      object[params[index]] = args[index];
+    }
+    return this.fromObject(object);
   }
 
   static fromObject(object: any) {
@@ -159,7 +174,7 @@ export default abstract class BaseJSON {
           instance[property] = [];
         } else {
           instance[property] =
-            new runtime() instanceof BaseJSON || new runtime.constructor() instanceof BaseJSON
+            BaseJSON.isInstance(new runtime()) || BaseJSON.isInstance(new runtime.constructor())
               ? runtime.fillWith(value)
               : value;
         }
@@ -185,13 +200,5 @@ export default abstract class BaseJSON {
       return instanceArray;
     }
     return handleObject(instance, properties, value);
-  }
-
-  constructor(object?: any) {
-    if (typeof object === 'object') {
-      for (const key of Object.keys(object)) {
-        (this as any)[key] = (object as any)[key];
-      }
-    }
   }
 }

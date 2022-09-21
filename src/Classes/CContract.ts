@@ -40,6 +40,9 @@ export default class CContract extends BaseJSON {
   @Nullable
   password?: string;
   @Property
+  @Nullable
+  confirmPassword?: string;
+  @Property
   @FromJSON
   @Nullable
   address?: CAddress;
@@ -52,7 +55,7 @@ export default class CContract extends BaseJSON {
   apps?: CApp[];
   @Property
   @Nullable
-  phoneValidationCode?: number;
+  phoneValidationCode?: string;
   @Property
   signature?: string;
   @Property
@@ -78,10 +81,11 @@ export default class CContract extends BaseJSON {
     status?: string,
     termId?: string,
     password?: string,
+    confirmPassword?: string,
     address?: CAddress,
     referredBy?: string,
     apps?: CApp[],
-    phoneValidationCode?: number,
+    phoneValidationCode?: string,
     signature?: string,
     payment?: CCreditCardRequest,
     createdAt?: Date,

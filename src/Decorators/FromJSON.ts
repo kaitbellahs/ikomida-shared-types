@@ -1,4 +1,6 @@
 import 'reflect-metadata';
+import { BaseJSON } from '../Classes';
+import { TBaseType } from '../Types';
 
 export function FromJSON(dataType?: any): PropertyDecorator;
 export function FromJSON(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor): void;
@@ -65,12 +67,11 @@ function annotateFromJSON(
     if (Array.isArray(newVal)) {
       const value = [];
       for (const val of newVal) {
-        value.push(val && typeof val === 'object' ? runtime?.fromObject(val) : val);
+        value.push(val && BaseJSON.isInstance(new runtime()) ? runtime?.fromObject(val) : !TBaseType.isInstance(new runtime()) || typeof val === 'string' ? new runtime(val) : val);
       }
       _val = value;
     } else {
-      _val =
-        typeof runtime === 'function' && 'fromObject' in runtime ? runtime?.fromObject(newVal) : new runtime(newVal);
+      _val = BaseJSON.isInstance(new runtime()) ? runtime?.fromObject(newVal) : !TBaseType.isInstance(new runtime()) || typeof newVal === 'string' ? new runtime(newVal) : newVal;
     }
     (this as any)[key] = _val;
   };

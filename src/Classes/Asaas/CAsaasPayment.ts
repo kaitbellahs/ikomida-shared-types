@@ -7,6 +7,7 @@ import { Enum } from '../../Decorators/Enum';
 import BaseJSON from '../BaseJSON';
 import { FromJSON } from '../../Decorators/FromJSON';
 import { Property } from '../../Decorators/Property';
+import { TAsaasPaymentStatus } from '../../Types';
 
 export default class CAsaasPayment extends BaseJSON {
   @Property
@@ -25,7 +26,8 @@ export default class CAsaasPayment extends BaseJSON {
   @Enum
   billingType?: TAsaasBilling;
   @Property
-  status?: string;
+  @Enum
+  status?: TAsaasPaymentStatus;
   @Property
   dueDate?: string;
   @Property

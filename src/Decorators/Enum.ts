@@ -66,13 +66,13 @@ function annotateEnum(
       if (Array.isArray(propertyValue)) {
         newVal = [];
         for (const val of propertyValue) {
-          newVal.push(typeof val !== 'object' ? runtime.valueOf(val) : val);
+          newVal.push(typeof val !== 'object' ? runtime.valueOf(val.toUpperCase()) : val);
         }
       } else {
-        newVal = typeof propertyValue !== 'object' ? runtime.valueOf(propertyValue) : propertyValue;
+        newVal = typeof propertyValue !== 'object' ? runtime.valueOf(propertyValue.toUpperCase()) : propertyValue;
       }
     } else if (typeof propertyValue !== 'object') {
-      newVal = runtime.valueOf(propertyValue);
+      newVal = runtime.valueOf(propertyValue.toUpperCase());
     }
     return newVal;
   };

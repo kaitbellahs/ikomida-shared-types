@@ -1,3 +1,4 @@
+import { TPagSeguroPaymentMethod } from './Pagseguro';
 import TBaseType from './TBaseType';
 
 export default class TPaymentMethod extends TBaseType {
@@ -44,6 +45,16 @@ export default class TPaymentMethod extends TBaseType {
         this.name = '-';
         this.description = '-';
         break;
+    }
+  }
+  get pagseguro(): TPagSeguroPaymentMethod {
+    switch (this) {
+      case TPaymentMethod.CREDIT_CARD_ONLINE:
+        return TPagSeguroPaymentMethod.CREDIT_CARD
+      case TPaymentMethod.DEBT_CARD_ONLINE:
+        return TPagSeguroPaymentMethod.DEBIT_CARD
+      default:
+        return TPagSeguroPaymentMethod.CREDIT_CARD
     }
   }
 }

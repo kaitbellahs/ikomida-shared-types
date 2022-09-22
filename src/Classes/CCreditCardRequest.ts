@@ -3,7 +3,7 @@ import BaseJSON from './BaseJSON';
 
 export default class CCreditCardRequest extends BaseJSON {
   @Property
-  number!: number;
+  number!: string;
   @Property
   validity!: string;
   @Property

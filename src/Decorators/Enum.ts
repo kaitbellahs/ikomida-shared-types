@@ -56,23 +56,13 @@ function annotateEnum(
     let newVal;
     if (Array.isArray(propertyValue)) {
       newVal = [];
-      for (const value of propertyValue) {
-        newVal.push(`${value}`);
+      for (const val of propertyValue) {
+        newVal.push(typeof val === 'string' ? runtime.valueOf(val.toUpperCase()) : val);
       }
-    } else {
-      newVal = `${propertyValue}`;
-    }
-    if (propertyValue) {
-      if (Array.isArray(propertyValue)) {
-        newVal = [];
-        for (const val of propertyValue) {
-          newVal.push(typeof val !== 'object' ? runtime.valueOf(val.toUpperCase()) : val);
-        }
-      } else {
-        newVal = typeof propertyValue !== 'object' ? runtime.valueOf(propertyValue.toUpperCase()) : propertyValue;
-      }
-    } else if (typeof propertyValue !== 'object') {
+    } else if (typeof propertyValue === 'string') {
       newVal = runtime.valueOf(propertyValue.toUpperCase());
+    } else {
+      newVal = propertyValue;
     }
     return newVal;
   };

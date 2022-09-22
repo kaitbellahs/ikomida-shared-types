@@ -10,6 +10,7 @@ import CPaymentMethod from './CPaymentMethod';
 import CProduct from './CProduct';
 import CUser from './CUser';
 import { Nullable } from '../Decorators';
+import CLocation from './CLocation';
 
 export default class COrder extends BaseJSON {
   @Property
@@ -57,6 +58,10 @@ export default class COrder extends BaseJSON {
   @FromJSON
   @Nullable
   user?: CUser;
+  @Property
+  @FromJSON
+  @Nullable
+  location?: CLocation;
 
   static init(
     subtotal: number,
@@ -75,6 +80,7 @@ export default class COrder extends BaseJSON {
     user?: CUser,
     id?: string,
     timestamp?: number,
+    location?: CLocation,
   ): COrder {
     return this.createInitObject(arguments);
   }

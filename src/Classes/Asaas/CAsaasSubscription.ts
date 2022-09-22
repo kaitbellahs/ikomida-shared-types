@@ -9,6 +9,7 @@ export default class CAsaasSubscription extends BaseJSON {
   plan?: {
     price?: number;
     name?: string;
+    id?: string;
   };
   @Property
   @FromJSON

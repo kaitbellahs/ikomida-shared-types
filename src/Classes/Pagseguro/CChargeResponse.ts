@@ -9,9 +9,9 @@ export default class CChargeResponse extends BaseJSON {
   @Property
   brand?: string;
   @Property
-  firstDigits?: number;
+  firstDigits?: string;
   @Property
-  lastDigits?: number;
+  lastDigits?: string;
   @Property
   ikomidaID?: string;
   @Property
@@ -25,8 +25,8 @@ export default class CChargeResponse extends BaseJSON {
   static init(
     cardId?: string,
     brand?: string,
-    firstDigits?: number,
-    lastDigits?: number,
+    firstDigits?: string,
+    lastDigits?: string,
     ikomidaID?: string,
     reference?: string,
     status?: TPagSeguroPaymentStatus,

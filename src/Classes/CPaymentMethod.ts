@@ -12,13 +12,13 @@ export default class CPaymentMethod extends BaseJSON {
   @Property
   brand!: string;
   @Property
-  lastDigits!: number;
+  lastDigits!: string;
   @Property
   @Nullable
   selected?: boolean;
   @Property
   @Nullable
-  firstDigits?: number;
+  firstDigits?: string;
   @Property
   @FromJSON
   @Nullable
@@ -27,9 +27,9 @@ export default class CPaymentMethod extends BaseJSON {
   static init(
     type: TPaymentMethod,
     brand: string,
-    lastDigits: number,
+    lastDigits: string,
+    firstDigits?: string,
     selected?: boolean,
-    firstDigits?: number,
     createdAt?: Date,
     id?: string,
     timestamp?: number,

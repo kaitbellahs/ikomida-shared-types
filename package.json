@@ -1,6 +1,6 @@
 {
   "name": "@ikomida/shared-types",
-  "version": "0.0.141",
+  "version": "0.0.142",
   "description": "This is the shared types between services, UI and workers etc...",
   "private": false,
   "main": "lib/index.cjs",
@@ -41,7 +41,7 @@
     "@types/luxon": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
-    "eslint": "^8.23.1",
+    "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "google-artifactregistry-auth": "^3.0.2",
     "jsdoc": "^3.6.11",

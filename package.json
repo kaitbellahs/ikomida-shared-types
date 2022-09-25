@@ -13,8 +13,8 @@
     "package.json"
   ],
   "scripts": {
-    "build": "rimraf ./build ./lib ./docs && tsc && rollup -c",
     "prebuild:types": "rimraf ./build",
+    "build": "rimraf ./build ./lib ./docs && tsc && rollup -c",
     "build:types": "tsc -p ./tsconfig.json --outDir build && api-extractor run",
     "predoc:jsdoc": "rimraf ./docs",
     "docs:jsdoc": "jsdoc -r \"src/**/*.ts\" -R README.md -d ./docs",

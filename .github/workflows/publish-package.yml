@@ -17,17 +17,20 @@ jobs:
         name: "Authenticate to Google Cloud"
         uses: "google-github-actions/auth@v0"
         with:
-          credentials_json: "${{ endsWith(github.ref, '/main') ? secrets.ARTIFACT_REGISTRY_IKOMIDA_PROD_SERVICE_ACOUNT : endsWith(github.ref, '/hmlg') ? secrets.ARTIFACT_REGISTRY_IKOMIDA_HMLG_SERVICE_ACOUNT : secrets.ARTIFACT_REGISTRY_IKOMIDA_DEV_SERVICE_ACOUNT }}"
+          credentials_json: "${{ endsWith(github.ref, '/main') && secrets.ARTIFACT_REGISTRY_IKOMIDA_PROD_SERVICE_ACOUNT || (endsWith(github.ref, '/hmlg') && secrets.ARTIFACT_REGISTRY_IKOMIDA_HMLG_SERVICE_ACOUNT || secrets.ARTIFACT_REGISTRY_IKOMIDA_DEV_SERVICE_ACOUNT) }}"
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16.x.x
           cache: yarn
-      - name: Auth npm with artifactregistry
+      - name: Auth npm with artifactregistry and set gcloud project id
+        env:
+          PROJECT_ID: ${{ steps.auth.outputs.project_id }}
         run: |
+          echo "Selected gcloud project id: ${PROJECT_ID}"
           rm .npmrc || true
-          echo "@ikomida:registry=https://us-central1-npm.pkg.dev/${project_id}/node/" >> .npmrc
-          echo "//us-central1-npm.pkg.dev/${project_id}/node/:always-auth=true" >> .npmrc
+          echo "@ikomida:registry=https://us-central1-npm.pkg.dev/${PROJECT_ID}/node/" >> .npmrc
+          echo "//us-central1-npm.pkg.dev/${PROJECT_ID}/node/:always-auth=true" >> .npmrc
           yarn glogin
       - name: Install dependencies
         run: yarn install --frozen-lockfile

@@ -1,13 +1,13 @@
-name: publish ikomida dev lib to artifact registry on pull request merge
+name: build and test ikomida dev lib before pull request merge
 on:
   pull_request_target:
     types:
-      - closed
+      - opened
     branches:
       - dev
 jobs:
-  build_and_deploy_ikomida:
-    if: github.event.pull_request.merged == true
+  build_ikomida:
+    if: github.event.pull_request.merged == false
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
@@ -29,12 +29,19 @@ jobs:
           yarn glogin
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Publish npm package
-        run: npm publish
-      - name: Update branch tag version
+      - name: check lib version
         run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')
-          git tag "v${PACKAGE_VERSION}"
-          git push origin "v${PACKAGE_VERSION}"
+          LIB_NAME=$(node --eval="process.stdout.write(require('./package.json').name)")
+          LIB_VERSION=$(node --eval="process.stdout.write(require('./package.json').version)")
+          LIB_VERSION_REMOTE=$(npm view @ikomida/shared-types version)
+          l=$(printf '%s\n%s\n' "$monterey" "$LIB_VERSION_REMOTE" | sort -V | tail -n1)
+          echo $LIB_VERSION
+          echo $LIB_VERSION_REMOTE
+          echo $l
+          if [[ $LIB_VERSION > $l ]]; then
+            echo "Lib package version is correct"
+            exit 0
+          else 
+            echo "Update lib package version"
+            exit 1
+          fi

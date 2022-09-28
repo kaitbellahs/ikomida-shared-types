@@ -1,6 +1,6 @@
 {
   "name": "@ikomida/shared-types",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "This is the shared types between services, UI and workers etc...",
   "private": false,
   "main": "lib/index.cjs",
@@ -23,12 +23,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint . --ext .ts",
     "clean": "rimraf ./build ./lib ./docs",
-    "glogin": "artifactregistry-auth",
-    "prepare": "yarn build",
-    "prepublishOnly": "yarn lint",
-    "preversion": "yarn lint",
-    "version": "yarn format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "glogin": "artifactregistry-auth"
   },
   "author": "Khalid Ait Bellahs (Ti Alti Nivel)",
   "license": "UNLICENSED",

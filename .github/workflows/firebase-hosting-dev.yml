@@ -9,6 +9,8 @@ jobs:
   build_and_deploy_ikomida:
     if: github.event.pull_request.merged == true
     runs-on: self-hosted
+    env:
+      -CI_COMMIT_MESSAGE: "Add "
     steps:
       - uses: actions/checkout@v3
       - id: "auth"
@@ -24,11 +26,17 @@ jobs:
       - name: auth npm with artifactregistry
         run: |
           rm .npmrc || true
-          echo "@ikomida:registry=https://us-central1-npm.pkg.dev/ikomida-dev/node/" >> .npmrc && echo "//us-central1-npm.pkg.dev/ikomida-dev/node/:always-auth=true" >> .npmrc
+          echo "@ikomida:registry=https://us-central1-npm.pkg.dev/ikomida-dev/node/" >> .npmrc
+          echo "//us-central1-npm.pkg.dev/ikomida-dev/node/:always-auth=true" >> .npmrc
           npx google-artifactregistry-auth
       - name: install dependencies
-        run: |
-          yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
       - name: publish npm package
+        run: npm publish
+      - name: Update branch tag version
         run: |
-          npm publish
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')
+          git tag v$PACKAGE_VERSION
+          git push --tags

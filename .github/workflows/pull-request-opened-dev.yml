@@ -32,13 +32,10 @@ jobs:
           LIB_VERSION=$(node --eval="process.stdout.write(require('./package.json').version)")
           LIB_VERSION_REMOTE=$(npm view @ikomida/shared-types version)
           l=$(printf '%s\n%s\n' "$monterey" "$LIB_VERSION_REMOTE" | sort -V | tail -n1)
-          echo $LIB_VERSION
-          echo $LIB_VERSION_REMOTE
-          echo $l
           if [[ $LIB_VERSION > $l ]]; then
             echo "Lib package version is correct"
             exit 0
           else 
-            echo "Update lib package version"
+            echo "Error: you mast update lib package version"
             exit 1
           fi

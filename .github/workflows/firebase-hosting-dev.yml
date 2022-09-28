@@ -16,7 +16,7 @@ jobs:
         uses: "google-github-actions/auth@v0"
         with:
           credentials_json: "${{ secrets.ARTIFACT_REGISTRY_IKOMIDA_DEV_SERVICE_ACOUNT }}"
-      - id: publish
+        # - id: publish
         run: |
           gcloud auth activate-service-account artifact-registry@ikomida-dev.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
           rm .npmrc || true

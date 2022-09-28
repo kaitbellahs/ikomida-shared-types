@@ -20,7 +20,7 @@ jobs:
           cache: yarn
       - id: publish
         run: |
-          gcloud auth activate-service-account artifact-registry@ikomida-dev.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+          # gcloud auth activate-service-account artifact-registry@ikomida-dev.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
           echo "khalid: $GOOGLE_APPLICATION_CREDENTIALS"
           # export export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS
           rm .npmrc || true

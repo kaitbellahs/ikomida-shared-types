@@ -13,11 +13,11 @@ jobs:
         uses: "google-github-actions/auth@v0"
         with:
           credentials_json: "${{ secrets.ARTIFACT_REGISTRY_IKOMIDA_DEV_SERVICE_ACOUNT }}"
-          # - name: Setup node
-          #   uses: actions/setup-node@v3
-          #   with:
-          #     node-version: 16.x.x
-          cache: npm
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x.x
+          cache: yarn
       - id: publish
         run: |
           # gcloud auth activate-service-account artifact-registry@ikomida-dev.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
@@ -29,5 +29,5 @@ jobs:
           echo "ok"
           npx google-artifactregistry-auth
           echo "ok"
-          yarn install
+          yarn install --frozen-lockfile
           npm publish

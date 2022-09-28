@@ -20,16 +20,18 @@ jobs:
         with:
           node-version: 16.x.x
           cache: yarn
-      - name: Auth npm with artifactregistry
+      - name: Auth npm with artifactregistry and set gcloud project id
+        env:
+          PROJECT_ID: ${{ steps.auth.outputs.project_id }}
         run: |
-          echo "Selected gcloud roject: $project_id"
-          if [[ $project_id != 'ikomida-dev']]; then
-            echo 'error'
+          echo "Selected gcloud project id: ${PROJECT_ID}"
+          if [[ $PROJECT_ID != "ikomida-dev" ]]; then
+            echo "error"
             exit 1
           fi
           rm .npmrc || true
-          echo "@ikomida:registry=https://us-central1-npm.pkg.dev/${project_id}/node/" >> .npmrc
-          echo "//us-central1-npm.pkg.dev/${project_id}/node/:always-auth=true" >> .npmrc
+          echo "@ikomida:registry=https://us-central1-npm.pkg.dev/${PROJECT_ID}/node/" >> .npmrc
+          echo "//us-central1-npm.pkg.dev/${PROJECT_ID}/node/:always-auth=true" >> .npmrc
           yarn glogin
       - name: Check lib version
         run: |

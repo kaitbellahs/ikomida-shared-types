@@ -45,6 +45,8 @@ export { default as CProcessPayment } from './CProcessPayment';
 export { default as CProcessPaymentResponse } from './CProcessPaymentResponse';
 export { default as CMessage } from './CMessage';
 export { default as CEmailAddress } from './CEmailAddress';
+export { default as CProductOptionCategory } from './CProductOptionCategory';
+export { default as CProductOption } from './CProductOption';
 export { default as Return } from './Return';
 export * as Pagseguro from './Pagseguro';
 export * as Asaas from './Asaas';

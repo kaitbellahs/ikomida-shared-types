@@ -20,8 +20,8 @@ export default class CProductOption extends BaseJSON {
   static init(
     name: string,
     highlighted: boolean,
-    min: number,
-    max: number,
+    price: number,
+    units: number,
     order: number,
     image?: string, id?: string, timestamp?: number): CProductOption {
     return this.createInitObject(arguments);

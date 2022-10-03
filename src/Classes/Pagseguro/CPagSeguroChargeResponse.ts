@@ -11,8 +11,6 @@ import { IMetadata } from '../../Interfaces';
 
 export default class CPagSeguroChargeResponse extends CPagSeguroErrorResponse {
   @Property
-  id?: string;
-  @Property
   reference_id?: string;
   @Property
   @Enum

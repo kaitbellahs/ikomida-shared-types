@@ -25,7 +25,7 @@ export default abstract class BaseJSON {
 
   toJSON() {
     function handleJSON(object: any) {
-      return BaseJSON.isInstance(object) ? object.toJSON() : TBaseType.isInstance(object) ? object.id : object
+      return BaseJSON.isInstance(object) ? object.toJSON() : TBaseType.isInstance(object) ? object.id : object;
     }
     const scopedThis = this as any;
     const instance: any = {};
@@ -101,7 +101,7 @@ export default abstract class BaseJSON {
       let result: (string | symbol)[] = prototype['__properties__'];
       if (result) {
         if (args && Array.isArray(args) && args.length > 0) {
-          result = result.filter(property => args.includes(property))
+          result = result.filter((property) => args.includes(property));
         }
         properties.push(...result);
       }

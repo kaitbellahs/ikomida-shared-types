@@ -1,5 +1,5 @@
 type TTBaseType = typeof TBaseType;
-export type Constructor<T extends TBaseType> = { new(): T };
+export type Constructor<T extends TBaseType> = { new (): T };
 export default abstract class TBaseType {
   //MARK: -- instance
   description?: string;
@@ -33,7 +33,7 @@ export default abstract class TBaseType {
     return this.constructor.name + '.' + this.id;
   }
 
-  //MARK: -- static 
+  //MARK: -- static
   static isInstance(object: any) {
     return object && object instanceof this;
   }

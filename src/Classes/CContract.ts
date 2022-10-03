@@ -90,7 +90,7 @@ export default class CContract extends BaseJSON {
     payment?: CCreditCardRequest,
     createdAt?: Date,
     id?: string,
-    timestamp?: number
+    timestamp?: number,
   ): CContract {
     return this.createInitObject(arguments);
   }

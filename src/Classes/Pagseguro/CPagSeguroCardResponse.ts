@@ -5,8 +5,6 @@ import { Property } from '../../Decorators/Property';
 
 export default class CPagSeguroCardResponse extends CPagSeguroErrorResponse {
   @Property
-  id?: string;
-  @Property
   brand?: string;
   @Property
   first_digits?: string;

@@ -13,8 +13,6 @@ export default class CAsaasPayment extends BaseJSON {
   @Property
   object?: string;
   @Property
-  id?: string;
-  @Property
   dateCreated?: string;
   @Property
   customer?: string;

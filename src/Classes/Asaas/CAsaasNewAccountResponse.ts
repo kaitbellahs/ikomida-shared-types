@@ -9,8 +9,6 @@ export default class CAsaasNewAccountResponse extends CAsaasErrors {
   @Property
   object?: string;
   @Property
-  id?: string;
-  @Property
   name?: string;
   @Property
   email?: string;

@@ -67,11 +67,21 @@ function annotateFromJSON(
     if (Array.isArray(newVal)) {
       const value = [];
       for (const val of newVal) {
-        value.push(val && BaseJSON.isInstance(new runtime()) ? runtime?.fromObject(val) : !TBaseType.isInstance(new runtime()) || typeof val === 'string' ? new runtime(val) : val);
+        value.push(
+          val && BaseJSON.isInstance(new runtime())
+            ? runtime?.fromObject(val)
+            : !TBaseType.isInstance(new runtime()) || typeof val === 'string'
+            ? new runtime(val)
+            : val,
+        );
       }
       _val = value;
     } else {
-      _val = BaseJSON.isInstance(new runtime()) ? runtime?.fromObject(newVal) : !TBaseType.isInstance(new runtime()) || typeof newVal === 'string' ? new runtime(newVal) : newVal;
+      _val = BaseJSON.isInstance(new runtime())
+        ? runtime?.fromObject(newVal)
+        : !TBaseType.isInstance(new runtime()) || typeof newVal === 'string'
+        ? new runtime(newVal)
+        : newVal;
     }
     (this as any)[key] = _val;
   };

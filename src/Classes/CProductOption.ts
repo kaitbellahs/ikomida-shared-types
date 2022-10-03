@@ -8,11 +8,11 @@ export default class CProductOption extends BaseJSON {
   @Property
   highlighted!: boolean;
   @Property
-  price!: number
+  price!: number;
   @Property
-  units!: number
+  units!: number;
   @Property
-  order!: number
+  order!: number;
   @Property
   @Nullable
   image?: string;
@@ -23,7 +23,10 @@ export default class CProductOption extends BaseJSON {
     price: number,
     units: number,
     order: number,
-    image?: string, id?: string, timestamp?: number): CProductOption {
+    image?: string,
+    id?: string,
+    timestamp?: number,
+  ): CProductOption {
     return this.createInitObject(arguments);
   }
 }

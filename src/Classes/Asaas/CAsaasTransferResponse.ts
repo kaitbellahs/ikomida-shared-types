@@ -9,8 +9,6 @@ export default class CAsaasTransferResponse extends CAsaasErrors {
   @Property
   object?: string;
   @Property
-  id?: string;
-  @Property
   type?: string;
   @Property
   @FromJSON

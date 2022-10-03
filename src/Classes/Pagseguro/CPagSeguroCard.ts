@@ -38,7 +38,7 @@ export default class CPagSeguroCard extends BaseJSON {
     first_digits?: string,
     last_digits?: string,
     id?: string,
-    timestamp?: number
+    timestamp?: number,
   ): CPagSeguroCard {
     return this.createInitObject(arguments);
   }

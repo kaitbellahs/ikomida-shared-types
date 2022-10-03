@@ -5,8 +5,6 @@ export default class CNewCustomerResponse extends CAsaasErrors {
   @Property
   object?: string;
   @Property
-  id?: string;
-  @Property
   dateCreated?: string;
   @Property
   name?: string;

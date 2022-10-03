@@ -31,8 +31,8 @@ export default class CChargeResponse extends BaseJSON {
     reference?: string,
     status?: TPagSeguroPaymentStatus,
     amount?: number,
-    id?: string
+    id?: string,
   ): CChargeResponse {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments);
   }
 }

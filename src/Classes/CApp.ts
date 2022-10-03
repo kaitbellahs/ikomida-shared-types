@@ -66,9 +66,8 @@ export default class CApp extends BaseJSON {
     storeBuildStatus?: string,
     managedBy?: CUser,
     id?: string,
-    timestamp?: number
+    timestamp?: number,
   ): CApp {
     return this.createInitObject(arguments);
   }
 }
-

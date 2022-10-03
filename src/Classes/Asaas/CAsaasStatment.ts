@@ -7,8 +7,6 @@ export default class CAsaasStatment extends BaseJSON {
   @Property
   object?: string;
   @Property
-  id?: string;
-  @Property
   value?: number;
   @Property
   balance?: number;

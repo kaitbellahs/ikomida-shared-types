@@ -6,6 +6,7 @@ import BaseJSON from './BaseJSON';
 import CProductCategory from './CProductCategory';
 import { Nullable } from '../Decorators';
 import CProductOptionCategory from './CProductOptionCategory';
+import CProductOption from './CProductOption';
 
 export default class CProduct extends BaseJSON {
   @Property
@@ -42,6 +43,10 @@ export default class CProduct extends BaseJSON {
   @Nullable
   optionsCategories?: CProductOptionCategory[];
   @Property
+  @FromJSON(CProductOption)
+  @Nullable
+  options?: CProductOption[];
+  @Property
   @FromJSON
   @Nullable
   createdAt?: Date;
@@ -59,6 +64,7 @@ export default class CProduct extends BaseJSON {
     category?: CProductCategory,
     image?: string,
     optionsCategories?: CProductOptionCategory[],
+    options?: CProductOption[],
     createdAt?: Date,
     id?: string,
     timestamp?: number,

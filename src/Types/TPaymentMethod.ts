@@ -50,11 +50,11 @@ export default class TPaymentMethod extends TBaseType {
   get pagseguro(): TPagSeguroPaymentMethod {
     switch (this) {
       case TPaymentMethod.CREDIT_CARD_ONLINE:
-        return TPagSeguroPaymentMethod.CREDIT_CARD
+        return TPagSeguroPaymentMethod.CREDIT_CARD;
       case TPaymentMethod.DEBT_CARD_ONLINE:
-        return TPagSeguroPaymentMethod.DEBIT_CARD
+        return TPagSeguroPaymentMethod.DEBIT_CARD;
       default:
-        return TPagSeguroPaymentMethod.CREDIT_CARD
+        return TPagSeguroPaymentMethod.CREDIT_CARD;
     }
   }
 }

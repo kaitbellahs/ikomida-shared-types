@@ -45,7 +45,7 @@ export default class CPlan extends BaseJSON {
   active?: boolean;
   @Property
   @Nullable
-  createdAt?: Date
+  createdAt?: Date;
   @Property
   @Nullable
   order?: number;
@@ -70,7 +70,7 @@ export default class CPlan extends BaseJSON {
     createdAt?: Date,
     order?: number,
     id?: string,
-    timestamp?: number
+    timestamp?: number,
   ): CPlan {
     return this.createInitObject(arguments);
   }

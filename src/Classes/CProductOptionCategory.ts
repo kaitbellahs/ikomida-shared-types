@@ -10,14 +10,14 @@ export default class CProductOptionCategory extends BaseJSON {
   @Property
   highlighted!: boolean;
   @Property
-  min!: number
+  min!: number;
   @Property
-  max!: number
+  max!: number;
   @Property
-  order!: number
+  order!: number;
   @Property
   @FromJSON(CProductOption)
-  options!: CProductOption[]
+  options!: CProductOption[];
   @Property
   @Nullable
   image?: string;
@@ -29,7 +29,10 @@ export default class CProductOptionCategory extends BaseJSON {
     max: number,
     order: number,
     options: CProductOption[],
-    image?: string, id?: string, timestamp?: number): CProductOptionCategory {
+    image?: string,
+    id?: string,
+    timestamp?: number,
+  ): CProductOptionCategory {
     return this.createInitObject(arguments);
   }
 }

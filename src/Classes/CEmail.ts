@@ -5,9 +5,9 @@ import CMessage from './CMessage';
 
 export default class CEmail extends BaseJSON {
   @Property
-  from!: CEmailAddress
+  from!: CEmailAddress;
   @Property
-  to!: CEmailAddress
+  to!: CEmailAddress;
   @Property
-  message!: CMessage
+  message!: CMessage;
 }

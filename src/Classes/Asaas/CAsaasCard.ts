@@ -13,9 +13,6 @@ export default class CAsaasCard extends BaseJSON {
   expiryYear!: number;
   @Property
   ccv!: number;
-  @Property
-  @Nullable
-  id?: string;
 
   static init(
     holderName: string,

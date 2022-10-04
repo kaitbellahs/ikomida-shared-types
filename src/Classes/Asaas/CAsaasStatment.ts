@@ -1,34 +1,34 @@
-import { Enum } from '../../Decorators/Enum';
-import { TAsaasStatment } from '../../Types/Asaas';
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import { Enum } from '../../Decorators/Enum'
+import { TAsaasStatment } from '../../Types/Asaas'
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasStatment extends BaseJSON {
   @Property
-  object?: string;
+  object?: string
   @Property
-  value?: number;
+  value?: number
   @Property
-  balance?: number;
+  balance?: number
   @Property
   @Enum
-  type?: TAsaasStatment;
+  type?: TAsaasStatment
   @Property
-  date?: string;
+  date?: string
   @Property
-  description?: string;
+  description?: string
   @Property
-  paymentID?: string;
+  paymentID?: string
   @Property
-  transferID?: string;
+  transferID?: string
   @Property
-  anticipationID?: string;
+  anticipationID?: string
   @Property
-  billID?: string;
+  billID?: string
   @Property
-  invoiceID?: string;
+  invoiceID?: string
   @Property
-  paymentDunningID?: string;
+  paymentDunningID?: string
   @Property
-  creditBureauReportID?: string;
+  creditBureauReportID?: string
 }

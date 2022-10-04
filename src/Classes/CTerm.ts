@@ -1,25 +1,25 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TTerm } from '../Types';
-import BaseJSON from './BaseJSON';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property'
+import { Enum } from '../Decorators/Enum'
+import { FromJSON } from '../Decorators/FromJSON'
+import { TTerm } from '../Types'
+import BaseJSON from './BaseJSON'
+import { Nullable } from '../Decorators'
 
 export default class CTerm extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
-  text!: string;
+  text!: string
   @Property
   @Enum
-  type!: TTerm;
+  type!: TTerm
   @Property
   @Nullable
-  active?: boolean;
+  active?: boolean
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  createdAt?: Date
 
   static init(
     name: string,
@@ -28,8 +28,8 @@ export default class CTerm extends BaseJSON {
     active?: boolean,
     createdAt?: Date,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CTerm {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

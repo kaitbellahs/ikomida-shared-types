@@ -1,30 +1,30 @@
-import { FromJSON } from '../../Decorators/FromJSON';
-import BaseJSON from '../BaseJSON';
-import CPagSeguroCardHolder from './CPagSeguroCardHolder';
-import { Property } from '../../Decorators/Property';
+import { FromJSON } from '../../Decorators/FromJSON'
+import BaseJSON from '../BaseJSON'
+import CPagSeguroCardHolder from './CPagSeguroCardHolder'
+import { Property } from '../../Decorators/Property'
 
 export default class CPagSeguroCard extends BaseJSON {
   @Property
   @FromJSON
-  holder?: CPagSeguroCardHolder;
+  holder?: CPagSeguroCardHolder
   @Property
-  number?: number;
+  number?: number
   @Property
-  network_token?: string;
+  network_token?: string
   @Property
-  exp_month?: number;
+  exp_month?: number
   @Property
-  exp_year?: number;
+  exp_year?: number
   @Property
-  security_code?: number;
+  security_code?: number
   @Property
-  store?: boolean;
+  store?: boolean
   @Property
-  brand?: string;
+  brand?: string
   @Property
-  first_digits?: string;
+  first_digits?: string
   @Property
-  last_digits?: string;
+  last_digits?: string
 
   static init(
     holder?: CPagSeguroCardHolder,
@@ -38,8 +38,8 @@ export default class CPagSeguroCard extends BaseJSON {
     first_digits?: string,
     last_digits?: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CPagSeguroCard {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

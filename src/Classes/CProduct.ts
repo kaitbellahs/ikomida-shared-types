@@ -1,55 +1,55 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TDiscount } from '../Types';
-import BaseJSON from './BaseJSON';
-import CProductCategory from './CProductCategory';
-import { Nullable } from '../Decorators';
-import CProductOptionCategory from './CProductOptionCategory';
-import CProductOption from './CProductOption';
+import { Property } from '../Decorators/Property'
+import { Enum } from '../Decorators/Enum'
+import { FromJSON } from '../Decorators/FromJSON'
+import { TDiscount } from '../Types'
+import BaseJSON from './BaseJSON'
+import CProductCategory from './CProductCategory'
+import { Nullable } from '../Decorators'
+import CProductOptionCategory from './CProductOptionCategory'
+import CProductOption from './CProductOption'
 
 export default class CProduct extends BaseJSON {
   @Property
-  title!: string;
+  title!: string
   @Property
-  price!: number;
+  price!: number
   @Property
-  discount!: number;
+  discount!: number
   @Property
   @Enum
-  discountType!: TDiscount;
+  discountType!: TDiscount
   @Property
-  quantity!: number;
-  @Property
-  @Nullable
-  description?: string;
+  quantity!: number
   @Property
   @Nullable
-  order?: number;
+  description?: string
   @Property
   @Nullable
-  serves?: number;
+  order?: number
   @Property
-  weight?: number;
+  @Nullable
+  serves?: number
+  @Property
+  weight?: number
   @Property
   @FromJSON
   @Nullable
-  category?: CProductCategory;
+  category?: CProductCategory
   @Property
   @Nullable
-  image?: string;
+  image?: string
   @Property
   @FromJSON(CProductOptionCategory)
   @Nullable
-  optionsCategories?: CProductOptionCategory[];
+  optionsCategories?: CProductOptionCategory[]
   @Property
   @FromJSON(CProductOption)
   @Nullable
-  options?: CProductOption[];
+  options?: CProductOption[]
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  createdAt?: Date
 
   static init(
     title: string,
@@ -67,8 +67,8 @@ export default class CProduct extends BaseJSON {
     options?: CProductOption[],
     createdAt?: Date,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CProduct {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

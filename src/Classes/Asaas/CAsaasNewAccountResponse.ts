@@ -1,54 +1,54 @@
-import { Enum } from '../../Decorators/Enum';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { TCompany, TPerson } from '../../Types';
-import CAsaasAccountNumber from './CAsaasAccountNumber';
-import CAsaasErrors from './CAsaasErrors';
-import { Property } from '../../Decorators/Property';
+import { Enum } from '../../Decorators/Enum'
+import { FromJSON } from '../../Decorators/FromJSON'
+import { TCompany, TPerson } from '../../Types'
+import CAsaasAccountNumber from './CAsaasAccountNumber'
+import CAsaasErrors from './CAsaasErrors'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasNewAccountResponse extends CAsaasErrors {
   @Property
-  object?: string;
+  object?: string
   @Property
-  name?: string;
+  name?: string
   @Property
-  email?: string;
+  email?: string
   @Property
-  loginEmail?: string;
+  loginEmail?: string
   @Property
-  phone?: string;
+  phone?: string
   @Property
-  mobilePhone?: string;
+  mobilePhone?: string
   @Property
-  address?: string;
+  address?: string
   @Property
-  addressNumber?: string;
+  addressNumber?: string
   @Property
-  complement?: string;
+  complement?: string
   @Property
-  province?: string;
+  province?: string
   @Property
-  postalCode?: string;
+  postalCode?: string
   @Property
-  cpfCnpj?: string;
+  cpfCnpj?: string
   @Property
-  birthDate?: string;
-  @Property
-  @Enum
-  personType?: TPerson;
+  birthDate?: string
   @Property
   @Enum
-  companyType?: TCompany;
+  personType?: TPerson
   @Property
-  city?: number;
+  @Enum
+  companyType?: TCompany
   @Property
-  state?: string;
+  city?: number
   @Property
-  country?: string;
+  state?: string
   @Property
-  apiKey?: string;
+  country?: string
   @Property
-  walletId?: string;
+  apiKey?: string
+  @Property
+  walletId?: string
   @Property
   @FromJSON
-  accountNumber?: CAsaasAccountNumber;
+  accountNumber?: CAsaasAccountNumber
 }

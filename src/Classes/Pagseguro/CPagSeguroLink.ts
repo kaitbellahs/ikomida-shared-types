@@ -1,13 +1,13 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CPagSeguroLink extends BaseJSON {
   @Property
-  rel?: string;
+  rel?: string
   @Property
-  href?: string;
+  href?: string
   @Property
-  media?: string;
+  media?: string
   @Property
-  type?: string;
+  type?: string
 }

@@ -1,28 +1,28 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TPaymentMethod } from '../Types';
-import BaseJSON from './BaseJSON';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property'
+import { Enum } from '../Decorators/Enum'
+import { FromJSON } from '../Decorators/FromJSON'
+import { TPaymentMethod } from '../Types'
+import BaseJSON from './BaseJSON'
+import { Nullable } from '../Decorators'
 
 export default class CPaymentMethod extends BaseJSON {
   @Property
   @Enum
-  type!: TPaymentMethod;
+  type!: TPaymentMethod
   @Property
-  brand!: string;
+  brand!: string
   @Property
-  lastDigits!: string;
-  @Property
-  @Nullable
-  selected?: boolean;
+  lastDigits!: string
   @Property
   @Nullable
-  firstDigits?: string;
+  selected?: boolean
+  @Property
+  @Nullable
+  firstDigits?: string
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  createdAt?: Date
 
   static init(
     type: TPaymentMethod,
@@ -32,8 +32,8 @@ export default class CPaymentMethod extends BaseJSON {
     selected?: boolean,
     createdAt?: Date,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CPaymentMethod {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

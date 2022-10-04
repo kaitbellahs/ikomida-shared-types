@@ -1,24 +1,24 @@
-import { Nullable } from '../../Decorators';
-import { Property } from '../../Decorators/Property';
-import BaseJSON from '../BaseJSON';
+import { Nullable } from '../../Decorators'
+import { Property } from '../../Decorators/Property'
+import BaseJSON from '../BaseJSON'
 
 export default class CPagSeguroGetAccessTokenResponse extends BaseJSON {
   @Property
   @Nullable
-  token_type?: string;
+  token_type?: string
   @Property
   @Nullable
-  access_token?: string;
+  access_token?: string
   @Property
   @Nullable
-  expires_in?: string;
+  expires_in?: string
   @Property
   @Nullable
-  refresh_token?: string;
+  refresh_token?: string
   @Property
   @Nullable
-  scope?: string;
+  scope?: string
   @Property
   @Nullable
-  account_id?: string;
+  account_id?: string
 }

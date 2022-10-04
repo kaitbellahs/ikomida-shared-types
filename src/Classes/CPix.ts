@@ -1,38 +1,38 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TPIX } from '../Types';
-import BaseJSON from './BaseJSON';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property'
+import { Enum } from '../Decorators/Enum'
+import { FromJSON } from '../Decorators/FromJSON'
+import { TPIX } from '../Types'
+import BaseJSON from './BaseJSON'
+import { Nullable } from '../Decorators'
 
 export default class CPix extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
   @Enum
-  kind!: TPIX;
+  kind!: TPIX
   @Property
   @Nullable
-  key?: string;
+  key?: string
   @Property
   @Nullable
-  bank?: string;
+  bank?: string
   @Property
   @Nullable
-  agency?: string;
+  agency?: string
   @Property
   @Nullable
-  account?: string;
+  account?: string
   @Property
   @Nullable
-  note?: string;
+  note?: string
   @Property
   @Nullable
-  status?: string;
+  status?: string
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  createdAt?: Date
 
   static init(
     name: string,
@@ -45,8 +45,8 @@ export default class CPix extends BaseJSON {
     status?: string,
     createdAt?: Date,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CPix {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

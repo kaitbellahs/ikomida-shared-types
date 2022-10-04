@@ -1,8 +1,8 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CPagseguroCreateChargeConfig extends BaseJSON {
-  host?: string;
+  host?: string
   @Property
-  uri?: string;
+  uri?: string
 }

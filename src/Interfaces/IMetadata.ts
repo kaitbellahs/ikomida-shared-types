@@ -1,4 +1,4 @@
-import IRecord from './IRecord';
+import IRecord from './IRecord'
 
-type IMetadata = IRecord<string, string>;
-export default IMetadata;
+type IMetadata = IRecord<string, string>
+export default IMetadata

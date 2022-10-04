@@ -1,27 +1,27 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
-import { Nullable } from '../../Decorators';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
+import { Nullable } from '../../Decorators'
 
 export default class CAsaasCreditCardHolderInfo extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
-  email!: string;
+  email!: string
   @Property
-  cpfCnpj!: string;
+  cpfCnpj!: string
   @Property
-  postalCode!: string;
+  postalCode!: string
   @Property
-  addressNumber!: string;
-  @Property
-  @Nullable
-  addressComplement?: string;
+  addressNumber!: string
   @Property
   @Nullable
-  phone?: string;
+  addressComplement?: string
   @Property
   @Nullable
-  mobilePhone?: string;
+  phone?: string
+  @Property
+  @Nullable
+  mobilePhone?: string
 
   static init(
     name: string,
@@ -31,8 +31,8 @@ export default class CAsaasCreditCardHolderInfo extends BaseJSON {
     addressNumber: string,
     addressComplement?: string,
     phone?: string,
-    mobilePhone?: string,
+    mobilePhone?: string
   ): CAsaasCreditCardHolderInfo {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

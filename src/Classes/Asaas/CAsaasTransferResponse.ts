@@ -1,44 +1,44 @@
-import { Enum } from '../../Decorators/Enum';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { TAsaasTransferOperation, TAsaasTransferStatus } from '../../Types/Asaas';
-import CAsaasBankAccount from './CAsaasBankAccount';
-import CAsaasErrors from './CAsaasErrors';
-import { Property } from '../../Decorators/Property';
+import { Enum } from '../../Decorators/Enum'
+import { FromJSON } from '../../Decorators/FromJSON'
+import { TAsaasTransferOperation, TAsaasTransferStatus } from '../../Types/Asaas'
+import CAsaasBankAccount from './CAsaasBankAccount'
+import CAsaasErrors from './CAsaasErrors'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasTransferResponse extends CAsaasErrors {
   @Property
-  object?: string;
+  object?: string
   @Property
-  type?: string;
-  @Property
-  @FromJSON
-  dateCreated?: string;
+  type?: string
   @Property
   @FromJSON
-  bankAccount?: CAsaasBankAccount;
+  dateCreated?: string
   @Property
-  value?: number;
+  @FromJSON
+  bankAccount?: CAsaasBankAccount
   @Property
-  netValue?: number;
+  value?: number
+  @Property
+  netValue?: number
   @Property
   @Enum
-  status?: TAsaasTransferStatus;
+  status?: TAsaasTransferStatus
   @Property
-  transferFee?: number;
+  transferFee?: number
   @Property
-  effectiveDate?: string;
+  effectiveDate?: string
   @Property
-  endToEndIdentifier?: string;
+  endToEndIdentifier?: string
   @Property
-  scheduleDate?: string;
+  scheduleDate?: string
   @Property
-  authorized?: boolean;
+  authorized?: boolean
   @Property
-  failReason?: string;
+  failReason?: string
   @Enum
-  operationType?: TAsaasTransferOperation;
+  operationType?: TAsaasTransferOperation
   @Property
-  description?: string;
+  description?: string
   @Property
-  transactionReceiptUrl?: string;
+  transactionReceiptUrl?: string
 }

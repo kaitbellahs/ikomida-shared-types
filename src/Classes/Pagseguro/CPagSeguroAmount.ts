@@ -1,14 +1,14 @@
-import { FromJSON } from '../../Decorators/FromJSON';
-import BaseJSON from '../BaseJSON';
-import CPagSeguroSummary from './CPagSeguroSummary';
-import { Property } from '../../Decorators/Property';
+import { FromJSON } from '../../Decorators/FromJSON'
+import BaseJSON from '../BaseJSON'
+import CPagSeguroSummary from './CPagSeguroSummary'
+import { Property } from '../../Decorators/Property'
 
 export default class CPagSeguroAmount extends BaseJSON {
   @Property
-  value?: number;
+  value?: number
   @Property
-  currency?: string;
+  currency?: string
   @Property
   @FromJSON
-  summary?: CPagSeguroSummary;
+  summary?: CPagSeguroSummary
 }

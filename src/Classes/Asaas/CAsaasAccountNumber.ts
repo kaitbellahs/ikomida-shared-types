@@ -1,11 +1,11 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasAccountNumber extends BaseJSON {
   @Property
-  agency?: string;
+  agency?: string
   @Property
-  account?: string;
+  account?: string
   @Property
-  accountDigit?: string;
+  accountDigit?: string
 }

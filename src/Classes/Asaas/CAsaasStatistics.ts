@@ -1,11 +1,11 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasStatistics extends BaseJSON {
   @Property
-  quantity?: number;
+  quantity?: number
   @Property
-  value?: number;
+  value?: number
   @Property
-  netValue?: number;
+  netValue?: number
 }

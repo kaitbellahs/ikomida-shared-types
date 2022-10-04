@@ -1,27 +1,27 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TAsaasSubscriptionStatus } from '../Types/Asaas';
-import BaseJSON from './BaseJSON';
-import CSubscriptionCharge from './CSubscriptionCharge';
+import { Property } from '../Decorators/Property'
+import { Enum } from '../Decorators/Enum'
+import { FromJSON } from '../Decorators/FromJSON'
+import { TAsaasSubscriptionStatus } from '../Types/Asaas'
+import BaseJSON from './BaseJSON'
+import CSubscriptionCharge from './CSubscriptionCharge'
 
 export default class CSubscription extends BaseJSON {
   @Property
-  plan!: string;
+  plan!: string
   @Property
-  value!: number;
+  value!: number
   @Property
   @FromJSON
-  subscription!: Date;
+  subscription!: Date
   @Property
   @Enum
-  status!: TAsaasSubscriptionStatus;
+  status!: TAsaasSubscriptionStatus
   @Property
   @FromJSON
-  nextDueDate!: Date;
+  nextDueDate!: Date
   @Property
   @FromJSON(CSubscriptionCharge)
-  charges!: CSubscriptionCharge[];
+  charges!: CSubscriptionCharge[]
 
   static init(
     plan: string,
@@ -31,8 +31,8 @@ export default class CSubscription extends BaseJSON {
     nextDueDate: Date,
     charges: CSubscriptionCharge[],
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CSubscription {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

@@ -1,71 +1,71 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CAddress from './CAddress';
-import CApp from './CApp';
-import CCreditCardRequest from './CCreditCardRequest';
-import CPlan from './CPlan';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property'
+import { FromJSON } from '../Decorators/FromJSON'
+import BaseJSON from './BaseJSON'
+import CAddress from './CAddress'
+import CApp from './CApp'
+import CCreditCardRequest from './CCreditCardRequest'
+import CPlan from './CPlan'
+import { Nullable } from '../Decorators'
 
 export default class CContract extends BaseJSON {
   @Property
-  ikomidaID!: string;
+  ikomidaID!: string
   @Property
-  contractName!: string;
+  contractName!: string
   @Property
-  name!: string;
+  name!: string
   @Property
-  lastName!: string;
+  lastName!: string
   @Property
-  contractIdentity!: string;
+  contractIdentity!: string
   @Property
-  email!: string;
+  email!: string
   @Property
-  phone!: string;
+  phone!: string
   @Property
-  areaCode!: number;
-  @Property
-  @FromJSON
-  plan?: CPlan;
-  @Property
-  @Nullable
-  identity?: string;
-  @Property
-  @Nullable
-  status?: string;
-  @Property
-  @Nullable
-  termId?: string;
-  @Property
-  @Nullable
-  password?: string;
-  @Property
-  @Nullable
-  confirmPassword?: string;
+  areaCode!: number
   @Property
   @FromJSON
-  @Nullable
-  address?: CAddress;
+  plan?: CPlan
   @Property
   @Nullable
-  referredBy?: string;
+  identity?: string
+  @Property
+  @Nullable
+  status?: string
+  @Property
+  @Nullable
+  termId?: string
+  @Property
+  @Nullable
+  password?: string
+  @Property
+  @Nullable
+  confirmPassword?: string
+  @Property
+  @FromJSON
+  @Nullable
+  address?: CAddress
+  @Property
+  @Nullable
+  referredBy?: string
   @Property(CApp)
   @FromJSON(CApp)
   @Nullable
-  apps?: CApp[];
+  apps?: CApp[]
   @Property
   @Nullable
-  phoneValidationCode?: string;
+  phoneValidationCode?: string
   @Property
-  signature?: string;
+  signature?: string
   @Property
   @FromJSON
   @Nullable
-  payment?: CCreditCardRequest;
+  payment?: CCreditCardRequest
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  createdAt?: Date
 
   static init(
     ikomidaID: string,
@@ -90,8 +90,8 @@ export default class CContract extends BaseJSON {
     payment?: CCreditCardRequest,
     createdAt?: Date,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CContract {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

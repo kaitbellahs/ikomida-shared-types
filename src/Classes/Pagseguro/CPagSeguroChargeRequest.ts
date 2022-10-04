@@ -1,27 +1,27 @@
-import CPagSeguroRecurring from './CPagSeguroRecurring';
-import CPagSeguroPaymentMethod from './CPagSeguroPaymentMethod';
-import CPagSeguroAmount from './CPagSeguroAmount';
-import BaseJSON from '../BaseJSON';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators/Property';
-import { IMetadata } from '../../Interfaces';
+import CPagSeguroRecurring from './CPagSeguroRecurring'
+import CPagSeguroPaymentMethod from './CPagSeguroPaymentMethod'
+import CPagSeguroAmount from './CPagSeguroAmount'
+import BaseJSON from '../BaseJSON'
+import { FromJSON } from '../../Decorators/FromJSON'
+import { Property } from '../../Decorators/Property'
+import { IMetadata } from '../../Interfaces'
 
 export default class CPagSeguroChargeRequest extends BaseJSON {
   @Property
   @FromJSON
-  amount?: CPagSeguroAmount;
+  amount?: CPagSeguroAmount
   @Property
   @FromJSON
-  payment_method?: CPagSeguroPaymentMethod;
+  payment_method?: CPagSeguroPaymentMethod
   @Property
   @FromJSON
-  recurring?: CPagSeguroRecurring;
+  recurring?: CPagSeguroRecurring
   @Property
-  notification_urls?: string[];
+  notification_urls?: string[]
   @Property
-  reference_id?: string;
+  reference_id?: string
   @Property
-  description?: string;
+  description?: string
   @Property
-  metadata?: IMetadata;
+  metadata?: IMetadata
 }

@@ -1,17 +1,17 @@
-import { FromJSON } from '../../Decorators/FromJSON';
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import { FromJSON } from '../../Decorators/FromJSON'
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasRefund extends BaseJSON {
   @Property
   @FromJSON
-  dateCreated?: string;
+  dateCreated?: string
   @Property
-  status?: string;
+  status?: string
   @Property
-  value?: number;
+  value?: number
   @Property
-  description?: string;
+  description?: string
   @Property
-  transactionReceiptURL?: string;
+  transactionReceiptURL?: string
 }

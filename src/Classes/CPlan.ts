@@ -1,54 +1,56 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import TDiscount from '../Types/TDiscount';
-import TSupport from '../Types/TSupport';
-import BaseJSON from './BaseJSON';
-import CKeyValue from './CKeyValue';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property'
+import { Enum } from '../Decorators/Enum'
+import { FromJSON } from '../Decorators/FromJSON'
+import TDiscount from '../Types/TDiscount'
+import TSupport from '../Types/TSupport'
+import BaseJSON from './BaseJSON'
+import CKeyValue from './CKeyValue'
+import { Nullable } from '../Decorators'
 
 export default class CPlan extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
-  price!: number;
+  price!: number
   @Property
-  discount!: number;
+  discount!: number
   @Property
   @Enum
-  discountType!: TDiscount;
+  discountType!: TDiscount
   @Property
-  staff?: number;
+  staff?: number
   @Property
-  products?: number;
+  products?: number
   @Property
-  categories?: number;
+  productOptions?: number
   @Property
-  pushNotifications?: number;
+  categories?: number
   @Property
-  orders?: number;
+  pushNotifications?: number
   @Property
-  coupons?: number;
+  orders?: number
   @Property
-  billing?: number;
+  coupons?: number
   @Property
-  details?: CKeyValue[];
+  billing?: number
+  @Property
+  details?: CKeyValue[]
   @Property
   @FromJSON(TSupport)
-  support?: TSupport[];
+  support?: TSupport[]
   @Property
-  highlighted?: boolean;
+  highlighted?: boolean
   @Property
-  discountedPrice?: number;
-  @Property
-  @Nullable
-  active?: boolean;
+  discountedPrice?: number
   @Property
   @Nullable
-  createdAt?: Date;
+  active?: boolean
   @Property
   @Nullable
-  order?: number;
+  createdAt?: Date
+  @Property
+  @Nullable
+  order?: number
 
   static init(
     name: string,
@@ -70,8 +72,8 @@ export default class CPlan extends BaseJSON {
     createdAt?: Date,
     order?: number,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CPlan {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

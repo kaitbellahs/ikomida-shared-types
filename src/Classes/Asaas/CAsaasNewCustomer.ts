@@ -1,9 +1,9 @@
-import CAsaasCustomer from './CAsaasCustomer';
-import { Property } from '../../Decorators/Property';
+import CAsaasCustomer from './CAsaasCustomer'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasNewCustomer extends CAsaasCustomer {
   @Property
-  externalReference?: string;
+  externalReference?: string
   @Property
-  observations?: string;
+  observations?: string
 }

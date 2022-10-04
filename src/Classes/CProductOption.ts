@@ -1,21 +1,21 @@
-import { Nullable } from '../Decorators';
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
 
 export default class CProductOption extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
-  highlighted!: boolean;
+  highlighted!: boolean
   @Property
-  price!: number;
+  price!: number
   @Property
-  units!: number;
+  units!: number
   @Property
-  order!: number;
+  order!: number
   @Property
   @Nullable
-  image?: string;
+  image?: string
 
   static init(
     name: string,
@@ -25,8 +25,8 @@ export default class CProductOption extends BaseJSON {
     order: number,
     image?: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CProductOption {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

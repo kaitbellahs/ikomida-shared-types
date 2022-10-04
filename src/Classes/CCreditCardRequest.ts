@@ -1,13 +1,13 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
 
 export default class CCreditCardRequest extends BaseJSON {
   @Property
-  number!: string;
+  number!: string
   @Property
-  validity!: string;
+  validity!: string
   @Property
-  code!: number;
+  code!: number
   @Property
-  holder!: string;
+  holder!: string
 }

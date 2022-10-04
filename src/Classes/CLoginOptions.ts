@@ -1,25 +1,25 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
 
 export default class CLoginOptions extends BaseJSON {
   @Property
-  ip!: string;
+  ip!: string
   @Property
-  forwardedIp!: string;
+  forwardedIp!: string
   @Property
-  platform!: string;
+  platform!: string
   @Property
-  deviceId!: string;
+  deviceId!: string
   @Property
-  region!: string;
+  region!: string
   @Property
-  subRegion!: string;
+  subRegion!: string
   @Property
-  citylatlong!: string;
+  citylatlong!: string
   @Property
-  city!: string;
+  city!: string
   @Property
-  app!: string;
+  app!: string
 
   static init(
     ip: string,
@@ -32,8 +32,8 @@ export default class CLoginOptions extends BaseJSON {
     city: string,
     app: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CLoginOptions {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

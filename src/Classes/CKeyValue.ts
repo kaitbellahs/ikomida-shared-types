@@ -1,12 +1,12 @@
-import { Nullable } from '../Decorators';
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
 
 export default class CKeyValue extends BaseJSON {
   @Property
   @Nullable
-  key?: string;
+  key?: string
   @Property
   @Nullable
-  value?: null | string;
+  value?: null | string
 }

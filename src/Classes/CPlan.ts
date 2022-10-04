@@ -59,6 +59,7 @@ export default class CPlan extends BaseJSON {
     discountType: TDiscount,
     staff?: number,
     products?: number,
+    productOptions?: number,
     categories?: number,
     pushNotifications?: number,
     orders?: number,

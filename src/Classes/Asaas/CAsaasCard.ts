@@ -1,18 +1,18 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
-import { Nullable } from '../../Decorators';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
+import { Nullable } from '../../Decorators'
 
 export default class CAsaasCard extends BaseJSON {
   @Property
-  holderName!: string;
+  holderName!: string
   @Property
-  number!: number;
+  number!: number
   @Property
-  expiryMonth!: number;
+  expiryMonth!: number
   @Property
-  expiryYear!: number;
+  expiryYear!: number
   @Property
-  ccv!: number;
+  ccv!: number
 
   static init(
     holderName: string,
@@ -20,8 +20,8 @@ export default class CAsaasCard extends BaseJSON {
     expiryMonth: number,
     expiryYear: number,
     ccv: number,
-    id?: string,
+    id?: string
   ): CAsaasCard {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

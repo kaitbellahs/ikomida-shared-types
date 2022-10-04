@@ -1,26 +1,26 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
-import { TPagSeguroPaymentStatus } from '../../Types';
-import { Enum } from '../../Decorators/Enum';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
+import { TPagSeguroPaymentStatus } from '../../Types'
+import { Enum } from '../../Decorators/Enum'
 
 export default class CChargeResponse extends BaseJSON {
   @Property
-  cardId?: string;
+  cardId?: string
   @Property
-  brand?: string;
+  brand?: string
   @Property
-  firstDigits?: string;
+  firstDigits?: string
   @Property
-  lastDigits?: string;
+  lastDigits?: string
   @Property
-  ikomidaID?: string;
+  ikomidaID?: string
   @Property
-  reference?: string;
+  reference?: string
   @Property
   @Enum
-  status?: TPagSeguroPaymentStatus;
+  status?: TPagSeguroPaymentStatus
   @Property
-  amount?: number;
+  amount?: number
 
   static init(
     cardId?: string,
@@ -31,8 +31,8 @@ export default class CChargeResponse extends BaseJSON {
     reference?: string,
     status?: TPagSeguroPaymentStatus,
     amount?: number,
-    id?: string,
+    id?: string
   ): CChargeResponse {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

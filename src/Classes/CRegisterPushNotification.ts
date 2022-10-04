@@ -1,13 +1,13 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
 
 export default class CRegisterPushNotification extends BaseJSON {
   @Property
-  platform!: string;
+  platform!: string
   @Property
-  token!: string;
+  token!: string
 
   static init(platform: string, token: string, id?: string, timestamp?: number): CRegisterPushNotification {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

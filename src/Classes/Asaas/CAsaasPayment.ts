@@ -1,91 +1,91 @@
-import CAsaasCardResponse from './CAsaasCardResponse';
-import CAsaasRefund from './CAsaasRefund';
-import CAsaasFine from './CAsaasFine';
-import CAsaasDiscount from './CAsaasDiscount';
-import { TAsaasBilling } from '../../Types/Asaas';
-import { Enum } from '../../Decorators/Enum';
-import BaseJSON from '../BaseJSON';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators/Property';
-import { TAsaasPaymentStatus } from '../../Types';
+import CAsaasCardResponse from './CAsaasCardResponse'
+import CAsaasRefund from './CAsaasRefund'
+import CAsaasFine from './CAsaasFine'
+import CAsaasDiscount from './CAsaasDiscount'
+import { TAsaasBilling } from '../../Types/Asaas'
+import { Enum } from '../../Decorators/Enum'
+import BaseJSON from '../BaseJSON'
+import { FromJSON } from '../../Decorators/FromJSON'
+import { Property } from '../../Decorators/Property'
+import { TAsaasPaymentStatus } from '../../Types'
 
 export default class CAsaasPayment extends BaseJSON {
   @Property
-  object?: string;
+  object?: string
   @Property
-  dateCreated?: string;
+  dateCreated?: string
   @Property
-  customer?: string;
+  customer?: string
   @Property
-  value?: number;
+  value?: number
   @Property
-  netValue?: number;
-  @Property
-  @Enum
-  billingType?: TAsaasBilling;
+  netValue?: number
   @Property
   @Enum
-  status?: TAsaasPaymentStatus;
+  billingType?: TAsaasBilling
   @Property
-  dueDate?: string;
+  @Enum
+  status?: TAsaasPaymentStatus
   @Property
-  originalDueDate?: string;
+  dueDate?: string
   @Property
-  invoiceURL?: string;
+  originalDueDate?: string
   @Property
-  invoiceNumber?: string;
+  invoiceURL?: string
   @Property
-  deleted?: boolean;
+  invoiceNumber?: string
   @Property
-  postalService?: boolean;
+  deleted?: boolean
   @Property
-  anticipated?: boolean;
+  postalService?: boolean
   @Property
-  originalValue?: number;
+  anticipated?: boolean
   @Property
-  interestValue?: number;
+  originalValue?: number
   @Property
-  description?: string;
+  interestValue?: number
   @Property
-  paymentLink?: string;
+  description?: string
   @Property
-  canBePaidAfterDueDate?: string;
+  paymentLink?: string
   @Property
-  pixTransaction?: string;
+  canBePaidAfterDueDate?: string
   @Property
-  paymentDate?: string;
+  pixTransaction?: string
   @Property
-  clientPaymentDate?: string;
+  paymentDate?: string
   @Property
-  installmentNumber?: number;
+  clientPaymentDate?: string
   @Property
-  transactionReceiptURL?: string;
+  installmentNumber?: number
   @Property
-  nossoNumero?: string;
+  transactionReceiptURL?: string
   @Property
-  externalReference?: any;
+  nossoNumero?: string
   @Property
-  bankSlipURL?: string;
+  externalReference?: any
+  @Property
+  bankSlipURL?: string
   @Property
   @FromJSON(CAsaasRefund)
-  refunds?: CAsaasRefund[];
+  refunds?: CAsaasRefund[]
   @Property
-  confirmedDate?: string;
+  confirmedDate?: string
   @Property
-  creditDate?: string;
+  creditDate?: string
   @Property
-  estimatedCreditDate?: string;
+  estimatedCreditDate?: string
   @Property
-  lastInvoiceViewedDate?: string;
+  lastInvoiceViewedDate?: string
   @Property
-  lastBankSlipViewedDate?: string;
+  lastBankSlipViewedDate?: string
   @Property
   @FromJSON
-  discount?: CAsaasDiscount;
+  discount?: CAsaasDiscount
   @FromJSON
-  fine?: CAsaasFine;
+  fine?: CAsaasFine
   @FromJSON
-  interest?: CAsaasFine;
+  interest?: CAsaasFine
   @FromJSON
-  creditCard?: CAsaasCardResponse;
+  creditCard?: CAsaasCardResponse
 }

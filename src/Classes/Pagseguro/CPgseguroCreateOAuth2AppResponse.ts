@@ -1,35 +1,35 @@
-import { Nullable } from '../../Decorators';
-import { Property } from '../../Decorators/Property';
-import BaseJSON from '../BaseJSON';
+import { Nullable } from '../../Decorators'
+import { Property } from '../../Decorators/Property'
+import BaseJSON from '../BaseJSON'
 
 export default class CPgseguroCreateOAuth2AppResponse extends BaseJSON {
   @Property
   @Nullable
-  client_id?: string;
+  client_id?: string
   @Property
   @Nullable
-  site?: string;
+  site?: string
   @Property
   @Nullable
-  description?: string;
+  description?: string
   @Property
   @Nullable
-  name?: string;
+  name?: string
   @Property
   @Nullable
-  client_secret?: string;
+  client_secret?: string
   @Property
   @Nullable
-  redirect_uri?: string;
+  redirect_uri?: string
   @Property
   @Nullable
-  logo?: string;
+  logo?: string
   @Property
   @Nullable
-  account_id?: string;
+  account_id?: string
   @Property
   @Nullable
-  client_type?: string;
+  client_type?: string
 
   static init(
     client_id?: string,
@@ -40,8 +40,8 @@ export default class CPgseguroCreateOAuth2AppResponse extends BaseJSON {
     redirect_uri?: string,
     logo?: string,
     account_id?: string,
-    client_type?: string,
+    client_type?: string
   ): CPgseguroCreateOAuth2AppResponse {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

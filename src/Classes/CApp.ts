@@ -1,53 +1,53 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CUser from './CUser';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property'
+import { FromJSON } from '../Decorators/FromJSON'
+import BaseJSON from './BaseJSON'
+import CUser from './CUser'
+import { Nullable } from '../Decorators'
 
 export default class CApp extends BaseJSON {
   @Property
-  bundleId!: string;
+  bundleId!: string
   @Property
-  displayName!: string;
+  displayName!: string
   @Property
-  platform!: string;
-  @Property
-  @Nullable
-  fireBaseId?: string;
+  platform!: string
   @Property
   @Nullable
-  version?: string;
+  fireBaseId?: string
   @Property
   @Nullable
-  storeStatus?: string;
+  version?: string
   @Property
   @Nullable
-  storePublishStatus?: string;
+  storeStatus?: string
   @Property
-  active?: boolean;
+  @Nullable
+  storePublishStatus?: string
+  @Property
+  active?: boolean
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  createdAt?: Date
   @Property
   @Nullable
-  iOSProfileId?: string;
+  iOSProfileId?: string
   @Property
   @Nullable
-  storeNote?: string;
+  storeNote?: string
   @Property
   @Nullable
-  storeEvidences?: string;
+  storeEvidences?: string
   @Property
   @Nullable
-  storeVersion?: string;
+  storeVersion?: string
   @Property
   @Nullable
-  storeBuildStatus?: string;
+  storeBuildStatus?: string
   @Property
   @FromJSON
   @Nullable
-  managedBy?: CUser;
+  managedBy?: CUser
 
   static init(
     bundleId: string,
@@ -66,8 +66,8 @@ export default class CApp extends BaseJSON {
     storeBuildStatus?: string,
     managedBy?: CUser,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CApp {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

@@ -1,25 +1,25 @@
-import TBaseType from './TBaseType';
+import TBaseType from './TBaseType'
 
 export default class TSupport extends TBaseType {
-  static EMAIL = new TSupport('EMAIL');
-  static WHATSAPP = new TSupport('WHATSAPP');
-  static CALL = new TSupport('CALL');
-  static CHAT = new TSupport('CHAT');
+  static EMAIL = new TSupport('EMAIL')
+  static WHATSAPP = new TSupport('WHATSAPP')
+  static CALL = new TSupport('CALL')
+  static CHAT = new TSupport('CHAT')
   constructor(type: string) {
-    super(type);
+    super(type)
     switch (type) {
       case 'EMAIL':
-        this.name = 'Email';
-        break;
+        this.name = 'Email'
+        break
       case 'WHATSAPP':
-        this.name = 'Whatsapp';
-        break;
+        this.name = 'Whatsapp'
+        break
       case 'CALL':
-        this.name = 'Ligação';
-        break;
+        this.name = 'Ligação'
+        break
       case 'CHAT':
-        this.name = 'Bate papo';
-        break;
+        this.name = 'Bate papo'
+        break
     }
   }
 }

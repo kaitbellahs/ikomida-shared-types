@@ -1,9 +1,9 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
 
 export default class CMessage extends BaseJSON {
   @Property
-  subject?: string;
+  subject?: string
   @Property
-  body?: string;
+  body?: string
 }

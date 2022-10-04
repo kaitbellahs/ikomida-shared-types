@@ -1,26 +1,26 @@
-import { Nullable } from '../Decorators';
-import { FromJSON } from '../Decorators/FromJSON';
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
-import CProductOption from './CProductOption';
+import { Nullable } from '../Decorators'
+import { FromJSON } from '../Decorators/FromJSON'
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
+import CProductOption from './CProductOption'
 
 export default class CProductOptionCategory extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
-  highlighted!: boolean;
+  highlighted!: boolean
   @Property
-  min!: number;
+  min!: number
   @Property
-  max!: number;
+  max!: number
   @Property
-  order!: number;
+  order!: number
   @Property
   @FromJSON(CProductOption)
-  options!: CProductOption[];
+  options!: CProductOption[]
   @Property
   @Nullable
-  image?: string;
+  image?: string
 
   static init(
     name: string,
@@ -31,8 +31,8 @@ export default class CProductOptionCategory extends BaseJSON {
     options: CProductOption[],
     image?: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CProductOptionCategory {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

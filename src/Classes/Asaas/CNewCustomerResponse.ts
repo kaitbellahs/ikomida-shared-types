@@ -1,47 +1,47 @@
-import CAsaasErrors from './CAsaasErrors';
-import { Property } from '../../Decorators/Property';
+import CAsaasErrors from './CAsaasErrors'
+import { Property } from '../../Decorators/Property'
 
 export default class CNewCustomerResponse extends CAsaasErrors {
   @Property
-  object?: string;
+  object?: string
   @Property
-  dateCreated?: string;
+  dateCreated?: string
   @Property
-  name?: string;
+  name?: string
   @Property
-  email?: string;
+  email?: string
   @Property
-  phone?: string;
+  phone?: string
   @Property
-  mobilePhone?: string;
+  mobilePhone?: string
   @Property
-  address?: string;
+  address?: string
   @Property
-  addressNumber?: string;
+  addressNumber?: string
   @Property
-  complement?: string;
+  complement?: string
   @Property
-  province?: string;
+  province?: string
   @Property
-  postalCode?: string;
+  postalCode?: string
   @Property
-  cpfCnpj?: string;
+  cpfCnpj?: string
   @Property
-  personType?: string;
+  personType?: string
   @Property
-  deleted?: boolean;
+  deleted?: boolean
   @Property
-  additionalEmails?: string;
+  additionalEmails?: string
   @Property
-  externalReference?: string;
+  externalReference?: string
   @Property
-  notificationDisabled?: boolean;
+  notificationDisabled?: boolean
   @Property
-  city?: number;
+  city?: number
   @Property
-  state?: string;
+  state?: string
   @Property
-  country?: string;
+  country?: string
   @Property
-  observations?: string;
+  observations?: string
 }

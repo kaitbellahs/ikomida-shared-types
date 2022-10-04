@@ -1,38 +1,38 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CNotification from './CNotification';
-import CNotificationData from './CNotificationData';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property'
+import { FromJSON } from '../Decorators/FromJSON'
+import BaseJSON from './BaseJSON'
+import CNotification from './CNotification'
+import CNotificationData from './CNotificationData'
+import { Nullable } from '../Decorators'
 
 export default class CNotificationPayload extends BaseJSON {
   @Property
   @FromJSON
   @Nullable
-  notification?: CNotification;
+  notification?: CNotification
   @Property
   @FromJSON
   @Nullable
-  data?: CNotificationData;
+  data?: CNotificationData
   @Property
   @Nullable
-  priority?: number;
+  priority?: number
   @Property
   @Nullable
-  topic?: string;
+  topic?: string
   @Property
   @Nullable
-  token?: string;
+  token?: string
   @Property
   @Nullable
-  ikomidaId?: string;
+  ikomidaId?: string
   @Property
   @Nullable
-  condition?: string;
+  condition?: string
   @Property
   @Nullable
-  title?: string;
+  title?: string
   @Property
   @Nullable
-  body?: string;
+  body?: string
 }

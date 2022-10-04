@@ -1,11 +1,11 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CPagseguroErrorMessage extends BaseJSON {
   @Property
-  code?: number;
+  code?: number
   @Property
-  description?: string;
+  description?: string
   @Property
-  parameter_name?: string;
+  parameter_name?: string
 }

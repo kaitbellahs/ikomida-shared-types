@@ -1,26 +1,26 @@
-import CAsaasNewCustomer from './CAsaasNewCustomer';
-import CAsaasCard from './CAsaasCard';
-import BaseJSON from '../BaseJSON';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators/Property';
+import CAsaasNewCustomer from './CAsaasNewCustomer'
+import CAsaasCard from './CAsaasCard'
+import BaseJSON from '../BaseJSON'
+import { FromJSON } from '../../Decorators/FromJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasSubscription extends BaseJSON {
   @Property
   plan?: {
-    price?: number;
-    name?: string;
-    id?: string;
-  };
+    price?: number
+    name?: string
+    id?: string
+  }
   @Property
   @FromJSON
-  payment?: CAsaasCard;
+  payment?: CAsaasCard
   @Property
   @FromJSON
-  customer?: CAsaasNewCustomer;
+  customer?: CAsaasNewCustomer
   @Property
-  ikomidaID?: string;
+  ikomidaID?: string
   @Property
-  externalReference?: string;
+  externalReference?: string
   @Property
-  observations?: string;
+  observations?: string
 }

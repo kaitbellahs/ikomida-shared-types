@@ -1,17 +1,17 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CPagSeguroAuthenticationMethod extends BaseJSON {
   @Property
-  type?: string;
+  type?: string
   @Property
-  cavv?: string;
+  cavv?: string
   @Property
-  eci?: string;
+  eci?: string
   @Property
-  xid?: string;
+  xid?: string
   @Property
-  version?: string;
+  version?: string
   @Property
-  dstrans_id?: string;
+  dstrans_id?: string
 }

@@ -1,11 +1,11 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CPagSeguroPaymentResponse extends BaseJSON {
   @Property
-  code?: string;
+  code?: string
   @Property
-  message?: string;
+  message?: string
   @Property
-  reference?: string;
+  reference?: string
 }

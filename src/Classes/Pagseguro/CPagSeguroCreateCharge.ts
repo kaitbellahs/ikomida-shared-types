@@ -1,43 +1,43 @@
-import { Enum } from '../../Decorators/Enum';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { TPagSeguroPaymentMethod } from '../../Types/Pagseguro';
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
-import CPagSeguroCard from './CPagSeguroCard';
-import CPagseguroCreateChargeConfig from './CPagseguroCreateChargeConfig';
-import { Nullable } from '../../Decorators';
-import { IMetadata } from '../../Interfaces';
+import { Enum } from '../../Decorators/Enum'
+import { FromJSON } from '../../Decorators/FromJSON'
+import { TPagSeguroPaymentMethod } from '../../Types/Pagseguro'
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
+import CPagSeguroCard from './CPagSeguroCard'
+import CPagseguroCreateChargeConfig from './CPagseguroCreateChargeConfig'
+import { Nullable } from '../../Decorators'
+import { IMetadata } from '../../Interfaces'
 
 export default class CPagSeguroCreateCharge extends BaseJSON {
   @Property
-  reference!: string;
+  reference!: string
   @Property
-  amount!: number;
+  amount!: number
   @Property
   @Enum
-  type!: TPagSeguroPaymentMethod;
+  type!: TPagSeguroPaymentMethod
   @Property
-  statementID!: string;
-  @Property
-  @FromJSON
-  @Nullable
-  config?: CPagseguroCreateChargeConfig;
-  @Property
-  @Nullable
-  contractID?: string;
+  statementID!: string
   @Property
   @FromJSON
   @Nullable
-  card?: CPagSeguroCard;
+  config?: CPagseguroCreateChargeConfig
   @Property
   @Nullable
-  cardToken?: string;
+  contractID?: string
+  @Property
+  @FromJSON
+  @Nullable
+  card?: CPagSeguroCard
   @Property
   @Nullable
-  description?: string;
+  cardToken?: string
   @Property
   @Nullable
-  metadata?: IMetadata;
+  description?: string
+  @Property
+  @Nullable
+  metadata?: IMetadata
 
   static init(
     reference: string,
@@ -51,8 +51,8 @@ export default class CPagSeguroCreateCharge extends BaseJSON {
     description?: string,
     metadata?: IMetadata,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CPagSeguroCreateCharge {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

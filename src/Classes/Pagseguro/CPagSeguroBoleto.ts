@@ -1,16 +1,16 @@
-import CPagSeguroInstructionLines from './CPagSeguroInstructionLines';
-import CPagSeguroBoletoHolder from './CPagSeguroBoletoHolder';
-import BaseJSON from '../BaseJSON';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators/Property';
+import CPagSeguroInstructionLines from './CPagSeguroInstructionLines'
+import CPagSeguroBoletoHolder from './CPagSeguroBoletoHolder'
+import BaseJSON from '../BaseJSON'
+import { FromJSON } from '../../Decorators/FromJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CPagSeguroBoleto extends BaseJSON {
   @Property
   @FromJSON
-  instructionLines?: CPagSeguroInstructionLines;
+  instructionLines?: CPagSeguroInstructionLines
   @Property
   @FromJSON
-  holder?: CPagSeguroBoletoHolder;
+  holder?: CPagSeguroBoletoHolder
   @Property
-  due_date?: string;
+  due_date?: string
 }

@@ -1,20 +1,20 @@
-export { default as TBaseType } from './TBaseType';
-export { default as TDiscount } from './TDiscount';
-export { default as TOrderStatus } from './TOrderStatus';
-export { default as TPagSeguroPaymentStatus } from './TPagSeguroPaymentStatus';
-export { default as TSetting } from './TSetting';
-export { default as TSupport } from './TSupport';
-export { default as TTerm } from './TTerm';
-export { default as TPaymentMethod } from './TPaymentMethod';
-export { default as TPIX } from './TPIX';
-export { default as TransactionStatus } from './TransactionStatus';
-export { default as TransferStatus } from './TransferStatus';
-export { default as TAsaasPaymentStatus } from './TAsaasPaymentStatus';
-export { default as TAsaasSignatureStatus } from './TAsaasSignatureStatus';
-export { default as TAddress } from './TAddress';
-export { default as TPerson } from './TPerson';
-export { default as TCompany } from './TCompany';
-export { default as TAMQPPayload } from './TAMQPPayload';
-export { default as TSendReturn } from './TSendReturn';
-export * as Asaas from './Asaas';
-export * as Pagseguro from './Pagseguro';
+export { default as TBaseType } from './TBaseType'
+export { default as TDiscount } from './TDiscount'
+export { default as TOrderStatus } from './TOrderStatus'
+export { default as TPagSeguroPaymentStatus } from './TPagSeguroPaymentStatus'
+export { default as TSetting } from './TSetting'
+export { default as TSupport } from './TSupport'
+export { default as TTerm } from './TTerm'
+export { default as TPaymentMethod } from './TPaymentMethod'
+export { default as TPIX } from './TPIX'
+export { default as TransactionStatus } from './TransactionStatus'
+export { default as TransferStatus } from './TransferStatus'
+export { default as TAsaasPaymentStatus } from './TAsaasPaymentStatus'
+export { default as TAsaasSignatureStatus } from './TAsaasSignatureStatus'
+export { default as TAddress } from './TAddress'
+export { default as TPerson } from './TPerson'
+export { default as TCompany } from './TCompany'
+export { default as TAMQPPayload } from './TAMQPPayload'
+export { default as TSendReturn } from './TSendReturn'
+export * as Asaas from './Asaas'
+export * as Pagseguro from './Pagseguro'

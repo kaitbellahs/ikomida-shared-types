@@ -1,9 +1,9 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasError extends BaseJSON {
   @Property
-  code?: string;
+  code?: string
   @Property
-  description?: string;
+  description?: string
 }

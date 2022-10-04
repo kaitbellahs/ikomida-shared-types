@@ -1,33 +1,33 @@
-import TBaseType from './TBaseType';
+import TBaseType from './TBaseType'
 
 export default class TCompany extends TBaseType {
-  static MEI = new TCompany('MEI');
-  static LIMITED = new TCompany('LIMITED');
-  static INDIVIDUAL = new TCompany('INDIVIDUAL');
-  static ASSOCIATION = new TCompany('ASSOCIATION');
+  static MEI = new TCompany('MEI')
+  static LIMITED = new TCompany('LIMITED')
+  static INDIVIDUAL = new TCompany('INDIVIDUAL')
+  static ASSOCIATION = new TCompany('ASSOCIATION')
   constructor(type: string) {
-    super(type);
+    super(type)
     switch (type) {
       case 'MEI':
-        this.name = 'MEI';
-        this.description = 'Micro Empreendedor Individual';
-        break;
+        this.name = 'MEI'
+        this.description = 'Micro Empreendedor Individual'
+        break
       case 'LIMITED':
-        this.name = 'LTDA';
-        this.description = 'Empresa Limitada';
-        break;
+        this.name = 'LTDA'
+        this.description = 'Empresa Limitada'
+        break
       case 'INDIVIDUAL':
-        this.name = 'Individual';
-        this.description = 'Empresa Individual';
-        break;
+        this.name = 'Individual'
+        this.description = 'Empresa Individual'
+        break
       case 'ASSOCIATION':
-        this.name = 'Associação';
-        this.description = 'Associação';
-        break;
+        this.name = 'Associação'
+        this.description = 'Associação'
+        break
       default:
-        this.name = '-';
-        this.description = '-';
-        break;
+        this.name = '-'
+        this.description = '-'
+        break
     }
   }
 }

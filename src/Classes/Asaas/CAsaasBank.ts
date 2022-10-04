@@ -1,11 +1,11 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasBank extends BaseJSON {
   @Property
-  ispb?: string;
+  ispb?: string
   @Property
-  code?: string;
+  code?: string
   @Property
-  name?: string;
+  name?: string
 }

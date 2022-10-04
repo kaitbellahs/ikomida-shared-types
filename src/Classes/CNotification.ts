@@ -1,21 +1,21 @@
-import { Nullable } from '../Decorators';
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
 
 export default class CNotification extends BaseJSON {
   @Property
-  title!: string;
+  title!: string
   @Property
-  body!: string;
-  @Property
-  @Nullable
-  method?: string;
+  body!: string
   @Property
   @Nullable
-  uri?: string;
+  method?: string
   @Property
   @Nullable
-  logon?: string;
+  uri?: string
+  @Property
+  @Nullable
+  logon?: string
 
   static init(
     title: string,
@@ -24,8 +24,8 @@ export default class CNotification extends BaseJSON {
     uri?: string,
     logon?: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CNotification {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

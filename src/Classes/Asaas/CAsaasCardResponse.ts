@@ -1,11 +1,11 @@
-import CAsaasErrors from './CAsaasErrors';
-import { Property } from '../../Decorators/Property';
+import CAsaasErrors from './CAsaasErrors'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasCardResponse extends CAsaasErrors {
   @Property
-  creditCardNumber?: string;
+  creditCardNumber?: string
   @Property
-  creditCardBrand?: string;
+  creditCardBrand?: string
   @Property
-  creditCardToken?: string;
+  creditCardToken?: string
 }

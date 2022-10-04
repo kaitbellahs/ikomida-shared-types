@@ -1,28 +1,28 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CAddress from './CAddress';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property'
+import { FromJSON } from '../Decorators/FromJSON'
+import BaseJSON from './BaseJSON'
+import CAddress from './CAddress'
+import { Nullable } from '../Decorators'
 
 export default class CVendorProfile extends BaseJSON {
   @Property
-  areaCode!: number;
+  areaCode!: number
   @Property
-  contractName!: string;
+  contractName!: string
   @Property
-  contractIdentity!: string;
+  contractIdentity!: string
   @Property
-  identity!: string;
+  identity!: string
   @Property
-  phone!: string;
+  phone!: string
   @Property
-  email!: string;
+  email!: string
   @Property
   @FromJSON
-  address!: CAddress;
+  address!: CAddress
   @Property
   @Nullable
-  mainPicture?: string;
+  mainPicture?: string
 
   static init(
     areaCode: number,
@@ -34,8 +34,8 @@ export default class CVendorProfile extends BaseJSON {
     address: CAddress,
     mainPicture?: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CVendorProfile {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

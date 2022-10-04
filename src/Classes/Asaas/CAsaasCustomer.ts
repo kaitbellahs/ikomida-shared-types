@@ -1,22 +1,22 @@
-import { FromJSON } from '../../Decorators/FromJSON';
-import BaseJSON from '../BaseJSON';
-import CAsaasAddress from './CAsaasAddress';
-import { Property } from '../../Decorators/Property';
+import { FromJSON } from '../../Decorators/FromJSON'
+import BaseJSON from '../BaseJSON'
+import CAsaasAddress from './CAsaasAddress'
+import { Property } from '../../Decorators/Property'
 
 export default class CAsaasCustomer extends BaseJSON {
   @Property
   @FromJSON
-  address!: CAsaasAddress;
+  address!: CAsaasAddress
   @Property
-  name!: string;
+  name!: string
   @Property
-  email!: string;
+  email!: string
   @Property
-  phone!: string;
+  phone!: string
   @Property
-  identity!: string;
+  identity!: string
 
   static init(address: CAsaasAddress, name: string, email: string, phone: string, identity: string): CAsaasCustomer {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments)
   }
 }

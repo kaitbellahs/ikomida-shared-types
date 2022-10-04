@@ -1,18 +1,34 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import CVendorLimit from './CVendorLimit';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
+import CVendorLimit from './CVendorLimit'
 
 export default class CVendorLimits extends BaseJSON {
   @Property
-  @FromJSON
-  limits!: CVendorLimit;
-
+  staff!: CVendorLimit
   @Property
-  @FromJSON
-  used!: CVendorLimit;
+  products!: CVendorLimit
+  @Property
+  orders!: CVendorLimit
+  @Property
+  coupons!: CVendorLimit
+  @Property
+  categories!: CVendorLimit
+  @Property
+  pushNotifications!: CVendorLimit
+  @Property
+  billing!: CVendorLimit
 
-  static init(limits: CVendorLimit, used: CVendorLimit, id?: string, timestamp?: number): CVendorLimits {
-    return this.createInitObject(arguments);
+  static init(
+    staff: CVendorLimit,
+    products: CVendorLimit,
+    orders: CVendorLimit,
+    coupons: CVendorLimit,
+    categories: CVendorLimit,
+    pushNotifications: CVendorLimit,
+    billing: CVendorLimit,
+    id?: string,
+    timestamp?: CVendorLimit
+  ): CVendorLimits {
+    return this.createInitObject(arguments)
   }
 }

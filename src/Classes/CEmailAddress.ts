@@ -1,9 +1,9 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property'
+import BaseJSON from './BaseJSON'
 
 export default class CEmailAddres extends BaseJSON {
   @Property
-  email?: string;
+  email?: string
   @Property
-  name?: string;
+  name?: string
 }

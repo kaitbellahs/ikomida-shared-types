@@ -26,15 +26,7 @@ export default abstract class BaseJSON {
   private transform(callback: (object: any) => any) {
     const scopedThis = this as any
     const instance: any = {}
-    const properties: (string | symbol)[] = []
-    let prototype = this.constructor.prototype
-    while (prototype != null) {
-      const result: (string | symbol)[] = prototype['__properties__']
-      if (result) {
-        properties.push(...result)
-      }
-      prototype = Object.getPrototypeOf(prototype)
-    }
+    const properties = BaseJSON.getProperties(this.constructor.prototype)
     for (const key of properties) {
       try {
         if (Array.isArray(scopedThis[key])) {
@@ -105,8 +97,14 @@ export default abstract class BaseJSON {
       }
       return true
     }
+    const properties = BaseJSON.getProperties(this.constructor.prototype, args)
+    return handleObject(this, properties, this)
+  }
+
+  //Mark: --static
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  static getProperties(prototype: any, args?: (string | symbol)[]) {
     const properties: (string | symbol)[] = []
-    let prototype = this.constructor.prototype
     while (prototype != null) {
       let result: (string | symbol)[] = prototype['__properties__']
       if (result) {
@@ -117,11 +115,8 @@ export default abstract class BaseJSON {
       }
       prototype = Object.getPrototypeOf(prototype)
     }
-    return handleObject(this, properties, this)
+    return properties
   }
-
-  //Mark: --static
-  // eslint-disable-next-line @typescript-eslint/ban-types
   static getParamNames(func: any) {
     const fnStr = func.toString().replace(STRIP_COMMENTS, '')
     let result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES)
@@ -145,25 +140,31 @@ export default abstract class BaseJSON {
   static fromObject(object: any) {
     function handleObject(instance: any, properties: (string | symbol)[], object: any) {
       for (const property of properties) {
-        if (undefined !== object[property]) {
-          instance[property] = object[property]
+        const runtime = Reflect.getMetadata('design:type', instance, property)
+        const isArray = Reflect.getMetadata('design:object:type', instance, property) === 'array'
+        if (isArray) {
+          if (object[property]) {
+            instance[property] = []
+            for (const value of object[property]) {
+              instance[property].push(runtime.fromObject(value))
+            }
+          } else if (undefined !== object[property]) {
+            instance[property] = object[property]
+          }
+        } else if (undefined !== object[property]) {
+          instance[property] =
+            BaseJSON.isInstance(new runtime())
+              ? runtime.fromObject(object[property])
+              : TBaseType.isInstance(new runtime()) ? runtime.valueOf(object[property]) : object[property]
         }
       }
       return instance
     }
     if (!object || typeof object !== 'object') {
-      return null
+      return undefined
     }
-    const properties: (string | symbol)[] = []
     let instance = new (this as any)()
-    let prototype = instance.constructor.prototype
-    while (prototype != null) {
-      const result: (string | symbol)[] = prototype['__properties__']
-      if (result) {
-        properties.push(...result)
-      }
-      prototype = Object.getPrototypeOf(prototype)
-    }
+    const properties = BaseJSON.getProperties(instance.constructor.prototype)
     if (Array.isArray(object)) {
       const instanceArray = []
       for (const item of object) {
@@ -191,16 +192,8 @@ export default abstract class BaseJSON {
       }
       return instance
     }
-    const properties: (string | symbol)[] = []
     let instance = new (this as any)()
-    let prototype = instance.constructor.prototype
-    while (prototype != null) {
-      const result: (string | symbol)[] = prototype['__properties__']
-      if (result) {
-        properties.push(...result)
-      }
-      prototype = Object.getPrototypeOf(prototype)
-    }
+    const properties = BaseJSON.getProperties(instance.constructor.prototype)
     if (Array.isArray(value)) {
       const instanceArray = []
       for (const item of value) {

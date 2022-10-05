@@ -1,6 +1,6 @@
 {
   "name": "@ikomida/shared-types",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This is the shared types between services, UI and workers etc...",
   "private": false,
   "main": "lib/main.cjs",

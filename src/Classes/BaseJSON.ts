@@ -18,15 +18,12 @@ export default abstract class BaseJSON {
   constructor(object?: any) {
     if (typeof object === 'object') {
       for (const key of Object.keys(object)) {
-        ;(this as any)[key] = (object as any)[key]
+        (this as any)[key] = (object as any)[key]
       }
     }
   }
 
-  toJSON() {
-    function handleJSON(object: any) {
-      return BaseJSON.isInstance(object) ? object.toJSON() : TBaseType.isInstance(object) ? object.id : object
-    }
+  private transform(callback: (object: any) => any) {
     const scopedThis = this as any
     const instance: any = {}
     const properties: (string | symbol)[] = []
@@ -43,19 +40,32 @@ export default abstract class BaseJSON {
         if (Array.isArray(scopedThis[key])) {
           instance[key] = []
           for (const item of scopedThis[key]) {
-            const val = handleJSON(item)
+            const val = callback(item)
             if (val !== undefined) {
               instance[key].push(val)
             }
           }
         } else if (scopedThis[key] !== undefined) {
-          instance[key] = handleJSON(scopedThis[key])
+          instance[key] = callback(scopedThis[key])
         }
       } catch (error: any) {
         console.error(`Error calling getter ${String(key)}`, error)
       }
     }
-    return instance
+  }
+
+  toJSON() {
+    function handleJSON(object: any) {
+      return BaseJSON.isInstance(object) ? object.toJSON() : TBaseType.isInstance(object) ? object.id : object
+    }
+    return this.transform(handleJSON)
+  }
+
+  toValidation() {
+    function handleValidation(object: any) {
+      return BaseJSON.isInstance(object) ? object.toValidation() : false
+    }
+    return this.transform(handleValidation)
   }
 
   validate(...args: (string | symbol)[]) {

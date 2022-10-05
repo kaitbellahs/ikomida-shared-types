@@ -44,6 +44,7 @@ export default abstract class BaseJSON {
         console.error(`Error calling getter ${String(key)}`, error)
       }
     }
+    return instance
   }
 
   toJSON() {

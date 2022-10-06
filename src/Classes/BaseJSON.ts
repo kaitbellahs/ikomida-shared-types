@@ -156,7 +156,7 @@ export default abstract class BaseJSON {
           instance[property] =
             BaseJSON.isInstance(new runtime())
               ? runtime.fromObject(object[property])
-              : TBaseType.isInstance(new runtime()) ? runtime.valueOf(object[property]) : object[property]
+              : TBaseType.isInstance(new runtime()) && typeof object[property] === 'string' ? runtime.valueOf(object[property]) : object[property]
         }
       }
       return instance

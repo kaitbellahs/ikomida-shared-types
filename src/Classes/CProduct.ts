@@ -5,7 +5,7 @@ import { TDiscount } from '../Types'
 import BaseJSON from './BaseJSON'
 import CProductCategory from './CProductCategory'
 import { Nullable } from '../Decorators'
-import CProductOptionCategory from './CProductOptionCategory'
+import CProductOptionsCategory from './CProductOptionsCategory'
 import CProductOption from './CProductOption'
 
 export default class CProduct extends BaseJSON {
@@ -39,9 +39,9 @@ export default class CProduct extends BaseJSON {
   @Nullable
   image?: string
   @Property
-  @FromJSON(CProductOptionCategory)
+  @FromJSON(CProductOptionsCategory)
   @Nullable
-  optionsCategories?: CProductOptionCategory[]
+  optionsCategories?: CProductOptionsCategory[]
   @Property
   @FromJSON(CProductOption)
   @Nullable
@@ -63,7 +63,7 @@ export default class CProduct extends BaseJSON {
     weight?: number,
     category?: CProductCategory,
     image?: string,
-    optionsCategories?: CProductOptionCategory[],
+    optionsCategories?: CProductOptionsCategory[],
     options?: CProductOption[],
     createdAt?: Date,
     id?: string,

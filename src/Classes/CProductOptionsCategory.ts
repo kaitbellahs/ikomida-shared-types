@@ -4,7 +4,7 @@ import { Property } from '../Decorators/Property'
 import BaseJSON from './BaseJSON'
 import CProductOption from './CProductOption'
 
-export default class CProductOptionCategory extends BaseJSON {
+export default class CProductOptionsCategory extends BaseJSON {
   @Property
   name!: string
   @Property
@@ -32,7 +32,7 @@ export default class CProductOptionCategory extends BaseJSON {
     image?: string,
     id?: string,
     timestamp?: number
-  ): CProductOptionCategory {
+  ): CProductOptionsCategory {
     return this.createInitObject(arguments)
   }
 }

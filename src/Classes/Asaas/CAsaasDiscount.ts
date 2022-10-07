@@ -1,9 +1,9 @@
-import { Enum } from '../../Decorators/Enum'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { TAsaasDiscount } from '../../Types/Asaas'
-import BaseJSON from '../BaseJSON'
-import { Property } from '../../Decorators/Property'
-import { Nullable } from '../../Decorators'
+import { Enum } from '../../Decorators/Enum.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { TAsaasDiscount } from '../../Types/Asaas/index.js'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { Nullable } from '../../Decorators/index.js'
 
 export default class CAsaasDiscount extends BaseJSON {
   @Property

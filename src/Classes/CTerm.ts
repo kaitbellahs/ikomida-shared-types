@@ -1,9 +1,9 @@
-import { Property } from '../Decorators/Property'
-import { Enum } from '../Decorators/Enum'
-import { FromJSON } from '../Decorators/FromJSON'
-import { TTerm } from '../Types'
-import BaseJSON from './BaseJSON'
-import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { TTerm } from '../Types/index.js'
+import BaseJSON from './BaseJSON.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CTerm extends BaseJSON {
   @Property

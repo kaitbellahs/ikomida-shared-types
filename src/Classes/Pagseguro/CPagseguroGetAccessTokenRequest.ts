@@ -1,8 +1,8 @@
-import { Nullable } from '../../Decorators'
-import { Enum } from '../../Decorators/Enum'
-import { Property } from '../../Decorators/Property'
-import { TPagseguroGetAccessTokenGrant } from '../../Types/Pagseguro'
-import BaseJSON from '../BaseJSON'
+import { Nullable } from '../../Decorators/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import { Property } from '../../Decorators/Property.js'
+import { TPagseguroGetAccessTokenGrant } from '../../Types/Pagseguro/index.js'
+import BaseJSON from '../BaseJSON.js'
 
 export default class CPagSeguroGetAccessTokenRequest extends BaseJSON {
   @Property

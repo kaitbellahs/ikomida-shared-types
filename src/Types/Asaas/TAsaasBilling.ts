@@ -1,4 +1,4 @@
-import TBaseType from '../TBaseType'
+import TBaseType from '../TBaseType.js'
 
 export default class TAsaasBilling extends TBaseType {
   static BOLETO = new TAsaasBilling('BOLETO')

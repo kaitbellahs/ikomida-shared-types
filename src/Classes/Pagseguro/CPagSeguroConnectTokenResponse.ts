@@ -1,5 +1,5 @@
-import CPagSeguroErrorResponse from './CPagSeguroErrorResponse'
-import { Property } from '../../Decorators/Property'
+import CPagSeguroErrorResponse from './CPagSeguroErrorResponse.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroConnectTokenResponse extends CPagSeguroErrorResponse {
   @Property

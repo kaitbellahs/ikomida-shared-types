@@ -1,7 +1,7 @@
-import { FromJSON } from '../../Decorators/FromJSON'
-import BaseJSON from '../BaseJSON'
-import CPagSeguroCardHolder from './CPagSeguroCardHolder'
-import { Property } from '../../Decorators/Property'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import BaseJSON from '../BaseJSON.js'
+import CPagSeguroCardHolder from './CPagSeguroCardHolder.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroCard extends BaseJSON {
   @Property

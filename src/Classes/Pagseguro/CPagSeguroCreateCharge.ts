@@ -1,12 +1,12 @@
-import { Enum } from '../../Decorators/Enum'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { TPagSeguroPaymentMethod } from '../../Types/Pagseguro'
-import BaseJSON from '../BaseJSON'
-import { Property } from '../../Decorators/Property'
-import CPagSeguroCard from './CPagSeguroCard'
-import CPagseguroCreateChargeConfig from './CPagseguroCreateChargeConfig'
-import { Nullable } from '../../Decorators'
-import { IMetadata } from '../../Interfaces'
+import { Enum } from '../../Decorators/Enum.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { TPagSeguroPaymentMethod } from '../../Types/Pagseguro/index.js'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import CPagSeguroCard from './CPagSeguroCard.js'
+import CPagseguroCreateChargeConfig from './CPagseguroCreateChargeConfig.js'
+import { Nullable } from '../../Decorators/index.js'
+import { IMetadata } from '../../Interfaces/index.js'
 
 export default class CPagSeguroCreateCharge extends BaseJSON {
   @Property

@@ -1,12 +1,12 @@
-import { Property } from '../Decorators/Property'
-import { FromJSON } from '../Decorators/FromJSON'
-import { CAsaasCard } from './Asaas'
-import BaseJSON from './BaseJSON'
-import CAddress from './CAddress'
-import CCoupon from './CCoupon'
-import CLocation from './CLocation'
-import CProduct from './CProduct'
-import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { CAsaasCard } from './Asaas/index.js'
+import BaseJSON from './BaseJSON.js'
+import CAddress from './CAddress.js'
+import CCoupon from './CCoupon.js'
+import CLocation from './CLocation.js'
+import CProduct from './CProduct.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class COrderPayload extends BaseJSON {
   @Property

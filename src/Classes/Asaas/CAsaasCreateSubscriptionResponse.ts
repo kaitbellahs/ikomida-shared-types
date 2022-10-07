@@ -1,12 +1,12 @@
-import CAsaasSplit from './CAsaasSplit'
-import CAsaasDiscount from './CAsaasDiscount'
-import CAsaasFine from './CAsaasFine'
-import CAsaasErrors from './CAsaasErrors'
-import CAsaasCardResponse from './CAsaasCardResponse'
-import { TAsaasBilling, TAsaasSubscriptionStatus } from '../../Types/Asaas'
-import { Enum } from '../../Decorators/Enum'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { Property } from '../../Decorators/Property'
+import CAsaasSplit from './CAsaasSplit.js'
+import CAsaasDiscount from './CAsaasDiscount.js'
+import CAsaasFine from './CAsaasFine.js'
+import CAsaasErrors from './CAsaasErrors.js'
+import CAsaasCardResponse from './CAsaasCardResponse.js'
+import { TAsaasBilling, TAsaasSubscriptionStatus } from '../../Types/Asaas/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasCreateSubscriptionResponse extends CAsaasErrors {
   @Property

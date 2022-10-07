@@ -1,8 +1,8 @@
-import { Enum } from '../../Decorators/Enum'
-import { TCompany } from '../../Types'
-import BaseJSON from '../BaseJSON'
-import { Property } from '../../Decorators/Property'
-import { Nullable } from '../../Decorators'
+import { Enum } from '../../Decorators/Enum.js'
+import { TCompany } from '../../Types/index.js'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { Nullable } from '../../Decorators/index.js'
 
 export default class CNewAccountRequest extends BaseJSON {
   @Property

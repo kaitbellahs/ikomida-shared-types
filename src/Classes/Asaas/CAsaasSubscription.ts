@@ -1,8 +1,8 @@
-import CAsaasNewCustomer from './CAsaasNewCustomer'
-import CAsaasCard from './CAsaasCard'
-import BaseJSON from '../BaseJSON'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { Property } from '../../Decorators/Property'
+import CAsaasNewCustomer from './CAsaasNewCustomer.js'
+import CAsaasCard from './CAsaasCard.js'
+import BaseJSON from '../BaseJSON.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasSubscription extends BaseJSON {
   @Property

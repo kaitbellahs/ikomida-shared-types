@@ -1,5 +1,5 @@
-import { Property } from '../Decorators/Property'
-import BaseJSON from './BaseJSON'
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CProcessPaymentResponse extends BaseJSON {
   static init(id: string, timestamp?: number): CProcessPaymentResponse {

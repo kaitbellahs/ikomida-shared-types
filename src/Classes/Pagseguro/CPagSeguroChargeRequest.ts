@@ -1,10 +1,10 @@
-import CPagSeguroRecurring from './CPagSeguroRecurring'
-import CPagSeguroPaymentMethod from './CPagSeguroPaymentMethod'
-import CPagSeguroAmount from './CPagSeguroAmount'
-import BaseJSON from '../BaseJSON'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { Property } from '../../Decorators/Property'
-import { IMetadata } from '../../Interfaces'
+import CPagSeguroRecurring from './CPagSeguroRecurring.js'
+import CPagSeguroPaymentMethod from './CPagSeguroPaymentMethod.js'
+import CPagSeguroAmount from './CPagSeguroAmount.js'
+import BaseJSON from '../BaseJSON.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { IMetadata } from '../../Interfaces/index.js'
 
 export default class CPagSeguroChargeRequest extends BaseJSON {
   @Property

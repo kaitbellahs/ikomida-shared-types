@@ -1,6 +1,5 @@
-import BaseJSON from '../BaseJSON'
-import { Property } from '../../Decorators/Property'
-import { Nullable } from '../../Decorators'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasCard extends BaseJSON {
   @Property

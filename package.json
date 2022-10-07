@@ -1,12 +1,13 @@
 {
   "name": "@ikomida/shared-types",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "This is the shared types between services, UI and workers etc...",
   "private": false,
   "main": "lib/main.cjs",
   "module": "lib/main.mjs",
   "browser": "lib/main.js",
   "types": "lib/main.d.ts",
+  "type": "module",
   "files": [
     "lib/",
     "README.md",
@@ -15,6 +16,7 @@
   "scripts": {
     "prebuild:types": "rimraf ./build",
     "build": "rimraf ./build ./lib ./docs && rollup -c",
+    "build:debug": "rimraf ./build ./lib ./docs && tsc",
     "build:types": "tsc -p ./tsconfig.json --outDir build && api-extractor run",
     "predoc:jsdoc": "rimraf ./docs",
     "docs:jsdoc": "jsdoc -r \"src/**/*.ts\" -R README.md -d ./docs",
@@ -24,6 +26,7 @@
     "lint": "eslint . --ext .ts",
     "clean": "rimraf ./build ./lib ./docs",
     "local": "yarn glogin && ncu -u && yarn && yarn format && yarn lint && yarn build",
+    "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "glogin": "artifactregistry-auth"
   },
   "author": "Khalid Ait Bellahs (Ti Alti Nivel)",
@@ -33,21 +36,27 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^14.1.0",
     "@rollup/plugin-typescript": "^8.5.0",
+    "@types/chai": "^4.3.3",
     "@types/luxon": "^3.0.1",
+    "@types/mocha": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
+    "chai": "^4.3.6",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "google-artifactregistry-auth": "^3.0.2",
     "jsdoc": "^3.6.11",
+    "mocha": "^10.0.0",
     "prettier": "^2.7.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rollup": "^2.79.1",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
+    "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
     "typedoc": "^0.23.15",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "typings": "^2.1.1"
   }
 }

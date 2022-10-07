@@ -1,7 +1,7 @@
-import { Property } from '../Decorators/Property'
-import BaseJSON from './BaseJSON'
-import CEmailAddress from './CEmailAddress'
-import CMessage from './CMessage'
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
+import CEmailAddress from './CEmailAddress.js'
+import CMessage from './CMessage.js'
 
 export default class CEmail extends BaseJSON {
   @Property

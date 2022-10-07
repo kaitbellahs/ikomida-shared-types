@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TDiscount extends TBaseType {
   static PERCENT = new TDiscount('PERCENT')

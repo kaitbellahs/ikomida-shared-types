@@ -1,8 +1,8 @@
-import { Nullable } from '../Decorators'
-import { FromJSON } from '../Decorators/FromJSON'
-import { Property } from '../Decorators/Property'
-import BaseJSON from './BaseJSON'
-import CProductOption from './CProductOption'
+import { Nullable } from '../Decorators/index.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
+import CProductOption from './CProductOption.js'
 
 export default class CProductOptionsCategory extends BaseJSON {
   @Property

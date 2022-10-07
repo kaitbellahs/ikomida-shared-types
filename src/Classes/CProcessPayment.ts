@@ -1,7 +1,7 @@
-import { Nullable } from '../Decorators'
-import { Property } from '../Decorators/Property'
-import { IMetadata } from '../Interfaces'
-import BaseJSON from './BaseJSON'
+import { Nullable } from '../Decorators/index.js'
+import { Property } from '../Decorators/Property.js'
+import { IMetadata } from '../Interfaces/index.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CProcessPayment extends BaseJSON {
   @Property

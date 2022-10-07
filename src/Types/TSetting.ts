@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TSetting extends TBaseType {
   static TEXT = new TSetting('Text')

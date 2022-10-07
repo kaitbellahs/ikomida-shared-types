@@ -1,5 +1,5 @@
-import { TPagSeguroPaymentMethod } from './Pagseguro'
-import TBaseType from './TBaseType'
+import { TPagSeguroPaymentMethod } from './Pagseguro/index.js'
+import TBaseType from './TBaseType.js'
 
 export default class TPaymentMethod extends TBaseType {
   static CASH_ON_DELIVERY = new TPaymentMethod('CASH_ON_DELIVERY')

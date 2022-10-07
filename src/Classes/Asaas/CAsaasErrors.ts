@@ -1,7 +1,7 @@
-import { FromJSON } from '../../Decorators/FromJSON'
-import BaseJSON from '../BaseJSON'
-import CAsaasError from './CAsaasError'
-import { Property } from '../../Decorators/Property'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import BaseJSON from '../BaseJSON.js'
+import CAsaasError from './CAsaasError.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasErrors extends BaseJSON {
   @Property

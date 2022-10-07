@@ -54,7 +54,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Prepare code
         run: |
-          yarn format
           yarn lint
+          yarn test
       - name: Build code
         run: yarn build

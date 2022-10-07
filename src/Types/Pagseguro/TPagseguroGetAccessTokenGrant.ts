@@ -1,4 +1,4 @@
-import TBaseType from '../TBaseType'
+import TBaseType from '../TBaseType.js'
 
 export default class TPagseguroGetAccessTokenGrant extends TBaseType {
   static SMS = new TPagseguroGetAccessTokenGrant('sms')

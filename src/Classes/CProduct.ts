@@ -1,12 +1,12 @@
-import { Property } from '../Decorators/Property'
-import { Enum } from '../Decorators/Enum'
-import { FromJSON } from '../Decorators/FromJSON'
-import { TDiscount } from '../Types'
-import BaseJSON from './BaseJSON'
-import CProductCategory from './CProductCategory'
-import { Nullable } from '../Decorators'
-import CProductOptionsCategory from './CProductOptionsCategory'
-import CProductOption from './CProductOption'
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { TDiscount } from '../Types/index.js'
+import BaseJSON from './BaseJSON.js'
+import CProductCategory from './CProductCategory.js'
+import { Nullable } from '../Decorators/index.js'
+import CProductOptionsCategory from './CProductOptionsCategory.js'
+import CProductOption from './CProductOption.js'
 
 export default class CProduct extends BaseJSON {
   @Property

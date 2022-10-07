@@ -1,12 +1,12 @@
-import CSubscriptionInterest from './CSubscriptionInterest'
-import CSubscriptionFine from './CSubscriptionFine'
-import CSubscriptionDiscount from './CSubscriptionDiscount'
-import { TAsaasBilling } from '../../Types/Asaas'
-import { Enum } from '../../Decorators/Enum'
-import CAsaasErrors from './CAsaasErrors'
-import { Property } from '../../Decorators/Property'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { TAsaasSignatureStatus } from '../../Types'
+import CSubscriptionInterest from './CSubscriptionInterest.js'
+import CSubscriptionFine from './CSubscriptionFine.js'
+import CSubscriptionDiscount from './CSubscriptionDiscount.js'
+import { TAsaasBilling } from '../../Types/Asaas/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import CAsaasErrors from './CAsaasErrors.js'
+import { Property } from '../../Decorators/Property.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { TAsaasSignatureStatus } from '../../Types/index.js'
 
 export default class CSubscriptionResponse extends CAsaasErrors {
   @Property

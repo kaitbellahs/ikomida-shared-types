@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TCompany extends TBaseType {
   static MEI = new TCompany('MEI')

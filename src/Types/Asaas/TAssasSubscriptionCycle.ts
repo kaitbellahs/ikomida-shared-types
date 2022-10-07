@@ -1,4 +1,4 @@
-import TBaseType from '../TBaseType'
+import TBaseType from '../TBaseType.js'
 
 export default class TAssasSubscriptionCycle extends TBaseType {
   static WEEKLY = new TAssasSubscriptionCycle('WEEKLY')

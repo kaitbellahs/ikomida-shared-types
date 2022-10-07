@@ -1,5 +1,5 @@
-import CAsaasErrors from './CAsaasErrors'
-import { Property } from '../../Decorators/Property'
+import CAsaasErrors from './CAsaasErrors.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasCardResponse extends CAsaasErrors {
   @Property

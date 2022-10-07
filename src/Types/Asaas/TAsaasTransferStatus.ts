@@ -1,4 +1,4 @@
-import TBaseType from '../TBaseType'
+import TBaseType from '../TBaseType.js'
 
 export default class TAsaasTransferStatus extends TBaseType {
   static PENDING = new TAsaasTransferStatus('PENDING')

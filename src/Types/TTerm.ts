@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TTerm extends TBaseType {
   static TERM_OF_USE_VENDOR = new TTerm('TERM_OF_USE_VENDOR')

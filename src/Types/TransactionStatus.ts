@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TransactionStatus extends TBaseType {
   static PENDING = new TransactionStatus('PENDING')

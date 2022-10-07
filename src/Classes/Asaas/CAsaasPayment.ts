@@ -1,13 +1,13 @@
-import CAsaasCardResponse from './CAsaasCardResponse'
-import CAsaasRefund from './CAsaasRefund'
-import CAsaasFine from './CAsaasFine'
-import CAsaasDiscount from './CAsaasDiscount'
-import { TAsaasBilling } from '../../Types/Asaas'
-import { Enum } from '../../Decorators/Enum'
-import BaseJSON from '../BaseJSON'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { Property } from '../../Decorators/Property'
-import { TAsaasPaymentStatus } from '../../Types'
+import CAsaasCardResponse from './CAsaasCardResponse.js'
+import CAsaasRefund from './CAsaasRefund.js'
+import CAsaasFine from './CAsaasFine.js'
+import CAsaasDiscount from './CAsaasDiscount.js'
+import { TAsaasBilling } from '../../Types/Asaas/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import BaseJSON from '../BaseJSON.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { TAsaasPaymentStatus } from '../../Types/index.js'
 
 export default class CAsaasPayment extends BaseJSON {
   @Property

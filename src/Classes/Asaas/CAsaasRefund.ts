@@ -1,6 +1,6 @@
-import { FromJSON } from '../../Decorators/FromJSON'
-import BaseJSON from '../BaseJSON'
-import { Property } from '../../Decorators/Property'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasRefund extends BaseJSON {
   @Property

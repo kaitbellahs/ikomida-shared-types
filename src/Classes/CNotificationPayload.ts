@@ -1,9 +1,9 @@
-import { Property } from '../Decorators/Property'
-import { FromJSON } from '../Decorators/FromJSON'
-import BaseJSON from './BaseJSON'
-import CNotification from './CNotification'
-import CNotificationData from './CNotificationData'
-import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import BaseJSON from './BaseJSON.js'
+import CNotification from './CNotification.js'
+import CNotificationData from './CNotificationData.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CNotificationPayload extends BaseJSON {
   @Property

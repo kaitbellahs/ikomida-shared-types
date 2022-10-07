@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import TBaseType from '../Types/TBaseType'
+import TBaseType from '../Types/TBaseType.js'
 type anotationFunction = (target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor) => void
 
 export function Enum(dataType?: any): anotationFunction
@@ -88,7 +88,7 @@ function annotateEnum(
     } else {
       _val = newVal
     }
-    ;(this as any)[key] = _val
+    ; (this as any)[key] = _val
   }
   delete target[propertyName]
   Object.defineProperty(target, propertyName, {

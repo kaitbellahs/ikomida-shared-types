@@ -1,4 +1,4 @@
-import TBaseType from '../TBaseType'
+import TBaseType from '../TBaseType.js'
 
 export default class TPagseguroGetAccessTokenHint extends TBaseType {
   static ACCESS_TOKEN = new TPagseguroGetAccessTokenHint('access_token')

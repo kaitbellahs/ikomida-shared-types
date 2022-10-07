@@ -1,7 +1,7 @@
-import { FromJSON } from '../../Decorators/FromJSON'
-import CPagSeguroErrorResponse from './CPagSeguroErrorResponse'
-import CPagSeguroHolder from './CPagSeguroHolder'
-import { Property } from '../../Decorators/Property'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import CPagSeguroErrorResponse from './CPagSeguroErrorResponse.js'
+import CPagSeguroHolder from './CPagSeguroHolder.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroCardResponse extends CPagSeguroErrorResponse {
   @Property

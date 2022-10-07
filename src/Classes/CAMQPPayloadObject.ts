@@ -1,7 +1,6 @@
-import { Nullable } from '../Decorators'
-import { Property } from '../Decorators/Property'
-import BaseJSON from './BaseJSON'
-import CNotificationPayload from './CNotificationPayload'
+import { Nullable } from '../Decorators/index.js'
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CAMQPPayloadObject extends BaseJSON {
   @Property

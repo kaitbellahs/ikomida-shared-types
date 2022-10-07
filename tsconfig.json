@@ -5,7 +5,9 @@
     "exclude": [
         "node_modules/*",
         "**/*.spec.ts",
-        "**/__tests__/*"
+        "**/__tests__/*",
+        "tests/",
+        "lib/"
     ],
     "compilerOptions": {
         "lib": [

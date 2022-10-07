@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TAddress extends TBaseType {
   static RESIDENTIAL = new TAddress('RESIDENTIAL')
@@ -13,13 +13,13 @@ export default class TAddress extends TBaseType {
         this.description = 'Residencial'
         break
       case 'PROFESSIONAL':
-        ;(this.name = 'Profissional'), (this.description = 'Profissional')
+        ; (this.name = 'Profissional'), (this.description = 'Profissional')
         break
       case 'OTHER':
-        ;(this.name = 'Outro'), (this.description = 'Outro')
+        ; (this.name = 'Outro'), (this.description = 'Outro')
         break
       default:
-        ;(this.name = '-'), (this.description = '-')
+        ; (this.name = '-'), (this.description = '-')
         break
     }
   }

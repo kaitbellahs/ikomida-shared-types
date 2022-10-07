@@ -1,6 +1,6 @@
-import { Nullable } from '../Decorators'
-import { Property } from '../Decorators/Property'
-import { TBaseType } from '../Types'
+import { Nullable } from '../Decorators/index.js'
+import { Property } from '../Decorators/Property.js'
+import { TBaseType } from '../Types/index.js'
 
 const STRIP_COMMENTS =
   /(\/\/.*$)|(\/\*[\s\S]*?\*\/)|(\s*=[^,)]*(('(?:\\'|[^'\r\n])*')|("(?:\\"|[^"\r\n])*"))|(\s*=[^,)]*))/gm
@@ -18,7 +18,7 @@ export default abstract class BaseJSON {
   constructor(object?: any) {
     if (typeof object === 'object') {
       for (const key of Object.keys(object)) {
-        ;(this as any)[key] = (object as any)[key]
+        ; (this as any)[key] = (object as any)[key]
       }
     }
   }
@@ -59,6 +59,38 @@ export default abstract class BaseJSON {
       return BaseJSON.isInstance(object) ? object.toValidation() : false
     }
     return this.transform(handleValidation)
+  }
+
+  equal<T extends BaseJSON>(input: T) {
+    try {
+      const object: any = input
+      const properties = BaseJSON.getProperties(this.constructor.prototype)
+      const scopedThis = this as any
+      for (const key of properties) {
+        if (Array.isArray(scopedThis[key]) && Array.isArray(object[key]) && scopedThis[key].length === object[key].length) {
+          for (const index in scopedThis[key]) {
+            const item = scopedThis[key][index]
+            const objectItem = object?.[key]?.[index]
+            if (!objectItem) {
+              return false
+            }
+            if (BaseJSON.isInstance(item) || BaseJSON.isInstance(objectItem)) {
+              if (!item.equal(objectItem)) {
+                return false
+              }
+            } else if (item !== objectItem) {
+              return false
+            }
+          }
+        } else if (scopedThis[key] !== object[key]) {
+          return false
+        }
+      }
+    } catch (error: any) {
+      //TODO: --report errors
+      return false
+    }
+    return true
   }
 
   validate(...args: (string | symbol)[]) {
@@ -157,10 +189,10 @@ export default abstract class BaseJSON {
             ? BaseJSON.isInstance(new runtime())
               ? runtime.fromObject(object[property])
               : TBaseType.isInstance(new runtime()) && typeof object[property] === 'string'
-              ? runtime.valueOf(object[property])
-              : typeof object[property] !== 'object' && runtime.name.toLowerCase() !== typeof object[property]
-              ? new runtime(object[property])
-              : object[property]
+                ? runtime.valueOf(object[property])
+                : typeof object[property] !== 'object' && runtime.name.toLowerCase() !== typeof object[property]
+                  ? new runtime(object[property])
+                  : object[property]
             : object[property]
         }
       }

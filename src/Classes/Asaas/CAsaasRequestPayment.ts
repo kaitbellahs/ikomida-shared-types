@@ -1,11 +1,11 @@
-import CAsaasCard from './CAsaasCard'
-import CAsaasSplit from './CAsaasSplit'
-import CAsaasCreditCardHolderInfo from './CAsaasCreditCardHolderInfo'
-import { TAsaasBilling } from '../../Types/Asaas'
-import { Enum } from '../../Decorators/Enum'
-import BaseJSON from '../BaseJSON'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { Property } from '../../Decorators/Property'
+import CAsaasCard from './CAsaasCard.js'
+import CAsaasSplit from './CAsaasSplit.js'
+import CAsaasCreditCardHolderInfo from './CAsaasCreditCardHolderInfo.js'
+import { TAsaasBilling } from '../../Types/Asaas/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import BaseJSON from '../BaseJSON.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasRequestPayment extends BaseJSON {
   @Property

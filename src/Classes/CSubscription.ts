@@ -1,9 +1,9 @@
-import { Property } from '../Decorators/Property'
-import { Enum } from '../Decorators/Enum'
-import { FromJSON } from '../Decorators/FromJSON'
-import { TAsaasSubscriptionStatus } from '../Types/Asaas'
-import BaseJSON from './BaseJSON'
-import CSubscriptionCharge from './CSubscriptionCharge'
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { TAsaasSubscriptionStatus } from '../Types/Asaas/index.js'
+import BaseJSON from './BaseJSON.js'
+import CSubscriptionCharge from './CSubscriptionCharge.js'
 
 export default class CSubscription extends BaseJSON {
   @Property

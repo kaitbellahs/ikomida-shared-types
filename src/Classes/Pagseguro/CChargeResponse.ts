@@ -1,7 +1,7 @@
-import BaseJSON from '../BaseJSON'
-import { Property } from '../../Decorators/Property'
-import { TPagSeguroPaymentStatus } from '../../Types'
-import { Enum } from '../../Decorators/Enum'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { TPagSeguroPaymentStatus } from '../../Types/index.js'
+import { Enum } from '../../Decorators/Enum.js'
 
 export default class CChargeResponse extends BaseJSON {
   @Property

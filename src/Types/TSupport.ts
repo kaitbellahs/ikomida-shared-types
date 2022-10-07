@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TSupport extends TBaseType {
   static EMAIL = new TSupport('EMAIL')

@@ -1,13 +1,12 @@
-import CPagSeguroCardResponse from './CPagSeguroCardResponse'
-import CPagSeguroTokenData from './CPagSeguroTokenData'
-import CPagSeguroCard from './CPagSeguroCard'
-import CPagSeguroBoleto from './CPagSeguroBoleto'
-import CPagSeguroAuthenticationMethod from './CPagSeguroAuthenticationMethod'
-import { TPagSeguroPaymentMethod } from '../../Types/Pagseguro'
-import { Enum } from '../../Decorators/Enum'
-import BaseJSON from '../BaseJSON'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { Property } from '../../Decorators/Property'
+import CPagSeguroTokenData from './CPagSeguroTokenData.js'
+import CPagSeguroCard from './CPagSeguroCard.js'
+import CPagSeguroBoleto from './CPagSeguroBoleto.js'
+import CPagSeguroAuthenticationMethod from './CPagSeguroAuthenticationMethod.js'
+import { TPagSeguroPaymentMethod } from '../../Types/Pagseguro/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import BaseJSON from '../BaseJSON.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroPaymentMethod extends BaseJSON {
   @Property

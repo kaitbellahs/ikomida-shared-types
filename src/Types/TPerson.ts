@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TPerson extends TBaseType {
   static FISICA = new TPerson('FISICA')

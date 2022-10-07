@@ -1,4 +1,4 @@
-import TBaseType from './TBaseType'
+import TBaseType from './TBaseType.js'
 
 export default class TOrderStatus extends TBaseType {
   static WAITING_PAYMENT = new TOrderStatus('WAITING_PAYMENT')

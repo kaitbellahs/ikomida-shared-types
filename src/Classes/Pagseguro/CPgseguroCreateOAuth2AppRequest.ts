@@ -1,5 +1,5 @@
-import { Property } from '../../Decorators/Property'
-import CPagSeguroErrorResponse from './CPagSeguroErrorResponse'
+import { Property } from '../../Decorators/Property.js'
+import CPagSeguroErrorResponse from './CPagSeguroErrorResponse.js'
 
 export default class CPgseguroCreateOAuth2AppRequest extends CPagSeguroErrorResponse {
   @Property

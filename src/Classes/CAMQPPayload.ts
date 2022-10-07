@@ -1,6 +1,6 @@
-import { Property } from '../Decorators/Property'
-import TAMQPPayload from '../Types/TAMQPPayload'
-import BaseJSON from './BaseJSON'
+import { Property } from '../Decorators/Property.js'
+import TAMQPPayload from '../Types/TAMQPPayload.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CAMQPPayload<T extends TAMQPPayload> extends BaseJSON {
   @Property

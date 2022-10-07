@@ -1,8 +1,8 @@
-import { Property } from '../Decorators/Property'
-import { Enum } from '../Decorators/Enum'
-import { TAddress } from '../Types'
-import BaseJSON from './BaseJSON'
-import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { TAddress } from '../Types/index.js'
+import BaseJSON from './BaseJSON.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CAddress extends BaseJSON {
   @Property

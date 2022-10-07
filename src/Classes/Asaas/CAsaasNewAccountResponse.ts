@@ -1,9 +1,9 @@
-import { Enum } from '../../Decorators/Enum'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { TCompany, TPerson } from '../../Types'
-import CAsaasAccountNumber from './CAsaasAccountNumber'
-import CAsaasErrors from './CAsaasErrors'
-import { Property } from '../../Decorators/Property'
+import { Enum } from '../../Decorators/Enum.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { TCompany, TPerson } from '../../Types/index.js'
+import CAsaasAccountNumber from './CAsaasAccountNumber.js'
+import CAsaasErrors from './CAsaasErrors.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasNewAccountResponse extends CAsaasErrors {
   @Property

@@ -1,4 +1,4 @@
-import TBaseType from '../TBaseType'
+import TBaseType from '../TBaseType.js'
 
 export default class TPagSeguroPaymentMethod extends TBaseType {
   static CREDIT_CARD = new TPagSeguroPaymentMethod('CREDIT_CARD')

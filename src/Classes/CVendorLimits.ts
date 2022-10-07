@@ -1,6 +1,6 @@
-import { Property } from '../Decorators/Property'
-import BaseJSON from './BaseJSON'
-import CVendorLimit from './CVendorLimit'
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
+import CVendorLimit from './CVendorLimit.js'
 
 export default class CVendorLimits extends BaseJSON {
   @Property

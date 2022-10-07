@@ -1,6 +1,6 @@
-import BaseJSON from '../BaseJSON'
-import { Property } from '../../Decorators/Property'
-import { Nullable } from '../../Decorators'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { Nullable } from '../../Decorators/index.js'
 
 export default class CAsaasSplit extends BaseJSON {
   @Property

@@ -1,11 +1,11 @@
-import { Property } from '../Decorators/Property'
-import { Enum } from '../Decorators/Enum'
-import { FromJSON } from '../Decorators/FromJSON'
-import TDiscount from '../Types/TDiscount'
-import TSupport from '../Types/TSupport'
-import BaseJSON from './BaseJSON'
-import CKeyValue from './CKeyValue'
-import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import TDiscount from '../Types/TDiscount.js'
+import TSupport from '../Types/TSupport.js'
+import BaseJSON from './BaseJSON.js'
+import CKeyValue from './CKeyValue.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CPlan extends BaseJSON {
   @Property

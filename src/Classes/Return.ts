@@ -1,4 +1,4 @@
-import BaseJSON from './BaseJSON'
+import BaseJSON from './BaseJSON.js'
 
 export default class Return<T> {
   success: boolean

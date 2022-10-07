@@ -1,13 +1,13 @@
-import CPagSeguroAmount from './CPagSeguroAmount'
-import CPagSeguroPaymentMethod from './CPagSeguroPaymentMethod'
-import CPagSeguroErrorResponse from './CPagSeguroErrorResponse'
-import CPagSeguroPaymentResponse from './CPagSeguroPaymentResponse'
-import CPagSeguroLink from './CPagSeguroLink'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { Property } from '../../Decorators/Property'
-import { TPagSeguroPaymentStatus } from '../../Types'
-import { Enum } from '../../Decorators/Enum'
-import { IMetadata } from '../../Interfaces'
+import CPagSeguroAmount from './CPagSeguroAmount.js'
+import CPagSeguroPaymentMethod from './CPagSeguroPaymentMethod.js'
+import CPagSeguroErrorResponse from './CPagSeguroErrorResponse.js'
+import CPagSeguroPaymentResponse from './CPagSeguroPaymentResponse.js'
+import CPagSeguroLink from './CPagSeguroLink.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { TPagSeguroPaymentStatus } from '../../Types/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import { IMetadata } from '../../Interfaces/index.js'
 
 export default class CPagSeguroChargeResponse extends CPagSeguroErrorResponse {
   @Property

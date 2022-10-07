@@ -1,11 +1,11 @@
-import { Property } from '../Decorators/Property'
-import { FromJSON } from '../Decorators/FromJSON'
-import BaseJSON from './BaseJSON'
-import CAddress from './CAddress'
-import CApp from './CApp'
-import CCreditCardRequest from './CCreditCardRequest'
-import CPlan from './CPlan'
-import { Nullable } from '../Decorators'
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import BaseJSON from './BaseJSON.js'
+import CAddress from './CAddress.js'
+import CApp from './CApp.js'
+import CCreditCardRequest from './CCreditCardRequest.js'
+import CPlan from './CPlan.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CContract extends BaseJSON {
   @Property

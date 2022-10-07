@@ -1,9 +1,9 @@
-import { Enum } from '../../Decorators/Enum'
-import { FromJSON } from '../../Decorators/FromJSON'
-import { TAsaasTransferOperation, TAsaasTransferStatus } from '../../Types/Asaas'
-import CAsaasBankAccount from './CAsaasBankAccount'
-import CAsaasErrors from './CAsaasErrors'
-import { Property } from '../../Decorators/Property'
+import { Enum } from '../../Decorators/Enum.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { TAsaasTransferOperation, TAsaasTransferStatus } from '../../Types/Asaas/index.js'
+import CAsaasBankAccount from './CAsaasBankAccount.js'
+import CAsaasErrors from './CAsaasErrors.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasTransferResponse extends CAsaasErrors {
   @Property

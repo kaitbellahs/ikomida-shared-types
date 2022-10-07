@@ -1,7 +1,7 @@
-import { Enum } from '../../Decorators/Enum'
-import { TCompany } from '../../Types'
-import CAsaasCustomer from './CAsaasCustomer'
-import { Property } from '../../Decorators/Property'
+import { Enum } from '../../Decorators/Enum.js'
+import { TCompany } from '../../Types/index.js'
+import CAsaasCustomer from './CAsaasCustomer.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasAccount extends CAsaasCustomer {
   @Property

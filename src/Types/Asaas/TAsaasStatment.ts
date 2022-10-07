@@ -1,4 +1,4 @@
-import TBaseType from '../TBaseType'
+import TBaseType from '../TBaseType.js'
 
 export default class TAsaasStatment extends TBaseType {
   static ASAAS_CARD_BALANCE_REFUND = new TAsaasStatment('ASAAS_CARD_BALANCE_REFUND')

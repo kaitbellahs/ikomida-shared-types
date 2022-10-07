@@ -1,6 +1,6 @@
 import 'reflect-metadata'
-import { BaseJSON } from '../Classes'
-import { TBaseType } from '../Types'
+import { BaseJSON } from '../Classes/index.js'
+import { TBaseType } from '../Types/index.js'
 
 export function FromJSON(dataType?: any): PropertyDecorator
 export function FromJSON(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor): void
@@ -71,8 +71,8 @@ function annotateFromJSON(
           val && BaseJSON.isInstance(new runtime())
             ? runtime?.fromObject(val)
             : !TBaseType.isInstance(new runtime()) || typeof val === 'string'
-            ? new runtime(val)
-            : val
+              ? new runtime(val)
+              : val
         )
       }
       _val = value
@@ -80,10 +80,10 @@ function annotateFromJSON(
       _val = BaseJSON.isInstance(new runtime())
         ? runtime?.fromObject(newVal)
         : !TBaseType.isInstance(new runtime()) || typeof newVal === 'string'
-        ? new runtime(newVal)
-        : newVal
+          ? new runtime(newVal)
+          : newVal
     }
-    ;(this as any)[key] = _val
+    ; (this as any)[key] = _val
   }
   delete target[propertyName]
   Object.defineProperty(target, propertyName, {

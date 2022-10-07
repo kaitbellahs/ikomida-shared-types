@@ -143,7 +143,7 @@ export default abstract class BaseJSON {
       for (const property of properties) {
         const runtime = Reflect.getMetadata('design:type', instance, property)
         const isArray = Reflect.getMetadata('design:object:type', instance, property) === 'array'
-        if (isArray) {
+        if (runtime && isArray) {
           if (object[property]) {
             instance[property] = []
             for (const value of object[property]) {
@@ -153,12 +153,14 @@ export default abstract class BaseJSON {
             instance[property] = object[property]
           }
         } else if (undefined !== object[property]) {
-          instance[property] = BaseJSON.isInstance(new runtime())
-            ? runtime.fromObject(object[property])
-            : TBaseType.isInstance(new runtime()) && typeof object[property] === 'string'
-            ? runtime.valueOf(object[property])
-            : typeof object[property] !== 'object' && runtime.name.toLowerCase() !== typeof object[property]
-            ? new runtime(object[property])
+          instance[property] = runtime
+            ? BaseJSON.isInstance(new runtime())
+              ? runtime.fromObject(object[property])
+              : TBaseType.isInstance(new runtime()) && typeof object[property] === 'string'
+              ? runtime.valueOf(object[property])
+              : typeof object[property] !== 'object' && runtime.name.toLowerCase() !== typeof object[property]
+              ? new runtime(object[property])
+              : object[property]
             : object[property]
         }
       }

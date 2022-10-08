@@ -78,9 +78,21 @@ export default abstract class BaseJSON {
               if (!item.equal(objectItem)) {
                 return false
               }
+            } else if (item instanceof Date || objectItem instanceof Date) {
+              if (item.getTime() !== objectItem.getTime()) {
+                return false
+              }
             } else if (item !== objectItem) {
               return false
             }
+          }
+        } else if (BaseJSON.isInstance(scopedThis[key]) || BaseJSON.isInstance(object[key])) {
+          if (!scopedThis[key].equal(object[key])) {
+            return false
+          }
+        } else if (scopedThis[key] instanceof Date || object[key] instanceof Date) {
+          if (scopedThis[key].getTime() !== object[key].getTime()) {
+            return false
           }
         } else if (scopedThis[key] !== object[key]) {
           return false

@@ -26,6 +26,6 @@ export default class CNotification extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CNotification {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['title', 'body', 'method', 'uri', 'logon', 'id', 'timestamp'])
   }
 }

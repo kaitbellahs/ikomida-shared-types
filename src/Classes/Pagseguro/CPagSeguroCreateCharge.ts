@@ -53,6 +53,19 @@ export default class CPagSeguroCreateCharge extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CPagSeguroCreateCharge {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'reference',
+      'amount',
+      'type',
+      'statementID',
+      'config',
+      'contractID',
+      'card',
+      'cardToken',
+      'description',
+      'metadata',
+      'id',
+      'timestamp'
+    ])
   }
 }

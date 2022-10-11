@@ -34,6 +34,18 @@ export default class CLoginOptions extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CLoginOptions {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'ip',
+      'forwardedIp',
+      'platform',
+      'deviceId',
+      'region',
+      'subRegion',
+      'citylatlong',
+      'city',
+      'app',
+      'id',
+      'timestamp'
+    ])
   }
 }

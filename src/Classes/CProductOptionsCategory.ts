@@ -33,6 +33,16 @@ export default class CProductOptionsCategory extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CProductOptionsCategory {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'name',
+      'highlighted',
+      'min',
+      'max',
+      'order',
+      'options',
+      'image',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -36,6 +36,14 @@ export default class CPagSeguroGetAccessTokenRequest extends BaseJSON {
     scope?: string,
     refresh_token?: string
   ): CPagSeguroGetAccessTokenRequest {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'grant_type',
+      'code',
+      'sms_code',
+      'redirect_uri',
+      'email',
+      'scope',
+      'refresh_token'
+    ])
   }
 }

@@ -81,6 +81,24 @@ export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
     creditCard?: CAsaasCard,
     externalReference?: string
   ): CAsaasCreateSubscriptionRequest {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'customer',
+      'billingType',
+      'dueDate',
+      'value',
+      'cycle',
+      'creditCardHolderInfo',
+      'remoteIp',
+      'creditCardToken',
+      'split',
+      'discount',
+      'fine',
+      'interest',
+      'description',
+      'endDate',
+      'maxPayments',
+      'creditCard',
+      'externalReference'
+    ])
   }
 }

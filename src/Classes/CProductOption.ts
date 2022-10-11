@@ -27,6 +27,15 @@ export default class CProductOption extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CProductOption {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'name',
+      'highlighted',
+      'price',
+      'units',
+      'order',
+      'image',
+      'id',
+      'timestamp'
+    ])
   }
 }

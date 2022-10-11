@@ -8,6 +8,6 @@ export default class COrderPreparation extends BaseJSON {
   max!: number
 
   static init(min: number, max: number, id?: string, timestamp?: number): COrderPreparation {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['min', 'max', 'id', 'timestamp'])
   }
 }

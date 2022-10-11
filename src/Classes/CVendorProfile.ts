@@ -36,6 +36,17 @@ export default class CVendorProfile extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CVendorProfile {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'areaCode',
+      'contractName',
+      'contractIdentity',
+      'identity',
+      'phone',
+      'email',
+      'address',
+      'mainPicture',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -66,6 +66,23 @@ export default class CNewCustomerResquest extends BaseJSON {
     stateInscription?: string,
     observations?: string
   ): CNewCustomerResquest {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'name',
+      'email',
+      'mobilePhone',
+      'cpfCnpj',
+      'phone',
+      'postalCode',
+      'address',
+      'addressNumber',
+      'complement',
+      'province',
+      'externalReference',
+      'notificationDisabled',
+      'additionalEmails',
+      'municipalInscription',
+      'stateInscription',
+      'observations'
+    ])
   }
 }

@@ -11,6 +11,6 @@ export default class CPagSeguroRevokeAccessTokenRequest extends BaseJSON {
   token!: string
 
   static init(token_type_hint: TPagseguroGetAccessTokenHint, token: string): CPagSeguroRevokeAccessTokenRequest {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['token_type_hint', 'token'])
   }
 }

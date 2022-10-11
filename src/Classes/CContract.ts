@@ -92,6 +92,30 @@ export default class CContract extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CContract {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'ikomidaID',
+      'contractName',
+      'name',
+      'lastName',
+      'contractIdentity',
+      'email',
+      'phone',
+      'areaCode',
+      'plan',
+      'identity',
+      'status',
+      'termId',
+      'password',
+      'confirmPassword',
+      'address',
+      'referredBy',
+      'apps',
+      'phoneValidationCode',
+      'signature',
+      'payment',
+      'createdAt',
+      'id',
+      'timestamp'
+    ])
   }
 }

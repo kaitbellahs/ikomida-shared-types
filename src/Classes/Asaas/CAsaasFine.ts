@@ -11,6 +11,6 @@ export default class CAsaasFine extends BaseJSON {
   type?: string
 
   static init(value?: number, type?: string): CAsaasFine {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['value', 'type'])
   }
 }

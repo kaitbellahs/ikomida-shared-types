@@ -20,6 +20,6 @@ export default class CPgseguroCreateOAuth2AppRequest extends CPagSeguroErrorResp
     redirect_uri: string,
     logo: string
   ): CPgseguroCreateOAuth2AppRequest {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['name', 'description', 'site', 'redirect_uri', 'logo'])
   }
 }

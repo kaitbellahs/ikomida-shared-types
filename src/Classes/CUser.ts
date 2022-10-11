@@ -103,6 +103,34 @@ export default class CUser extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CUser {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'role',
+      'name',
+      'lastName',
+      'identity',
+      'email',
+      'phone',
+      'areaCode',
+      'ikomidaID',
+      'contractName',
+      'termId',
+      'platform',
+      'deviceId',
+      'contractIdentity',
+      'referredBy',
+      'password',
+      'oldPass',
+      'newPass',
+      'reNewPass',
+      'address',
+      'signature',
+      'phoneValidationCode',
+      'avatar',
+      'code',
+      'referralCode',
+      'hash',
+      'id',
+      'timestamp'
+    ])
   }
 }

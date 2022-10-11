@@ -75,6 +75,28 @@ export default class CPlan extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CPlan {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'name',
+      'price',
+      'discount',
+      'discountType',
+      'staff',
+      'products',
+      'productOptions',
+      'categories',
+      'pushNotifications',
+      'orders',
+      'coupons',
+      'billing',
+      'details',
+      'support',
+      'highlighted',
+      'discountedPrice',
+      'active',
+      'createdAt',
+      'order',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -17,6 +17,6 @@ export default class CAsaasCustomer extends BaseJSON {
   identity!: string
 
   static init(address: CAsaasAddress, name: string, email: string, phone: string, identity: string): CAsaasCustomer {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['address', 'name', 'email', 'phone', 'identity'])
   }
 }

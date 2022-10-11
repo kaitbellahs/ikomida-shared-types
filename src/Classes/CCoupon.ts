@@ -35,6 +35,15 @@ export default class CCoupon extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CCoupon {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'name',
+      'value',
+      'valueType',
+      'quantity',
+      'validity',
+      'createdAt',
+      'id',
+      'timestamp'
+    ])
   }
 }

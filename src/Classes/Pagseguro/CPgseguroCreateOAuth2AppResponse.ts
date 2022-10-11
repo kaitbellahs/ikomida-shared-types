@@ -42,6 +42,16 @@ export default class CPgseguroCreateOAuth2AppResponse extends BaseJSON {
     account_id?: string,
     client_type?: string
   ): CPgseguroCreateOAuth2AppResponse {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'client_id',
+      'site',
+      'description',
+      'name',
+      'client_secret',
+      'redirect_uri',
+      'logo',
+      'account_id',
+      'client_type'
+    ])
   }
 }

@@ -68,6 +68,24 @@ export default class CApp extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CApp {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'bundleId',
+      'displayName',
+      'platform',
+      'fireBaseId',
+      'version',
+      'storeStatus',
+      'storePublishStatus',
+      'active',
+      'createdAt',
+      'iOSProfileId',
+      'storeNote',
+      'storeEvidences',
+      'storeVersion',
+      'storeBuildStatus',
+      'managedBy',
+      'id',
+      'timestamp'
+    ])
   }
 }

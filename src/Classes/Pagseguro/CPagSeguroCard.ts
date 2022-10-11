@@ -40,6 +40,19 @@ export default class CPagSeguroCard extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CPagSeguroCard {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'holder',
+      'number',
+      'network_token',
+      'exp_month',
+      'exp_year',
+      'security_code',
+      'store',
+      'brand',
+      'first_digits',
+      'last_digits',
+      'id',
+      'timestamp'
+    ])
   }
 }

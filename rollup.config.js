@@ -3,8 +3,10 @@ import tsPlugin from '@rollup/plugin-typescript';
 import resolve from "@rollup/plugin-node-resolve";
 import { terser } from 'rollup-plugin-terser';
 import json from '@rollup/plugin-json';
-import pkg from "./package.json";
-import tsconfig from './tsconfig.json';
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const pkg = require('./package.json')
+const tsconfig = require('./tsconfig.json')
 
 export default [
     {
@@ -39,8 +41,8 @@ export default [
             tsPlugin(tsconfig),
             terser({
                 compress: {
-                    ecma: 2020,
-                    dead_code: false,
+                    ecma: 'ESNext',
+                    dead_code: true,
                     drop_console: true,
                     drop_debugger: true,
                     keep_classnames: true,
@@ -48,7 +50,7 @@ export default [
                     reduce_funcs: false,
                     reduce_vars: false
                 },
-                ecma: 2020,
+                ecma: 'ESNext',
                 keep_classnames: true,
                 mangle: false
             })

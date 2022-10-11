@@ -47,6 +47,19 @@ export default class CNewAccountRequest extends BaseJSON {
     phone?: string,
     complement?: string
   ): CNewAccountRequest {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'name',
+      'email',
+      'cpfCnpj',
+      'birthDate',
+      'companyType',
+      'mobilePhone',
+      'address',
+      'addressNumber',
+      'province',
+      'postalCode',
+      'phone',
+      'complement'
+    ])
   }
 }

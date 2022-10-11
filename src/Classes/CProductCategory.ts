@@ -13,6 +13,6 @@ export default class CProductCategory extends BaseJSON {
   description?: string
 
   static init(title: string, image?: string, description?: string, id?: string, timestamp?: number): CProductCategory {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['title', 'image', 'description', 'id', 'timestamp'])
   }
 }

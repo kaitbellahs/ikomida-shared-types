@@ -33,6 +33,15 @@ export default class CAsaasCreditCardHolderInfo extends BaseJSON {
     phone?: string,
     mobilePhone?: string
   ): CAsaasCreditCardHolderInfo {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'name',
+      'email',
+      'cpfCnpj',
+      'postalCode',
+      'addressNumber',
+      'addressComplement',
+      'phone',
+      'mobilePhone'
+    ])
   }
 }

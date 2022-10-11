@@ -8,6 +8,6 @@ export default class CVendorPaymentGateway extends BaseJSON {
   integrated!: boolean
 
   static init(type: string, integrated: boolean, id?: string, timestamp?: number): CVendorPaymentGateway {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['type', 'integrated', 'id', 'timestamp'])
   }
 }

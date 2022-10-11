@@ -33,6 +33,16 @@ export default class CChargeResponse extends BaseJSON {
     amount?: number,
     id?: string
   ): CChargeResponse {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'cardId',
+      'brand',
+      'firstDigits',
+      'lastDigits',
+      'ikomidaID',
+      'reference',
+      'status',
+      'amount',
+      'id'
+    ])
   }
 }

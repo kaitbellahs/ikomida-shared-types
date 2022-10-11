@@ -14,6 +14,6 @@ export default class CAsaasAddress extends BaseJSON {
   province!: string
 
   static init(postalCode: string, name: string, number: string, complement: string, province: string): CAsaasAddress {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['postalCode', 'name', 'number', 'complement', 'province'])
   }
 }

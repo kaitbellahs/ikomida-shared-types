@@ -21,6 +21,6 @@ export default class CAsaasCard extends BaseJSON {
     ccv: number,
     id?: string
   ): CAsaasCard {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['holderName', 'number', 'expiryMonth', 'expiryYear', 'ccv', 'id'])
   }
 }

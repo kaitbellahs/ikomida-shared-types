@@ -8,6 +8,6 @@ export default class CvendorPagseguroIntegration extends BaseJSON {
   code!: string
 
   static init(state: string, code: string, id?: string, timestamp?: number): CvendorPagseguroIntegration {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['state', 'code', 'id', 'timestamp'])
   }
 }

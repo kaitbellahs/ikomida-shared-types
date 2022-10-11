@@ -3,6 +3,6 @@ import BaseJSON from './BaseJSON.js'
 
 export default class CProcessPaymentResponse extends BaseJSON {
   static init(id: string, timestamp?: number): CProcessPaymentResponse {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['id', 'timestamp'])
   }
 }

@@ -47,6 +47,18 @@ export default class CPix extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CPix {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'name',
+      'kind',
+      'key',
+      'bank',
+      'agency',
+      'account',
+      'note',
+      'status',
+      'createdAt',
+      'id',
+      'timestamp'
+    ])
   }
 }

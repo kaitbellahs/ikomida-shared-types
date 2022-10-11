@@ -82,6 +82,24 @@ export default class COrder extends BaseJSON {
     timestamp?: number,
     location?: CLocation
   ): COrder {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'subtotal',
+      'discount',
+      'delivery',
+      'products',
+      'address',
+      'paymentMethodType',
+      'preparation',
+      'coupon',
+      'createdAt',
+      'customID',
+      'status',
+      'finishedAt',
+      'payment',
+      'user',
+      'id',
+      'timestamp',
+      'location'
+    ])
   }
 }

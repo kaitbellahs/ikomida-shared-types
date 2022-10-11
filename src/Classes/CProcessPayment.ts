@@ -26,6 +26,14 @@ export default class CProcessPayment extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CProcessPayment {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'paymentMethodID',
+      'amount',
+      'referenceId',
+      'metadata',
+      'description',
+      'id',
+      'timestamp'
+    ])
   }
 }

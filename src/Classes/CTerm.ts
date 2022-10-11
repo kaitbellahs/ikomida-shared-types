@@ -30,6 +30,6 @@ export default class CTerm extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CTerm {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['name', 'text', 'type', 'active', 'createdAt', 'id', 'timestamp'])
   }
 }

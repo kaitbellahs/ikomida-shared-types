@@ -33,6 +33,15 @@ export default class CSubscription extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CSubscription {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'plan',
+      'value',
+      'subscription',
+      'status',
+      'nextDueDate',
+      'charges',
+      'id',
+      'timestamp'
+    ])
   }
 }

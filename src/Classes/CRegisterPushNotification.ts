@@ -8,6 +8,6 @@ export default class CRegisterPushNotification extends BaseJSON {
   token!: string
 
   static init(platform: string, token: string, id?: string, timestamp?: number): CRegisterPushNotification {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['platform', 'token', 'id', 'timestamp'])
   }
 }

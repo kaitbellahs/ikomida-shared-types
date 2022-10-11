@@ -29,6 +29,16 @@ export default class CVendorLimits extends BaseJSON {
     id?: string,
     timestamp?: CVendorLimit
   ): CVendorLimits {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'staff',
+      'products',
+      'orders',
+      'coupons',
+      'categories',
+      'pushNotifications',
+      'billing',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -34,6 +34,15 @@ export default class CPaymentMethod extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CPaymentMethod {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'type',
+      'brand',
+      'lastDigits',
+      'firstDigits',
+      'selected',
+      'createdAt',
+      'id',
+      'timestamp'
+    ])
   }
 }

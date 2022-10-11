@@ -69,6 +69,23 @@ export default class CProduct extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CProduct {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'title',
+      'price',
+      'discount',
+      'discountType',
+      'quantity',
+      'description',
+      'order',
+      'serves',
+      'weight',
+      'category',
+      'image',
+      'optionsCategories',
+      'options',
+      'createdAt',
+      'id',
+      'timestamp'
+    ])
   }
 }

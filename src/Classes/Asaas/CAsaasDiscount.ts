@@ -22,6 +22,6 @@ export default class CAsaasDiscount extends BaseJSON {
   dueDateLimitDays?: number
 
   static init(value?: number, type?: TAsaasDiscount, limitDate?: string, dueDateLimitDays?: number): CAsaasDiscount {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['value', 'type', 'limitDate', 'dueDateLimitDays'])
   }
 }

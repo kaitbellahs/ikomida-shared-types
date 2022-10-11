@@ -13,6 +13,6 @@ export default class CAsaasSplit extends BaseJSON {
   percentualValue?: number
 
   static inint(walletId: string, fixedValue?: number, percentualValue?: number): CAsaasSplit {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['walletId', 'fixedValue', 'percentualValue'])
   }
 }

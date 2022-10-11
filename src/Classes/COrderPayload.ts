@@ -39,6 +39,15 @@ export default class COrderPayload extends BaseJSON {
     id?: string,
     timestamp?: number
   ): COrderPayload {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'products',
+      'payment',
+      'address',
+      'delivery',
+      'coupon',
+      'location',
+      'id',
+      'timestamp'
+    ])
   }
 }

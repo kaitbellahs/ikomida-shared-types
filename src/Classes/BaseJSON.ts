@@ -18,7 +18,7 @@ export default abstract class BaseJSON {
   constructor(object?: any) {
     if (typeof object === 'object') {
       for (const key of Object.keys(object)) {
-        ; (this as any)[key] = (object as any)[key]
+        ;(this as any)[key] = (object as any)[key]
       }
     }
   }
@@ -67,7 +67,11 @@ export default abstract class BaseJSON {
       const properties = BaseJSON.getProperties(this.constructor.prototype)
       const scopedThis = this as any
       for (const key of properties) {
-        if (Array.isArray(scopedThis[key]) && Array.isArray(object[key]) && scopedThis[key].length === object[key].length) {
+        if (
+          Array.isArray(scopedThis[key]) &&
+          Array.isArray(object[key]) &&
+          scopedThis[key].length === object[key].length
+        ) {
           for (const index in scopedThis[key]) {
             const item = scopedThis[key][index]
             const objectItem = object?.[key]?.[index]
@@ -162,22 +166,23 @@ export default abstract class BaseJSON {
     }
     return properties
   }
-  static getParamNames(func: any) {
-    const fnStr = func.toString().replace(STRIP_COMMENTS, '')
-    let result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES)
-    if (result === null) result = []
-    return result
-  }
+  // static getParamNames(func: any) {
+  //   const fnStr = func.toString().replace(STRIP_COMMENTS, '')
+  //   let result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES)
+  //   if (result === null) result = []
+  //   return result
+  // }
 
   static isInstance(object: any) {
     return object && object instanceof this
   }
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  static createInitObject(args: any) {
-    const params = this.getParamNames((this as any).init)
+  static createInitObject(args: any, names: string[]) {
+    //TODO: -- automate args names
+    // const params = this.getParamNames((this as any).init)
     const object: any = {}
-    for (let index = 0; index < params.length; index++) {
-      object[params[index]] = args[index]
+    for (let index = 0; index < names.length; index++) {
+      object[names[index]] = args[index]
     }
     return this.fromObject(object)
   }
@@ -201,10 +206,10 @@ export default abstract class BaseJSON {
             ? BaseJSON.isInstance(new runtime())
               ? runtime.fromObject(object[property])
               : TBaseType.isInstance(new runtime()) && typeof object[property] === 'string'
-                ? runtime.valueOf(object[property])
-                : typeof object[property] !== 'object' && runtime.name.toLowerCase() !== typeof object[property]
-                  ? new runtime(object[property])
-                  : object[property]
+              ? runtime.valueOf(object[property])
+              : typeof object[property] !== 'object' && runtime.name.toLowerCase() !== typeof object[property]
+              ? new runtime(object[property])
+              : object[property]
             : object[property]
         }
       }

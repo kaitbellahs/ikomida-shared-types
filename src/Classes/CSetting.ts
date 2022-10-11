@@ -29,6 +29,6 @@ export default class CSetting extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CSetting {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, ['name', 'value', 'type', 'active', 'createdAt', 'id', 'timestamp'])
   }
 }

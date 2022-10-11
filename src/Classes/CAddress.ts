@@ -55,6 +55,21 @@ export default class CAddress extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CAddress {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'postalCode',
+      'street',
+      'neighborhood',
+      'city',
+      'stat',
+      'number',
+      'complement',
+      'kind',
+      'reference',
+      'distance',
+      'duration',
+      'selected',
+      'id',
+      'timestamp'
+    ])
   }
 }

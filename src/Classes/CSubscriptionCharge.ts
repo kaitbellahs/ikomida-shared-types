@@ -41,6 +41,17 @@ export default class CSubscriptionCharge extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CSubscriptionCharge {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'value',
+      'creditCardNumber',
+      'creditCardBrand',
+      'dueDate',
+      'status',
+      'invoiceUrl',
+      'transactionReceiptUrl',
+      'confirmedDate',
+      'id',
+      'timestamp'
+    ])
   }
 }

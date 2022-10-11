@@ -30,6 +30,14 @@ export default class CCategoryProducts extends BaseJSON {
     id?: string,
     timestamp?: number
   ): CCategoryProducts {
-    return this.createInitObject(arguments)
+    return this.createInitObject(arguments, [
+      'title',
+      'order',
+      'description',
+      'createdAt',
+      'products',
+      'id',
+      'timestamp'
+    ])
   }
 }

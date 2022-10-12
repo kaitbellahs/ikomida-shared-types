@@ -18,7 +18,7 @@ export default abstract class BaseJSON {
   constructor(object?: any) {
     if (typeof object === 'object') {
       for (const key of Object.keys(object)) {
-        ;(this as any)[key] = (object as any)[key]
+        ; (this as any)[key] = (object as any)[key]
       }
     }
   }
@@ -123,22 +123,15 @@ export default abstract class BaseJSON {
         if (!result) {
           return false
         }
-        if (isArray) {
+        if (isArray && value) {
           for (const item of value) {
-            result =
-              value === undefined || value === '' || value === null || typeof item === 'object'
-                ? item instanceof runtime
-                : typeof item === runtime.name.toLowerCase()
+            result = !item || item instanceof runtime || typeof item === runtime.name.toLowerCase()
             if (!result) {
               return false
             }
           }
         } else {
-          result =
-            value === undefined ||
-            value === '' ||
-            value === null ||
-            (typeof value === 'object' ? value instanceof runtime : typeof value === runtime.name.toLowerCase())
+          result = !value || value instanceof runtime || typeof value === runtime.name.toLowerCase()
           if (!result) {
             return false
           }
@@ -188,6 +181,18 @@ export default abstract class BaseJSON {
   }
 
   static fromObject(object: any) {
+    function transformObject(object: any, runtime: any) {
+      if (undefined !== object) {
+        return BaseJSON.isInstance(new runtime())
+          ? runtime.fromObject(object)
+          : TBaseType.isInstance(new runtime()) && typeof object === 'string'
+            ? runtime.valueOf(object)
+            : typeof object !== 'object' && runtime.name.toLowerCase() !== typeof object
+              ? new runtime(object)
+              : object
+      }
+      return undefined
+    }
     function handleObject(instance: any, properties: (string | symbol)[], object: any) {
       for (const property of properties) {
         const runtime = Reflect.getMetadata('design:type', instance, property)
@@ -196,21 +201,16 @@ export default abstract class BaseJSON {
           if (object[property]) {
             instance[property] = []
             for (const value of object[property]) {
-              instance[property].push(runtime.fromObject(value))
+              const _value = transformObject(value, runtime)
+              if (undefined !== _value) {
+                instance[property].push(_value)
+              }
             }
           } else if (undefined !== object[property]) {
             instance[property] = object[property]
           }
         } else if (undefined !== object[property]) {
-          instance[property] = runtime
-            ? BaseJSON.isInstance(new runtime())
-              ? runtime.fromObject(object[property])
-              : TBaseType.isInstance(new runtime()) && typeof object[property] === 'string'
-              ? runtime.valueOf(object[property])
-              : typeof object[property] !== 'object' && runtime.name.toLowerCase() !== typeof object[property]
-              ? new runtime(object[property])
-              : object[property]
-            : object[property]
+          instance[property] = transformObject(object[property], runtime)
         }
       }
       return instance

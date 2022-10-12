@@ -17,7 +17,6 @@ export default class CAddress extends BaseJSON {
   stat!: string
   @Property
   @Nullable
-  @Nullable
   number?: string
   @Property
   @Nullable

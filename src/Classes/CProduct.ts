@@ -50,6 +50,10 @@ export default class CProduct extends BaseJSON {
   @FromJSON
   @Nullable
   createdAt?: Date
+  @Property
+  @FromJSON
+  @Nullable
+  observation?: string
 
   static init(
     title: string,
@@ -66,6 +70,7 @@ export default class CProduct extends BaseJSON {
     optionsCategories?: CProductOptionsCategory[],
     options?: CProductOption[],
     createdAt?: Date,
+    observation?: string,
     id?: string,
     timestamp?: number
   ): CProduct {
@@ -84,6 +89,7 @@ export default class CProduct extends BaseJSON {
       'optionsCategories',
       'options',
       'createdAt',
+      'observation',
       'id',
       'timestamp'
     ])

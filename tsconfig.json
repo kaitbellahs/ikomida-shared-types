@@ -26,6 +26,7 @@
         "moduleResolution": "node",
         "outDir": "lib",
         "strict": true,
+        "useDefineForClassFields": false,
         "target": "ESNext",
         "sourceMap": true,
         "removeComments": true,

@@ -1,11 +1,12 @@
 {
     "include": [
-        "src/**/*.ts",
-        "tests/**/*.ts"
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules/*",
         "**/*.spec.ts",
+        "**/__tests__/*",
+        "tests/",
         "lib/"
     ],
     "compilerOptions": {

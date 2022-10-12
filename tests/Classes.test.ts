@@ -1,18 +1,16 @@
-import {
-    expect
-} from 'chai';
-import * as Classes from '../src/Classes/index.js'
-import * as Types from '../src/Types/index.js'
+import { describe, expect, test } from '@jest/globals';
+import * as Classes from '../src/Classes/index'
+import * as Types from '../src/Types/index'
 
 describe('test Classes', () => {
     const product = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(null)], [])
-    it('product2 mast be iqual product', () => {
+    test('product2 mast be iqual product', () => {
         const product2 = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(null)], [])
-        expect(product.equal(product2)).to.be.true
+        expect(product.equal(product2)).toBeTruthy
     })
-    it('product2 mast not be iqual product', async () => {
+    test('product2 mast not be iqual product', async () => {
         const product2 = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(false)], [])
-        expect(product.equal(product2)).to.be.false
+        expect(product.equal(product2)).toBeFalsy
     })
 })
 describe('test Classes 2', () => {
@@ -116,7 +114,7 @@ describe('test Classes 2', () => {
         "createdAt": "2022-10-06T05:02:21.000Z",
         "id": "bd7661ab-696e-4089-b7e1-e69a61c6496a"
     })
-    it('product2 mast be iqual product', () => {
+    test('product2 mast be iqual product', () => {
         const obj2 = Classes.CProduct.fromObject({
             "options": [
                 {
@@ -217,7 +215,7 @@ describe('test Classes 2', () => {
             "createdAt": "2022-10-06T05:02:21.000Z",
             "id": "bd7661ab-696e-4089-b7e1-e69a61c6496a"
         })
-        expect(obj1.equal(obj2)).to.be.true
+        expect(obj1.equal(obj2)).toBeTruthy
     })
 })
 

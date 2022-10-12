@@ -57,9 +57,9 @@ function annotateEnum(
     if (Array.isArray(propertyValue)) {
       newVal = []
       for (const val of propertyValue) {
-        newVal.push(typeof val === 'string' ? runtime.valueOf(val.toUpperCase()) : val)
+        newVal.push(typeof val === 'string' && runtime ? runtime.valueOf(val.toUpperCase()) : val)
       }
-    } else if (typeof propertyValue === 'string') {
+    } else if (typeof propertyValue === 'string' && runtime) {
       newVal = runtime.valueOf(propertyValue.toUpperCase())
     } else {
       newVal = propertyValue
@@ -88,7 +88,7 @@ function annotateEnum(
     } else {
       _val = newVal
     }
-    ;(this as any)[key] = _val
+    ; (this as any)[key] = _val
   }
   delete target[propertyName]
   Object.defineProperty(target, propertyName, {

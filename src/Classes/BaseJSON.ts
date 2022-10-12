@@ -125,13 +125,13 @@ export default abstract class BaseJSON {
         }
         if (isArray && value) {
           for (const item of value) {
-            result = !item || item instanceof runtime || typeof item === runtime.name.toLowerCase()
+            result = runtime && (!item || item instanceof runtime || typeof item === runtime.name.toLowerCase())
             if (!result) {
               return false
             }
           }
         } else {
-          result = !value || value instanceof runtime || typeof value === runtime.name.toLowerCase()
+          result = runtime && (!value || value instanceof runtime || typeof value === runtime.name.toLowerCase())
           if (!result) {
             return false
           }
@@ -183,11 +183,11 @@ export default abstract class BaseJSON {
   static fromObject(object: any) {
     function transformObject(object: any, runtime: any) {
       if (undefined !== object) {
-        return BaseJSON.isInstance(new runtime())
+        return runtime && BaseJSON.isInstance(new runtime())
           ? runtime.fromObject(object)
-          : TBaseType.isInstance(new runtime()) && typeof object === 'string'
+          : runtime && TBaseType.isInstance(new runtime()) && typeof object === 'string'
             ? runtime.valueOf(object)
-            : typeof object !== 'object' && runtime.name.toLowerCase() !== typeof object
+            : runtime && typeof object !== 'object' && runtime.name.toLowerCase() !== typeof object
               ? new runtime(object)
               : object
       }
@@ -240,7 +240,7 @@ export default abstract class BaseJSON {
           instance[property] = []
         } else {
           instance[property] =
-            BaseJSON.isInstance(new runtime()) || BaseJSON.isInstance(new runtime.constructor())
+            runtime && (BaseJSON.isInstance(new runtime()) || BaseJSON.isInstance(new runtime.constructor()))
               ? runtime.fillWith(value)
               : value
         }

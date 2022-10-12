@@ -68,22 +68,22 @@ function annotateFromJSON(
       const value = []
       for (const val of newVal) {
         value.push(
-          val && BaseJSON.isInstance(new runtime())
+          val && runtime && BaseJSON.isInstance(new runtime())
             ? runtime?.fromObject(val)
-            : !TBaseType.isInstance(new runtime()) || typeof val === 'string'
-            ? new runtime(val)
-            : val
+            : runtime && !TBaseType.isInstance(new runtime()) || typeof val === 'string'
+              ? new runtime(val)
+              : val
         )
       }
       _val = value
     } else {
-      _val = BaseJSON.isInstance(new runtime())
+      _val = runtime && BaseJSON.isInstance(new runtime())
         ? runtime?.fromObject(newVal)
-        : !TBaseType.isInstance(new runtime()) || typeof newVal === 'string'
-        ? new runtime(newVal)
-        : newVal
+        : runtime && !TBaseType.isInstance(new runtime()) || typeof newVal === 'string'
+          ? new runtime(newVal)
+          : newVal
     }
-    ;(this as any)[key] = _val
+    ; (this as any)[key] = _val
   }
   delete target[propertyName]
   Object.defineProperty(target, propertyName, {

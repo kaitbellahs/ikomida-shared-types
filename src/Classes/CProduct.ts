@@ -51,7 +51,6 @@ export default class CProduct extends BaseJSON {
   @Nullable
   createdAt?: Date
   @Property
-  @FromJSON
   @Nullable
   observation?: string
 

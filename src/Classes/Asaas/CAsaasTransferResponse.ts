@@ -11,7 +11,6 @@ export default class CAsaasTransferResponse extends CAsaasErrors {
   @Property
   type?: string
   @Property
-  @FromJSON
   dateCreated?: string
   @Property
   @FromJSON

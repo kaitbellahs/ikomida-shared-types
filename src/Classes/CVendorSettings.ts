@@ -30,7 +30,6 @@ export default class CVendorSettings extends BaseJSON {
   @Nullable
   preparation?: CVendorPreparation
   @Property
-  @FromJSON
   @Nullable
   isActive?: boolean
 }

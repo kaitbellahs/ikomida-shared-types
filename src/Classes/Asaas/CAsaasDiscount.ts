@@ -1,5 +1,4 @@
 import { Enum } from '../../Decorators/Enum.js'
-import { FromJSON } from '../../Decorators/FromJSON.js'
 import { TAsaasDiscount } from '../../Types/Asaas/index.js'
 import BaseJSON from '../BaseJSON.js'
 import { Property } from '../../Decorators/Property.js'
@@ -14,7 +13,6 @@ export default class CAsaasDiscount extends BaseJSON {
   @Nullable
   type?: TAsaasDiscount
   @Property
-  @FromJSON
   @Nullable
   limitDate?: string
   @Property

@@ -12,7 +12,6 @@ export default class CAsaasCreateSubscriptionResponse extends CAsaasErrors {
   @Property
   object?: string
   @Property
-  @FromJSON
   dateCreated?: string
   @Property
   customer?: string

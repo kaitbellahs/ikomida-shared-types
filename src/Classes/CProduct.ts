@@ -1,12 +1,12 @@
 import { Property } from '../Decorators/Property.js'
 import { Enum } from '../Decorators/Enum.js'
 import { FromJSON } from '../Decorators/FromJSON.js'
-import { TDiscount } from '../Types/index.js'
+import { TDiscount, TMeasure } from '../Types/index.js'
 import BaseJSON from './BaseJSON.js'
 import CProductCategory from './CProductCategory.js'
-import { Nullable } from '../Decorators/index.js'
-import CProductOptionsCategory from './CProductOptionsCategory.js'
+import Nullable from '../Decorators/Nullable.js'
 import CProductOption from './CProductOption.js'
+import CProductOptionsCategory from './CProductOptionsCategory.js'
 
 export default class CProduct extends BaseJSON {
   @Property
@@ -30,7 +30,12 @@ export default class CProduct extends BaseJSON {
   @Nullable
   serves?: number
   @Property
-  weight?: number
+  @Nullable
+  measure?: number
+  @Property
+  @FromJSON
+  @Nullable
+  measureUnit?: TMeasure
   @Property
   @FromJSON
   @Nullable
@@ -63,7 +68,8 @@ export default class CProduct extends BaseJSON {
     description?: string,
     order?: number,
     serves?: number,
-    weight?: number,
+    measure?: number,
+    measureUnit?: TMeasure,
     category?: CProductCategory,
     image?: string,
     optionsCategories?: CProductOptionsCategory[],
@@ -82,7 +88,8 @@ export default class CProduct extends BaseJSON {
       'description',
       'order',
       'serves',
-      'weight',
+      'measure',
+      'measureUnit',
       'category',
       'image',
       'optionsCategories',

@@ -1,13 +1,17 @@
 {
   "name": "@ikomida/shared-types",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "This is the shared types between services, UI and workers etc...",
   "private": false,
-  "main": "lib/main.cjs",
-  "module": "lib/main.mjs",
-  "browser": "lib/main.js",
   "types": "lib/main.d.ts",
   "type": "module",
+  "exports": {
+    "node": {
+      "import": "./lib/main.mjs",
+      "require": "./lib/main.cjs"
+    },
+    "default": "./lib/main.js"
+  },
   "files": [
     "lib/",
     "README.md",

@@ -1,31 +1,33 @@
-const autoExternal = require('rollup-plugin-auto-external');
-const tsPlugin = require('@rollup/plugin-typescript');
-const resolve = require("@rollup/plugin-node-resolve");
-const { terser } = require('rollup-plugin-terser');
-const json = require('@rollup/plugin-json');
+import autoExternal from 'rollup-plugin-auto-external';
+import tsPlugin from '@rollup/plugin-typescript';
+import resolve from "@rollup/plugin-node-resolve";
+import { terser } from 'rollup-plugin-terser';
+import json from '@rollup/plugin-json';
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
 const pkg = require('./package.json')
 const tsconfig = require('./tsconfig.json')
 
-exports.default = [
+export default [
     {
         input: "src/main.ts",
         output: [
             {
                 inlineDynamicImports: true,
-                file: pkg.main,
+                file: pkg.exports.node.require,
                 format: 'cjs',
                 sourcemap: true,
             },
             {
                 inlineDynamicImports: true,
-                file: pkg.module,
+                file: pkg.exports.node.import,
                 format: 'es',
                 sourcemap: true,
             },
             {
                 inlineDynamicImports: true,
                 name: pkg.name,
-                file: pkg.browser,
+                file: pkg.exports.default,
                 format: "umd",
                 sourcemap: true,
             },

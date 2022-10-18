@@ -18,7 +18,7 @@ export default abstract class BaseJSON {
   constructor(object?: any) {
     if (typeof object === 'object') {
       for (const key of Object.keys(object)) {
-        ; (this as any)[key] = (object as any)[key]
+        ;(this as any)[key] = (object as any)[key]
       }
     }
   }
@@ -186,10 +186,10 @@ export default abstract class BaseJSON {
         return runtime && BaseJSON.isInstance(new runtime())
           ? runtime.fromObject(object)
           : runtime && TBaseType.isInstance(new runtime()) && typeof object === 'string'
-            ? runtime.valueOf(object)
-            : runtime && typeof object !== 'object' && runtime.name.toLowerCase() !== typeof object
-              ? new runtime(object)
-              : object
+          ? runtime.valueOf(object)
+          : runtime && typeof object !== 'object' && runtime.name.toLowerCase() !== typeof object
+          ? new runtime(object)
+          : object
       }
       return undefined
     }

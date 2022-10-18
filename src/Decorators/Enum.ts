@@ -88,7 +88,7 @@ function annotateEnum(
     } else {
       _val = newVal
     }
-    ; (this as any)[key] = _val
+    ;(this as any)[key] = _val
   }
   delete target[propertyName]
   Object.defineProperty(target, propertyName, {

@@ -70,20 +70,21 @@ function annotateFromJSON(
         value.push(
           val && runtime && BaseJSON.isInstance(new runtime())
             ? runtime?.fromObject(val)
-            : runtime && !TBaseType.isInstance(new runtime()) || typeof val === 'string'
-              ? new runtime(val)
-              : val
+            : (runtime && !TBaseType.isInstance(new runtime())) || typeof val === 'string'
+            ? new runtime(val)
+            : val
         )
       }
       _val = value
     } else {
-      _val = runtime && BaseJSON.isInstance(new runtime())
-        ? runtime?.fromObject(newVal)
-        : runtime && !TBaseType.isInstance(new runtime()) || typeof newVal === 'string'
+      _val =
+        runtime && BaseJSON.isInstance(new runtime())
+          ? runtime?.fromObject(newVal)
+          : (runtime && !TBaseType.isInstance(new runtime())) || typeof newVal === 'string'
           ? new runtime(newVal)
           : newVal
     }
-    ; (this as any)[key] = _val
+    ;(this as any)[key] = _val
   }
   delete target[propertyName]
   Object.defineProperty(target, propertyName, {

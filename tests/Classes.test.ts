@@ -3,13 +3,13 @@ import * as Classes from '../src/Classes/index'
 import * as Types from '../src/Types/index'
 
 describe('test Classes', () => {
-    const product = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(null)], [])
+    const product = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, Types.TMeasure.CENTIMETER, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(null)], [])
     test('product2 mast be iqual product', () => {
-        const product2 = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(null)], [])
+        const product2 = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, Types.TMeasure.CENTIMETER, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(null)], [])
         expect(product.equal(product2)).toBeTruthy
     })
     test('product2 mast not be iqual product', async () => {
-        const product2 = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(false)], [])
+        const product2 = Classes.CProduct.init('product', 100, 1, Types.TDiscount.NO, 1, undefined, undefined, undefined, undefined, Types.TMeasure.CENTIMETER, undefined, undefined, [Classes.CProductOptionsCategory.fillWith(false)], [])
         expect(product.equal(product2)).toBeFalsy
     })
 })
@@ -36,7 +36,8 @@ describe('test Classes 2', () => {
         "description": "test 2",
         "order": 3,
         "serves": 2,
-        "weight": 105,
+        "measure": 105,
+        "measureUnit": "CENTIMETER",
         "category": {
             "title": "Frutas",
             "id": "9fe6da85-3df5-41d4-9787-351d1278055b"
@@ -137,7 +138,8 @@ describe('test Classes 2', () => {
             "description": "test 2",
             "order": 3,
             "serves": 2,
-            "weight": 105,
+            "measure": 105,
+            "measureUnit": "CENTIMETER",
             "category": {
                 "title": "Frutas",
                 "id": "9fe6da85-3df5-41d4-9787-351d1278055b"

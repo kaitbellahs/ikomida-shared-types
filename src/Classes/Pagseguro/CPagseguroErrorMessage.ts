@@ -5,6 +5,8 @@ export default class CPagseguroErrorMessage extends BaseJSON {
   @Property
   code?: number
   @Property
+  message?: string
+  @Property
   description?: string
   @Property
   parameter_name?: string

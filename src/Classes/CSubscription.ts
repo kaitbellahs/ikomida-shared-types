@@ -1,9 +1,9 @@
 import { Property } from '../Decorators/Property.js'
 import { Enum } from '../Decorators/Enum.js'
 import { FromJSON } from '../Decorators/FromJSON.js'
-import { TAsaasSubscriptionStatus } from '../Types/Asaas/index.js'
 import BaseJSON from './BaseJSON.js'
 import CSubscriptionCharge from './CSubscriptionCharge.js'
+import TAsaasSignatureStatus from '../Types/TAsaasSignatureStatus.js'
 
 export default class CSubscription extends BaseJSON {
   @Property
@@ -15,7 +15,7 @@ export default class CSubscription extends BaseJSON {
   subscription!: Date
   @Property
   @Enum
-  status!: TAsaasSubscriptionStatus
+  status!: TAsaasSignatureStatus
   @Property
   @FromJSON
   nextDueDate!: Date
@@ -27,7 +27,7 @@ export default class CSubscription extends BaseJSON {
     plan: string,
     value: number,
     subscription: Date,
-    status: TAsaasSubscriptionStatus,
+    status: TAsaasSignatureStatus,
     nextDueDate: Date,
     charges: CSubscriptionCharge[],
     id?: string,

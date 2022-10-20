@@ -8,12 +8,12 @@ export default class TMeasure extends TBaseType {
     super(type)
     switch (type) {
       case 'GRAM':
-        this.name = 'grama'
+        this.name = 'g'
         this.description = 'grama'
         break
       case 'MILLILITER':
         this.name = 'ml'
-        this.description = 'Mililitro'
+        this.description = 'mililitro'
         break
       case 'CENTIMETER':
         this.name = 'cm'

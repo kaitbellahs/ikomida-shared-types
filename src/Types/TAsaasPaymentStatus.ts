@@ -15,4 +15,55 @@ export default class TAsaasPaymentStatus extends TBaseType {
   static DUNNING_RECEIVED = new TAsaasPaymentStatus('DUNNING_RECEIVED')
   static AWAITING_RISK_ANALYSIS = new TAsaasPaymentStatus('AWAITING_RISK_ANALYSIS')
   static CANCELED = new TAsaasPaymentStatus('CANCELED')
+
+  constructor(type: string) {
+    super(type)
+    switch (type) {
+      case 'PENDING':
+        this.description = 'Pendente'
+        break
+      case 'CONFIRMED':
+        this.description = 'Confirmado'
+        break
+      case 'RECEIVED':
+        this.description = 'Recebido'
+        break
+      case 'RECEIVED_IN_CASH':
+        this.description = 'Recebido em cash'
+        break
+      case 'OVERDUE':
+        this.description = 'Atrasado'
+        break
+      case 'REFUND_REQUESTED':
+        this.description = 'Reembolso solicitado'
+        break
+      case 'REFUNDED':
+        this.description = 'Reembolsado'
+        break
+      case 'CHARGEBACK_REQUESTED':
+        this.description = 'Estorno solicitado'
+        break
+      case 'CHARGEBACK_DISPUTE':
+        this.description = 'Estorno em disputa'
+        break
+      case 'AWAITING_CHARGEBACK_REVERSAL':
+        this.description = 'Aguardando recurso de estorno'
+        break
+      case 'DUNNING_REQUESTED':
+        this.description = 'Cobrança solicitada'
+        break
+      case 'DUNNING_RECEIVED':
+        this.description = 'Cobrança recebida'
+        break
+      case 'AWAITING_RISK_ANALYSIS':
+        this.description = 'Aguardando análise de risco'
+        break
+      case 'CANCELED':
+        this.description = 'Cancelado'
+        break
+      default:
+        this.description = '-'
+        break
+    }
+  }
 }

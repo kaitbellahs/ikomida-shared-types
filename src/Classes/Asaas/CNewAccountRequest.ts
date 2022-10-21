@@ -1,37 +1,37 @@
-import { Enum } from '../../Decorators/Enum';
-import { TCompany } from '../../Types';
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
-import { Nullable } from '../../Decorators';
+import { Enum } from '../../Decorators/Enum.js'
+import { TCompany } from '../../Types/index.js'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { Nullable } from '../../Decorators/index.js'
 
 export default class CNewAccountRequest extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
-  email!: string;
+  email!: string
   @Property
-  cpfCnpj!: string;
+  cpfCnpj!: string
   @Property
-  birthDate!: string;
+  birthDate!: string
   @Property
   @Enum
-  companyType!: TCompany;
+  companyType!: TCompany
   @Property
-  mobilePhone!: string;
+  mobilePhone!: string
   @Property
-  address!: string;
+  address!: string
   @Property
-  addressNumber!: string;
+  addressNumber!: string
   @Property
-  province!: string;
+  province!: string
   @Property
-  postalCode!: string;
-  @Property
-  @Nullable
-  phone?: string;
+  postalCode!: string
   @Property
   @Nullable
-  complement?: string;
+  phone?: string
+  @Property
+  @Nullable
+  complement?: string
 
   static init(
     name: string,
@@ -45,8 +45,21 @@ export default class CNewAccountRequest extends BaseJSON {
     province: string,
     postalCode: string,
     phone?: string,
-    complement?: string,
+    complement?: string
   ): CNewAccountRequest {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'name',
+      'email',
+      'cpfCnpj',
+      'birthDate',
+      'companyType',
+      'mobilePhone',
+      'address',
+      'addressNumber',
+      'province',
+      'postalCode',
+      'phone',
+      'complement'
+    ])
   }
 }

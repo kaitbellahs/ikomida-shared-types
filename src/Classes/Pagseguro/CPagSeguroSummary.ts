@@ -1,11 +1,11 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroSummary extends BaseJSON {
   @Property
-  total?: number;
+  total?: number
   @Property
-  paid?: number;
+  paid?: number
   @Property
-  refunded?: number;
+  refunded?: number
 }

@@ -1,22 +1,20 @@
-import { FromJSON } from '../../Decorators/FromJSON';
-import CPagSeguroErrorResponse from './CPagSeguroErrorResponse';
-import CPagSeguroHolder from './CPagSeguroHolder';
-import { Property } from '../../Decorators/Property';
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import CPagSeguroErrorResponse from './CPagSeguroErrorResponse.js'
+import CPagSeguroHolder from './CPagSeguroHolder.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroCardResponse extends CPagSeguroErrorResponse {
   @Property
-  id?: string;
+  brand?: string
   @Property
-  brand?: string;
+  first_digits?: string
   @Property
-  first_digits?: string;
+  last_digits?: string
   @Property
-  last_digits?: string;
+  exp_month?: string
   @Property
-  exp_month?: string;
-  @Property
-  exp_year?: string;
+  exp_year?: string
   @Property
   @FromJSON
-  holder?: CPagSeguroHolder;
+  holder?: CPagSeguroHolder
 }

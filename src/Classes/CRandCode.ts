@@ -1,17 +1,17 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CRandCode extends BaseJSON {
   @Property
-  count?: number;
+  count?: number
   @Property
-  length?: number;
+  length?: number
   @Property
-  charset?: string;
+  charset?: string
   @Property
-  prefix?: string;
+  prefix?: string
   @Property
-  postfix?: string;
+  postfix?: string
   @Property
-  pattern?: string;
+  pattern?: string
 }

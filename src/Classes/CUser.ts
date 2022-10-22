@@ -1,78 +1,78 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CAddress from './CAddress';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import BaseJSON from './BaseJSON.js'
+import CAddress from './CAddress.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CUser extends BaseJSON {
   @Property
-  role!: string;
+  role!: string
   @Property
-  name!: string;
+  name!: string
   @Property
-  lastName!: string;
+  lastName!: string
   @Property
-  identity!: string;
+  identity!: string
   @Property
-  email!: string;
+  email!: string
   @Property
-  phone!: string;
+  phone!: string
   @Property
-  areaCode!: string;
+  areaCode!: string
   @Property
-  ikomidaID!: string;
-  @Property
-  @Nullable
-  contractName?: string;
+  ikomidaID!: string
   @Property
   @Nullable
-  termId?: string;
+  contractName?: string
   @Property
   @Nullable
-  platform?: string;
+  termId?: string
   @Property
   @Nullable
-  deviceId?: string;
+  platform?: string
   @Property
   @Nullable
-  contractIdentity?: string;
+  deviceId?: string
   @Property
   @Nullable
-  referredBy?: string;
+  contractIdentity?: string
   @Property
   @Nullable
-  password?: string;
+  referredBy?: string
   @Property
   @Nullable
-  oldPass?: string;
+  password?: string
   @Property
   @Nullable
-  newPass?: string;
+  oldPass?: string
   @Property
   @Nullable
-  reNewPass?: string;
+  newPass?: string
+  @Property
+  @Nullable
+  reNewPass?: string
   @Property
   @FromJSON
   @Nullable
-  address?: CAddress;
+  address?: CAddress
   @Property
   @Nullable
-  signature?: string;
+  signature?: string
   @Property
   @Nullable
-  phoneValidationCode?: string;
+  phoneValidationCode?: string
   @Property
   @Nullable
-  avatar?: string;
+  avatar?: string
   @Property
   @Nullable
-  code?: string;
+  code?: string
   @Property
   @Nullable
-  referralCode?: string;
+  referralCode?: string
   @Property
   @Nullable
-  hash?: string;
+  hash?: string
 
   static init(
     role: string,
@@ -101,8 +101,36 @@ export default class CUser extends BaseJSON {
     referralCode?: string,
     hash?: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CUser {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'role',
+      'name',
+      'lastName',
+      'identity',
+      'email',
+      'phone',
+      'areaCode',
+      'ikomidaID',
+      'contractName',
+      'termId',
+      'platform',
+      'deviceId',
+      'contractIdentity',
+      'referredBy',
+      'password',
+      'oldPass',
+      'newPass',
+      'reNewPass',
+      'address',
+      'signature',
+      'phoneValidationCode',
+      'avatar',
+      'code',
+      'referralCode',
+      'hash',
+      'id',
+      'timestamp'
+    ])
   }
 }

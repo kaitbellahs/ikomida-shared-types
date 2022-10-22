@@ -1,38 +1,47 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TAsaasSubscriptionStatus } from '../Types/Asaas';
-import BaseJSON from './BaseJSON';
-import CSubscriptionCharge from './CSubscriptionCharge';
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import BaseJSON from './BaseJSON.js'
+import CSubscriptionCharge from './CSubscriptionCharge.js'
+import TAsaasSignatureStatus from '../Types/TAsaasSignatureStatus.js'
 
 export default class CSubscription extends BaseJSON {
   @Property
-  plan!: string;
+  plan!: string
   @Property
-  value!: number;
+  value!: number
   @Property
   @FromJSON
-  subscription!: Date;
+  subscription!: Date
   @Property
   @Enum
-  status!: TAsaasSubscriptionStatus;
+  status!: TAsaasSignatureStatus
   @Property
   @FromJSON
-  nextDueDate!: Date;
+  nextDueDate!: Date
   @Property
   @FromJSON(CSubscriptionCharge)
-  charges!: CSubscriptionCharge[];
+  charges!: CSubscriptionCharge[]
 
   static init(
     plan: string,
     value: number,
     subscription: Date,
-    status: TAsaasSubscriptionStatus,
+    status: TAsaasSignatureStatus,
     nextDueDate: Date,
     charges: CSubscriptionCharge[],
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CSubscription {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'plan',
+      'value',
+      'subscription',
+      'status',
+      'nextDueDate',
+      'charges',
+      'id',
+      'timestamp'
+    ])
   }
 }

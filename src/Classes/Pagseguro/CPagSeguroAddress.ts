@@ -1,21 +1,21 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroAddress extends BaseJSON {
   @Property
-  street?: string;
+  street?: string
   @Property
-  number?: string;
+  number?: string
   @Property
-  complement?: string;
+  complement?: string
   @Property
-  locality?: string;
+  locality?: string
   @Property
-  city?: string;
+  city?: string
   @Property
-  region_code?: string;
+  region_code?: string
   @Property
-  country?: string;
+  country?: string
   @Property
-  postal_code?: string;
+  postal_code?: string
 }

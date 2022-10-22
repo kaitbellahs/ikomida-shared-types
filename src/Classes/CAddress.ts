@@ -1,43 +1,42 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { TAddress } from '../Types';
-import BaseJSON from './BaseJSON';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { TAddress } from '../Types/index.js'
+import BaseJSON from './BaseJSON.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CAddress extends BaseJSON {
   @Property
-  postalCode!: string;
+  postalCode!: string
   @Property
-  street!: string;
+  street!: string
   @Property
-  neighborhood!: string;
+  neighborhood!: string
   @Property
-  city!: string;
+  city!: string
   @Property
-  stat!: string;
-  @Property
-  @Nullable
-  @Nullable
-  number?: string;
+  stat!: string
   @Property
   @Nullable
-  complement?: string;
+  number?: string
+  @Property
+  @Nullable
+  complement?: string
   @Property
   @Enum
   @Nullable
-  kind?: TAddress;
+  kind?: TAddress
   @Property
   @Nullable
-  reference?: string;
+  reference?: string
   @Property
   @Nullable
-  distance?: number;
+  distance?: number
   @Property
   @Nullable
-  duration?: number;
+  duration?: number
   @Property
   @Nullable
-  selected?: boolean;
+  selected?: boolean
 
   static init(
     postalCode: string,
@@ -53,8 +52,23 @@ export default class CAddress extends BaseJSON {
     duration?: number,
     selected?: boolean,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CAddress {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'postalCode',
+      'street',
+      'neighborhood',
+      'city',
+      'stat',
+      'number',
+      'complement',
+      'kind',
+      'reference',
+      'distance',
+      'duration',
+      'selected',
+      'id',
+      'timestamp'
+    ])
   }
 }

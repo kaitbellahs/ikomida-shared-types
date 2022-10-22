@@ -1,25 +1,25 @@
-import { Property } from '../../Decorators/Property';
-import CPagSeguroErrorResponse from './CPagSeguroErrorResponse';
+import { Property } from '../../Decorators/Property.js'
+import CPagSeguroErrorResponse from './CPagSeguroErrorResponse.js'
 
 export default class CPgseguroCreateOAuth2AppRequest extends CPagSeguroErrorResponse {
   @Property
-  name!: string;
+  name!: string
   @Property
-  description!: string;
+  description!: string
   @Property
-  site!: string;
+  site!: string
   @Property
-  redirect_uri!: string;
+  redirect_uri!: string
   @Property
-  logo!: string;
+  logo!: string
 
   static init(
     name: string,
     description: string,
     site: string,
     redirect_uri: string,
-    logo: string,
+    logo: string
   ): CPgseguroCreateOAuth2AppRequest {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, ['name', 'description', 'site', 'redirect_uri', 'logo'])
   }
 }

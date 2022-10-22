@@ -1,67 +1,67 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TOrderStatus, TPaymentMethod } from '../Types';
-import BaseJSON from './BaseJSON';
-import CAddress from './CAddress';
-import CCoupon from './CCoupon';
-import COrderPreparation from './COrderPreparation';
-import CPaymentMethod from './CPaymentMethod';
-import CProduct from './CProduct';
-import CUser from './CUser';
-import { Nullable } from '../Decorators';
-import CLocation from './CLocation';
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { TOrderStatus, TPaymentMethod } from '../Types/index.js'
+import BaseJSON from './BaseJSON.js'
+import CAddress from './CAddress.js'
+import CCoupon from './CCoupon.js'
+import COrderPreparation from './COrderPreparation.js'
+import CPaymentMethod from './CPaymentMethod.js'
+import CProduct from './CProduct.js'
+import CUser from './CUser.js'
+import { Nullable } from '../Decorators/index.js'
+import CLocation from './CLocation.js'
 
 export default class COrder extends BaseJSON {
   @Property
-  subtotal!: number;
+  subtotal!: number
   @Property
-  discount!: number;
+  discount!: number
   @Property
-  delivery!: number;
+  delivery!: number
   @Property
   @FromJSON(CProduct)
-  products!: CProduct[];
+  products!: CProduct[]
   @Property
   @FromJSON
-  address!: CAddress;
+  address!: CAddress
   @Property
   @Enum
-  paymentMethodType!: TPaymentMethod;
+  paymentMethodType!: TPaymentMethod
   @Property
   @FromJSON
-  preparation!: COrderPreparation;
-  @Property
-  @FromJSON
-  @Nullable
-  coupon?: CCoupon;
+  preparation!: COrderPreparation
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  coupon?: CCoupon
+  @Property
+  @FromJSON
+  @Nullable
+  createdAt?: Date
   @Property
   @Nullable
-  customID?: number;
+  customID?: number
   @Property
   @Enum
   @Nullable
-  status?: TOrderStatus;
+  status?: TOrderStatus
   @Property
   @FromJSON
   @Nullable
-  finishedAt?: Date;
+  finishedAt?: Date
   @Property
   @FromJSON
   @Nullable
-  payment?: CPaymentMethod;
+  payment?: CPaymentMethod
   @Property
   @FromJSON
   @Nullable
-  user?: CUser;
+  user?: CUser
   @Property
   @FromJSON
   @Nullable
-  location?: CLocation;
+  location?: CLocation
 
   static init(
     subtotal: number,
@@ -80,8 +80,26 @@ export default class COrder extends BaseJSON {
     user?: CUser,
     id?: string,
     timestamp?: number,
-    location?: CLocation,
+    location?: CLocation
   ): COrder {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'subtotal',
+      'discount',
+      'delivery',
+      'products',
+      'address',
+      'paymentMethodType',
+      'preparation',
+      'coupon',
+      'createdAt',
+      'customID',
+      'status',
+      'finishedAt',
+      'payment',
+      'user',
+      'id',
+      'timestamp',
+      'location'
+    ])
   }
 }

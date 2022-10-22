@@ -1,33 +1,33 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import { CAsaasCard } from './Asaas';
-import BaseJSON from './BaseJSON';
-import CAddress from './CAddress';
-import CCoupon from './CCoupon';
-import CLocation from './CLocation';
-import CProduct from './CProduct';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { CAsaasCard } from './Asaas/index.js'
+import BaseJSON from './BaseJSON.js'
+import CAddress from './CAddress.js'
+import CCoupon from './CCoupon.js'
+import CLocation from './CLocation.js'
+import CProduct from './CProduct.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class COrderPayload extends BaseJSON {
   @Property
   @FromJSON(CProduct)
-  products!: CProduct[];
+  products!: CProduct[]
   @Property
   @FromJSON
-  payment!: CAsaasCard;
+  payment!: CAsaasCard
   @Property
   @FromJSON
-  address!: CAddress;
+  address!: CAddress
   @Property
-  delivery!: number;
-  @Property
-  @FromJSON
-  @Nullable
-  coupon?: CCoupon;
+  delivery!: number
   @Property
   @FromJSON
   @Nullable
-  location?: CLocation;
+  coupon?: CCoupon
+  @Property
+  @FromJSON
+  @Nullable
+  location?: CLocation
 
   static init(
     products: CProduct[],
@@ -37,8 +37,17 @@ export default class COrderPayload extends BaseJSON {
     coupon?: CCoupon,
     location?: CLocation,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): COrderPayload {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'products',
+      'payment',
+      'address',
+      'delivery',
+      'coupon',
+      'location',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -1,52 +1,52 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
-import { Nullable } from '../../Decorators';
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { Nullable } from '../../Decorators/index.js'
 
 export default class CNewCustomerResquest extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
-  email!: string;
+  email!: string
   @Property
-  mobilePhone!: string;
+  mobilePhone!: string
   @Property
-  cpfCnpj!: string;
-  @Property
-  @Nullable
-  phone?: string;
+  cpfCnpj!: string
   @Property
   @Nullable
-  postalCode?: string;
+  phone?: string
   @Property
   @Nullable
-  address?: string;
+  postalCode?: string
   @Property
   @Nullable
-  addressNumber?: string;
+  address?: string
   @Property
   @Nullable
-  complement?: string;
+  addressNumber?: string
   @Property
   @Nullable
-  province?: string;
+  complement?: string
   @Property
   @Nullable
-  externalReference?: string;
+  province?: string
   @Property
   @Nullable
-  notificationDisabled?: boolean;
+  externalReference?: string
   @Property
   @Nullable
-  additionalEmails?: string;
+  notificationDisabled?: boolean
   @Property
   @Nullable
-  municipalInscription?: string;
+  additionalEmails?: string
   @Property
   @Nullable
-  stateInscription?: string;
+  municipalInscription?: string
   @Property
   @Nullable
-  observations?: string;
+  stateInscription?: string
+  @Property
+  @Nullable
+  observations?: string
 
   static init(
     name: string,
@@ -64,8 +64,25 @@ export default class CNewCustomerResquest extends BaseJSON {
     additionalEmails?: string,
     municipalInscription?: string,
     stateInscription?: string,
-    observations?: string,
+    observations?: string
   ): CNewCustomerResquest {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'name',
+      'email',
+      'mobilePhone',
+      'cpfCnpj',
+      'phone',
+      'postalCode',
+      'address',
+      'addressNumber',
+      'complement',
+      'province',
+      'externalReference',
+      'notificationDisabled',
+      'additionalEmails',
+      'municipalInscription',
+      'stateInscription',
+      'observations'
+    ])
   }
 }

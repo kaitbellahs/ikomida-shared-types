@@ -1,7 +1,7 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroRecurring extends BaseJSON {
   @Property
-  type?: string;
+  type?: string
 }

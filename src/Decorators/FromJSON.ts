@@ -1,85 +1,96 @@
-import 'reflect-metadata';
-import { BaseJSON } from '../Classes';
-import { TBaseType } from '../Types';
+import 'reflect-metadata'
+import { BaseJSON } from '../Classes/index.js'
+import { TBaseType } from '../Types/index.js'
 
-export function FromJSON(dataType?: any): PropertyDecorator;
-export function FromJSON(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor): void;
+export function FromJSON(dataType?: any): PropertyDecorator
+export function FromJSON(target: any, propertyName: string, propertyDescriptor?: PropertyDescriptor): void
 
 export function FromJSON(...args: any[]): PropertyDecorator | void {
   if (args.length >= 2) {
-    const target = args[0];
-    const propertyName = args[1];
-    const propertyDescriptor = args[2];
+    const target = args[0]
+    const propertyName = args[1]
+    const propertyDescriptor = args[2]
 
-    annotateFromJSON(target, propertyName, propertyDescriptor);
-    return;
+    annotateFromJSON(target, propertyName, propertyDescriptor)
+    return
   }
 
   return (target: any, propertyName: string | symbol, propertyDescriptor?: PropertyDescriptor) => {
-    let dataType = null;
+    let dataType = null
     if (args.length === 1) {
-      dataType = args[0];
-      Reflect.defineMetadata('design:type', dataType, target, propertyName);
-      Reflect.defineMetadata('design:object:type', 'array', target, propertyName);
+      dataType = args[0]
+      Reflect.defineMetadata('design:type', dataType, target, propertyName)
+      Reflect.defineMetadata('design:object:type', 'array', target, propertyName)
     }
     annotateFromJSON(
       target,
       propertyName,
       propertyDescriptor ?? Object.getOwnPropertyDescriptor(target, propertyName),
-      dataType,
-    );
-  };
+      dataType
+    )
+  }
 }
 
 function annotateFromJSON(
   target: any,
   propertyName: string | symbol,
   propertyDescriptor?: PropertyDescriptor,
-  dataType?: any,
+  dataType?: any
 ) {
-  let runtime = Reflect.getMetadata('design:type', target, propertyName);
+  let runtime = Reflect.getMetadata('design:type', target, propertyName)
   if (dataType) {
-    runtime = dataType;
+    runtime = dataType
   }
-  type runtimeType = typeof runtime;
+  type runtimeType = typeof runtime
   const key =
     typeof propertyName === 'symbol'
       ? Symbol(`_${propertyName.toString().substring(7, propertyName.toString().length - 1)}`)
-      : `_${propertyName}`;
+      : `_${propertyName}`
   const getter = function (this: {
-    set: (newVal?: any) => void;
-    get: () => any;
-    enumerable: boolean;
-    configurable: boolean;
+    set: (newVal?: any) => void
+    get: () => any
+    enumerable: boolean
+    configurable: boolean
   }) {
-    return (this as any)[key];
-  };
+    return (this as any)[key]
+  }
   const setter = function (
     this: {
-      get: (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean }) => any;
-      set: (newVal?: any) => void;
-      enumerable: true;
-      configurable: true;
+      get: (this: { set: (newVal?: any) => void; get: () => any; enumerable: boolean; configurable: boolean }) => any
+      set: (newVal?: any) => void
+      enumerable: true
+      configurable: true
     },
-    newVal?: runtimeType,
+    newVal?: runtimeType
   ) {
-    let _val = newVal;
+    let _val = newVal
     if (Array.isArray(newVal)) {
-      const value = [];
+      const value = []
       for (const val of newVal) {
-        value.push(val && BaseJSON.isInstance(new runtime()) ? runtime?.fromObject(val) : !TBaseType.isInstance(new runtime()) || typeof val === 'string' ? new runtime(val) : val);
+        value.push(
+          val && runtime && BaseJSON.isInstance(new runtime())
+            ? runtime?.fromObject(val)
+            : (runtime && !TBaseType.isInstance(new runtime())) || typeof val === 'string'
+            ? new runtime(val)
+            : val
+        )
       }
-      _val = value;
+      _val = value
     } else {
-      _val = BaseJSON.isInstance(new runtime()) ? runtime?.fromObject(newVal) : !TBaseType.isInstance(new runtime()) || typeof newVal === 'string' ? new runtime(newVal) : newVal;
+      _val =
+        runtime && BaseJSON.isInstance(new runtime())
+          ? runtime?.fromObject(newVal)
+          : (runtime && !TBaseType.isInstance(new runtime())) || typeof newVal === 'string'
+          ? new runtime(newVal)
+          : newVal
     }
-    (this as any)[key] = _val;
-  };
-  delete target[propertyName];
+    ;(this as any)[key] = _val
+  }
+  delete target[propertyName]
   Object.defineProperty(target, propertyName, {
     get: getter,
     set: setter,
     enumerable: true,
-    configurable: true,
-  });
+    configurable: true
+  })
 }

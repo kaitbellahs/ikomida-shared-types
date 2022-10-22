@@ -1,15 +1,15 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroTokenData extends BaseJSON {
   @Property
-  requestor_id?: string;
+  requestor_id?: string
   @Property
-  wallet?: string;
+  wallet?: string
   @Property
-  cryptogram?: string;
+  cryptogram?: string
   @Property
-  ecommerce_domain?: string;
+  ecommerce_domain?: string
   @Property
-  assurance_level?: number;
+  assurance_level?: number
 }

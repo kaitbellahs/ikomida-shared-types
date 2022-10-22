@@ -1,21 +1,21 @@
-import { Nullable } from '../Decorators';
-import { Property } from '../Decorators/Property';
-import { IMetadata } from '../Interfaces';
-import BaseJSON from './BaseJSON';
+import { Nullable } from '../Decorators/index.js'
+import { Property } from '../Decorators/Property.js'
+import { IMetadata } from '../Interfaces/index.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CProcessPayment extends BaseJSON {
   @Property
-  paymentMethodID!: string;
+  paymentMethodID!: string
   @Property
-  amount!: number;
+  amount!: number
   @Property
-  referenceId!: string;
-  @Property
-  @Nullable
-  metadata?: IMetadata;
+  referenceId!: string
   @Property
   @Nullable
-  description?: string;
+  metadata?: IMetadata
+  @Property
+  @Nullable
+  description?: string
 
   static init(
     paymentMethodID: string,
@@ -24,8 +24,16 @@ export default class CProcessPayment extends BaseJSON {
     metadata?: IMetadata,
     description?: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CProcessPayment {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'paymentMethodID',
+      'amount',
+      'referenceId',
+      'metadata',
+      'description',
+      'id',
+      'timestamp'
+    ])
   }
 }

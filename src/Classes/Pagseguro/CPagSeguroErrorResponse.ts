@@ -1,10 +1,10 @@
-import { FromJSON } from '../../Decorators/FromJSON';
-import BaseJSON from '../BaseJSON';
-import CPagseguroErrorMessage from './CPagseguroErrorMessage';
-import { Property } from '../../Decorators/Property';
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import BaseJSON from '../BaseJSON.js'
+import CPagseguroErrorMessage from './CPagseguroErrorMessage.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroErrorResponse extends BaseJSON {
   @Property
   @FromJSON(CPagseguroErrorMessage)
-  error_messages?: CPagseguroErrorMessage[];
+  error_messages?: CPagseguroErrorMessage[]
 }

@@ -1,8 +1,8 @@
-import TBaseType from '../TBaseType';
+import TBaseType from '../TBaseType.js'
 
 export default class TAsaasBilling extends TBaseType {
-  static BOLETO = new TAsaasBilling('BOLETO');
-  static CREDIT_CARD = new TAsaasBilling('CREDIT_CARD');
-  static PIX = new TAsaasBilling('PIX');
-  static UNDEFINED = new TAsaasBilling('UNDEFINED');
+  static BOLETO = new TAsaasBilling('BOLETO')
+  static CREDIT_CARD = new TAsaasBilling('CREDIT_CARD')
+  static PIX = new TAsaasBilling('PIX')
+  static UNDEFINED = new TAsaasBilling('UNDEFINED')
 }

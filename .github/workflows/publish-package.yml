@@ -51,6 +51,7 @@ jobs:
       - name: Publish npm package
         run: npm publish
       - name: Update branch tag version
+        if: github.base_ref == 'dev'
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"

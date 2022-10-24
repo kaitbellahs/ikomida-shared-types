@@ -11,27 +11,27 @@ export default class TTerm extends TBaseType {
     super(type)
     switch (type) {
       case 'TERM_OF_USE_VENDOR':
-        this.name = ''
+        this.name = 'Termo de uso estabelecimentos'
         this.description = 'Termo de uso estabelecimentos'
         break
       case 'TERM_OF_USE_STAFF':
-        this.name = ''
+        this.name = 'Termo de uso funcionarios dos estabelecimentos'
         this.description = 'Termo de uso funcionarios dos estabelecimentos'
         break
       case 'TERM_OF_USE_RESELLER':
-        this.name = ''
-        this.description = 'Termo de uso vendedores'
+        this.name = 'Termo de uso revendedores'
+        this.description = 'Termo de uso revendedores'
         break
       case 'TERM_OF_USE_CLIENT':
-        this.name = ''
+        this.name = 'Termo de uso usuarios'
         this.description = 'Termo de uso usuarios'
         break
       case 'PRIVACY_POLICY':
-        this.name = ''
+        this.name = 'Politica de privacidade'
         this.description = 'Politica de privacidade'
         break
       default:
-        this.name = ''
+        this.name = '-'
         this.description = '-'
         break
     }

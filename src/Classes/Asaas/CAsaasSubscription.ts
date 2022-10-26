@@ -10,6 +10,7 @@ export default class CAsaasSubscription extends BaseJSON {
     price?: number
     name?: string
     id?: string
+    dueDateAfterXDays?: string
   }
   @Property
   @FromJSON

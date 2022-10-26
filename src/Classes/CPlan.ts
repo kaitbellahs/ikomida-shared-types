@@ -51,6 +51,9 @@ export default class CPlan extends BaseJSON {
   @Property
   @Nullable
   order?: number
+  @Property
+  @Nullable
+  dueDateAfterXDays?: number
 
   static init(
     name: string,
@@ -72,6 +75,7 @@ export default class CPlan extends BaseJSON {
     active?: boolean,
     createdAt?: Date,
     order?: number,
+    dueDateAfterXDays?: number,
     id?: string,
     timestamp?: number
   ): CPlan {
@@ -95,6 +99,7 @@ export default class CPlan extends BaseJSON {
       'active',
       'createdAt',
       'order',
+      'dueDateAfterXDays',
       'id',
       'timestamp'
     ])

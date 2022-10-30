@@ -3,6 +3,7 @@ import { FromJSON } from '../Decorators/FromJSON.js'
 import BaseJSON from './BaseJSON.js'
 import CProduct from './CProduct.js'
 import { Nullable } from '../Decorators/index.js'
+import CBusinessTime from './CBusinessTime.js'
 
 export default class CCategoryProducts extends BaseJSON {
   @Property
@@ -20,6 +21,9 @@ export default class CCategoryProducts extends BaseJSON {
   @FromJSON(CProduct)
   @Nullable
   products?: CProduct[]
+  @Property
+  @Nullable
+  business?: CBusinessTime
 
   static init(
     title: string,
@@ -27,6 +31,7 @@ export default class CCategoryProducts extends BaseJSON {
     description?: string,
     createdAt?: string,
     products?: CProduct[],
+    business?: CBusinessTime,
     id?: string,
     timestamp?: number
   ): CCategoryProducts {
@@ -36,6 +41,7 @@ export default class CCategoryProducts extends BaseJSON {
       'description',
       'createdAt',
       'products',
+      'business',
       'id',
       'timestamp'
     ])

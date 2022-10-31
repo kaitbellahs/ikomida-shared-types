@@ -11,6 +11,7 @@ import CProduct from './CProduct.js'
 import CUser from './CUser.js'
 import { Nullable } from '../Decorators/index.js'
 import CLocation from './CLocation.js'
+import TOrderType from '../Types/TOrderType.js'
 
 export default class COrder extends BaseJSON {
   @Property
@@ -62,6 +63,13 @@ export default class COrder extends BaseJSON {
   @FromJSON
   @Nullable
   location?: CLocation
+  @Property
+  @FromJSON
+  @Nullable
+  OrderType?: TOrderType
+  @Property
+  @Nullable
+  tip?: number
 
   static init(
     subtotal: number,
@@ -78,9 +86,11 @@ export default class COrder extends BaseJSON {
     finishedAt?: Date,
     payment?: CPaymentMethod,
     user?: CUser,
+    location?: CLocation,
+    OrderType?: TOrderType,
+    tip?: number,
     id?: string,
     timestamp?: number,
-    location?: CLocation
   ): COrder {
     return this.createInitObject(arguments, [
       'subtotal',
@@ -97,9 +107,11 @@ export default class COrder extends BaseJSON {
       'finishedAt',
       'payment',
       'user',
+      'location',
+      'OrderType',
+      'tip',
       'id',
       'timestamp',
-      'location'
     ])
   }
 }

@@ -36,7 +36,7 @@ export default class CVendorSettings extends BaseJSON {
   @Property
   @FromJSON(TOrderType)
   @Nullable
-  OrderType?: TOrderType[]
+  orderTypes?: TOrderType[]
   @Property
   @Nullable
   tip?: number

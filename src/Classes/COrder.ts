@@ -66,7 +66,7 @@ export default class COrder extends BaseJSON {
   @Property
   @FromJSON
   @Nullable
-  OrderType?: TOrderType
+  orderTypes?: TOrderType
   @Property
   @Nullable
   tip?: number
@@ -87,7 +87,7 @@ export default class COrder extends BaseJSON {
     payment?: CPaymentMethod,
     user?: CUser,
     location?: CLocation,
-    OrderType?: TOrderType,
+    orderTypes?: TOrderType,
     tip?: number,
     id?: string,
     timestamp?: number
@@ -108,7 +108,7 @@ export default class COrder extends BaseJSON {
       'payment',
       'user',
       'location',
-      'OrderType',
+      'orderTypes',
       'tip',
       'id',
       'timestamp'

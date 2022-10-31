@@ -65,7 +65,7 @@ export default class CProduct extends BaseJSON {
   @Property
   @FromJSON(TOrderType)
   @Nullable
-  OrderType?: TOrderType[]
+  orderTypes?: TOrderType[]
 
   static init(
     title: string,
@@ -85,7 +85,7 @@ export default class CProduct extends BaseJSON {
     createdAt?: Date,
     observation?: string,
     active?: boolean,
-    OrderType?: TOrderType[],
+    orderTypes?: TOrderType[],
     id?: string,
     timestamp?: number
   ): CProduct {
@@ -107,7 +107,7 @@ export default class CProduct extends BaseJSON {
       'createdAt',
       'observation',
       'active',
-      'OrderType',
+      'orderTypes',
       'id',
       'timestamp'
     ])

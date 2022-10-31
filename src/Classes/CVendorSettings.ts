@@ -7,6 +7,7 @@ import CVendorPaymentGateway from './CVendorPaymentGateway.js'
 import CVendorPreparation from './CVendorPreparation.js'
 import CVendorProfile from './CVendorProfile.js'
 import { Nullable } from '../Decorators/index.js'
+import TOrderType from '../Types/TOrderType.js'
 
 export default class CVendorSettings extends BaseJSON {
   @Property
@@ -32,4 +33,11 @@ export default class CVendorSettings extends BaseJSON {
   @Property
   @Nullable
   isActive?: boolean
+  @Property
+  @FromJSON(TOrderType)
+  @Nullable
+  OrderType?: TOrderType[]
+  @Property
+  @Nullable
+  tip?: number
 }

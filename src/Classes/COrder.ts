@@ -90,7 +90,7 @@ export default class COrder extends BaseJSON {
     OrderType?: TOrderType,
     tip?: number,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): COrder {
     return this.createInitObject(arguments, [
       'subtotal',
@@ -111,7 +111,7 @@ export default class COrder extends BaseJSON {
       'OrderType',
       'tip',
       'id',
-      'timestamp',
+      'timestamp'
     ])
   }
 }

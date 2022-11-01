@@ -1,6 +1,6 @@
 {
   "name": "@ikomida/shared-types",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "This is the shared types between services, UI and workers etc...",
   "private": false,
   "types": "./lib/main.d.ts",

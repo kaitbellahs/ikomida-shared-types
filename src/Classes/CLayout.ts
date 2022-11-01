@@ -6,6 +6,8 @@ export default class CLayout extends BaseJSON {
   @Property
   background!: string
   @Property
+  itemBackground!: string
+  @Property
   color!: string
   @Property
   header!: {

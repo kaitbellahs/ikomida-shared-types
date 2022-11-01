@@ -11,6 +11,8 @@ export default class CCoupon extends BaseJSON {
   @Property
   value!: number
   @Property
+  minValue!: number
+  @Property
   @Enum
   valueType!: TDiscount
   @Property

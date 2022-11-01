@@ -30,6 +30,7 @@ export default class CCoupon extends BaseJSON {
   static init(
     name: string,
     value: number,
+    minValue: number,
     valueType: TDiscount,
     quantity?: number,
     validity?: Date,
@@ -40,6 +41,7 @@ export default class CCoupon extends BaseJSON {
     return this.createInitObject(arguments, [
       'name',
       'value',
+      'minValue',
       'valueType',
       'quantity',
       'validity',

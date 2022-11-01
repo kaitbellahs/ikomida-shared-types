@@ -73,6 +73,12 @@ export default class CUser extends BaseJSON {
   @Property
   @Nullable
   hash?: string
+  @Property
+  @Nullable
+  orders?: number
+  @Property
+  @Nullable
+  billing?: number
 
   static init(
     role: string,
@@ -100,6 +106,8 @@ export default class CUser extends BaseJSON {
     code?: string,
     referralCode?: string,
     hash?: string,
+    orders?: number,
+    billing?: number,
     id?: string,
     timestamp?: number
   ): CUser {
@@ -129,6 +137,8 @@ export default class CUser extends BaseJSON {
       'code',
       'referralCode',
       'hash',
+      'orders',
+      'billing',
       'id',
       'timestamp'
     ])

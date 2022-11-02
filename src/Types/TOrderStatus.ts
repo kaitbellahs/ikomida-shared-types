@@ -59,6 +59,8 @@ export default class TOrderStatus extends TBaseType {
           return TOrderStatus.WAITING_DELIVERY
         } else if (this === TOrderStatus.WAITING_DELIVERY) {
           return TOrderStatus.IN_DELIVERY
+        } else if (this === TOrderStatus.IN_DELIVERY) {
+          return TOrderStatus.DELIVERED
         }
         return this.next()
       case TOrderType.LOCAL:

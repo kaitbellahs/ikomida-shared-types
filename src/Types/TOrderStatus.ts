@@ -1,10 +1,13 @@
 import TBaseType from './TBaseType.js'
+import TOrderType from './TOrderType.js'
 
 export default class TOrderStatus extends TBaseType {
   static WAITING_PAYMENT = new TOrderStatus('WAITING_PAYMENT')
   static OPEN = new TOrderStatus('OPEN')
   static ACCEPTED = new TOrderStatus('ACCEPTED')
   static WAITING_DELIVERY = new TOrderStatus('WAITING_DELIVERY')
+  static WAITING_PICKUP = new TOrderStatus('WAITING_PICKUP')
+  static WAITING_LOCAL = new TOrderStatus('WAITING_LOCAL')
   static IN_DELIVERY = new TOrderStatus('IN_DELIVERY')
   static DELIVERED = new TOrderStatus('DELIVERED')
   static IN_DISPUTE = new TOrderStatus('IN_DISPUTE')
@@ -24,6 +27,12 @@ export default class TOrderStatus extends TBaseType {
       case 'WAITING_DELIVERY':
         this.name = 'esperando o entregador'
         break
+      case 'WAITING_PICKUP':
+        this.name = 'esperando a retirada'
+        break
+      case 'WAITING_LOCAL':
+        this.name = 'esperando o garçom'
+        break
       case 'IN_DELIVERY':
         this.name = 'a caminho do cliente'
         break
@@ -38,5 +47,24 @@ export default class TOrderStatus extends TBaseType {
         break
     }
     this.description = this.name
+  }
+  nextStatus(orderType: TOrderType) {
+    switch (orderType) {
+      case TOrderType.DELIVERY:
+        if (this === TOrderStatus.ACCEPTED) {
+          return TOrderStatus.WAITING_DELIVERY
+        }
+        return this.next()
+      case TOrderType.LOCAL:
+        if (this === TOrderStatus.ACCEPTED) {
+          return TOrderStatus.WAITING_LOCAL
+        }
+        return this.next()
+      case TOrderType.PICKUP:
+        if (this === TOrderStatus.ACCEPTED) {
+          return TOrderStatus.WAITING_PICKUP
+        }
+        return this.next()
+    }
   }
 }

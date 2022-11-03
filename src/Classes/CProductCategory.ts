@@ -16,7 +16,14 @@ export default class CProductCategory extends BaseJSON {
   @Nullable
   business?: CBusinessTime
 
-  static init(title: string, image?: string, description?: string, business?: CBusinessTime, id?: string, timestamp?: number): CProductCategory {
+  static init(
+    title: string,
+    image?: string,
+    description?: string,
+    business?: CBusinessTime,
+    id?: string,
+    timestamp?: number
+  ): CProductCategory {
     return this.createInitObject(arguments, ['title', 'image', 'description', 'business', 'id', 'timestamp'])
   }
 }

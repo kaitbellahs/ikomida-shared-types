@@ -7,6 +7,7 @@ import CProductCategory from './CProductCategory.js'
 import Nullable from '../Decorators/Nullable.js'
 import CProductOption from './CProductOption.js'
 import CProductOptionsCategory from './CProductOptionsCategory.js'
+import TOrderType from '../Types/TOrderType.js'
 
 export default class CProduct extends BaseJSON {
   @Property
@@ -58,6 +59,13 @@ export default class CProduct extends BaseJSON {
   @Property
   @Nullable
   observation?: string
+  @Property
+  @Nullable
+  active?: boolean
+  @Property
+  @FromJSON(TOrderType)
+  @Nullable
+  orderTypes?: TOrderType[]
 
   static init(
     title: string,
@@ -76,6 +84,8 @@ export default class CProduct extends BaseJSON {
     options?: CProductOption[],
     createdAt?: Date,
     observation?: string,
+    active?: boolean,
+    orderTypes?: TOrderType[],
     id?: string,
     timestamp?: number
   ): CProduct {
@@ -96,6 +106,8 @@ export default class CProduct extends BaseJSON {
       'options',
       'createdAt',
       'observation',
+      'active',
+      'orderTypes',
       'id',
       'timestamp'
     ])

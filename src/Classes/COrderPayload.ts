@@ -7,6 +7,7 @@ import CCoupon from './CCoupon.js'
 import CLocation from './CLocation.js'
 import CProduct from './CProduct.js'
 import { Nullable } from '../Decorators/index.js'
+import TOrderType from '../Types/TOrderType.js'
 
 export default class COrderPayload extends BaseJSON {
   @Property
@@ -28,6 +29,16 @@ export default class COrderPayload extends BaseJSON {
   @FromJSON
   @Nullable
   location?: CLocation
+  @Property
+  @FromJSON
+  @Nullable
+  orderType?: TOrderType
+  @Property
+  @Nullable
+  tip?: number
+  @Property
+  @Nullable
+  table?: string
 
   static init(
     products: CProduct[],
@@ -36,6 +47,9 @@ export default class COrderPayload extends BaseJSON {
     delivery: number,
     coupon?: CCoupon,
     location?: CLocation,
+    orderType?: TOrderType,
+    tip?: number,
+    table?: string,
     id?: string,
     timestamp?: number
   ): COrderPayload {
@@ -46,6 +60,9 @@ export default class COrderPayload extends BaseJSON {
       'delivery',
       'coupon',
       'location',
+      'orderType',
+      'tip',
+      'table',
       'id',
       'timestamp'
     ])

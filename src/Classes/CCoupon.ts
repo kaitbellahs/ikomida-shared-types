@@ -1,7 +1,7 @@
 import { Property } from '../Decorators/Property.js'
 import { Enum } from '../Decorators/Enum.js'
 import { FromJSON } from '../Decorators/FromJSON.js'
-import { TDiscount } from '../Types/index.js'
+import { TDiscount, TOrderType } from '../Types/index.js'
 import BaseJSON from './BaseJSON.js'
 import { Nullable } from '../Decorators/index.js'
 
@@ -10,6 +10,8 @@ export default class CCoupon extends BaseJSON {
   name!: string
   @Property
   value!: number
+  @Property
+  minValue!: number
   @Property
   @Enum
   valueType!: TDiscount
@@ -21,6 +23,10 @@ export default class CCoupon extends BaseJSON {
   @Nullable
   validity?: Date
   @Property
+  @FromJSON(TOrderType)
+  @Nullable
+  orderTypes?: TOrderType[]
+  @Property
   @FromJSON
   @Nullable
   createdAt?: Date
@@ -28,9 +34,11 @@ export default class CCoupon extends BaseJSON {
   static init(
     name: string,
     value: number,
+    minValue: number,
     valueType: TDiscount,
     quantity?: number,
     validity?: Date,
+    orderTypes?: TOrderType[],
     createdAt?: Date,
     id?: string,
     timestamp?: number
@@ -38,9 +46,11 @@ export default class CCoupon extends BaseJSON {
     return this.createInitObject(arguments, [
       'name',
       'value',
+      'minValue',
       'valueType',
       'quantity',
       'validity',
+      'orderTypes',
       'createdAt',
       'id',
       'timestamp'

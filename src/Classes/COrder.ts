@@ -73,6 +73,9 @@ export default class COrder extends BaseJSON {
   @Property
   @Nullable
   table?: string
+  @Property
+  @Nullable
+  change?: number
 
   static init(
     subtotal: number,
@@ -93,6 +96,7 @@ export default class COrder extends BaseJSON {
     orderType?: TOrderType,
     tip?: number,
     table?: string,
+    change?: number,
     id?: string,
     timestamp?: number
   ): COrder {
@@ -115,6 +119,7 @@ export default class COrder extends BaseJSON {
       'orderType',
       'tip',
       'table',
+      'change',
       'id',
       'timestamp'
     ])

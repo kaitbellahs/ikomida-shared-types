@@ -5,8 +5,8 @@ import BaseJSON from './BaseJSON.js'
 export default class CLocation extends BaseJSON {
   @Property
   @Nullable
-  latitude?: string
+  latitude?: number
   @Property
   @Nullable
-  longitude?: string
+  longitude?: number
 }

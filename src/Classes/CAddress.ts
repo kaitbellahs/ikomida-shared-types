@@ -3,6 +3,8 @@ import { Enum } from '../Decorators/Enum.js'
 import { TAddress } from '../Types/index.js'
 import BaseJSON from './BaseJSON.js'
 import { Nullable } from '../Decorators/index.js'
+import CLocation from './CLocation.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
 
 export default class CAddress extends BaseJSON {
   @Property
@@ -37,6 +39,10 @@ export default class CAddress extends BaseJSON {
   @Property
   @Nullable
   selected?: boolean
+  @Property
+  @FromJSON
+  @Nullable
+  location?: CLocation
 
   static init(
     postalCode: string,
@@ -51,6 +57,7 @@ export default class CAddress extends BaseJSON {
     distance?: number,
     duration?: number,
     selected?: boolean,
+    location?: CLocation,
     id?: string,
     timestamp?: number
   ): CAddress {
@@ -67,6 +74,7 @@ export default class CAddress extends BaseJSON {
       'distance',
       'duration',
       'selected',
+      'location',
       'id',
       'timestamp'
     ])

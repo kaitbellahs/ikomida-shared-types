@@ -68,7 +68,7 @@ export default class CProduct extends BaseJSON {
   orderTypes?: TOrderType[]
   @Property
   @Nullable
-  usedQuantity?: number
+  totalQuantity?: number
   @Property
   @Nullable
   maxQuantityPerOrder?: number
@@ -92,7 +92,7 @@ export default class CProduct extends BaseJSON {
     observation?: string,
     active?: boolean,
     orderTypes?: TOrderType[],
-    usedQuantity?: number,
+    totalQuantity?: number,
     maxQuantityPerOrder?: number,
     id?: string,
     timestamp?: number
@@ -116,7 +116,7 @@ export default class CProduct extends BaseJSON {
       'observation',
       'active',
       'orderTypes',
-      'usedQuantity',
+      'totalQuantity',
       'maxQuantityPerOrder',
       'id',
       'timestamp'

@@ -9,4 +9,7 @@ export default class CLocation extends BaseJSON {
   @Property
   @Nullable
   longitude?: number
+  static init(latitude?: number, longitude?: number, id?: string, timestamp?: number): CLocation {
+    return this.createInitObject(arguments, ['latitude', 'longitude', 'id', 'timestamp'])
+  }
 }

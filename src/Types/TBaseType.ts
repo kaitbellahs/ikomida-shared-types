@@ -42,6 +42,10 @@ export default abstract class TBaseType {
     return object ? ((this as never)?.[object] as T) : null
   }
 
+  static isValid(value: TBaseType) {
+    return this.values().includes(value)
+  }
+
   static *[Symbol.iterator]<T extends TBaseType>(this: Constructor<T>) {
     for (const key of (this as unknown as TTBaseType).keys()) {
       yield key as unknown as T
@@ -51,9 +55,11 @@ export default abstract class TBaseType {
   static keys() {
     return Object.keys(this)
   }
+
   static values() {
     return Object.values(this)
   }
+
   static list<T extends TBaseType>() {
     const keys = (this as unknown as TTBaseType).keys()
     return keys.map((item: string) => {

@@ -27,6 +27,68 @@ export default class TRoles extends TBaseType {
   //MARK: -- all
   static ALL = new TRoles('ALL')
 
+  constructor(type: string) {
+    super(type)
+    switch (type) {
+      case 'ADMIN':
+        this.name = 'Administrador'
+        this.description = 'Administrador'
+        break
+      case 'MANAGER':
+        this.name = 'Gerente'
+        this.description = 'Gerente'
+        break
+      case 'APP':
+        this.name = 'Appsman'
+        this.description = 'Gerenciador de Apps'
+        break
+      case 'FINANCE':
+        this.name = 'Financeiro'
+        this.description = 'Financeiro'
+        break
+      case 'ANALYTICAL':
+        this.name = 'Analiticsman'
+        this.description = 'Gerente de dados'
+        break
+      case 'MARKETING':
+        this.name = 'Marketingman'
+        this.description = 'Gerenciador de marketing'
+        break
+      case 'VENDOR':
+        this.name = 'Diretor'
+        this.description = 'Responsavel pelo estabelecimento'
+        break
+      case 'STAFF':
+        this.name = 'Colaborador'
+        this.description = 'Colaborador (caixa)'
+        break
+      case 'WAITER':
+        this.name = 'Garcom'
+        this.description = 'Garcom'
+        break
+      case 'COOKER':
+        this.name = 'Cozinheiro'
+        this.description = 'Cozinheiro'
+        break
+      case 'DELIVERYMAN':
+        this.name = 'Entregador'
+        this.description = 'Entregador'
+        break
+      case 'CLIENT':
+        this.name = 'Cliente'
+        this.description = 'Cliente'
+        break
+      case 'RESELLER':
+        this.name = 'Revendedor'
+        this.description = 'Revendedor'
+        break
+      default:
+        this.name = '-'
+        this.description = '-'
+        break
+    }
+  }
+
   //MARK: -- validations
   static isInternal(role: TRoles) {
     return [TRoles.ADMIN, TRoles.MANAGER, TRoles.APP, TRoles.FINANCE, TRoles.ANALYTICAL, TRoles.MARKETING].includes(

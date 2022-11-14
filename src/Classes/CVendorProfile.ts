@@ -23,6 +23,9 @@ export default class CVendorProfile extends BaseJSON {
   @Property
   @Nullable
   mainPicture?: string
+  @Property
+  @Nullable
+  bannerPicture?: string
 
   static init(
     areaCode: number,
@@ -33,6 +36,7 @@ export default class CVendorProfile extends BaseJSON {
     email: string,
     address: CAddress,
     mainPicture?: string,
+    bannerPicture?: string,
     id?: string,
     timestamp?: number
   ): CVendorProfile {
@@ -45,6 +49,7 @@ export default class CVendorProfile extends BaseJSON {
       'email',
       'address',
       'mainPicture',
+      'bannerPicture',
       'id',
       'timestamp'
     ])

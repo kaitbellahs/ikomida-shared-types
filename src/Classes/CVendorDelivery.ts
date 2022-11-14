@@ -11,7 +11,14 @@ export default class CVendorDelivery extends BaseJSON {
   @Property
   min!: number
 
-  static init(free: boolean, value: number, orderMinValue: number, min: number, id?: string, timestamp?: number): CVendorDelivery {
+  static init(
+    free: boolean,
+    value: number,
+    orderMinValue: number,
+    min: number,
+    id?: string,
+    timestamp?: number
+  ): CVendorDelivery {
     return this.createInitObject(arguments, ['free', 'value', 'orderMinValue', 'min', 'id', 'timestamp'])
   }
 }

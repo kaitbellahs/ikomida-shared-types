@@ -4,6 +4,7 @@ import { FromJSON } from '../Decorators/FromJSON.js'
 import { TAsaasPaymentStatus } from '../Types/index.js'
 import BaseJSON from './BaseJSON.js'
 import { Nullable } from '../Decorators/index.js'
+import TAsaasBilling from '../Types/Asaas/TAsaasBilling.js'
 
 export default class CSubscriptionCharge extends BaseJSON {
   @Property
@@ -24,6 +25,10 @@ export default class CSubscriptionCharge extends BaseJSON {
   @Property
   @Nullable
   transactionReceiptUrl?: string
+  @Property
+  @FromJSON
+  @Nullable
+  billingType!: TAsaasBilling
   @Property
   @FromJSON
   @Nullable

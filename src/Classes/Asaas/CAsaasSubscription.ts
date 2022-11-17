@@ -3,6 +3,7 @@ import CAsaasCard from './CAsaasCard.js'
 import BaseJSON from '../BaseJSON.js'
 import { FromJSON } from '../../Decorators/FromJSON.js'
 import { Property } from '../../Decorators/Property.js'
+import TAsaasBilling from '../../Types/Asaas/TAsaasBilling.js'
 
 export default class CAsaasSubscription extends BaseJSON {
   @Property
@@ -15,6 +16,9 @@ export default class CAsaasSubscription extends BaseJSON {
   @Property
   @FromJSON
   payment?: CAsaasCard
+  @Property
+  @FromJSON
+  billingType?: TAsaasBilling
   @Property
   @FromJSON
   customer?: CAsaasNewCustomer

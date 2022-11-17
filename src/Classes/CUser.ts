@@ -3,10 +3,13 @@ import { FromJSON } from '../Decorators/FromJSON.js'
 import BaseJSON from './BaseJSON.js'
 import CAddress from './CAddress.js'
 import { Nullable } from '../Decorators/index.js'
+import { Enum } from '../Decorators/Enum.js'
+import TRoles from '../Types/TRoles.js'
 
 export default class CUser extends BaseJSON {
   @Property
-  role!: string
+  @Enum
+  role!: TRoles
   @Property
   name!: string
   @Property

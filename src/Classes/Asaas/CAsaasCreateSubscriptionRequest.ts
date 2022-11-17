@@ -24,7 +24,7 @@ export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
   cycle!: TAssasSubscriptionCycle
   @Property
   @FromJSON
-  creditCardHolderInfo!: CAsaasCreditCardHolderInfo
+  creditCardHolderInfo?: CAsaasCreditCardHolderInfo
   @Property
   remoteIp!: string
   @Property
@@ -68,8 +68,8 @@ export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
     dueDate: string,
     value: number,
     cycle: TAssasSubscriptionCycle,
-    creditCardHolderInfo: CAsaasCreditCardHolderInfo,
     remoteIp: string,
+    creditCardHolderInfo?: CAsaasCreditCardHolderInfo,
     creditCardToken?: string,
     split?: CAsaasSplit,
     discount?: CAsaasDiscount,
@@ -87,8 +87,8 @@ export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
       'dueDate',
       'value',
       'cycle',
-      'creditCardHolderInfo',
       'remoteIp',
+      'creditCardHolderInfo',
       'creditCardToken',
       'split',
       'discount',

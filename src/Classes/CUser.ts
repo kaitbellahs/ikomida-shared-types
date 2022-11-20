@@ -84,7 +84,7 @@ export default class CUser extends BaseJSON {
   billing?: number
 
   static init(
-    role: string,
+    role: TRoles,
     name: string,
     lastName: string,
     identity: string,

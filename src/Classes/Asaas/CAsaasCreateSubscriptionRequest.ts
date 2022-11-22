@@ -16,7 +16,7 @@ export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
   @Enum
   billingType!: TAsaasBilling
   @Property
-  dueDate!: string
+  nextDueDate!: string
   @Property
   value!: number
   @Property
@@ -65,7 +65,7 @@ export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
   static init(
     customer: string,
     billingType: TAsaasBilling,
-    dueDate: string,
+    nextDueDate: string,
     value: number,
     cycle: TAssasSubscriptionCycle,
     remoteIp: string,
@@ -84,7 +84,7 @@ export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
     return this.createInitObject(arguments, [
       'customer',
       'billingType',
-      'dueDate',
+      'nextDueDate',
       'value',
       'cycle',
       'remoteIp',

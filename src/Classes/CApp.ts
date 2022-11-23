@@ -48,6 +48,12 @@ export default class CApp extends BaseJSON {
   @FromJSON
   @Nullable
   managedBy?: CUser
+  @Property
+  @Nullable
+  icon?: string
+  @Property
+  @Nullable
+  description?: string
 
   static init(
     bundleId: string,
@@ -65,6 +71,8 @@ export default class CApp extends BaseJSON {
     storeVersion?: string,
     storeBuildStatus?: string,
     managedBy?: CUser,
+    icon?: string,
+    description?: string,
     id?: string,
     timestamp?: number
   ): CApp {
@@ -84,6 +92,8 @@ export default class CApp extends BaseJSON {
       'storeVersion',
       'storeBuildStatus',
       'managedBy',
+      'icon',
+      'description',
       'id',
       'timestamp'
     ])

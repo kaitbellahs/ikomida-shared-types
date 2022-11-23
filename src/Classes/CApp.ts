@@ -54,6 +54,12 @@ export default class CApp extends BaseJSON {
   @Property
   @Nullable
   description?: string
+  @Property
+  @Nullable
+  androidLink?: string
+  @Property
+  @Nullable
+  iosLink?: string
 
   static init(
     bundleId: string,
@@ -73,6 +79,8 @@ export default class CApp extends BaseJSON {
     managedBy?: CUser,
     icon?: string,
     description?: string,
+    androidLink?: string,
+    iosLink?: string,
     id?: string,
     timestamp?: number
   ): CApp {
@@ -94,6 +102,8 @@ export default class CApp extends BaseJSON {
       'managedBy',
       'icon',
       'description',
+      'androidLink',
+      'iosLink',
       'id',
       'timestamp'
     ])

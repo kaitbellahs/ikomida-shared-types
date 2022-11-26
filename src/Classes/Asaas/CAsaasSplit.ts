@@ -1,18 +1,18 @@
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
-import { Nullable } from '../../Decorators';
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { Nullable } from '../../Decorators/index.js'
 
 export default class CAsaasSplit extends BaseJSON {
   @Property
-  walletId!: string;
+  walletId!: string
   @Property
   @Nullable
-  fixedValue?: number;
+  fixedValue?: number
   @Property
   @Nullable
-  percentualValue?: number;
+  percentualValue?: number
 
   static inint(walletId: string, fixedValue?: number, percentualValue?: number): CAsaasSplit {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, ['walletId', 'fixedValue', 'percentualValue'])
   }
 }

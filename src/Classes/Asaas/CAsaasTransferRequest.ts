@@ -1,18 +1,18 @@
-import { Enum } from '../../Decorators/Enum';
-import { TPIX } from '../../Types';
-import BaseJSON from '../BaseJSON';
-import { Property } from '../../Decorators/Property';
+import { Enum } from '../../Decorators/Enum.js'
+import { TPIX } from '../../Types/index.js'
+import BaseJSON from '../BaseJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasTransferRequest extends BaseJSON {
   @Property
   @Enum
-  pixAddressKeyType?: TPIX;
+  pixAddressKeyType?: TPIX
   @Property
-  value?: number;
+  value?: number
   @Property
-  description?: string;
+  description?: string
   @Property
-  pixAddressKey?: string;
+  pixAddressKey?: string
   @Property
-  scheduleDate?: string;
+  scheduleDate?: string
 }

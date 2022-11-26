@@ -1,15 +1,15 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CBusinessTimeHours from './CBusinessTimeHours';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import BaseJSON from './BaseJSON.js'
+import CBusinessTimeHours from './CBusinessTimeHours.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CBusinessTime extends BaseJSON {
   @Property
   @Nullable
-  days?: number[];
+  days?: number[]
   @Property
   @FromJSON(CBusinessTimeHours)
   @Nullable
-  hours?: CBusinessTimeHours[];
+  hours?: CBusinessTimeHours[]
 }

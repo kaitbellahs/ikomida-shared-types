@@ -1,12 +1,12 @@
-import { Nullable } from '../Decorators';
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Nullable } from '../Decorators/index.js'
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CBusinessTimeHours extends BaseJSON {
   @Property
   @Nullable
-  start?: string;
+  start?: string
   @Property
   @Nullable
-  end?: string;
+  end?: string
 }

@@ -1,53 +1,65 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CUser from './CUser';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import BaseJSON from './BaseJSON.js'
+import CUser from './CUser.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CApp extends BaseJSON {
   @Property
-  bundleId!: string;
+  bundleId!: string
   @Property
-  displayName!: string;
+  displayName!: string
   @Property
-  platform!: string;
-  @Property
-  @Nullable
-  fireBaseId?: string;
+  platform!: string
   @Property
   @Nullable
-  version?: string;
+  fireBaseId?: string
   @Property
   @Nullable
-  storeStatus?: string;
+  version?: string
   @Property
   @Nullable
-  storePublishStatus?: string;
+  storeStatus?: string
   @Property
-  active?: boolean;
+  @Nullable
+  storePublishStatus?: string
+  @Property
+  active?: boolean
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  createdAt?: Date
   @Property
   @Nullable
-  iOSProfileId?: string;
+  iOSProfileId?: string
   @Property
   @Nullable
-  storeNote?: string;
+  storeNote?: string
   @Property
   @Nullable
-  storeEvidences?: string;
+  storeEvidences?: string
   @Property
   @Nullable
-  storeVersion?: string;
+  storeVersion?: string
   @Property
   @Nullable
-  storeBuildStatus?: string;
+  storeBuildStatus?: string
   @Property
   @FromJSON
   @Nullable
-  managedBy?: CUser;
+  managedBy?: CUser
+  @Property
+  @Nullable
+  icon?: string
+  @Property
+  @Nullable
+  description?: string
+  @Property
+  @Nullable
+  androidLink?: string
+  @Property
+  @Nullable
+  iosLink?: string
 
   static init(
     bundleId: string,
@@ -65,10 +77,35 @@ export default class CApp extends BaseJSON {
     storeVersion?: string,
     storeBuildStatus?: string,
     managedBy?: CUser,
+    icon?: string,
+    description?: string,
+    androidLink?: string,
+    iosLink?: string,
     id?: string,
     timestamp?: number
   ): CApp {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'bundleId',
+      'displayName',
+      'platform',
+      'fireBaseId',
+      'version',
+      'storeStatus',
+      'storePublishStatus',
+      'active',
+      'createdAt',
+      'iOSProfileId',
+      'storeNote',
+      'storeEvidences',
+      'storeVersion',
+      'storeBuildStatus',
+      'managedBy',
+      'icon',
+      'description',
+      'androidLink',
+      'iosLink',
+      'id',
+      'timestamp'
+    ])
   }
 }
-

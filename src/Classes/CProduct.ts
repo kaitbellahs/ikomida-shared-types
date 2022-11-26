@@ -1,45 +1,77 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TDiscount } from '../Types';
-import BaseJSON from './BaseJSON';
-import CProductCategory from './CProductCategory';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { TDiscount, TMeasure } from '../Types/index.js'
+import BaseJSON from './BaseJSON.js'
+import CProductCategory from './CProductCategory.js'
+import Nullable from '../Decorators/Nullable.js'
+import CProductOption from './CProductOption.js'
+import CProductOptionsCategory from './CProductOptionsCategory.js'
+import TOrderType from '../Types/TOrderType.js'
 
 export default class CProduct extends BaseJSON {
   @Property
-  title!: string;
+  title!: string
   @Property
-  price!: number;
+  price!: number
   @Property
-  discount!: number;
+  discount!: number
   @Property
   @Enum
-  discountType!: TDiscount;
+  discountType!: TDiscount
   @Property
-  quantity!: number;
-  @Property
-  @Nullable
-  description?: string;
+  quantity!: number
   @Property
   @Nullable
-  order?: number;
+  description?: string
   @Property
   @Nullable
-  serves?: number;
+  order?: number
   @Property
-  weight?: number;
+  @Nullable
+  serves?: number
+  @Property
+  @Nullable
+  measure?: number
   @Property
   @FromJSON
   @Nullable
-  category?: CProductCategory;
-  @Property
-  @Nullable
-  image?: string;
+  measureUnit?: TMeasure
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  category?: CProductCategory
+  @Property
+  @Nullable
+  image?: string
+  @Property
+  @FromJSON(CProductOptionsCategory)
+  @Nullable
+  optionsCategories?: CProductOptionsCategory[]
+  @Property
+  @FromJSON(CProductOption)
+  @Nullable
+  options?: CProductOption[]
+  @Property
+  @FromJSON
+  @Nullable
+  createdAt?: Date
+  @Property
+  @Nullable
+  observation?: string
+  @Property
+  @Nullable
+  active?: boolean
+  @Property
+  @FromJSON(TOrderType)
+  @Nullable
+  orderTypes?: TOrderType[]
+  @Property
+  @Nullable
+  totalQuantity?: number
+  @Property
+  @Nullable
+  maxQuantityPerOrder?: number
 
   static init(
     title: string,
@@ -50,13 +82,44 @@ export default class CProduct extends BaseJSON {
     description?: string,
     order?: number,
     serves?: number,
-    weight?: number,
+    measure?: number,
+    measureUnit?: TMeasure,
     category?: CProductCategory,
     image?: string,
+    optionsCategories?: CProductOptionsCategory[],
+    options?: CProductOption[],
     createdAt?: Date,
+    observation?: string,
+    active?: boolean,
+    orderTypes?: TOrderType[],
+    totalQuantity?: number,
+    maxQuantityPerOrder?: number,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CProduct {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'title',
+      'price',
+      'discount',
+      'discountType',
+      'quantity',
+      'description',
+      'order',
+      'serves',
+      'measure',
+      'measureUnit',
+      'category',
+      'image',
+      'optionsCategories',
+      'options',
+      'createdAt',
+      'observation',
+      'active',
+      'orderTypes',
+      'totalQuantity',
+      'maxQuantityPerOrder',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -1,31 +1,33 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 export default class CLayout extends BaseJSON {
   @Property
-  link!: string;
+  link!: string
   @Property
-  background!: string;
+  background!: string
   @Property
-  color!: string;
+  itemBackground!: string
+  @Property
+  color!: string
   @Property
   header!: {
-    background: string;
-    color: string;
-    menuHamburger: string;
-  };
+    background: string
+    color: string
+    menuHamburger: string
+  }
   @Property
   dialog!: {
-    background: string;
-    color: string;
-  };
+    background: string
+    color: string
+  }
   @Property
   tabs!: {
-    background: string;
-    color: string;
-  };
+    background: string
+    color: string
+  }
   @Property
   button!: {
-    background: string;
-    color: string;
-  };
+    background: string
+    color: string
+  }
 }

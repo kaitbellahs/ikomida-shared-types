@@ -1,20 +1,20 @@
-import { FromJSON } from '../../Decorators/FromJSON';
-import CAsaasErrors from './CAsaasErrors';
-import CAsaasPayment from './CAsaasPayment';
-import { Property } from '../../Decorators/Property';
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import CAsaasErrors from './CAsaasErrors.js'
+import CAsaasPayment from './CAsaasPayment.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasPaymentsResponse extends CAsaasErrors {
   @Property
-  object?: string;
+  object?: string
   @Property
-  hasMore?: boolean;
+  hasMore?: boolean
   @Property
-  totalCount?: number;
+  totalCount?: number
   @Property
-  limit?: number;
+  limit?: number
   @Property
-  offset?: number;
+  offset?: number
   @Property
   @FromJSON(CAsaasPayment)
-  data?: CAsaasPayment[];
+  data?: CAsaasPayment[]
 }

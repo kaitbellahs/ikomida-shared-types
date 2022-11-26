@@ -1,40 +1,59 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TDiscount } from '../Types';
-import BaseJSON from './BaseJSON';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { TDiscount, TOrderType } from '../Types/index.js'
+import BaseJSON from './BaseJSON.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CCoupon extends BaseJSON {
   @Property
-  name!: string;
+  name!: string
   @Property
-  value!: number;
+  value!: number
+  @Property
+  minValue!: number
   @Property
   @Enum
-  valueType!: TDiscount;
+  valueType!: TDiscount
   @Property
   @Nullable
-  quantity?: number;
-  @Property
-  @FromJSON
-  @Nullable
-  validity?: Date;
+  quantity?: number
   @Property
   @FromJSON
   @Nullable
-  createdAt?: Date;
+  validity?: Date
+  @Property
+  @FromJSON(TOrderType)
+  @Nullable
+  orderTypes?: TOrderType[]
+  @Property
+  @FromJSON
+  @Nullable
+  createdAt?: Date
 
   static init(
     name: string,
     value: number,
+    minValue: number,
     valueType: TDiscount,
     quantity?: number,
     validity?: Date,
+    orderTypes?: TOrderType[],
     createdAt?: Date,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CCoupon {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'name',
+      'value',
+      'minValue',
+      'valueType',
+      'quantity',
+      'validity',
+      'orderTypes',
+      'createdAt',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -1,20 +1,23 @@
-export { default as TBaseType } from './TBaseType';
-export { default as TDiscount } from './TDiscount';
-export { default as TOrderStatus } from './TOrderStatus';
-export { default as TPagSeguroPaymentStatus } from './TPagSeguroPaymentStatus';
-export { default as TSetting } from './TSetting';
-export { default as TSupport } from './TSupport';
-export { default as TTerm } from './TTerm';
-export { default as TPaymentMethod } from './TPaymentMethod';
-export { default as TPIX } from './TPIX';
-export { default as TransactionStatus } from './TransactionStatus';
-export { default as TransferStatus } from './TransferStatus';
-export { default as TAsaasPaymentStatus } from './TAsaasPaymentStatus';
-export { default as TAsaasSignatureStatus } from './TAsaasSignatureStatus';
-export { default as TAddress } from './TAddress';
-export { default as TPerson } from './TPerson';
-export { default as TCompany } from './TCompany';
-export { default as TAMQPPayload } from './TAMQPPayload';
-export { default as TSendReturn } from './TSendReturn';
-export * as Asaas from './Asaas';
-export * as Pagseguro from './Pagseguro';
+export { default as TBaseType } from './TBaseType.js'
+export { default as TDiscount } from './TDiscount.js'
+export { default as TOrderStatus } from './TOrderStatus.js'
+export { default as TPagSeguroPaymentStatus } from './TPagSeguroPaymentStatus.js'
+export { default as TSetting } from './TSetting.js'
+export { default as TSupport } from './TSupport.js'
+export { default as TTerm } from './TTerm.js'
+export { default as TPaymentMethod } from './TPaymentMethod.js'
+export { default as TPIX } from './TPIX.js'
+export { default as TransactionStatus } from './TransactionStatus.js'
+export { default as TransferStatus } from './TransferStatus.js'
+export { default as TAsaasPaymentStatus } from './TAsaasPaymentStatus.js'
+export { default as TAsaasSignatureStatus } from './TAsaasSignatureStatus.js'
+export { default as TAddress } from './TAddress.js'
+export { default as TPerson } from './TPerson.js'
+export { default as TCompany } from './TCompany.js'
+export { default as TAMQPPayload } from './TAMQPPayload.js'
+export { default as TSendReturn } from './TSendReturn.js'
+export { default as TMeasure } from './TMeasure.js'
+export { default as TOrderType } from './TOrderType.js'
+export { default as TRoles } from './TRoles.js'
+export * as Asaas from './Asaas/index.js'
+export * as Pagseguro from './Pagseguro/index.js'

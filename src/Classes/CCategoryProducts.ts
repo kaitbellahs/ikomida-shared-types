@@ -1,25 +1,29 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CProduct from './CProduct';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import BaseJSON from './BaseJSON.js'
+import CProduct from './CProduct.js'
+import { Nullable } from '../Decorators/index.js'
+import CBusinessTime from './CBusinessTime.js'
 
 export default class CCategoryProducts extends BaseJSON {
   @Property
-  title!: string;
+  title!: string
   @Property
   @Nullable
-  order?: number;
+  order?: number
   @Property
   @Nullable
-  createdAt?: string;
+  createdAt?: string
   @Property
   @Nullable
-  description?: string;
+  description?: string
   @Property
   @FromJSON(CProduct)
   @Nullable
-  products?: CProduct[];
+  products?: CProduct[]
+  @Property
+  @Nullable
+  business?: CBusinessTime
 
   static init(
     title: string,
@@ -27,9 +31,19 @@ export default class CCategoryProducts extends BaseJSON {
     description?: string,
     createdAt?: string,
     products?: CProduct[],
+    business?: CBusinessTime,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CCategoryProducts {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'title',
+      'order',
+      'description',
+      'createdAt',
+      'products',
+      'business',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -1,17 +1,17 @@
-import CPagSeguroErrorResponse from './CPagSeguroErrorResponse';
-import { Property } from '../../Decorators/Property';
+import CPagSeguroErrorResponse from './CPagSeguroErrorResponse.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CPagSeguroConnectTokenResponse extends CPagSeguroErrorResponse {
   @Property
-  token_type?: string;
+  token_type?: string
   @Property
-  access_token?: string;
+  access_token?: string
   @Property
-  expires_in?: string;
+  expires_in?: string
   @Property
-  refresh_token?: string;
+  refresh_token?: string
   @Property
-  scope?: string;
+  scope?: string
   @Property
-  account_id?: string;
+  account_id?: string
 }

@@ -1,26 +1,46 @@
-import CAsaasNewCustomer from './CAsaasNewCustomer';
-import CAsaasCard from './CAsaasCard';
-import BaseJSON from '../BaseJSON';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators/Property';
+import CAsaasNewCustomer from './CAsaasNewCustomer.js'
+import CAsaasCard from './CAsaasCard.js'
+import BaseJSON from '../BaseJSON.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import TAsaasBilling from '../../Types/Asaas/TAsaasBilling.js'
+import CPlan from '../CPlan.js'
 
 export default class CAsaasSubscription extends BaseJSON {
   @Property
-  plan?: {
-    price?: number;
-    name?: string;
-    id?: string;
-  };
+  @FromJSON
+  plan!: CPlan
   @Property
   @FromJSON
-  payment?: CAsaasCard;
+  billingType!: TAsaasBilling
   @Property
   @FromJSON
-  customer?: CAsaasNewCustomer;
+  customer!: CAsaasNewCustomer
   @Property
-  ikomidaID?: string;
+  ikomidaID!: string
   @Property
-  externalReference?: string;
+  @FromJSON
+  payment?: CAsaasCard
   @Property
-  observations?: string;
+  externalReference?: string
+  @Property
+  observations?: string
+
+  static init(
+    plan: CPlan,
+    billingType: TAsaasBilling,
+    customer: CAsaasNewCustomer,
+    ikomidaID: string,
+    payment?: CAsaasCard,
+    externalReference?: string,
+    observations?: string,
+    id?: string,
+    timestamp?: number
+  ): CPlan {
+    return this.createInitObject(arguments, [
+      'plan', 'billingType', 'customer', 'ikomidaID', 'payment', 'externalReference', 'observations',
+      'id',
+      'timestamp'
+    ])
+  }
 }

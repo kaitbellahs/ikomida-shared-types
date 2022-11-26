@@ -1,75 +1,75 @@
-import CAsaasCard from './CAsaasCard';
-import CAsaasSplit from './CAsaasSplit';
-import CAsaasDiscount from './CAsaasDiscount';
-import CAsaasFine from './CAsaasFine';
-import CAsaasCreditCardHolderInfo from './CAsaasCreditCardHolderInfo';
-import { TAsaasBilling, TAssasSubscriptionCycle } from '../../Types/Asaas';
-import { Enum } from '../../Decorators/Enum';
-import BaseJSON from '../BaseJSON';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators/Property';
-import { Nullable } from '../../Decorators';
+import CAsaasCard from './CAsaasCard.js'
+import CAsaasSplit from './CAsaasSplit.js'
+import CAsaasDiscount from './CAsaasDiscount.js'
+import CAsaasFine from './CAsaasFine.js'
+import CAsaasCreditCardHolderInfo from './CAsaasCreditCardHolderInfo.js'
+import { TAsaasBilling, TAssasSubscriptionCycle } from '../../Types/Asaas/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import BaseJSON from '../BaseJSON.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
+import { Nullable } from '../../Decorators/index.js'
 export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
   @Property
-  customer!: string;
+  customer!: string
   @Property
   @Enum
-  billingType!: TAsaasBilling;
+  billingType!: TAsaasBilling
   @Property
-  dueDate!: string;
+  nextDueDate!: string
   @Property
-  value!: number;
+  value!: number
   @Property
   @Enum
-  cycle!: TAssasSubscriptionCycle;
+  cycle!: TAssasSubscriptionCycle
   @Property
   @FromJSON
-  creditCardHolderInfo!: CAsaasCreditCardHolderInfo;
+  creditCardHolderInfo?: CAsaasCreditCardHolderInfo
   @Property
-  remoteIp!: string;
+  remoteIp!: string
   @Property
-  creditCardToken?: string;
-  @Property
-  @FromJSON
-  @Nullable
-  split?: CAsaasSplit;
+  creditCardToken?: string
   @Property
   @FromJSON
   @Nullable
-  discount?: CAsaasDiscount;
+  split?: CAsaasSplit
   @Property
   @FromJSON
   @Nullable
-  fine?: CAsaasFine;
+  discount?: CAsaasDiscount
   @Property
   @FromJSON
   @Nullable
-  interest?: CAsaasFine;
-  @Property
-  @Nullable
-  description?: string;
-  @Property
-  @Nullable
-  endDate?: string;
-  @Property
-  @Nullable
-  maxPayments?: number;
+  fine?: CAsaasFine
   @Property
   @FromJSON
   @Nullable
-  creditCard?: CAsaasCard;
+  interest?: CAsaasFine
   @Property
   @Nullable
-  externalReference?: string;
+  description?: string
+  @Property
+  @Nullable
+  endDate?: string
+  @Property
+  @Nullable
+  maxPayments?: number
+  @Property
+  @FromJSON
+  @Nullable
+  creditCard?: CAsaasCard
+  @Property
+  @Nullable
+  externalReference?: string
 
   static init(
     customer: string,
     billingType: TAsaasBilling,
-    dueDate: string,
+    nextDueDate: string,
     value: number,
     cycle: TAssasSubscriptionCycle,
-    creditCardHolderInfo: CAsaasCreditCardHolderInfo,
     remoteIp: string,
+    creditCardHolderInfo?: CAsaasCreditCardHolderInfo,
     creditCardToken?: string,
     split?: CAsaasSplit,
     discount?: CAsaasDiscount,
@@ -79,8 +79,26 @@ export default class CAsaasCreateSubscriptionRequest extends BaseJSON {
     endDate?: string,
     maxPayments?: number,
     creditCard?: CAsaasCard,
-    externalReference?: string,
+    externalReference?: string
   ): CAsaasCreateSubscriptionRequest {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'customer',
+      'billingType',
+      'nextDueDate',
+      'value',
+      'cycle',
+      'remoteIp',
+      'creditCardHolderInfo',
+      'creditCardToken',
+      'split',
+      'discount',
+      'fine',
+      'interest',
+      'description',
+      'endDate',
+      'maxPayments',
+      'creditCard',
+      'externalReference'
+    ])
   }
 }

@@ -1,57 +1,54 @@
-import CAsaasSplit from './CAsaasSplit';
-import CAsaasDiscount from './CAsaasDiscount';
-import CAsaasFine from './CAsaasFine';
-import CAsaasErrors from './CAsaasErrors';
-import CAsaasCardResponse from './CAsaasCardResponse';
-import { TAsaasBilling, TAsaasSubscriptionStatus } from '../../Types/Asaas';
-import { Enum } from '../../Decorators/Enum';
-import { FromJSON } from '../../Decorators/FromJSON';
-import { Property } from '../../Decorators/Property';
+import CAsaasSplit from './CAsaasSplit.js'
+import CAsaasDiscount from './CAsaasDiscount.js'
+import CAsaasFine from './CAsaasFine.js'
+import CAsaasErrors from './CAsaasErrors.js'
+import CAsaasCardResponse from './CAsaasCardResponse.js'
+import { TAsaasBilling, TAsaasSubscriptionStatus } from '../../Types/Asaas/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import { FromJSON } from '../../Decorators/FromJSON.js'
+import { Property } from '../../Decorators/Property.js'
 
 export default class CAsaasCreateSubscriptionResponse extends CAsaasErrors {
   @Property
-  object?: string;
+  object?: string
   @Property
-  id?: string;
+  dateCreated?: string
   @Property
-  @FromJSON
-  dateCreated?: string;
-  @Property
-  customer?: string;
+  customer?: string
   @Property
   @Enum
-  billingType?: TAsaasBilling;
+  billingType?: TAsaasBilling
   @Property
-  cycle?: string;
+  cycle?: string
   @Property
-  value?: number;
+  value?: number
   @Property
-  nextDueDate?: string;
+  nextDueDate?: string
   @Property
   @Enum
-  status?: TAsaasSubscriptionStatus;
+  status?: TAsaasSubscriptionStatus
   @Property
-  deleted?: boolean;
-  @Property
-  @FromJSON
-  creditCard?: CAsaasCardResponse;
-  @Property
-  paymentLink?: string;
+  deleted?: boolean
   @Property
   @FromJSON
-  discount?: CAsaasDiscount;
+  creditCard?: CAsaasCardResponse
+  @Property
+  paymentLink?: string
   @Property
   @FromJSON
-  fine?: CAsaasFine;
-  @FromJSON
-  interest?: CAsaasFine;
-  @Property
-  description?: string;
-  @Property
-  endDate?: string;
-  @Property
-  maxPayments?: number;
+  discount?: CAsaasDiscount
   @Property
   @FromJSON
-  split?: CAsaasSplit;
+  fine?: CAsaasFine
+  @FromJSON
+  interest?: CAsaasFine
+  @Property
+  description?: string
+  @Property
+  endDate?: string
+  @Property
+  maxPayments?: number
+  @Property
+  @FromJSON
+  split?: CAsaasSplit
 }

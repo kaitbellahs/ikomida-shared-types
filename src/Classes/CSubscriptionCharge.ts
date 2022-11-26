@@ -1,33 +1,38 @@
-import { Property } from '../Decorators/Property';
-import { Enum } from '../Decorators/Enum';
-import { FromJSON } from '../Decorators/FromJSON';
-import { TAsaasPaymentStatus } from '../Types';
-import BaseJSON from './BaseJSON';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { Enum } from '../Decorators/Enum.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import { TAsaasPaymentStatus } from '../Types/index.js'
+import BaseJSON from './BaseJSON.js'
+import { Nullable } from '../Decorators/index.js'
+import TAsaasBilling from '../Types/Asaas/TAsaasBilling.js'
 
 export default class CSubscriptionCharge extends BaseJSON {
   @Property
-  value!: number;
+  value!: number
   @Property
-  creditCardNumber!: number;
+  creditCardNumber!: number
   @Property
-  creditCardBrand!: string;
+  creditCardBrand!: string
   @Property
   @FromJSON
-  dueDate!: Date;
+  dueDate!: Date
   @Property
   @Enum
-  status!: TAsaasPaymentStatus;
+  status!: TAsaasPaymentStatus
   @Property
   @Nullable
-  invoiceUrl?: string;
+  invoiceUrl?: string
   @Property
   @Nullable
-  transactionReceiptUrl?: string;
+  transactionReceiptUrl?: string
   @Property
   @FromJSON
   @Nullable
-  confirmedDate?: Date;
+  billingType!: TAsaasBilling
+  @Property
+  @FromJSON
+  @Nullable
+  confirmedDate?: Date
 
   static init(
     value: number,
@@ -39,8 +44,19 @@ export default class CSubscriptionCharge extends BaseJSON {
     transactionReceiptUrl?: string,
     confirmedDate?: Date,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CSubscriptionCharge {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'value',
+      'creditCardNumber',
+      'creditCardBrand',
+      'dueDate',
+      'status',
+      'invoiceUrl',
+      'transactionReceiptUrl',
+      'confirmedDate',
+      'id',
+      'timestamp'
+    ])
   }
 }

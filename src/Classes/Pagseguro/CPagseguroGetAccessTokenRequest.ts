@@ -1,31 +1,31 @@
-import { Nullable } from '../../Decorators';
-import { Enum } from '../../Decorators/Enum';
-import { Property } from '../../Decorators/Property';
-import { TPagseguroGetAccessTokenGrant } from '../../Types/Pagseguro';
-import BaseJSON from '../BaseJSON';
+import { Nullable } from '../../Decorators/index.js'
+import { Enum } from '../../Decorators/Enum.js'
+import { Property } from '../../Decorators/Property.js'
+import { TPagseguroGetAccessTokenGrant } from '../../Types/Pagseguro/index.js'
+import BaseJSON from '../BaseJSON.js'
 
 export default class CPagSeguroGetAccessTokenRequest extends BaseJSON {
   @Property
   @Enum
-  grant_type!: TPagseguroGetAccessTokenGrant;
+  grant_type!: TPagseguroGetAccessTokenGrant
   @Property
   @Nullable
-  refresh_token?: string;
+  refresh_token?: string
   @Property
   @Nullable
-  code?: string;
+  code?: string
   @Property
   @Nullable
-  sms_code?: string;
+  sms_code?: string
   @Property
   @Nullable
-  redirect_uri?: string;
+  redirect_uri?: string
   @Property
   @Nullable
-  email?: string;
+  email?: string
   @Property
   @Nullable
-  scope?: string;
+  scope?: string
 
   static init(
     grant_type: TPagseguroGetAccessTokenGrant,
@@ -34,8 +34,16 @@ export default class CPagSeguroGetAccessTokenRequest extends BaseJSON {
     redirect_uri?: string,
     email?: string,
     scope?: string,
-    refresh_token?: string,
+    refresh_token?: string
   ): CPagSeguroGetAccessTokenRequest {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'grant_type',
+      'code',
+      'sms_code',
+      'redirect_uri',
+      'email',
+      'scope',
+      'refresh_token'
+    ])
   }
 }

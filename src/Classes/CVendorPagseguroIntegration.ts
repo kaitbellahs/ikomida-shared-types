@@ -1,13 +1,13 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CvendorPagseguroIntegration extends BaseJSON {
   @Property
-  state!: string;
+  state!: string
   @Property
-  code!: string;
+  code!: string
 
   static init(state: string, code: string, id?: string, timestamp?: number): CvendorPagseguroIntegration {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, ['state', 'code', 'id', 'timestamp'])
   }
 }

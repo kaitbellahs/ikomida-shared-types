@@ -1,15 +1,24 @@
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CVendorDelivery extends BaseJSON {
   @Property
-  free!: boolean;
+  free!: boolean
   @Property
-  value!: number;
+  value!: number
   @Property
-  min!: number;
+  orderMinValue!: number
+  @Property
+  min!: number
 
-  static init(free: boolean, value: number, min: number, id?: string, timestamp?: number): CVendorDelivery {
-    return this.createInitObject(arguments);
+  static init(
+    free: boolean,
+    value: number,
+    orderMinValue: number,
+    min: number,
+    id?: string,
+    timestamp?: number
+  ): CVendorDelivery {
+    return this.createInitObject(arguments, ['free', 'value', 'orderMinValue', 'min', 'id', 'timestamp'])
   }
 }

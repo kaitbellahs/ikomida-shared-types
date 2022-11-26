@@ -1,12 +1,15 @@
-import { Nullable } from '../Decorators';
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Nullable } from '../Decorators/index.js'
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CLocation extends BaseJSON {
   @Property
   @Nullable
-  latitude?: string;
+  latitude?: number
   @Property
   @Nullable
-  longitude?: string;
+  longitude?: number
+  static init(latitude?: number, longitude?: number, id?: string, timestamp?: number): CLocation {
+    return this.createInitObject(arguments, ['latitude', 'longitude', 'id', 'timestamp'])
+  }
 }

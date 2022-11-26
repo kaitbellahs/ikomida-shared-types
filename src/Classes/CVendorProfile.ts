@@ -1,28 +1,31 @@
-import { Property } from '../Decorators/Property';
-import { FromJSON } from '../Decorators/FromJSON';
-import BaseJSON from './BaseJSON';
-import CAddress from './CAddress';
-import { Nullable } from '../Decorators';
+import { Property } from '../Decorators/Property.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import BaseJSON from './BaseJSON.js'
+import CAddress from './CAddress.js'
+import { Nullable } from '../Decorators/index.js'
 
 export default class CVendorProfile extends BaseJSON {
   @Property
-  areaCode!: number;
+  areaCode!: number
   @Property
-  contractName!: string;
+  contractName!: string
   @Property
-  contractIdentity!: string;
+  contractIdentity!: string
   @Property
-  identity!: string;
+  identity!: string
   @Property
-  phone!: string;
+  phone!: string
   @Property
-  email!: string;
+  email!: string
   @Property
   @FromJSON
-  address!: CAddress;
+  address!: CAddress
   @Property
   @Nullable
-  mainPicture?: string;
+  mainPicture?: string
+  @Property
+  @Nullable
+  bannerPicture?: string
 
   static init(
     areaCode: number,
@@ -33,9 +36,22 @@ export default class CVendorProfile extends BaseJSON {
     email: string,
     address: CAddress,
     mainPicture?: string,
+    bannerPicture?: string,
     id?: string,
-    timestamp?: number,
+    timestamp?: number
   ): CVendorProfile {
-    return this.createInitObject(arguments);
+    return this.createInitObject(arguments, [
+      'areaCode',
+      'contractName',
+      'contractIdentity',
+      'identity',
+      'phone',
+      'email',
+      'address',
+      'mainPicture',
+      'bannerPicture',
+      'id',
+      'timestamp'
+    ])
   }
 }

@@ -1,21 +1,21 @@
-import { Nullable } from '../Decorators';
-import { Property } from '../Decorators/Property';
-import BaseJSON from './BaseJSON';
+import { Nullable } from '../Decorators/index.js'
+import { Property } from '../Decorators/Property.js'
+import BaseJSON from './BaseJSON.js'
 
 export default class CNotificationData extends BaseJSON {
   @Property
   @Nullable
-  method?: string;
+  method?: string
   @Property
   @Nullable
-  message?: string;
+  message?: string
   @Property
   @Nullable
-  uri?: string;
+  uri?: string
   @Property
   @Nullable
-  logon?: string;
+  logon?: string
   @Property
   @Nullable
-  payload?: string;
+  payload?: string
 }

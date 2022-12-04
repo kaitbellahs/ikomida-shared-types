@@ -3,6 +3,7 @@ import { FromJSON } from '../Decorators/FromJSON.js'
 import BaseJSON from './BaseJSON.js'
 import CUser from './CUser.js'
 import { Nullable } from '../Decorators/index.js'
+import TAppStoreStatus from '../Types/TAppStoreStatus.js'
 
 export default class CApp extends BaseJSON {
   @Property
@@ -19,10 +20,12 @@ export default class CApp extends BaseJSON {
   version?: string
   @Property
   @Nullable
-  storeStatus?: string
+  @FromJSON
+  storeStatus?: TAppStoreStatus
   @Property
   @Nullable
-  storePublishStatus?: string
+  @FromJSON
+  storePublishStatus?: TAppStoreStatus
   @Property
   active?: boolean
   @Property
@@ -43,7 +46,8 @@ export default class CApp extends BaseJSON {
   storeVersion?: string
   @Property
   @Nullable
-  storeBuildStatus?: string
+  @FromJSON
+  storeBuildStatus?: TAppStoreStatus
   @Property
   @FromJSON
   @Nullable
@@ -67,15 +71,15 @@ export default class CApp extends BaseJSON {
     platform: string,
     fireBaseId?: string,
     version?: string,
-    storeStatus?: string,
-    storePublishStatus?: string,
+    storeStatus?: TAppStoreStatus,
+    storePublishStatus?: TAppStoreStatus,
     active?: boolean,
     createdAt?: Date,
     iOSProfileId?: string,
     storeNote?: string,
     storeEvidences?: string,
     storeVersion?: string,
-    storeBuildStatus?: string,
+    storeBuildStatus?: TAppStoreStatus,
     managedBy?: CUser,
     icon?: string,
     description?: string,

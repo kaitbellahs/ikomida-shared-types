@@ -14,13 +14,13 @@ export default class CProductCategory extends BaseJSON {
   description?: string
   @Property
   @Nullable
-  business?: CBusinessTime
+  business?: CBusinessTime[]
 
   static init(
     title: string,
     image?: string,
     description?: string,
-    business?: CBusinessTime,
+    business?: CBusinessTime[],
     id?: string,
     timestamp?: number
   ): CProductCategory {

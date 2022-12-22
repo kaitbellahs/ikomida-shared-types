@@ -12,4 +12,18 @@ export default class CBusinessTime extends BaseJSON {
   @FromJSON(CBusinessTimeHours)
   @Nullable
   hours?: CBusinessTimeHours[]
+
+  static init(
+    day?: number,
+    hours?: CBusinessTime[],
+    id?: string,
+    timestamp?: number
+  ): CBusinessTime {
+    return this.createInitObject(arguments, [
+      'day',
+      'hours',
+      'id',
+      'timestamp'
+    ])
+  }
 }

@@ -21,7 +21,7 @@ export default class CVendorSettings extends BaseJSON {
   @Property
   @FromJSON
   @Nullable
-  business?: CBusinessTime
+  business?: CBusinessTime[]
   @Property
   @FromJSON
   @Nullable

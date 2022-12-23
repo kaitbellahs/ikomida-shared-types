@@ -12,7 +12,10 @@ export default class CLayout extends BaseJSON {
   backgroundImage!: string
   @Property
   product!: {
-    animation: TAnimation
+    animation: {
+      in: string
+      out: string
+    }
   }
   @Property
   color!: string

@@ -40,4 +40,7 @@ export default class CVendorSettings extends BaseJSON {
   @Property
   @Nullable
   tip?: number
+  @Property
+  @Nullable
+  version?: string
 }

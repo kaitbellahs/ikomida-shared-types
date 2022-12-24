@@ -15,7 +15,7 @@ export default class CBusinessTime extends BaseJSON {
 
   static init(
     day?: number,
-    hours?: CBusinessTime[],
+    hours?: CBusinessTimeHours[],
     id?: string,
     timestamp?: number
   ): CBusinessTime {

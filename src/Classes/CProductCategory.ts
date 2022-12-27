@@ -1,4 +1,5 @@
-import { Nullable } from '../Decorators/index.js'
+import { FromJSON } from '../Decorators/FromJSON.js'
+import Nullable from '../Decorators/Nullable.js'
 import { Property } from '../Decorators/Property.js'
 import BaseJSON from './BaseJSON.js'
 import CBusinessTime from './CBusinessTime.js'
@@ -14,6 +15,7 @@ export default class CProductCategory extends BaseJSON {
   description?: string
   @Property
   @Nullable
+  @FromJSON(CBusinessTime)
   business?: CBusinessTime[]
 
   static init(

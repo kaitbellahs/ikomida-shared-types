@@ -23,6 +23,7 @@ export default class CCategoryProducts extends BaseJSON {
   products?: CProduct[]
   @Property
   @Nullable
+  @FromJSON(CBusinessTime)
   business?: CBusinessTime[]
 
   static init(

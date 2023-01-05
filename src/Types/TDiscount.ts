@@ -8,8 +8,8 @@ export default class TDiscount extends TBaseType {
     super(type)
     switch (type) {
       case 'PERCENT':
-        this.name = 'percentagem'
-        this.description = 'Descontar uma percentagem'
+        this.name = 'porcentagem'
+        this.description = 'Descontar uma porcentagem'
         break
       case 'VALUE':
         this.name = 'valor'

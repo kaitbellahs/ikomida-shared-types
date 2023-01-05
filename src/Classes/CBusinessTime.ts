@@ -7,9 +7,23 @@ import { Nullable } from '../Decorators/index.js'
 export default class CBusinessTime extends BaseJSON {
   @Property
   @Nullable
-  days?: number[]
+  day?: number
   @Property
   @FromJSON(CBusinessTimeHours)
   @Nullable
   hours?: CBusinessTimeHours[]
+
+  static init(
+    day?: number,
+    hours?: CBusinessTimeHours[],
+    id?: string,
+    timestamp?: number
+  ): CBusinessTime {
+    return this.createInitObject(arguments, [
+      'day',
+      'hours',
+      'id',
+      'timestamp'
+    ])
+  }
 }

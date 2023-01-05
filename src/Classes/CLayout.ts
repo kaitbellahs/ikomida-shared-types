@@ -1,4 +1,5 @@
 import { Property } from '../Decorators/Property.js'
+import TAnimation from '../Types/TAnimation.js'
 import BaseJSON from './BaseJSON.js'
 export default class CLayout extends BaseJSON {
   @Property
@@ -7,6 +8,15 @@ export default class CLayout extends BaseJSON {
   background!: string
   @Property
   itemBackground!: string
+  @Property
+  backgroundImage!: string
+  @Property
+  product!: {
+    animation: {
+      in: string
+      out: string
+    }
+  }
   @Property
   color!: string
   @Property

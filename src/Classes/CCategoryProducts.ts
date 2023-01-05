@@ -23,7 +23,8 @@ export default class CCategoryProducts extends BaseJSON {
   products?: CProduct[]
   @Property
   @Nullable
-  business?: CBusinessTime
+  @FromJSON(CBusinessTime)
+  business?: CBusinessTime[]
 
   static init(
     title: string,
@@ -31,7 +32,7 @@ export default class CCategoryProducts extends BaseJSON {
     description?: string,
     createdAt?: string,
     products?: CProduct[],
-    business?: CBusinessTime,
+    business?: CBusinessTime[],
     id?: string,
     timestamp?: number
   ): CCategoryProducts {

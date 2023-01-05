@@ -16,8 +16,8 @@ export default class TOrderType extends TBaseType {
         this.description = 'Retirada no local'
         break
       case 'LOCAL':
-        this.name = 'Consumação'
-        this.description = 'Consumação no local'
+        this.name = 'Consumição'
+        this.description = 'Consumição no local'
         break
       default:
         this.name = '-'

@@ -38,7 +38,13 @@ export default class CAsaasSubscription extends BaseJSON {
     timestamp?: number
   ): CPlan {
     return this.createInitObject(arguments, [
-      'plan', 'billingType', 'customer', 'ikomidaID', 'payment', 'externalReference', 'observations',
+      'plan',
+      'billingType',
+      'customer',
+      'ikomidaID',
+      'payment',
+      'externalReference',
+      'observations',
       'id',
       'timestamp'
     ])

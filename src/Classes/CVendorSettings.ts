@@ -19,9 +19,9 @@ export default class CVendorSettings extends BaseJSON {
   @Nullable
   paymentGateway?: CVendorPaymentGateway
   @Property
-  @FromJSON
+  @FromJSON(CBusinessTime)
   @Nullable
-  business?: CBusinessTime
+  business?: CBusinessTime[]
   @Property
   @FromJSON
   @Nullable
@@ -40,4 +40,7 @@ export default class CVendorSettings extends BaseJSON {
   @Property
   @Nullable
   tip?: number
+  @Property
+  @Nullable
+  version?: string
 }

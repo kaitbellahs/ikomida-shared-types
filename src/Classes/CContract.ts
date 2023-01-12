@@ -7,6 +7,7 @@ import CCreditCardRequest from './CCreditCardRequest.js'
 import CPlan from './CPlan.js'
 import { Nullable } from '../Decorators/index.js'
 import TAsaasBilling from '../Types/Asaas/TAsaasBilling.js'
+import CUserPayment from './CUserPayment.js'
 
 export default class CContract extends BaseJSON {
   @Property
@@ -71,6 +72,10 @@ export default class CContract extends BaseJSON {
   @FromJSON
   @Nullable
   billingType?: TAsaasBilling
+  @Property
+  @FromJSON(CUserPayment)
+  @Nullable
+  payments?: CUserPayment[]
 
   static init(
     ikomidaID: string,
@@ -95,6 +100,7 @@ export default class CContract extends BaseJSON {
     payment?: CCreditCardRequest,
     billingType?: TAsaasBilling,
     createdAt?: Date,
+    payments?: CUserPayment[],
     id?: string,
     timestamp?: number
   ): CContract {
@@ -121,6 +127,7 @@ export default class CContract extends BaseJSON {
       'payment',
       'billingType',
       'createdAt',
+      'payments',
       'id',
       'timestamp'
     ])

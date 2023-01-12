@@ -8,6 +8,7 @@ import Nullable from '../Decorators/Nullable.js'
 import CProductOption from './CProductOption.js'
 import CProductOptionsCategory from './CProductOptionsCategory.js'
 import TOrderType from '../Types/TOrderType.js'
+import TProductKind from '../Types/TProductKind.js'
 
 export default class CProduct extends BaseJSON {
   @Property
@@ -72,6 +73,22 @@ export default class CProduct extends BaseJSON {
   @Property
   @Nullable
   maxQuantityPerOrder?: number
+  @Property
+  @Nullable
+  code?: string
+  @Property
+  @Nullable
+  integrationCode?: string
+  @Property
+  @FromJSON
+  @Nullable
+  kind?: TProductKind
+  @Property
+  @Nullable
+  costPrice?: number
+  @Property
+  @Nullable
+  minQuantity?: number
 
   static init(
     title: string,
@@ -94,6 +111,11 @@ export default class CProduct extends BaseJSON {
     orderTypes?: TOrderType[],
     totalQuantity?: number,
     maxQuantityPerOrder?: number,
+    code?: string,
+    integrationCode?: string,
+    kind?: TProductKind,
+    costPrice?: number,
+    minQuantity?: number,
     id?: string,
     timestamp?: number
   ): CProduct {
@@ -118,6 +140,11 @@ export default class CProduct extends BaseJSON {
       'orderTypes',
       'totalQuantity',
       'maxQuantityPerOrder',
+      'code',
+      'integrationCode',
+      'kind',
+      'costPrice',
+      'minQuantity',
       'id',
       'timestamp'
     ])

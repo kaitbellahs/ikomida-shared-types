@@ -12,6 +12,8 @@ import CUser from './CUser.js'
 import { Nullable } from '../Decorators/index.js'
 import CLocation from './CLocation.js'
 import TOrderType from '../Types/TOrderType.js'
+import CPos from './CPos.js'
+import COrdersGroup from './COrdersGroup.js'
 
 export default class COrder extends BaseJSON {
   @Property
@@ -76,6 +78,14 @@ export default class COrder extends BaseJSON {
   @Property
   @Nullable
   change?: number
+  @Property
+  @FromJSON(CPos)
+  @Nullable
+  poses?: CPos[]
+  @Property
+  @FromJSON(COrdersGroup)
+  @Nullable
+  ordersGroups?: COrdersGroup[]
 
   static init(
     subtotal: number,
@@ -97,6 +107,8 @@ export default class COrder extends BaseJSON {
     tip?: number,
     table?: string,
     change?: number,
+    poses?: CPos[],
+    ordersGroups?: COrdersGroup[],
     id?: string,
     timestamp?: number
   ): COrder {
@@ -120,6 +132,8 @@ export default class COrder extends BaseJSON {
       'tip',
       'table',
       'change',
+      'poses',
+      'ordersGroups',
       'id',
       'timestamp'
     ])

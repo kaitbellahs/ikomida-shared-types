@@ -13,17 +13,7 @@ export default class CBusinessTime extends BaseJSON {
   @Nullable
   hours?: CBusinessTimeHours[]
 
-  static init(
-    day?: number,
-    hours?: CBusinessTimeHours[],
-    id?: string,
-    timestamp?: number
-  ): CBusinessTime {
-    return this.createInitObject(arguments, [
-      'day',
-      'hours',
-      'id',
-      'timestamp'
-    ])
+  static init(day?: number, hours?: CBusinessTimeHours[], id?: string, timestamp?: number): CBusinessTime {
+    return this.createInitObject(arguments, ['day', 'hours', 'id', 'timestamp'])
   }
 }

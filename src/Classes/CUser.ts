@@ -5,6 +5,8 @@ import CAddress from './CAddress.js'
 import { Nullable } from '../Decorators/index.js'
 import { Enum } from '../Decorators/Enum.js'
 import TRoles from '../Types/TRoles.js'
+import COrdersGroup from './COrdersGroup.js'
+import CUserPayment from './CUserPayment.js'
 
 export default class CUser extends BaseJSON {
   @Property
@@ -82,6 +84,18 @@ export default class CUser extends BaseJSON {
   @Property
   @Nullable
   billing?: number
+  @Property
+  @Nullable
+  @FromJSON(COrdersGroup)
+  ordersGroup?: COrdersGroup[]
+  @Property
+  @Nullable
+  @FromJSON(COrdersGroup)
+  nestedOrdersGroups?: COrdersGroup[]
+  @Property
+  @FromJSON(CUserPayment)
+  @Nullable
+  payments?: CUserPayment[]
 
   static init(
     role: TRoles,
@@ -111,6 +125,9 @@ export default class CUser extends BaseJSON {
     hash?: string,
     orders?: number,
     billing?: number,
+    ordersGroup?: COrdersGroup[],
+    nestedOrdersGroups?: COrdersGroup,
+    payments?: CUserPayment[],
     id?: string,
     timestamp?: number
   ): CUser {
@@ -142,6 +159,9 @@ export default class CUser extends BaseJSON {
       'hash',
       'orders',
       'billing',
+      'ordersGroup',
+      'nestedOrdersGroups',
+      'payments',
       'id',
       'timestamp'
     ])

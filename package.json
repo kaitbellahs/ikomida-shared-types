@@ -1,6 +1,6 @@
 {
   "name": "@ikomida/shared-types",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "description": "This is the shared types between services, UI and workers etc...",
   "private": false,
   "types": "./lib/main.d.ts",
@@ -40,7 +40,7 @@
     "@microsoft/api-extractor": "^7.33.7",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-typescript": "^11.0.0",
+    "@rollup/plugin-typescript": "^10.0.1",
     "@types/luxon": "^3.2.0",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.1",

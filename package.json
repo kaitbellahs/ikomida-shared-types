@@ -1,6 +1,6 @@
 {
   "name": "@ikomida/shared-types",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "description": "This is the shared types between services, UI and workers etc...",
   "private": false,
   "types": "./lib/main.d.ts",
@@ -55,7 +55,7 @@
     "prettier": "^2.8.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rollup": "^3.10.0",
+    "rollup": "^3.9.1",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^29.0.4",
